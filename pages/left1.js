@@ -3,6 +3,6 @@ import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <Layout>index</Layout>
+    <Layout>left1 </Layout>
   )
 }
