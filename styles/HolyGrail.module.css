@@ -8,7 +8,7 @@
 }
 
 .flexContainerColumnPageWidth {
-    width: 1000px;
+    width: var(--main-width);
     background-color: green;
     display: flex;
     justify-content: center;
@@ -71,7 +71,7 @@
 
 .mainBody {
     background: orange;
-    width: 1000px;
+    width: var(--main-width);
     height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
