@@ -2,6 +2,15 @@ import React, { useEffect, } from "react";
 
 export default function SvgResume() {
 
+  const positionSvg = {
+    textAlign: "center",
+    marginTop: "100px",
+  };
+
+  const positionSvgTools = {
+    textAlign: "center"
+  };
+
   useEffect(() => {
     console.info("useEffect");
     var svg = document.getElementById("resume");
@@ -29,12 +38,35 @@ export default function SvgResume() {
     verticalLine.setAttribute("stroke-width", ".25px");
     svg.appendChild(verticalLine);
 
+    var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
+    firstName.setAttribute("x",10);
+    firstName.setAttribute("y",20);
+    firstName.setAttribute("font-size", "9");
+    firstName.setAttribute("font-family", "sans-serif");
+    firstName.innerHTML = "Dan"
+    svg.appendChild(firstName);
   });
 
+  const printVnew = () => {
+    const svg = document.getElementById('svgContainer').innerHTML;
+    const blob = new Blob([svg.toString()]);
+    const element = document.createElement("a");
+    element.download = "dan.sullivan.resume.svg";
+    element.href = window.URL.createObjectURL(blob);
+    element.click();
+    element.remove();
+  }
+  
   return (
-    <svg  id="resume"
-      viewBox="0 0 215.9 279.4"
-      height="11in"
-      width="8.5in"/>
+    <>
+      <div id='svgContainer' style={positionSvg}>
+        <svg id="resume"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 215.9 279.4"
+          height="11in"
+          width="8.5in"/>
+      </div>
+      <div style={positionSvgTools} onClick={() => { printVnew();}}>[Download]</div>
+    </>
   );
 }
