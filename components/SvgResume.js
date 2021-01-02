@@ -13,6 +13,7 @@ export default function SvgResume() {
 
   useEffect(() => {
     console.info("useEffect");
+    const nameSize = 7;
     var svg = document.getElementById("resume");
 
     var canvasRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -21,30 +22,41 @@ export default function SvgResume() {
     canvasRect.setAttribute("height","100%");
     svg.appendChild(canvasRect);
 
-    var redCirle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    redCirle.style.fill = "red";
-    redCirle.setAttribute("cx","20");
-    redCirle.setAttribute("cy","20");
-    redCirle.setAttribute("r","1");
-    svg.appendChild(redCirle);
+    var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
+    firstName.setAttribute("x",10);
+    firstName.setAttribute("y",20);
+    firstName.setAttribute("font-size", nameSize);
+    firstName.setAttribute("font-family", "sans-serif");
+    firstName.innerHTML = "DAN"
+    svg.appendChild(firstName);
 
+    var firstNameBBox = firstName.getBBox();
+    var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
+    lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
+    lastName.setAttribute("y",20);
+    lastName.setAttribute("font-size", nameSize);
+    lastName.setAttribute("font-family", "sans-serif");
+    lastName.innerHTML = "SULLIVAN"
+    svg.appendChild(lastName);
+
+    const lastNameBBox = lastName.getBBox();
+    const lineXPosition = lastNameBBox.x + lastNameBBox.width + 5;
     var verticalLine = document.createElementNS("http://www.w3.org/2000/svg","line");
     const x = 20;
-    verticalLine.setAttribute("x1",x);
+    verticalLine.setAttribute("x1",lineXPosition);
     verticalLine.setAttribute("y1","10");
-    verticalLine.setAttribute("x2",x);
+    verticalLine.setAttribute("x2",lineXPosition);
     verticalLine.setAttribute("y2","150");
     verticalLine.setAttribute("stroke", "black");
     verticalLine.setAttribute("stroke-width", ".25px");
     svg.appendChild(verticalLine);
 
-    var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
-    firstName.setAttribute("x",10);
-    firstName.setAttribute("y",20);
-    firstName.setAttribute("font-size", "9");
-    firstName.setAttribute("font-family", "sans-serif");
-    firstName.innerHTML = "DAN"
-    svg.appendChild(firstName);
+    var redCirle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    redCirle.style.fill = "red";
+    redCirle.setAttribute("cx",lineXPosition);
+    redCirle.setAttribute("cy",lineXPosition);
+    redCirle.setAttribute("r","1");
+    svg.appendChild(redCirle);
   });
 
   const downloadSvg = () => {
