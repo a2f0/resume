@@ -14,6 +14,9 @@ export default function SvgResume() {
   useEffect(() => {
     console.info("useEffect");
     const nameSize = 7;
+    const startX = 10;
+    const startY = 20;
+    const lineSpacing = 5;
     var svg = document.getElementById("resume");
 
     var canvasRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -23,8 +26,8 @@ export default function SvgResume() {
     svg.appendChild(canvasRect);
 
     var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
-    firstName.setAttribute("x",10);
-    firstName.setAttribute("y",20);
+    firstName.setAttribute("x",startX);
+    firstName.setAttribute("y",startY);
     firstName.setAttribute("font-size", nameSize);
     firstName.setAttribute("font-family", "sans-serif");
     firstName.innerHTML = "DAN"
@@ -33,7 +36,7 @@ export default function SvgResume() {
     var firstNameBBox = firstName.getBBox();
     var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
     lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
-    lastName.setAttribute("y",20);
+    lastName.setAttribute("y",startY);
     lastName.setAttribute("font-size", nameSize);
     lastName.setAttribute("font-family", "sans-serif");
     lastName.innerHTML = "SULLIVAN"
@@ -44,7 +47,7 @@ export default function SvgResume() {
     var verticalLine = document.createElementNS("http://www.w3.org/2000/svg","line");
     const x = 20;
     verticalLine.setAttribute("x1",lineXPosition);
-    verticalLine.setAttribute("y1","10");
+    verticalLine.setAttribute("y1",startY - 4);
     verticalLine.setAttribute("x2",lineXPosition);
     verticalLine.setAttribute("y2","150");
     verticalLine.setAttribute("stroke", "black");
@@ -57,6 +60,16 @@ export default function SvgResume() {
     redCirle.setAttribute("cy",lineXPosition);
     redCirle.setAttribute("r","1");
     svg.appendChild(redCirle);
+
+    var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
+    const nameLineYPosition = startY + lineSpacing;
+    lineUnderName.setAttribute("x1",startX + 8 );
+    lineUnderName.setAttribute("y1",nameLineYPosition);
+    lineUnderName.setAttribute("x2",lineXPosition);
+    lineUnderName.setAttribute("y2",nameLineYPosition);
+    lineUnderName.setAttribute("stroke", "black");
+    lineUnderName.setAttribute("stroke-width", ".25px");
+    svg.appendChild(lineUnderName);
   });
 
   const downloadSvg = () => {
