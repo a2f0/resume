@@ -43,11 +43,11 @@ export default function SvgResume() {
     firstName.setAttribute("y",20);
     firstName.setAttribute("font-size", "9");
     firstName.setAttribute("font-family", "sans-serif");
-    firstName.innerHTML = "Dan"
+    firstName.innerHTML = "DAN"
     svg.appendChild(firstName);
   });
 
-  const printVnew = () => {
+  const downloadSvg = () => {
     const svg = document.getElementById('svgContainer').innerHTML;
     const blob = new Blob([svg.toString()]);
     const element = document.createElement("a");
@@ -56,7 +56,15 @@ export default function SvgResume() {
     element.click();
     element.remove();
   }
-  
+
+  const printView = () => {
+    const svg = document.getElementById('svgContainer').innerHTML;
+    const printableView = window.open(
+      "", "_blank"
+    );
+    printableView.document.write(svg)
+  }
+
   return (
     <>
       <div id='svgContainer' style={positionSvg}>
@@ -66,7 +74,8 @@ export default function SvgResume() {
           height="11in"
           width="8.5in"/>
       </div>
-      <div style={positionSvgTools} onClick={() => { printVnew();}}>[Download]</div>
+      <div style={positionSvgTools} onClick={() => { downloadSvg();}}>[Download]</div>
+      <div style={positionSvgTools} onClick={() => { printView();}}>[Printable]</div>
     </>
   );
 }
