@@ -1,5 +1,4 @@
 import React, { useEffect, } from "react";
-import d3 from "d3plus-text";
 export default function SvgResume() {
 
   const positionSvg = {
