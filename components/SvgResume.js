@@ -1,5 +1,5 @@
 import React, { useEffect, } from "react";
-
+import d3 from "d3plus-text";
 export default function SvgResume() {
 
   const positionSvg = {
@@ -11,13 +11,59 @@ export default function SvgResume() {
     textAlign: "center"
   };
 
+  function getTextWidth(text, font = "500 12px sans-serif") {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = font;
+    return context.measureText(text).width;
+  }
+
+  function breakString(word, maxWidth, hyphenCharacter='-') {
+    const characters = word.split("");
+    const lines = [];
+    let currentLine = "";  characters.forEach((character, index) => {
+      const nextLine = `${currentLine}${character}`;
+      const lineWidth = getTextWidth(nextLine);    if (lineWidth >= maxWidth) {
+        const currentCharacter = index + 1;
+        const isLastLine = characters.length === currentCharacter;
+        const hyphenatedNextLine = `${nextLine}${hyphenCharacter}`;
+        lines.push(isLastLine ? nextLine : hyphenatedNextLine);
+        currentLine = "";
+      } else {
+        currentLine = nextLine;
+      }
+    });  return { hyphenatedStrings: lines, remainingWord: currentLine };
+  }
+
+  function wrapLabel(label, maxWidth) {
+    const words = label.split(" ");
+    const completedLines = [];
+    let nextLine = "";  words.forEach((word, index) => {
+      const wordLength = getTextWidth(`${word} `);
+      const nextLineLength = getTextWidth(nextLine);    if (wordLength > maxWidth) {
+        const { hyphenatedStrings, remainingWord } = breakString(word, maxWidth);
+        completedLines.push(nextLine, ...hyphenatedStrings);      nextLine = remainingWord;
+      } else if (nextLineLength + wordLength >= maxWidth) {
+        completedLines.push(nextLine);
+        nextLine = word;
+      } else {
+        nextLine = [nextLine, word].filter(Boolean).join(" ");
+      }
+      const currentWord = index + 1;
+      const isLastWord = currentWord === words.length;    if (isLastWord) {
+        completedLines.push(nextLine);
+      }
+    });  return completedLines.filter(line => line !== "");
+  }
+
   useEffect(() => {
+
     console.info("useEffect");
     const nameSize = 6;
     const addressSize = 4;
     const startX = 10;
     const startY = 10;
-    const lineSpacing = 5;
+    const addressLineSpacing = 3;
     var svg = document.getElementById("resume");
 
     var canvasRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -77,13 +123,42 @@ export default function SvgResume() {
     const addressLineBBox = addressLine.getBBox();
     var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
     const nameLineYPosition = addressLineBBox.y;
-    lineUnderName.setAttribute("x1",startX + 8);
-    lineUnderName.setAttribute("y1",nameLineYPosition + addressSize + 1);
+    lineUnderName.setAttribute("x1",startX + 20);
+    lineUnderName.setAttribute("y1",nameLineYPosition + addressSize + addressLineSpacing);
     lineUnderName.setAttribute("x2",lineXPosition);
-    lineUnderName.setAttribute("y2",nameLineYPosition + addressSize + 1);
+    lineUnderName.setAttribute("y2",nameLineYPosition + addressSize + addressLineSpacing);
     lineUnderName.setAttribute("stroke", "black");
     lineUnderName.setAttribute("stroke-width", ".25px");
     svg.appendChild(lineUnderName);
+
+    const lineUnderNameBox = lineUnderName.getBBox();
+    var emailLine = document.createElementNS("http://www.w3.org/2000/svg","text");
+    emailLine.setAttribute("x", firstNameBBox.x);
+    emailLine.setAttribute("y", lineUnderNameBox.y + addressLineSpacing );
+    emailLine.setAttribute("font-size", addressSize);
+    emailLine.setAttribute("font-family", "sans-serif");
+    emailLine.setAttribute("dominant-baseline", "hanging");
+    emailLine.innerHTML = "dansullivan@gmail.com"
+    svg.appendChild(emailLine);
+
+    const emailLineBBox = emailLine.getBBox();
+    var phoneLine = document.createElementNS("http://www.w3.org/2000/svg","text");
+    phoneLine.setAttribute("x", emailLineBBox.x);
+    phoneLine.setAttribute("y", emailLineBBox.y + addressLineSpacing + 2);
+    phoneLine.setAttribute("font-size", addressSize);
+    phoneLine.setAttribute("font-family", "sans-serif");
+    phoneLine.setAttribute("dominant-baseline", "hanging");
+    phoneLine.innerHTML = "(312) 607-3702"
+    svg.appendChild(phoneLine);
+
+    const label = wrapLabel("supercalifragilisticexpialidocious", 50);
+    console.info(label)
+    var lines = []
+    for(var i = 0; i < label.length; i++){
+      console.log((i+1) + " --> " + label[i])
+      var line = document.createElementNS("http://www.w3.org/2000/svg","text");
+    }
+
   });
 
   const downloadSvg = () => {
