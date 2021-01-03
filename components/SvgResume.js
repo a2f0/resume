@@ -13,9 +13,10 @@ export default function SvgResume() {
 
   useEffect(() => {
     console.info("useEffect");
-    const nameSize = 7;
+    const nameSize = 6;
+    const addressSize = 4;
     const startX = 10;
-    const startY = 20;
+    const startY = 10;
     const lineSpacing = 5;
     var svg = document.getElementById("resume");
 
@@ -30,15 +31,17 @@ export default function SvgResume() {
     firstName.setAttribute("y",startY);
     firstName.setAttribute("font-size", nameSize);
     firstName.setAttribute("font-family", "sans-serif");
+    firstName.setAttribute("dominant-baseline", "hanging");
     firstName.innerHTML = "DAN"
     svg.appendChild(firstName);
 
-    var firstNameBBox = firstName.getBBox();
+    var firstNameBBox = firstName.getBBox({ fill: false });
     var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
     lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
     lastName.setAttribute("y",startY);
     lastName.setAttribute("font-size", nameSize);
     lastName.setAttribute("font-family", "sans-serif");
+    lastName.setAttribute("dominant-baseline", "hanging");
     lastName.innerHTML = "SULLIVAN"
     svg.appendChild(lastName);
 
@@ -54,6 +57,16 @@ export default function SvgResume() {
     verticalLine.setAttribute("stroke-width", ".25px");
     svg.appendChild(verticalLine);
 
+    var addressLine = document.createElementNS("http://www.w3.org/2000/svg","text");
+    console.info(firstNameBBox.height)
+    addressLine.setAttribute("x", firstNameBBox.x);
+    addressLine.setAttribute("y", startY + firstNameBBox.height);
+    addressLine.setAttribute("font-size", addressSize);
+    addressLine.setAttribute("font-family", "sans-serif");
+    addressLine.setAttribute("dominant-baseline", "hanging");
+    addressLine.innerHTML = "Signal Mountain, TN"
+    svg.appendChild(addressLine);
+
     var redCirle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     redCirle.style.fill = "red";
     redCirle.setAttribute("cx",lineXPosition);
@@ -61,12 +74,13 @@ export default function SvgResume() {
     redCirle.setAttribute("r","1");
     svg.appendChild(redCirle);
 
+    const addressLineBBox = addressLine.getBBox();
     var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
-    const nameLineYPosition = startY + lineSpacing;
-    lineUnderName.setAttribute("x1",startX + 8 );
-    lineUnderName.setAttribute("y1",nameLineYPosition);
+    const nameLineYPosition = addressLineBBox.y;
+    lineUnderName.setAttribute("x1",startX + 8);
+    lineUnderName.setAttribute("y1",nameLineYPosition + addressSize + 1);
     lineUnderName.setAttribute("x2",lineXPosition);
-    lineUnderName.setAttribute("y2",nameLineYPosition);
+    lineUnderName.setAttribute("y2",nameLineYPosition + addressSize + 1);
     lineUnderName.setAttribute("stroke", "black");
     lineUnderName.setAttribute("stroke-width", ".25px");
     svg.appendChild(lineUnderName);
