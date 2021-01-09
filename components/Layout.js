@@ -8,11 +8,11 @@ const Layout = props => (
     <Header/>
     <div className={holyGrail.mainContainer}>
       <main className={holyGrail.main}>
-        <div className={holyGrail.mainGutterLeft}>Content</div>
+        <div className={holyGrail.mainGutterLeft}></div>
         <div className={holyGrail.mainBody}>
           {props.children}
         </div>
-        <div className={holyGrail.mainGutterRight}>Content</div>
+        <div className={holyGrail.mainGutterRight}></div>
       </main>
     </div>
     <Footer/>

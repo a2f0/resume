@@ -1,107 +1,114 @@
 .mainContainer {
-    min-height: 100vh;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .flexContainerColumnPageWidth {
-    width: var(--main-width);
-    background-color: green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: var(--main-width);
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flexContainerLeftAlign {
-    background-color: red;
-    display: flex;
-    justify-content: flex-start;
+  background-color: red;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .flexContainerCenterAlign {
-    background-color: orange;
-    display: flex;
-    justify-content: center;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
 }
 
 .flexContainerRightAlign {
-    background-color: blue;
-    display: flex;
-    justify-content: flex-end;
+  background-color: blue;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .menuItem {
-    background-color: purple;
+  background-color: purple;
 }
 
 .leftColumn {
-    flex: 1;
-    background-color: rgb(21, 233, 248);
+  flex: 1;
+  background-color: rgb(21, 233, 248);
 }
 
 .centerColumn {
-    flex: 1;
-    background-color: purple;
+  flex: 1;
+  background-color: purple;
 }
 
 .rightColumn {
-    flex: 1;
-    background-color: blue;
+  flex: 1;
+  background-color: blue;
 }
 
 .main {
-    padding: 0px;
-    flex: 1;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: green;
+  padding: 0px;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background: green;
 }
 
 .mainGutterLeft {
-    background: blue;
-    flex-grow: 1;
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+  position: sticky;
+  top: var(--header-height);
+  background: blue;
+  flex-grow: 1;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .mainBody {
-    background: orange;
-    width: var(--main-width);
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+  background: orange;
+  width: var(--main-width);
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .mainGutterRight {
-    background: yellow;
-    flex-grow: 1;
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+  position: sticky;
+  top: var(--header-height);
+  background: yellow;
+  flex-grow: 1;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .footer {
-    width: 100%;
-    height: var(--footer-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: purple;
-    background-color: pink;
-    position: fixed;
-    bottom: 0;
-    color: white;
+  width: 100%;
+  height: var(--footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  background-color: pink;
+  position: fixed;
+  bottom: 0;
+  color: white;
 }
 
 .header {
-    width: 100%;
-    height: var(--header-height);
-    color: white;
-    display: flex;
-    background-color: black;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
+  width: 100%;
+  height: var(--header-height);
+  color: white;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
 }
