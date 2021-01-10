@@ -1,15 +1,16 @@
 .mainContainer {
-  min-height: 100vh;
+  margin-left: calc(100vw - 100%);
   padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .flexContainerColumnPageWidth {
-  width: var(--main-width);
-  background-color: green;
+  width: 100%;
+  background-color: pink;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,14 +54,13 @@
 }
 
 .main {
-  padding: 0px;
   flex: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  background: green;
+  background-color: green;
 }
 
 .mainGutterLeft {
@@ -68,47 +68,52 @@
   top: var(--header-height);
   background: blue;
   flex-grow: 1;
-  margin-top: var(--header-height);
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+
 }
 
-.mainBody {
-  background: orange;
+.mainColumn {
+  background: yellow;
   width: var(--main-width);
-  margin-top: var(--header-height);
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  min-height: 100vh;
 }
 
 .mainGutterRight {
   position: sticky;
   top: var(--header-height);
-  background: yellow;
+  background: pink;
   flex-grow: 1;
-  margin-top: var(--header-height);
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
-}
-
-.footer {
-  width: 100%;
-  height: var(--footer-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: purple;
-  background-color: pink;
-  position: fixed;
-  bottom: 0;
-  color: white;
 }
 
 .header {
-  width: 100%;
   height: var(--header-height);
   color: white;
-  display: flex;
   background-color: black;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
+}
+
+.bodyContainer {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+.body {
+ flex: 1;
+}
+
+
+.footer {
+  height: var(--header-height);
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  width: var(--main-width);
+
 }

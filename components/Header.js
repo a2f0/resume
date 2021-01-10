@@ -1,6 +1,6 @@
-import Head from "next/head";
-import holyGrail from "../styles/HolyGrail.module.css";
-import Link from "next/link";
+import Head from 'next/head'
+import holyGrail from '../styles/HolyGrail.module.css'
+import Link from 'next/link'
 
 const Header = (props) => (
   <>
@@ -16,7 +16,7 @@ const Header = (props) => (
               <Link href="/">Resume</Link>
             </div>
             <div className={holyGrail.menuItem}>
-              <Link href="/left2">Left 2</Link>
+              <Link href="/left1">Left 1</Link>
             </div>
           </div>
         </div>

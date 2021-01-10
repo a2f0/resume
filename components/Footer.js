@@ -1,4 +1,4 @@
-import holyGrail from "../styles/HolyGrail.module.css";
+import holyGrail from '../styles/HolyGrail.module.css'
 const Footer = (props) => (
   <footer className={holyGrail.footer}>
     <div className={holyGrail.flexContainerColumnPageWidth}>

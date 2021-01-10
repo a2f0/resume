@@ -3,7 +3,7 @@ export default function SvgResume() {
 
   const positionSvg = {
     textAlign: "center",
-    marginTop: "100px",
+    marginTop: "25px",
   };
 
   const positionSvgTools = {
