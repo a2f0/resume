@@ -1,11 +1,10 @@
 .mainContainer {
   margin-left: calc(100vw - 100%);
-  padding: 0px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .flexContainerColumnPageWidth {
@@ -68,7 +67,6 @@
   top: var(--header-height);
   background: blue;
   flex-grow: 1;
-
 }
 
 .mainColumn {
@@ -102,9 +100,8 @@
 }
 
 .body {
- flex: 1;
+  flex: 1;
 }
-
 
 .footer {
   height: var(--header-height);
@@ -115,5 +112,4 @@
   position: sticky;
   bottom: 0;
   width: var(--main-width);
-
 }

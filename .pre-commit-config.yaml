@@ -9,3 +9,8 @@ repos:
     rev: ''
     hooks:
     -   id: eslint
+-   repo: https://github.com/awebdeveloper/pre-commit-stylelint
+    rev: ''
+    hooks:
+    -   id: stylelint
+        additional_dependencies: ['stylelint@13.8.0', 'stylelint-config-standard@20.0.0']
