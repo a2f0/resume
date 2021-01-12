@@ -9,8 +9,6 @@ export default function SvgResume() {
   const ORIGINAL_VIEWBOX_HEIGHT=279.4
   const [width, setWidth] = useState(ORIGINAL_WIDTH)
   const [height, setHeight] = useState(ORIGINAL_HEIGHT)
-  const [viewboxWidth, setViewboxWidth] = useState(ORIGINAL_VIEWBOX_WIDTH);
-  const [viewboxHeight, setViewboxHeight] = useState(ORIGINAL_VIEWBOX_HEIGHT);
 
   const positionSvg = {
     textAlign: "center",
@@ -24,8 +22,6 @@ export default function SvgResume() {
   function adjustCoefficient(coefficient) {
     setWidth(ORIGINAL_WIDTH * coefficient)
     setHeight(ORIGINAL_HEIGHT * coefficient)
-    setViewboxWidth(ORIGINAL_VIEWBOX_WIDTH * coefficient)
-    setViewboxHeight(ORIGINAL_VIEWBOX_HEIGHT * coefficient)
   }
 
   function getTextWidth(text, font = "500 12px sans-serif") {
@@ -202,7 +198,7 @@ export default function SvgResume() {
       <div id='svgContainer' style={positionSvg}>
         <svg id="resume"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox={`0 0 ${viewboxWidth} ${viewboxHeight}`}
+          viewBox={`0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`}
           height={`${height}in`}
           width={`${width}in`}/>
       </div>

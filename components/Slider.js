@@ -15,6 +15,6 @@ export default function SvgResume(props) {
       min="0" max="1.2"
       value={value}
       onChange={handleChange}
-      step=".05"/>
+      step=".01"/>
   );
 }
