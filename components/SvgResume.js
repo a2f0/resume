@@ -1,5 +1,16 @@
-import React, { useEffect, } from "react";
+import React, { useEffect, useState } from "react";
+import Slider from './Slider';
 export default function SvgResume() {
+
+  // Document Dimensions
+  const ORIGINAL_WIDTH=8.5
+  const ORIGINAL_HEIGHT=11
+  const ORIGINAL_VIEWBOX_WIDTH=215.9
+  const ORIGINAL_VIEWBOX_HEIGHT=279.4
+  const [width, setWidth] = useState(ORIGINAL_WIDTH)
+  const [height, setHeight] = useState(ORIGINAL_HEIGHT)
+  const [viewboxWidth, setViewboxWidth] = useState(ORIGINAL_VIEWBOX_WIDTH);
+  const [viewboxHeight, setViewboxHeight] = useState(ORIGINAL_VIEWBOX_HEIGHT);
 
   const positionSvg = {
     textAlign: "center",
@@ -9,6 +20,13 @@ export default function SvgResume() {
   const positionSvgTools = {
     textAlign: "center"
   };
+
+  function adjustCoefficient(coefficient) {
+    setWidth(ORIGINAL_WIDTH * coefficient)
+    setHeight(ORIGINAL_HEIGHT * coefficient)
+    setViewboxWidth(ORIGINAL_VIEWBOX_WIDTH * coefficient)
+    setViewboxHeight(ORIGINAL_VIEWBOX_HEIGHT * coefficient)
+  }
 
   function getTextWidth(text, font = "500 12px sans-serif") {
     const canvas = document.createElement("canvas");
@@ -180,12 +198,13 @@ export default function SvgResume() {
 
   return (
     <>
+      <Slider adjustCoefficient={adjustCoefficient}/>
       <div id='svgContainer' style={positionSvg}>
         <svg id="resume"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 215.9 279.4"
-          height="11in"
-          width="8.5in"/>
+          viewBox={`0 0 ${viewboxWidth} ${viewboxHeight}`}
+          height={`${height}in`}
+          width={`${width}in`}/>
       </div>
       <div style={positionSvgTools} onClick={() => { downloadSvg();}}>[Download]</div>
       <div style={positionSvgTools} onClick={() => { printView();}}>[Printable]</div>
