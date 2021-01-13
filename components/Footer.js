@@ -6,7 +6,6 @@ const Footer = (props) => (
       <div className={holyGrail.leftColumn}>
         <div className={holyGrail.flexContainerLeftAlign}>
           <div className={holyGrail.menuItem}>v{[packageJson.version]}</div>
-          <div className={holyGrail.menuItem}>Left 2</div>
         </div>
       </div>
       <div className={holyGrail.centerColumn}>

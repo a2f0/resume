@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from './Slider';
+import resume from '../resume.json';
 export default function SvgResume() {
 
   // Document Dimensions
@@ -91,7 +92,7 @@ export default function SvgResume() {
     firstName.setAttribute("font-size", nameSize);
     firstName.setAttribute("font-family", "sans-serif");
     firstName.setAttribute("dominant-baseline", "hanging");
-    firstName.innerHTML = "DAN"
+    firstName.innerHTML = resume.first_name.toUpperCase();
     svg.appendChild(firstName);
 
     var firstNameBBox = firstName.getBBox({ fill: false });
@@ -101,7 +102,7 @@ export default function SvgResume() {
     lastName.setAttribute("font-size", nameSize);
     lastName.setAttribute("font-family", "sans-serif");
     lastName.setAttribute("dominant-baseline", "hanging");
-    lastName.innerHTML = "SULLIVAN"
+    lastName.innerHTML = resume.last_name.toUpperCase();
     svg.appendChild(lastName);
 
     const lastNameBBox = lastName.getBBox();
@@ -123,7 +124,7 @@ export default function SvgResume() {
     addressLine.setAttribute("font-size", addressSize);
     addressLine.setAttribute("font-family", "sans-serif");
     addressLine.setAttribute("dominant-baseline", "hanging");
-    addressLine.innerHTML = "Signal Mountain, TN"
+    addressLine.innerHTML =  resume.city_state
     svg.appendChild(addressLine);
 
     var redCirle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -151,7 +152,7 @@ export default function SvgResume() {
     emailLine.setAttribute("font-size", addressSize);
     emailLine.setAttribute("font-family", "sans-serif");
     emailLine.setAttribute("dominant-baseline", "hanging");
-    emailLine.innerHTML = "dansullivan@gmail.com"
+    emailLine.innerHTML = resume.email
     svg.appendChild(emailLine);
 
     const emailLineBBox = emailLine.getBBox();
@@ -161,7 +162,7 @@ export default function SvgResume() {
     phoneLine.setAttribute("font-size", addressSize);
     phoneLine.setAttribute("font-family", "sans-serif");
     phoneLine.setAttribute("dominant-baseline", "hanging");
-    phoneLine.innerHTML = "(312) 607-3702"
+    phoneLine.innerHTML = resume.phone_number
     svg.appendChild(phoneLine);
 
     const label = wrapLabel("supercalifragilisticexpialidocious", 50);
