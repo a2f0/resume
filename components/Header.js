@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Header = (props) => (
   <>
     <Head>
-      <title>Holy Grail</title>
+      <title>Resume</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <header className={holyGrail.header}>
@@ -13,10 +13,10 @@ const Header = (props) => (
         <div className={holyGrail.leftColumn}>
           <div className={holyGrail.flexContainerLeftAlign}>
             <div className={holyGrail.menuItem}>
-              <Link href="/">Resume</Link>
+              <Link href="/">SVG</Link>
             </div>
             <div className={holyGrail.menuItem}>
-              <Link href="/left1">Left 1</Link>
+              <Link href="/pdf">PDF</Link>
             </div>
           </div>
         </div>

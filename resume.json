@@ -3,5 +3,21 @@
   "last_name": "Sullivan",
   "phone_number": "(312) 607-3702",
   "email": "dansullivan@gmail.com",
-  "city_state": "Signal Mountain, TN"
+  "city_state": "Signal Mountain, TN",
+  "experience": [
+    {
+      "company": "Real Time Risk Solutions",
+      "title": "VP of Engineering",
+      "start_date": "1/2021",
+      "end_date": null,
+      "description": "Served as a lead developer consultant for a few years before getting hired."
+    },
+    {
+      "company": "Aker",
+      "title": "IoT Engineer",
+      "start_date": null,
+      "end_date": null,
+      "description": null
+    }
+  ]
 }

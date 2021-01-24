@@ -9,6 +9,6 @@ export default function Home() {
   };
 
   return (
-    <Layout>left2 </Layout>
+    <Layout></Layout>
   );
 }

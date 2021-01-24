@@ -75,6 +75,7 @@ export default function SvgResume() {
     console.info("useEffect");
     const nameSize = 6;
     const addressSize = 4;
+    const headingSize = 5.5;
     const startX = 10;
     const startY = 10;
     const addressLineSpacing = 3;
@@ -94,8 +95,8 @@ export default function SvgResume() {
     firstName.setAttribute("dominant-baseline", "hanging");
     firstName.innerHTML = resume.first_name.toUpperCase();
     svg.appendChild(firstName);
-
     var firstNameBBox = firstName.getBBox({ fill: false });
+
     var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
     lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
     lastName.setAttribute("y",startY);
@@ -104,13 +105,13 @@ export default function SvgResume() {
     lastName.setAttribute("dominant-baseline", "hanging");
     lastName.innerHTML = resume.last_name.toUpperCase();
     svg.appendChild(lastName);
-
     const lastNameBBox = lastName.getBBox();
+
     const lineXPosition = lastNameBBox.x + lastNameBBox.width + 5;
     var verticalLine = document.createElementNS("http://www.w3.org/2000/svg","line");
     const x = 20;
     verticalLine.setAttribute("x1",lineXPosition);
-    verticalLine.setAttribute("y1",startY - 4);
+    verticalLine.setAttribute("y1",startY + 4);
     verticalLine.setAttribute("x2",lineXPosition);
     verticalLine.setAttribute("y2","150");
     verticalLine.setAttribute("stroke", "black");
@@ -118,7 +119,6 @@ export default function SvgResume() {
     svg.appendChild(verticalLine);
 
     var addressLine = document.createElementNS("http://www.w3.org/2000/svg","text");
-    console.info(firstNameBBox.height)
     addressLine.setAttribute("x", firstNameBBox.x);
     addressLine.setAttribute("y", startY + firstNameBBox.height);
     addressLine.setAttribute("font-size", addressSize);
@@ -126,6 +126,7 @@ export default function SvgResume() {
     addressLine.setAttribute("dominant-baseline", "hanging");
     addressLine.innerHTML =  resume.city_state
     svg.appendChild(addressLine);
+    const addressLineBBox = addressLine.getBBox();
 
     var redCirle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     redCirle.style.fill = "red";
@@ -134,7 +135,6 @@ export default function SvgResume() {
     redCirle.setAttribute("r","1");
     svg.appendChild(redCirle);
 
-    const addressLineBBox = addressLine.getBBox();
     var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
     const nameLineYPosition = addressLineBBox.y;
     lineUnderName.setAttribute("x1",startX + 20);
@@ -144,8 +144,8 @@ export default function SvgResume() {
     lineUnderName.setAttribute("stroke", "black");
     lineUnderName.setAttribute("stroke-width", ".25px");
     svg.appendChild(lineUnderName);
-
     const lineUnderNameBox = lineUnderName.getBBox();
+
     var emailLine = document.createElementNS("http://www.w3.org/2000/svg","text");
     emailLine.setAttribute("x", firstNameBBox.x);
     emailLine.setAttribute("y", lineUnderNameBox.y + addressLineSpacing );
@@ -154,8 +154,8 @@ export default function SvgResume() {
     emailLine.setAttribute("dominant-baseline", "hanging");
     emailLine.innerHTML = resume.email
     svg.appendChild(emailLine);
-
     const emailLineBBox = emailLine.getBBox();
+
     var phoneLine = document.createElementNS("http://www.w3.org/2000/svg","text");
     phoneLine.setAttribute("x", emailLineBBox.x);
     phoneLine.setAttribute("y", emailLineBBox.y + addressLineSpacing + 2);
@@ -165,13 +165,24 @@ export default function SvgResume() {
     phoneLine.innerHTML = resume.phone_number
     svg.appendChild(phoneLine);
 
-    const label = wrapLabel("supercalifragilisticexpialidocious", 50);
-    console.info(label)
-    var lines = []
-    for(var i = 0; i < label.length; i++){
-      console.log((i+1) + " --> " + label[i])
-      var line = document.createElementNS("http://www.w3.org/2000/svg","text");
-    }
+    var experienceHeading = document.createElementNS("http://www.w3.org/2000/svg","text");
+    experienceHeading.setAttribute("x",lineXPosition + 5);
+    experienceHeading.setAttribute("y", startY + 8);
+    experienceHeading.setAttribute("font-size", headingSize);
+    experienceHeading.setAttribute("font-family", "sans-serif");
+    experienceHeading.setAttribute("font-weight", "lighter");
+
+    experienceHeading.setAttribute("dominant-baseline", "hanging");
+    experienceHeading.innerHTML = "Experience"
+    svg.appendChild(experienceHeading);
+
+    // const label = wrapLabel("supercalifragilisticexpialidocious", 50);
+    // console.info(label)
+    // var lines = []
+    // for(var i = 0; i < label.length; i++){
+    //   console.log((i+1) + " --> " + label[i])
+    //   var line = document.createElementNS("http://www.w3.org/2000/svg","text");
+    // }
 
   });
 
