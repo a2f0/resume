@@ -11,6 +11,10 @@ export default function SvgResume() {
   const [width, setWidth] = useState(ORIGINAL_WIDTH)
   const [height, setHeight] = useState(ORIGINAL_HEIGHT)
 
+  // Document
+  const STARTX = 10;
+  const STARTY = 10;
+
   const positionSvg = {
     textAlign: "center",
     marginTop: "25px",
@@ -76,8 +80,6 @@ export default function SvgResume() {
     const nameSize = 6;
     const addressSize = 4;
     const headingSize = 5.5;
-    const startX = 10;
-    const startY = 10;
     const addressLineSpacing = 3;
     var svg = document.getElementById("resume");
 
@@ -88,8 +90,8 @@ export default function SvgResume() {
     svg.appendChild(canvasRect);
 
     var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
-    firstName.setAttribute("x",startX);
-    firstName.setAttribute("y",startY);
+    firstName.setAttribute("x",STARTX);
+    firstName.setAttribute("y",STARTY);
     firstName.setAttribute("font-size", nameSize);
     firstName.setAttribute("font-family", "sans-serif");
     firstName.setAttribute("dominant-baseline", "hanging");
@@ -99,7 +101,7 @@ export default function SvgResume() {
 
     var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
     lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
-    lastName.setAttribute("y",startY);
+    lastName.setAttribute("y",STARTY);
     lastName.setAttribute("font-size", nameSize);
     lastName.setAttribute("font-family", "sans-serif");
     lastName.setAttribute("dominant-baseline", "hanging");
@@ -111,7 +113,7 @@ export default function SvgResume() {
     var verticalLine = document.createElementNS("http://www.w3.org/2000/svg","line");
     const x = 20;
     verticalLine.setAttribute("x1",lineXPosition);
-    verticalLine.setAttribute("y1",startY + 4);
+    verticalLine.setAttribute("y1",STARTY + 4);
     verticalLine.setAttribute("x2",lineXPosition);
     verticalLine.setAttribute("y2","150");
     verticalLine.setAttribute("stroke", "black");
@@ -120,7 +122,7 @@ export default function SvgResume() {
 
     var addressLine = document.createElementNS("http://www.w3.org/2000/svg","text");
     addressLine.setAttribute("x", firstNameBBox.x);
-    addressLine.setAttribute("y", startY + firstNameBBox.height);
+    addressLine.setAttribute("y", STARTY + firstNameBBox.height);
     addressLine.setAttribute("font-size", addressSize);
     addressLine.setAttribute("font-family", "sans-serif");
     addressLine.setAttribute("dominant-baseline", "hanging");
@@ -137,7 +139,7 @@ export default function SvgResume() {
 
     var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
     const nameLineYPosition = addressLineBBox.y;
-    lineUnderName.setAttribute("x1",startX + 20);
+    lineUnderName.setAttribute("x1",STARTX + 20);
     lineUnderName.setAttribute("y1",nameLineYPosition + addressSize + addressLineSpacing);
     lineUnderName.setAttribute("x2",lineXPosition);
     lineUnderName.setAttribute("y2",nameLineYPosition + addressSize + addressLineSpacing);
@@ -167,7 +169,7 @@ export default function SvgResume() {
 
     var experienceHeading = document.createElementNS("http://www.w3.org/2000/svg","text");
     experienceHeading.setAttribute("x",lineXPosition + 5);
-    experienceHeading.setAttribute("y", startY + 8);
+    experienceHeading.setAttribute("y", STARTY + 8);
     experienceHeading.setAttribute("font-size", headingSize);
     experienceHeading.setAttribute("font-family", "sans-serif");
     experienceHeading.setAttribute("font-weight", "lighter");
