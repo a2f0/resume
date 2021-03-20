@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Slider from './Slider';
 import resume from '../resume.json';
+import * as Constants from '../constants'
+
 export default function SvgResume() {
 
-  // Document Dimensions
+  // SVG Document Dimensions
   const ORIGINAL_WIDTH=8.5
   const ORIGINAL_HEIGHT=11
   const ORIGINAL_VIEWBOX_WIDTH=215.9
   const ORIGINAL_VIEWBOX_HEIGHT=279.4
   const [width, setWidth] = useState(ORIGINAL_WIDTH)
   const [height, setHeight] = useState(ORIGINAL_HEIGHT)
-
-  // Document
-  const STARTX = 10;
-  const STARTY = 10;
 
   const positionSvg = {
     textAlign: "center",
@@ -41,7 +39,8 @@ export default function SvgResume() {
     const lines = [];
     let currentLine = "";  characters.forEach((character, index) => {
       const nextLine = `${currentLine}${character}`;
-      const lineWidth = getTextWidth(nextLine);    if (lineWidth >= maxWidth) {
+      const lineWidth = getTextWidth(nextLine);
+      if (lineWidth >= maxWidth) {
         const currentCharacter = index + 1;
         const isLastLine = characters.length === currentCharacter;
         const hyphenatedNextLine = `${nextLine}${hyphenCharacter}`;
@@ -90,8 +89,8 @@ export default function SvgResume() {
     svg.appendChild(canvasRect);
 
     var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
-    firstName.setAttribute("x",STARTX);
-    firstName.setAttribute("y",STARTY);
+    firstName.setAttribute("x",Constants.STARTX);
+    firstName.setAttribute("y",Constants.STARTY);
     firstName.setAttribute("font-size", nameSize);
     firstName.setAttribute("font-family", "sans-serif");
     firstName.setAttribute("dominant-baseline", "hanging");
@@ -101,7 +100,7 @@ export default function SvgResume() {
 
     var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
     lastName.setAttribute("x", firstNameBBox.x + firstNameBBox.width);
-    lastName.setAttribute("y",STARTY);
+    lastName.setAttribute("y",Constants.STARTY);
     lastName.setAttribute("font-size", nameSize);
     lastName.setAttribute("font-family", "sans-serif");
     lastName.setAttribute("dominant-baseline", "hanging");
@@ -113,7 +112,7 @@ export default function SvgResume() {
     var verticalLine = document.createElementNS("http://www.w3.org/2000/svg","line");
     const x = 20;
     verticalLine.setAttribute("x1",lineXPosition);
-    verticalLine.setAttribute("y1",STARTY + 4);
+    verticalLine.setAttribute("y1",Constants.STARTY + 4);
     verticalLine.setAttribute("x2",lineXPosition);
     verticalLine.setAttribute("y2","150");
     verticalLine.setAttribute("stroke", "black");
@@ -122,7 +121,7 @@ export default function SvgResume() {
 
     var addressLine = document.createElementNS("http://www.w3.org/2000/svg","text");
     addressLine.setAttribute("x", firstNameBBox.x);
-    addressLine.setAttribute("y", STARTY + firstNameBBox.height);
+    addressLine.setAttribute("y", Constants.STARTY + firstNameBBox.height);
     addressLine.setAttribute("font-size", addressSize);
     addressLine.setAttribute("font-family", "sans-serif");
     addressLine.setAttribute("dominant-baseline", "hanging");
@@ -139,7 +138,7 @@ export default function SvgResume() {
 
     var lineUnderName = document.createElementNS("http://www.w3.org/2000/svg","line");
     const nameLineYPosition = addressLineBBox.y;
-    lineUnderName.setAttribute("x1",STARTX + 20);
+    lineUnderName.setAttribute("x1",Constants.STARTX + 20);
     lineUnderName.setAttribute("y1",nameLineYPosition + addressSize + addressLineSpacing);
     lineUnderName.setAttribute("x2",lineXPosition);
     lineUnderName.setAttribute("y2",nameLineYPosition + addressSize + addressLineSpacing);
@@ -169,7 +168,7 @@ export default function SvgResume() {
 
     var experienceHeading = document.createElementNS("http://www.w3.org/2000/svg","text");
     experienceHeading.setAttribute("x",lineXPosition + 5);
-    experienceHeading.setAttribute("y", STARTY + 8);
+    experienceHeading.setAttribute("y", Constants.STARTY + 8);
     experienceHeading.setAttribute("font-size", headingSize);
     experienceHeading.setAttribute("font-family", "sans-serif");
     experienceHeading.setAttribute("font-weight", "lighter");

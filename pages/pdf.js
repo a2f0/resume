@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import holyGrail from "../styles/HolyGrail.module.css";
 import Layout from "../components/Layout"
-import SvgResume from "../components/SvgResume";
 import PDFObject from "pdfobject";
 import { jsPDF } from "jspdf";
-
+import * as Constants from '../constants'
+import resume from '../resume.json';
 export default function Pdf() {
-  // Document
-  const STARTX = 10;
-  const STARTY = 10;
 
   const preview = {
     height: "calc(100vh - var(--header-height) - var(--footer-height))",
@@ -19,11 +15,21 @@ export default function Pdf() {
     console.info("download PDF")
     const options = {
       orientation: 'portrait',
-      unit: 'mm',
+      unit: 'px',
       format: 'letter'
     }
     var doc = new jsPDF(options);
-    doc.text( 'This text is normally aligned.', STARTX, STARTY );
+
+    // First Name
+    const first_name_options = { baseline: 'hanging'}
+    doc.text(resume.first_name.toUpperCase(), Constants.STARTX, Constants.STARTY, first_name_options );
+    const first_name_width = doc.getTextWidth(resume.first_name.toUpperCase());
+
+    // Last Name
+    const last_name_options = { baseline: 'hanging'}
+    doc.text(resume.last_name.toUpperCase(), Constants.STARTX + first_name_width, Constants.STARTY, last_name_options );
+
+
     return doc.output('datauristring');
   }
 
