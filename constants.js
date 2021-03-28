@@ -33,13 +33,13 @@ export const ADDRESS_XPOS                   = STARTX;
 export const ADDRESS_YPOS                   = STARTY + NAME_SIZE;
 export const ADDRESS_YPOS_MIDDLE            = ADDRESS_YPOS + ( ADDRESS_SIZE / 2);
 
-export const VERTICAL_DIVIDER_STROKE_WIDTH  = 2;
+export const VERTICAL_DIVIDER_STROKE_WIDTH  = 1;
 export const VERTICAL_DIVIDER_XPOS          = LEFT_PANEL_WIDTH;
-export const VERTICAL_DIVIDER_YPOS          = 0;
-export const VERTICAL_DIVIDER_HEIGHT        = DOCUMENT_HEIGHT;
+export const VERTICAL_DIVIDER_YPOS          = 20;
+export const VERTICAL_DIVIDER_HEIGHT        = DOCUMENT_HEIGHT - 60;
 export const VERTICAL_DIVIDER_COLOR         = DIVIDER_COLOR;
 
-export const ADDRESS_LINE_STROKE_WIDTH      = 2;
+export const ADDRESS_LINE_STROKE_WIDTH      = 1;
 export const ADDRESS_LINE_SPACING           = 12;
 export const ADDRESS_LINE_YPOS              = ADDRESS_YPOS + ADDRESS_SIZE + ADDRESS_LINE_SPACING;
 export const ADDRESS_LINE_WIDTH             = LEFT_PANEL_WIDTH * (1/3);
