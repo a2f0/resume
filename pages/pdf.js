@@ -4,6 +4,9 @@ import PDFObject from "pdfobject";
 import { jsPDF } from "jspdf";
 import * as Constants from '../constants'
 import resume from '../resume.json';
+import svgR from '../util.js'
+require('../public/fonts/Roboto-Regular-normal');
+
 export default function Pdf() {
 
   const preview = {
@@ -12,23 +15,57 @@ export default function Pdf() {
   }
 
   const createPDF = () => {
-    console.info("download PDF")
+
     const options = {
       orientation: 'portrait',
-      unit: 'px',
+      unit: Constants.UNITS,
       format: 'letter'
     }
     var doc = new jsPDF(options);
 
-    // First Name
-    const first_name_options = { baseline: 'hanging'}
-    doc.text(resume.first_name.toUpperCase(), Constants.STARTX, Constants.STARTY, first_name_options );
-    const first_name_width = doc.getTextWidth(resume.first_name.toUpperCase());
+    // Left Partition
+    doc.setFillColor(Constants.LEFT_PANEL_COLOR);
+    doc.rect(
+      Constants.LEFT_PANEL_XPOS,
+      Constants.LEFT_PANEL_YPOS,
+      Constants.LEFT_PANEL_WIDTH,
+      Constants.DOCUMENT_HEIGHT,
+      'F'
+    );
 
-    // Last Name
-    const last_name_options = { baseline: 'hanging'}
-    doc.text(resume.last_name.toUpperCase(), Constants.STARTX + first_name_width, Constants.STARTY, last_name_options );
+    // Right Partition
+    doc.setFillColor(Constants.RIGHT_PANEL_COLOR);
+    doc.rect(
+      Constants.LEFT_PANEL_WIDTH,
+      Constants.RIGHT_PANEL_YPOS,
+      Constants.RIGHT_PANEL_WIDTH,
+      Constants.DOCUMENT_HEIGHT,
+      'F'
+    );
 
+    // Name
+    doc.setFont("Roboto-Regular")
+    doc.setFontSize(Constants.NAME_SIZE)
+    doc.setTextColor(Constants.NAME_COLOR)
+    const first_name_options = { baseline: "middle" }
+    doc.text(resume.first_name, Constants.NAME_XPOS, Constants.NAME_YPOS_MIDDLE, first_name_options );
+
+    // Address
+    doc.setFont("Roboto-Regular")
+    doc.setFontSize(Constants.ADDRESS_SIZE)
+    doc.setTextColor(Constants.ADDRESS_COLOR)
+    const city_state_options = { baseline: "middle" }
+    doc.text(resume.city_state, Constants.ADDRESS_XPOS, Constants.ADDRESS_YPOS_MIDDLE, city_state_options );
+
+    // Vertical Divider Line (Rectangle to establish width)
+    doc.setFillColor(Constants.VERTICAL_DIVIDER_COLOR);
+    doc.rect(
+      Constants.VERTICAL_DIVIDER_XPOS,
+      Constants.VERTICAL_DIVIDER_YPOS,
+      Constants.VERTICAL_DIVIDER_STROKE_WIDTH,
+      Constants.VERTICAL_DIVIDER_HEIGHT,
+      'F'
+    )
 
     return doc.output('datauristring');
   }
