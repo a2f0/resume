@@ -43,12 +43,28 @@ export default function Pdf() {
       'F'
     );
 
-    // Name
+    // First Name
     doc.setFont("Roboto-Regular")
-    doc.setFontSize(Constants.NAME_SIZE)
-    doc.setTextColor(Constants.NAME_COLOR)
+    doc.setFontSize(Constants.FIRST_NAME_SIZE)
+    doc.setTextColor(Constants.FIRST_NAME_COLOR)
     const first_name_options = { baseline: "middle" }
-    doc.text(resume.first_name, Constants.NAME_XPOS, Constants.NAME_YPOS_MIDDLE, first_name_options );
+    doc.text(
+      resume.first_name.toUpperCase(),
+      Constants.FIRST_NAME_XPOS,
+      Constants.FIRST_NAME_YPOS_MIDDLE,
+      first_name_options
+    );
+
+    // Last Name
+    var firstNameWidth = doc.getTextWidth(resume.first_name.toUpperCase());
+    doc.setTextColor(Constants.LAST_NAME_COLOR)
+    const last_name_options = { baseline: "middle" }
+    doc.text(
+      resume.last_name.toUpperCase(),
+      Constants.FIRST_NAME_XPOS + firstNameWidth,
+      Constants.FIRST_NAME_YPOS_MIDDLE,
+      first_name_options
+    );
 
     // Address
     doc.setFont("Roboto-Regular")

@@ -1,7 +1,7 @@
 import * as Constants from './constants'
 import resume from './resume.json';
 
-export default function svgResume() {
+export function svgR() {
   // The SVG Itself
   var svgResume = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svgResume.setAttribute('id', 'svgResume');
@@ -24,14 +24,34 @@ export default function svgResume() {
   // First Name
   var firstName = document.createElementNS("http://www.w3.org/2000/svg","text");
   firstName.setAttribute("id","firstName");
-  firstName.setAttribute("x",Constants.NAME_XPOS + Constants.UNITS);
-  firstName.setAttribute("y",Constants.NAME_YPOS_MIDDLE + Constants.UNITS);
-  firstName.setAttribute("font-size", Constants.NAME_SIZE + Constants.UNITS);
-  firstName.setAttribute("font-family",'roboto-google');
+  firstName.setAttribute("x",Constants.FIRST_NAME_XPOS + Constants.UNITS);
+  firstName.setAttribute("y",Constants.FIRST_NAME_YPOS_MIDDLE + Constants.UNITS);
+  firstName.setAttribute("font-size", Constants.FIRST_NAME_SIZE + Constants.UNITS);
+  firstName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   firstName.setAttribute("dominant-baseline", "middle");
-  firstName.setAttribute("fill", Constants.NAME_COLOR);
+  firstName.setAttribute("fill", Constants.FIRST_NAME_COLOR);
   firstName.innerHTML = resume.first_name.toUpperCase();
   svgResume.appendChild(firstName);
+
+  // Last Name
+  var fontToMeasure =  Constants.FIRST_NAME_WEIGHT + " "
+  fontToMeasure += Constants.FIRST_NAME_SIZE
+  fontToMeasure += Constants.UNITS + " "
+  fontToMeasure += Constants.SVG_FONT_FAMILY
+  const firstNameWidthInPoints = getTextWidthInPoints(
+    resume.first_name.toUpperCase(),
+    fontToMeasure
+  )
+  var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
+  lastName.setAttribute("id","firstName");
+  lastName.setAttribute("x",Constants.FIRST_NAME_XPOS + firstNameWidthInPoints + Constants.UNITS);
+  lastName.setAttribute("y",Constants.LAST_NAME_YPOS_MIDDLE + Constants.UNITS);
+  lastName.setAttribute("font-size", Constants.LAST_NAME_SIZE + Constants.UNITS);
+  lastName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  lastName.setAttribute("dominant-baseline", "middle");
+  lastName.setAttribute("fill", Constants.LAST_NAME_COLOR);
+  lastName.innerHTML = resume.last_name.toUpperCase();
+  svgResume.appendChild(lastName);
 
   // Address Line
   var addressLine = document.createElementNS("http://www.w3.org/2000/svg","text");
@@ -39,7 +59,7 @@ export default function svgResume() {
   addressLine.setAttribute("x",Constants.ADDRESS_XPOS + Constants.UNITS);
   addressLine.setAttribute("y",Constants.ADDRESS_YPOS_MIDDLE + Constants.UNITS);
   addressLine.setAttribute("font-size", Constants.ADDRESS_SIZE + Constants.UNITS);
-  addressLine.setAttribute("font-family",'roboto-google');
+  addressLine.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   addressLine.setAttribute("dominant-baseline", "middle");
   addressLine.setAttribute("fill", Constants.ADDRESS_COLOR);
   addressLine.innerHTML = resume.city_state;
@@ -73,7 +93,7 @@ export default function svgResume() {
   phoneNumber.setAttribute("x",Constants.PHONE_NUMBER_XPOS + Constants.UNITS);
   phoneNumber.setAttribute("y",Constants.PHONE_NUMBER_YPOS + Constants.UNITS);
   phoneNumber.setAttribute("font-size", Constants.PHONE_NUMBER_SIZE + Constants.UNITS);
-  phoneNumber.setAttribute("font-family",'roboto-google');
+  phoneNumber.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   phoneNumber.setAttribute("dominant-baseline", "middle");
   phoneNumber.setAttribute("fill", Constants.PHONE_NUMBER_COLOR);
   phoneNumber.innerHTML = resume.phone_number;
@@ -85,7 +105,7 @@ export default function svgResume() {
   emailAddress.setAttribute("x",Constants.EMAIL_XPOS + Constants.UNITS);
   emailAddress.setAttribute("y",Constants.EMAIL_YPOS + Constants.UNITS);
   emailAddress.setAttribute("font-size", Constants.EMAIL_SIZE + Constants.UNITS);
-  emailAddress.setAttribute("font-family",'roboto-google');
+  emailAddress.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   emailAddress.setAttribute("dominant-baseline", "middle");
   emailAddress.setAttribute("fill", Constants.EMAIL_COLOR);
   emailAddress.innerHTML = resume.email;
@@ -97,11 +117,23 @@ export default function svgResume() {
   emailAddress.setAttribute("x",Constants.EXPERIENCE_HEADER_XPOS + Constants.UNITS);
   emailAddress.setAttribute("y",Constants.EXPERIENCE_HEADER_YPOS + Constants.UNITS);
   emailAddress.setAttribute("font-size", Constants.EXPERIENCE_HEADER_SIZE + Constants.UNITS);
-  emailAddress.setAttribute("font-family",'roboto-google');
+  emailAddress.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   emailAddress.setAttribute("dominant-baseline", "middle");
   emailAddress.setAttribute("fill", Constants.HEADER_COLOR);
   emailAddress.innerHTML = Constants.EXPERIENCE_HEADER;
   svgResume.appendChild(emailAddress);
 
+  for (var index = 0; index < resume.experience.length; index++) {
+  }
+
   return(svgResume)
+}
+
+export function getTextWidthInPoints(text, font = "500 12px sans-serif") {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  context.font = font;
+  const widthInPixels = context.measureText(text).width;
+  const widthInPoints = widthInPixels * .75;
+  return widthInPoints;
 }

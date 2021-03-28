@@ -10,6 +10,7 @@ export const TEXT_COLOR                     = 'white';
 export const HEADER_SIZE                    = 14;
 export const HEADER_COLOR                   = 'red';
 export const EXPERIENCE_HEADER              = 'Experience'
+export const SVG_FONT_FAMILY                = 'roboto-google'
 
 export const LEFT_PANEL_XPOS                = 0;
 export const LEFT_PANEL_YPOS                = 0;
@@ -23,18 +24,24 @@ export const RIGHT_PANEL_COLOR              = BACKGROUND_COLOR;
 export const RIGHT_PANEL_PERCENTAGE         = 1 - LEFT_PANEL_PERCENTAGE;
 export const RIGHT_PANEL_WIDTH              = RIGHT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
 
-export const NAME_SIZE                      = 17;
-export const NAME_WEIGHT                    = 400;
-export const NAME_COLOR                     = 'white';
-export const NAME_XPOS                      = STARTX;
-export const NAME_YPOS                      = STARTY;
-export const NAME_YPOS_MIDDLE               = NAME_YPOS + (NAME_SIZE/2);
+export const FIRST_NAME_SIZE                = 17;
+export const FIRST_NAME_WEIGHT              = 400;
+export const FIRST_NAME_COLOR               = 'white';
+export const FIRST_NAME_XPOS                = STARTX;
+export const FIRST_NAME_YPOS                = STARTY;
+export const FIRST_NAME_YPOS_MIDDLE         = FIRST_NAME_YPOS + (FIRST_NAME_SIZE/2);
+
+export const LAST_NAME_SIZE                 = FIRST_NAME_SIZE;
+export const LAST_NAME_WEIGHT               = FIRST_NAME_WEIGHT;
+export const LAST_NAME_COLOR                = 'red';
+export const LAST_NAME_YPOS                 = STARTY;
+export const LAST_NAME_YPOS_MIDDLE          = LAST_NAME_YPOS + (LAST_NAME_SIZE/2);
 
 export const ADDRESS_SIZE                   = 10;
 export const ADDRESS_WEIGHT                 = 400;
 export const ADDRESS_COLOR                  = 'white';
 export const ADDRESS_XPOS                   = STARTX;
-export const ADDRESS_YPOS                   = STARTY + NAME_SIZE;
+export const ADDRESS_YPOS                   = STARTY + FIRST_NAME_SIZE;
 export const ADDRESS_YPOS_MIDDLE            = ADDRESS_YPOS + ( ADDRESS_SIZE / 2);
 
 export const VERTICAL_DIVIDER_STROKE_WIDTH  = 1;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from './Slider';
 import resume from '../resume.json';
 import * as Constants from '../constants'
-import svgR from '../util.js'
+import { svgR } from '../util.js'
 
 export default function SvgResume() {
 
@@ -26,12 +26,6 @@ export default function SvgResume() {
     // setHeight(Constants.DOCUMENT_HEIGHT * coefficient)
   }
 
-  function getTextWidth(text, font = "500 12px sans-serif") {
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    context.font = font;
-    return context.measureText(text).width;
-  }
 
   function breakString(word, maxWidth, hyphenCharacter='-') {
     const characters = word.split("");
