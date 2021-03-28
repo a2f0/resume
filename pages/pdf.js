@@ -77,6 +77,21 @@ export default function Pdf() {
       'F'
     )
 
+    // Phone Number
+    doc.setFont("Roboto-Regular")
+    doc.setFontSize(Constants.PHONE_NUMBER_SIZE)
+    doc.setTextColor(Constants.PHONE_NUMBER_WEIGHT)
+    const phone_number_options = { baseline: "middle" }
+    doc.text(resume.phone_number, Constants.PHONE_NUMBER_XPOS, Constants.PHONE_NUMBER_YPOS, first_name_options );
+
+    // Email Address
+    doc.setFont("Roboto-Regular")
+    doc.setFontSize(Constants.EMAIL_SIZE)
+    doc.setTextColor(Constants.EMAIL_COLOR)
+    const email_options = { baseline: "middle" }
+    doc.text(resume.email, Constants.EMAIL_XPOS, Constants.EMAIL_YPOS, email_options );
+
+
     return doc.output('datauristring');
   }
 

@@ -58,7 +58,7 @@ export default function svgResume() {
 
   // Address Separator Line
   var addressSeparatorLine = document.createElementNS("http://www.w3.org/2000/svg","line");
-  addressSeparatorLine.setAttribute("id","AddressSeparatorLine");
+  addressSeparatorLine.setAttribute("id","addressSeparatorLine");
   addressSeparatorLine.setAttribute("x1",Constants.ADDRESS_LINE_X1 + Constants.UNITS);
   addressSeparatorLine.setAttribute("x2",Constants.ADDRESS_LINE_X2  + Constants.UNITS);
   addressSeparatorLine.setAttribute("y1",Constants.ADDRESS_LINE_YPOS + Constants.UNITS);
@@ -66,6 +66,30 @@ export default function svgResume() {
   addressSeparatorLine.setAttribute("stroke", Constants.ADDRESS_LINE_COLOR)
   addressSeparatorLine.setAttribute("stroke-width", Constants.ADDRESS_LINE_STROKE_WIDTH)
   svgResume.appendChild(addressSeparatorLine);
+
+  // Phone Number
+  var phoneNumber = document.createElementNS("http://www.w3.org/2000/svg","text");
+  phoneNumber.setAttribute("id","addressLine");
+  phoneNumber.setAttribute("x",Constants.PHONE_NUMBER_XPOS + Constants.UNITS);
+  phoneNumber.setAttribute("y",Constants.PHONE_NUMBER_YPOS + Constants.UNITS);
+  phoneNumber.setAttribute("font-size", Constants.PHONE_NUMBER_SIZE + Constants.UNITS);
+  phoneNumber.setAttribute("font-family",'roboto-google');
+  phoneNumber.setAttribute("dominant-baseline", "middle");
+  phoneNumber.setAttribute("fill", Constants.PHONE_NUMBER_COLOR);
+  phoneNumber.innerHTML = resume.phone_number;
+  svgResume.appendChild(phoneNumber);
+
+  // Email
+  var emailAddress = document.createElementNS("http://www.w3.org/2000/svg","text");
+  emailAddress.setAttribute("id","phoneNumber");
+  emailAddress.setAttribute("x",Constants.EMAIL_XPOS + Constants.UNITS);
+  emailAddress.setAttribute("y",Constants.EMAIL_YPOS + Constants.UNITS);
+  emailAddress.setAttribute("font-size", Constants.EMAIL_SIZE + Constants.UNITS);
+  emailAddress.setAttribute("font-family",'roboto-google');
+  emailAddress.setAttribute("dominant-baseline", "middle");
+  emailAddress.setAttribute("fill", Constants.EMAIL_COLOR);
+  emailAddress.innerHTML = resume.email;
+  svgResume.appendChild(emailAddress);
 
   return(svgResume)
 }

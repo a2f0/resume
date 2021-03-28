@@ -23,7 +23,7 @@ export const NAME_XPOS                      = STARTX;
 export const NAME_YPOS                      = STARTY;
 export const NAME_YPOS_MIDDLE               = NAME_YPOS + (NAME_SIZE/2);
 
-export const ADDRESS_SIZE                   = 12;
+export const ADDRESS_SIZE                   = 10;
 export const ADDRESS_WEIGHT                 = 400;
 export const ADDRESS_COLOR                  = 'white';
 export const ADDRESS_XPOS                   = STARTX;
@@ -43,3 +43,16 @@ export const ADDRESS_LINE_WIDTH             = LEFT_PANEL_WIDTH * (1/3);
 export const ADDRESS_LINE_X2                = VERTICAL_DIVIDER_XPOS;
 export const ADDRESS_LINE_X1                = VERTICAL_DIVIDER_XPOS - ADDRESS_LINE_WIDTH;
 export const ADDRESS_LINE_COLOR             = 'red';
+
+export const PHONE_NUMBER_SIZE              = ADDRESS_SIZE;
+export const PHONE_NUMBER_WEIGHT            = 400;
+export const PHONE_NUMBER_COLOR             = 'white';
+export const PHONE_NUMBER_XPOS              = STARTX
+export const PHONE_NUMBER_YPOS              = ADDRESS_LINE_YPOS + ADDRESS_LINE_SPACING;
+export const PHONE_NUMBER_YPOS_MIDDLE       = PHONE_NUMBER_YPOS + (PHONE_NUMBER_SIZE/2);
+
+export const EMAIL_SIZE                     = ADDRESS_SIZE;
+export const EMAIL_WEIGHT                   = 400;
+export const EMAIL_COLOR                    = 'white';
+export const EMAIL_XPOS                     = STARTX
+export const EMAIL_YPOS                     = PHONE_NUMBER_YPOS_MIDDLE + (EMAIL_SIZE/2);
