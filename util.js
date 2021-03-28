@@ -30,7 +30,7 @@ export default function svgResume() {
   firstName.setAttribute("font-family",'roboto-google');
   firstName.setAttribute("dominant-baseline", "middle");
   firstName.setAttribute("fill", Constants.NAME_COLOR);
-  firstName.innerHTML = resume.first_name;
+  firstName.innerHTML = resume.first_name.toUpperCase();
   svgResume.appendChild(firstName);
 
   // Address Line
@@ -89,6 +89,18 @@ export default function svgResume() {
   emailAddress.setAttribute("dominant-baseline", "middle");
   emailAddress.setAttribute("fill", Constants.EMAIL_COLOR);
   emailAddress.innerHTML = resume.email;
+  svgResume.appendChild(emailAddress);
+
+  // Experience Header
+  var emailAddress = document.createElementNS("http://www.w3.org/2000/svg","text");
+  emailAddress.setAttribute("id","phoneNumber");
+  emailAddress.setAttribute("x",Constants.EXPERIENCE_HEADER_XPOS + Constants.UNITS);
+  emailAddress.setAttribute("y",Constants.EXPERIENCE_HEADER_YPOS + Constants.UNITS);
+  emailAddress.setAttribute("font-size", Constants.EXPERIENCE_HEADER_SIZE + Constants.UNITS);
+  emailAddress.setAttribute("font-family",'roboto-google');
+  emailAddress.setAttribute("dominant-baseline", "middle");
+  emailAddress.setAttribute("fill", Constants.HEADER_COLOR);
+  emailAddress.innerHTML = Constants.EXPERIENCE_HEADER;
   svgResume.appendChild(emailAddress);
 
   return(svgResume)

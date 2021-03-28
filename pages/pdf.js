@@ -91,6 +91,12 @@ export default function Pdf() {
     const email_options = { baseline: "middle" }
     doc.text(resume.email, Constants.EMAIL_XPOS, Constants.EMAIL_YPOS, email_options );
 
+    // Experience Header
+    doc.setFont("Roboto-Regular")
+    doc.setFontSize(Constants.EXPERIENCE_HEADER_SIZE)
+    doc.setTextColor(Constants.HEADER_COLOR)
+    const experience_header_options = { baseline: "middle" }
+    doc.text(Constants.EXPERIENCE_HEADER, Constants.EXPERIENCE_HEADER_XPOS, Constants.EXPERIENCE_HEADER_YPOS, experience_header_options );
 
     return doc.output('datauristring');
   }
