@@ -67,6 +67,16 @@ export default function Pdf() {
       'F'
     )
 
+    // Address Separator Line
+    doc.setFillColor(Constants.ADDRESS_LINE_COLOR);
+    doc.rect(
+      Constants.ADDRESS_LINE_X1,
+      Constants.ADDRESS_LINE_YPOS,
+      Constants.ADDRESS_LINE_WIDTH,
+      Constants.ADDRESS_LINE_STROKE_WIDTH,
+      'F'
+    )
+
     return doc.output('datauristring');
   }
 

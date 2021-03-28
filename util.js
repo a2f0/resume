@@ -56,5 +56,16 @@ export default function svgResume() {
   verticalDividerLine.setAttribute("stroke-width", Constants.VERTICAL_DIVIDER_STROKE_WIDTH)
   svgResume.appendChild(verticalDividerLine);
 
+  // Address Separator Line
+  var addressSeparatorLine = document.createElementNS("http://www.w3.org/2000/svg","line");
+  addressSeparatorLine.setAttribute("id","AddressSeparatorLine");
+  addressSeparatorLine.setAttribute("x1",Constants.ADDRESS_LINE_X1 + Constants.UNITS);
+  addressSeparatorLine.setAttribute("x2",Constants.ADDRESS_LINE_X2  + Constants.UNITS);
+  addressSeparatorLine.setAttribute("y1",Constants.ADDRESS_LINE_YPOS + Constants.UNITS);
+  addressSeparatorLine.setAttribute("y2",Constants.ADDRESS_LINE_YPOS + Constants.UNITS);
+  addressSeparatorLine.setAttribute("stroke", Constants.ADDRESS_LINE_COLOR)
+  addressSeparatorLine.setAttribute("stroke-width", Constants.ADDRESS_LINE_STROKE_WIDTH)
+  svgResume.appendChild(addressSeparatorLine);
+
   return(svgResume)
 }
