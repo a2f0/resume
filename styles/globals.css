@@ -9,3 +9,8 @@ body {
   --footer-height: 25px;
   --main-width: 1000px;
 }
+
+@font-face {
+  font-family: 'roboto-google';
+  src: url('../public/fonts/Roboto-Regular.ttf');
+}
