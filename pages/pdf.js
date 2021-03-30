@@ -44,7 +44,7 @@ export default function Pdf() {
     );
 
     // First Name
-    doc.setFont("Roboto-Regular")
+    doc.setFont("Helvetica")
     doc.setFontSize(Constants.FIRST_NAME_SIZE)
     doc.setTextColor(Constants.FIRST_NAME_COLOR)
     const first_name_options = { baseline: "middle" }
@@ -67,7 +67,7 @@ export default function Pdf() {
     );
 
     // Address
-    doc.setFont("Roboto-Regular")
+    doc.setFont("Helvetica")
     doc.setFontSize(Constants.ADDRESS_SIZE)
     doc.setTextColor(Constants.ADDRESS_COLOR)
     const city_state_options = { baseline: "middle" }
@@ -94,21 +94,21 @@ export default function Pdf() {
     )
 
     // Phone Number
-    doc.setFont("Roboto-Regular")
+    doc.setFont("Helvetica")
     doc.setFontSize(Constants.PHONE_NUMBER_SIZE)
     doc.setTextColor(Constants.PHONE_NUMBER_WEIGHT)
     const phone_number_options = { baseline: "middle" }
     doc.text(resume.phone_number, Constants.PHONE_NUMBER_XPOS, Constants.PHONE_NUMBER_YPOS, first_name_options );
 
     // Email Address
-    doc.setFont("Roboto-Regular")
+    doc.setFont("Helvetica")
     doc.setFontSize(Constants.EMAIL_SIZE)
     doc.setTextColor(Constants.EMAIL_COLOR)
     const email_options = { baseline: "middle" }
     doc.text(resume.email, Constants.EMAIL_XPOS, Constants.EMAIL_YPOS, email_options );
 
     // Experience Header
-    doc.setFont("Roboto-Regular")
+    doc.setFont("Helvetica")
     doc.setFontSize(Constants.EXPERIENCE_HEADER_SIZE)
     doc.setTextColor(Constants.HEADER_COLOR)
     const experience_header_options = { baseline: "middle" }

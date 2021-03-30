@@ -10,14 +10,22 @@
       "title": "VP of Engineering",
       "start_date": "1/2021",
       "end_date": null,
-      "description": "Served as a lead developer consultant for a few years before getting hired."
+      "accomplishments": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "location": "Chicago, USA"
     },
     {
       "company": "Aker",
       "title": "IoT Engineer",
       "start_date": null,
       "end_date": null,
-      "description": null
+      "accomplishments": [
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+      ],
+      "location": "Chicago, USA"
     }
   ]
 }
