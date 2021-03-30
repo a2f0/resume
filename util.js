@@ -137,7 +137,13 @@ export function svgR() {
   for (var i = 0; i < resume.experience.length; i++) {
     const position = resume.experience[i];
 
-    console.info("POSITION TITLE Y: " + currentPositionYPos + Constants.UNITS)
+    // Bullet on Divider
+    var bulletOnDivider = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    bulletOnDivider.setAttribute("cx",Constants.VERTICAL_DIVIDER_XPOS + Constants.UNITS);
+    bulletOnDivider.setAttribute("cy",currentPositionYPos + Constants.UNITS);
+    bulletOnDivider.setAttribute("r", Constants.POSITION_BULLET_RADIUS + Constants.UNITS);
+    bulletOnDivider.setAttribute("fill", "red")
+    svgResume.appendChild(bulletOnDivider)
 
     // Position Title
     var posititionTitle = document.createElementNS("http://www.w3.org/2000/svg","text");
