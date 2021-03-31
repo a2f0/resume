@@ -45,5 +45,17 @@
       ],
       "location": "Chicago, USA"
     }
+  ],
+  "eduction": [
+    {
+      "institution": "The University of Chicago",
+      "credential": "Master of Computer Science",
+      "commencement": "Class of 2013"
+    },
+    {
+      "institution": "The University of Iowa",
+      "credential": "Bachelor of Business Administration (Management Information Systems)",
+      "commencement": "Class of 2003"
+    }
   ]
 }

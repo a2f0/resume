@@ -10,7 +10,7 @@ export const TEXT_COLOR                         = 'white';
 export const HEADER_SIZE                        = 14;
 export const HEADER_SPACING                     = 8;
 export const HEADER_COLOR                       = 'red';
-export const EXPERIENCE_HEADER                  = 'Experience';
+export const EXPERIENCE_HEADER                  = 'EXPERIENCE';
 export const SVG_FONT_FAMILY                    = 'Helvetica';
 export const HYPEN_SPACING                      = 4;
 
@@ -108,3 +108,9 @@ export const POSITION_ACCOMPLISHMENT_MAX_WIDTH  = RIGHT_PANEL_WIDTH - ( RIGHT_PA
 
 export const POSITION_BULLET_COLOR              = 'red';
 export const POSITION_BULLET_RADIUS             = 3;
+
+export const EDUCATION_HEADER_WEIGHT            = 400;
+export const EDUCATION_HEADER_SIZE              = HEADER_SIZE;
+export const EDUCATION_HEADER_COLOR             = 'red';
+export const EDUCATION_HEADER_XPOS              = RIGHT_PANEL_STARTX;
+export const EDUCATION_HEADER                   = 'EDUCATION';

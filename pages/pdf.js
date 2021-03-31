@@ -49,18 +49,18 @@ export default function Pdf() {
     doc.setTextColor(Constants.FIRST_NAME_COLOR)
     const first_name_options = { baseline: "middle" }
     doc.text(
-      resume.first_name.toUpperCase(),
+      resume.first_name,
       Constants.FIRST_NAME_XPOS,
       Constants.FIRST_NAME_YPOS_MIDDLE,
       first_name_options
     );
 
     // Last Name
-    var firstNameWidth = doc.getTextWidth(resume.first_name.toUpperCase());
+    var firstNameWidth = doc.getTextWidth(resume.first_name);
     doc.setTextColor(Constants.LAST_NAME_COLOR)
     const last_name_options = { baseline: "middle" }
     doc.text(
-      resume.last_name.toUpperCase(),
+      resume.last_name,
       Constants.FIRST_NAME_XPOS + firstNameWidth,
       Constants.FIRST_NAME_YPOS_MIDDLE,
       first_name_options

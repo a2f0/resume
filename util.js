@@ -30,7 +30,7 @@ export function svgR() {
   firstName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   firstName.setAttribute("dominant-baseline", "middle");
   firstName.setAttribute("fill", Constants.FIRST_NAME_COLOR);
-  firstName.innerHTML = resume.first_name.toUpperCase();
+  firstName.innerHTML = resume.first_name;
   svgResume.appendChild(firstName);
 
   // Last Name
@@ -39,7 +39,7 @@ export function svgR() {
   fontToMeasure += Constants.UNITS + " "
   fontToMeasure += Constants.SVG_FONT_FAMILY
   const firstNameWidthInPoints = getTextWidthInPoints(
-    resume.first_name.toUpperCase(),
+    resume.first_name,
     fontToMeasure
   )
   var lastName = document.createElementNS("http://www.w3.org/2000/svg","text");
@@ -50,7 +50,7 @@ export function svgR() {
   lastName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
   lastName.setAttribute("dominant-baseline", "middle");
   lastName.setAttribute("fill", Constants.LAST_NAME_COLOR);
-  lastName.innerHTML = resume.last_name.toUpperCase();
+  lastName.innerHTML = resume.last_name;
   svgResume.appendChild(lastName);
 
   // Address Line
@@ -263,6 +263,18 @@ export function svgR() {
     currentPositionYPos = accomplishmentYPos + Constants.POSITION_VERTICAL_SPACING;
   }
 
+  // Education Header
+  var educationHeader = document.createElementNS("http://www.w3.org/2000/svg","text");
+  const educationHeaderYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+
+  educationHeader.setAttribute("x",Constants.EDUCATION_HEADER_XPOS + Constants.UNITS);
+  educationHeader.setAttribute("y",educationHeaderYPos + Constants.UNITS);
+  educationHeader.setAttribute("font-size", Constants.EDUCATION_HEADER_SIZE + Constants.UNITS);
+  educationHeader.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  educationHeader.setAttribute("dominant-baseline", "middle");
+  educationHeader.setAttribute("fill", Constants.EDUCATION_HEADER_COLOR);
+  educationHeader.innerHTML = Constants.EDUCATION_HEADER;
+  svgResume.appendChild(educationHeader)
   return(svgResume)
 }
 
