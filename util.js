@@ -160,6 +160,26 @@ export function svgR() {
       fontToMeasure
     )
 
+    // Position Date Range
+    var positionDateRangeFont = Constants.POSITION_DATE_RANGE_WEIGHT + " "
+    positionDateRangeFont += Constants.POSITION_DATE_RANGE_SIZE
+    positionDateRangeFont += Constants.UNITS + " "
+    positionDateRangeFont += Constants.SVG_FONT_FAMILY
+    const positionDateRangeWidth = getTextWidthInPoints(
+      position.date_range,
+      positionDateRangeFont
+    )
+    var positionDateRangeXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - positionDateRangeWidth
+    var positionDateRange = document.createElementNS("http://www.w3.org/2000/svg","text");
+    positionDateRange.setAttribute("x",positionDateRangeXPos + Constants.UNITS);
+    positionDateRange.setAttribute("y",currentPositionYPos + Constants.UNITS);
+    positionDateRange.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
+    positionDateRange.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    positionDateRange.setAttribute("dominant-baseline", "middle");
+    positionDateRange.setAttribute("fill", Constants.POSITION_TITLE_COLOR);
+    positionDateRange.innerHTML = position.date_range;
+    svgResume.appendChild(positionDateRange)
+
     // Hyphen After Title
     var hyphen1 = document.createElementNS("http://www.w3.org/2000/svg","text");
     const hyphen1XPos = Constants.POSITION_TITLE_XPOS + titleWidth + Constants.HYPEN_SPACING
@@ -240,7 +260,7 @@ export function svgR() {
         accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
       }
     }
-    currentPositionYPos = accomplishmentYPos + Constants.POSITION_SPACING;
+    currentPositionYPos = accomplishmentYPos + Constants.POSITION_VERTICAL_SPACING;
   }
 
   return(svgResume)

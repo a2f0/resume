@@ -8,6 +8,7 @@ export const DIVIDER_COLOR                      = 'red';
 export const BACKGROUND_COLOR                   = 'black';
 export const TEXT_COLOR                         = 'white';
 export const HEADER_SIZE                        = 14;
+export const HEADER_SPACING                     = 8;
 export const HEADER_COLOR                       = 'red';
 export const EXPERIENCE_HEADER                  = 'Experience';
 export const SVG_FONT_FAMILY                    = 'Helvetica';
@@ -18,6 +19,7 @@ export const LEFT_PANEL_YPOS                    = 0;
 export const LEFT_PANEL_PERCENTAGE              = .27;
 export const LEFT_PANEL_WIDTH                   = LEFT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
 export const LEFT_PANEL_COLOR                   = BACKGROUND_COLOR;
+export const LEFT_PANEL_MARGIN                  = 10
 
 export const RIGHT_PANEL_XPOS                   = LEFT_PANEL_WIDTH;
 export const RIGHT_PANEL_YPOS                   = 0;
@@ -52,7 +54,7 @@ export const VERTICAL_DIVIDER_YPOS              = 20;
 export const VERTICAL_DIVIDER_HEIGHT            = DOCUMENT_HEIGHT - 60;
 export const VERTICAL_DIVIDER_COLOR             = DIVIDER_COLOR;
 
-export const RIGHT_PANEL_MARGIN                 = 15;
+export const RIGHT_PANEL_MARGIN                 = LEFT_PANEL_MARGIN;
 export const RIGHT_PANEL_STARTX                 = VERTICAL_DIVIDER_XPOS + RIGHT_PANEL_MARGIN;
 
 export const ADDRESS_LINE_STROKE_WIDTH          = 1;
@@ -80,13 +82,17 @@ export const EXPERIENCE_HEADER_SIZE             = HEADER_SIZE;
 export const EXPERIENCE_HEADER_XPOS             = RIGHT_PANEL_STARTX;
 export const EXPERIENCE_HEADER_YPOS             = RIGHT_PANEL_STARTY;
 
-export const POSITION_SPACING                   = 12;
+export const POSITION_VERTICAL_SPACING          = 12;
 
 export const POSITION_TITLE_WEIGHT              = 400;
 export const POSITION_TITLE_SIZE                = 10;
 export const POSITION_TITLE_COLOR               = 'white';
 export const POSITION_TITLE_XPOS                = RIGHT_PANEL_STARTX;
-export const POSITION_TITLE_YPOS_START          = EXPERIENCE_HEADER_YPOS + POSITION_TITLE_SIZE
+export const POSITION_TITLE_YPOS_START          = EXPERIENCE_HEADER_YPOS + POSITION_TITLE_SIZE + HEADER_SPACING
+
+export const POSITION_DATE_RANGE_WEIGHT         = 400;
+export const POSITION_DATE_RANGE_SIZE           = 10;
+export const POSITION_DATE_RANGE_COLOR          = 'white';
 
 export const POSITION_COMPANY_WEIGHT            = 400;
 export const POSITION_COMPANY_SIZE              = POSITION_TITLE_SIZE;

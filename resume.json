@@ -4,26 +4,44 @@
   "phone_number": "(312) 607-3702",
   "email": "dansullivan@gmail.com",
   "city_state": "New York, NY",
+  "overview": "I am interested in producing quality, maintainable software.  My technical strangths are Django, Rails, React, and Postgres.",
   "experience": [
     {
       "company": "Real Time Risk Solutions",
-      "title": "VP of Engineering",
+      "title": "VP of Engineering (Current)",
       "date_range": "1/2021 - Current",
-      "end_date": null,
+      "description": "When I started working at RTRS, I was the only developer, a freelancer, and my hours were capped at seven per week due to funding.  Almost four years later, I am on staff and we are doing business with Fortune 500 companies. I lead a team of engineers spanning mobile, web, and backend.",
       "accomplishments": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "I focus heavily on API security of a multirole, multitenant application.",
+        "Wrote over 1000 integration/unit tests for Django/DRF.",
+        "Automated deployments and code quality checks using Github Actions.",
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "location": "Chicago, USA",
+      "technologies": [
+        "Django",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "company": "Aker",
+      "title": "IoT Engineer (Freelancer)",
+      "date_range": "6/2017 - 11/2019",
+      "description": "This was a cutting edge hardware technology project that I served on as the lead developer for the first two iterations.",
+      "accomplishments": [
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
       ],
       "location": "Chicago, USA"
     },
     {
-      "company": "Aker",
-      "title": "IoT Engineer",
+      "company": "Ball Horticultural Company",
+      "title": "DevOps Engineer (Freelancer)",
       "date_range": "6/2017 - 11/2019",
-      "end_date": null,
+      "description": "I was hired to automate the build and release of iOS, Android, and Rails applications, then retained to complete additional work.",
       "accomplishments": [
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+        "Completed two major version upgrades of a monolithic Rails code base.",
+        "consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
       ],
       "location": "Chicago, USA"
     }
