@@ -114,3 +114,13 @@ export const EDUCATION_HEADER_SIZE              = HEADER_SIZE;
 export const EDUCATION_HEADER_COLOR             = 'red';
 export const EDUCATION_HEADER_XPOS              = RIGHT_PANEL_STARTX;
 export const EDUCATION_HEADER                   = 'EDUCATION';
+
+export const EDUCATION_WEIGHT                   = 400;
+export const EDUCATION_SIZE                     = ADDRESS_SIZE;
+export const EDUCATION_COLOR                    = 'white';
+export const EDUCATION_XPOS                     = RIGHT_PANEL_STARTX;
+
+export const EDUCATION_BULLET_COLOR             = 'red';
+export const EDUCATION_BULLET_RADIUS            = 3;
+
+export const EDUCATION_VERTICAL_SPACING         = POSITION_VERTICAL_SPACING;

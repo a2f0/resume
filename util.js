@@ -275,6 +275,73 @@ export function svgR() {
   educationHeader.setAttribute("fill", Constants.EDUCATION_HEADER_COLOR);
   educationHeader.innerHTML = Constants.EDUCATION_HEADER;
   svgResume.appendChild(educationHeader)
+
+  // Education Instances
+  var educationYPos = educationHeaderYPos + Constants.HEADER_SPACING + Constants.EDUCATION_SIZE;
+  var educationFont = Constants.EDUCATION_WEIGHT + " "
+  educationFont += Constants.EDUCATION_SIZE
+  educationFont += Constants.UNITS + " "
+  educationFont += Constants.SVG_FONT_FAMILY
+
+  for (var m = 0; m < resume.education.length; m++) {
+    var education = resume.education[m];
+
+    // Bullet on Divider
+    var educationBulletOnDivider = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    educationBulletOnDivider.setAttribute("cx",Constants.VERTICAL_DIVIDER_XPOS + Constants.UNITS);
+    educationBulletOnDivider.setAttribute("cy",educationYPos + Constants.UNITS);
+    educationBulletOnDivider.setAttribute("r", Constants.POSITION_BULLET_RADIUS + Constants.UNITS);
+    educationBulletOnDivider.setAttribute("fill", "red")
+    svgResume.appendChild(educationBulletOnDivider)
+
+    // Commencement
+    var commencementDateRangeFont = Constants.EDUCATION_WEIGHT + " "
+    commencementDateRangeFont += Constants.EDUCATION_SIZE
+    commencementDateRangeFont += Constants.UNITS + " "
+    commencementDateRangeFont += Constants.SVG_FONT_FAMILY
+    const commencementDateRangeWidth = getTextWidthInPoints(
+      education.commencement,
+      commencementDateRangeFont
+    )
+
+    var commencementXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - commencementDateRangeWidth
+    var commencement = document.createElementNS("http://www.w3.org/2000/svg","text");
+    commencement.setAttribute("x",commencementXPos + Constants.UNITS);
+    commencement.setAttribute("y",educationYPos + Constants.UNITS);
+    commencement.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
+    commencement.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    commencement.setAttribute("dominant-baseline", "middle");
+    commencement.setAttribute("fill", Constants.EDUCATION_COLOR);
+    commencement.innerHTML = education.commencement;
+    svgResume.appendChild(commencement)
+
+    // Education Institution
+    var educationInstitution = document.createElementNS("http://www.w3.org/2000/svg","text");
+    educationInstitution.setAttribute("x",Constants.POSITION_TITLE_XPOS + Constants.UNITS);
+    educationInstitution.setAttribute("y",educationYPos + Constants.UNITS);
+    educationInstitution.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
+    educationInstitution.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    educationInstitution.setAttribute("dominant-baseline", "middle");
+    educationInstitution.setAttribute("fill", Constants.EDUCATION_COLOR);
+    educationInstitution.innerHTML = education.institution;
+    svgResume.appendChild(educationInstitution)
+
+    // Education Degree
+    var educationDegree = document.createElementNS("http://www.w3.org/2000/svg","text");
+    educationYPos += Constants.EDUCATION_SIZE
+    educationDegree.setAttribute("x",Constants.POSITION_TITLE_XPOS + Constants.UNITS);
+    educationDegree.setAttribute("y",educationYPos + Constants.UNITS);
+    educationDegree.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
+    educationDegree.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    educationDegree.setAttribute("dominant-baseline", "middle");
+    educationDegree.setAttribute("fill", Constants.EDUCATION_COLOR);
+    educationDegree.innerHTML = education.credential;
+    svgResume.appendChild(educationDegree)
+
+    educationYPos += Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE
+
+  }
+
   return(svgResume)
 }
 
