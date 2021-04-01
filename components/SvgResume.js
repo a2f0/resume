@@ -26,52 +26,10 @@ export default function SvgResume() {
     // setHeight(Constants.DOCUMENT_HEIGHT * coefficient)
   }
 
-
-  function breakString(word, maxWidth, hyphenCharacter='-') {
-    const characters = word.split("");
-    const lines = [];
-    let currentLine = "";  characters.forEach((character, index) => {
-      const nextLine = `${currentLine}${character}`;
-      const lineWidth = getTextWidth(nextLine);
-      if (lineWidth >= maxWidth) {
-        const currentCharacter = index + 1;
-        const isLastLine = characters.length === currentCharacter;
-        const hyphenatedNextLine = `${nextLine}${hyphenCharacter}`;
-        lines.push(isLastLine ? nextLine : hyphenatedNextLine);
-        currentLine = "";
-      } else {
-        currentLine = nextLine;
-      }
-    });  return { hyphenatedStrings: lines, remainingWord: currentLine };
-  }
-
-  function wrapLabel(label, maxWidth) {
-    const words = label.split(" ");
-    const completedLines = [];
-    let nextLine = "";  words.forEach((word, index) => {
-      const wordLength = getTextWidth(`${word} `);
-      const nextLineLength = getTextWidth(nextLine);    if (wordLength > maxWidth) {
-        const { hyphenatedStrings, remainingWord } = breakString(word, maxWidth);
-        completedLines.push(nextLine, ...hyphenatedStrings);      nextLine = remainingWord;
-      } else if (nextLineLength + wordLength >= maxWidth) {
-        completedLines.push(nextLine);
-        nextLine = word;
-      } else {
-        nextLine = [nextLine, word].filter(Boolean).join(" ");
-      }
-      const currentWord = index + 1;
-      const isLastWord = currentWord === words.length;
-      if (isLastWord) {
-        completedLines.push(nextLine);
-      }
-    });
-    return completedLines.filter(line => line !== "");
-  }
-
   useEffect(() => {
     var resume = svgR();
     resume.setAttribute('width', width + Constants.UNITS);
-    resume.setAttribute('height',height + Constants.UNITS);
+    resume.setAttribute('height', height + Constants.UNITS);
     // resume.setAttribute('viewBox', `0 0 ${width} ${height}`)
     // resume.setAttribute('preserveAspectRatio', "none")
     var svgContainer = document.getElementById("svgContainer");

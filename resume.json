@@ -1,23 +1,61 @@
 {
-  "first_name": "Dan",
-  "last_name": "Sullivan",
+  "first_name": "DAN",
+  "last_name": "SULLIVAN",
   "phone_number": "(312) 607-3702",
   "email": "dansullivan@gmail.com",
   "city_state": "New York, NY",
+  "overview": "I am interested in producing quality, maintainable software.",
   "experience": [
     {
       "company": "Real Time Risk Solutions",
-      "title": "VP of Engineering",
-      "start_date": "1/2021",
-      "end_date": null,
-      "description": "Served as a lead developer consultant for a few years before getting hired."
+      "title": "VP of Engineering (Current)",
+      "date_range": "1/2021 - Current",
+      "description": "When I started working at RTRS, I was the only developer, a freelancer, and my hours were capped at seven per week due to funding.  Almost four years later, I am on staff and we are doing business with Fortune 500 companies. I lead a team of engineers spanning mobile, web, and backend.",
+      "accomplishments": [
+        "I focus heavily on API security of a multirole, multitenant application.",
+        "Wrote over 1000 integration/unit tests for Django/DRF.",
+        "Automated deployments and code quality checks using Github Actions.",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ],
+      "location": "Chicago, USA",
+      "technologies": [
+        "Django",
+        "PostgreSQL"
+      ]
     },
     {
       "company": "Aker",
-      "title": "IoT Engineer",
-      "start_date": null,
-      "end_date": null,
-      "description": null
+      "title": "IoT Engineer (Freelancer)",
+      "date_range": "6/2017 - 11/2019",
+      "description": "This was a cutting edge hardware technology project that I served on as the lead developer for the first two iterations.",
+      "accomplishments": [
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+      ],
+      "location": "Chicago, USA"
+    },
+    {
+      "company": "Ball Horticultural Company",
+      "title": "DevOps Engineer (Freelancer)",
+      "date_range": "6/2017 - 11/2019",
+      "description": "I was hired to automate the build and release of iOS, Android, and Rails applications, then retained to complete additional work.",
+      "accomplishments": [
+        "Completed two major version upgrades of a monolithic Rails code base.",
+        "consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+      ],
+      "location": "Chicago, USA"
+    }
+  ],
+  "education": [
+    {
+      "institution": "The University of Chicago",
+      "credential": "Master of Computer Science",
+      "commencement": "Class of 2013"
+    },
+    {
+      "institution": "The University of Iowa",
+      "credential": "Bachelor of Business Administration (Management Information Systems)",
+      "commencement": "Class of 2003"
     }
   ]
 }
