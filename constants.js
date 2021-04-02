@@ -3,6 +3,7 @@ export const STARTY                             = 15;
 export const RIGHT_PANEL_STARTY                 = 110;
 export const DOCUMENT_WIDTH                     = 612;
 export const DOCUMENT_HEIGHT                    = 792;
+export const PIXELS_PER_POINT                   = .75;
 export const UNITS                              = 'pt';
 export const DIVIDER_COLOR                      = 'red';
 export const BACKGROUND_COLOR                   = 'black';
