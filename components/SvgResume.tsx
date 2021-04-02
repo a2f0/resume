@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from 'react';
 import Slider from './Slider';
-import resume from '../resume.json';
 import * as Constants from '../constants'
 import { svgR } from '../util.js'
 
@@ -12,12 +11,12 @@ export default function SvgResume() {
   const [width, setWidth] = useState(Constants.DOCUMENT_WIDTH)
   const [height, setHeight] = useState(Constants.DOCUMENT_HEIGHT)
 
-  const positionSvg = {
+  const positionSvg: CSSProperties = {
     textAlign: "center",
     marginTop: "25px",
   };
 
-  const positionSvgTools = {
+  const positionSvgTools: CSSProperties = {
     textAlign: "center"
   };
 
