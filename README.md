@@ -6,14 +6,14 @@ My resume is a [JSON document](resume.json) that is programatically rendered int
 
 ## Developing
 
+Install dependencies
+
+```bash
+yarn install
+```
+
 Run the development server
 
 ```bash
-npm run dev
-```
-
-Bump the version
-
-```bash
-npm --no-git-tag-version version patch
+yarn run dev
 ```
