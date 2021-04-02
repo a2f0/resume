@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# discourage npm usage
+package-lock.json
