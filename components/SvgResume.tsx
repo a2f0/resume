@@ -6,8 +6,8 @@ import { svgR } from '../util.js'
 export default function SvgResume() {
 
   // SVG Document Dimensions
-  const ORIGINAL_VIEWBOX_WIDTH=Constants.DOCUMENT_WIDTH
-  const ORIGINAL_VIEWBOX_HEIGHT=Constants.DOCUMENT_HEIGHT
+  const ORIGINAL_VIEWBOX_WIDTH=Constants.DOCUMENT_WIDTH / Constants.PIXELS_PER_POINT;
+  const ORIGINAL_VIEWBOX_HEIGHT=Constants.DOCUMENT_HEIGHT / Constants.PIXELS_PER_POINT;
   const [width, setWidth] = useState(Constants.DOCUMENT_WIDTH)
   const [height, setHeight] = useState(Constants.DOCUMENT_HEIGHT)
 
@@ -21,16 +21,16 @@ export default function SvgResume() {
   };
 
   function adjustCoefficient(coefficient) {
-    // setWidth(Constants.DOCUMENT_WIDTH * coefficient)
-    // setHeight(Constants.DOCUMENT_HEIGHT * coefficient)
+    setWidth(Constants.DOCUMENT_WIDTH * coefficient)
+    setHeight(Constants.DOCUMENT_HEIGHT * coefficient)
   }
 
   useEffect(() => {
     var resume = svgR();
     resume.setAttribute('width', width + Constants.UNITS);
     resume.setAttribute('height', height + Constants.UNITS);
-    // resume.setAttribute('viewBox', `0 0 ${width} ${height}`)
-    // resume.setAttribute('preserveAspectRatio', "none")
+    resume.setAttribute('viewBox', `0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`)
+    resume.setAttribute('preserveAspectRatio', "none")
     var svgContainer = document.getElementById("svgContainer");
     svgContainer.innerHTML = '';
     svgContainer.appendChild(resume);
@@ -56,7 +56,7 @@ export default function SvgResume() {
 
   return (
     <>
-      {/* <Slider adjustCoefficient={adjustCoefficient}/> */}
+      <Slider adjustCoefficient={adjustCoefficient}/>
       <div id='svgContainer' style={positionSvg}>
       </div>
       <div style={positionSvgTools} onClick={() => { downloadSvg();}}>[Download]</div>
