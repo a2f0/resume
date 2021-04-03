@@ -143,7 +143,7 @@ export function svgR() {
     bulletOnDivider.setAttribute("cx",Constants.VERTICAL_DIVIDER_XPOS + Constants.UNITS);
     bulletOnDivider.setAttribute("cy",currentPositionYPos + Constants.UNITS);
     bulletOnDivider.setAttribute("r", Constants.POSITION_BULLET_RADIUS + Constants.UNITS);
-    bulletOnDivider.setAttribute("fill", "red")
+    bulletOnDivider.setAttribute("fill", Constants.POSITION_BULLET_COLOR)
     svgResume.appendChild(bulletOnDivider)
 
     // Position Title
@@ -170,7 +170,7 @@ export function svgR() {
       position.date_range,
       positionDateRangeFont
     )
-    var positionDateRangeXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - positionDateRangeWidth
+    const positionDateRangeXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - positionDateRangeWidth
     var positionDateRange = document.createElementNS("http://www.w3.org/2000/svg","text");
     positionDateRange.setAttribute("x",positionDateRangeXPos + Constants.UNITS);
     positionDateRange.setAttribute("y",currentPositionYPos + Constants.UNITS);
@@ -190,7 +190,7 @@ export function svgR() {
     hyphen1.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
     hyphen1.setAttribute("dominant-baseline", "middle");
     hyphen1.setAttribute("fill", Constants.POSITION_COMPANY_COLOR);
-    hyphen1.innerHTML = '- ';
+    hyphen1.innerHTML = '-';
     svgResume.appendChild(hyphen1);
 
     // Company Name
