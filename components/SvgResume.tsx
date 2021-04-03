@@ -1,7 +1,7 @@
 import React, { useEffect, useState, CSSProperties } from 'react';
 import Slider from './Slider';
 import * as Constants from '../constants'
-import { svgR } from '../util.js'
+import { svgR } from '../library/svgResume'
 
 export default function SvgResume() {
 
