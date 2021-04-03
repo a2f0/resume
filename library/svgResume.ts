@@ -74,7 +74,7 @@ export function svgR() {
   verticalDividerLine.setAttribute("y1",Constants.VERTICAL_DIVIDER_YPOS + Constants.UNITS);
   verticalDividerLine.setAttribute("y2",Constants.VERTICAL_DIVIDER_HEIGHT + Constants.UNITS);
   verticalDividerLine.setAttribute("stroke", Constants.VERTICAL_DIVIDER_COLOR)
-  verticalDividerLine.setAttribute("stroke-width", Constants.VERTICAL_DIVIDER_STROKE_WIDTH)
+  verticalDividerLine.setAttribute("stroke-width", Constants.VERTICAL_DIVIDER_STROKE_WIDTH + Constants.UNITS)
   svgResume.appendChild(verticalDividerLine);
 
   // Address Separator Line
@@ -85,7 +85,7 @@ export function svgR() {
   addressSeparatorLine.setAttribute("y1",Constants.ADDRESS_LINE_YPOS + Constants.UNITS);
   addressSeparatorLine.setAttribute("y2",Constants.ADDRESS_LINE_YPOS + Constants.UNITS);
   addressSeparatorLine.setAttribute("stroke", Constants.ADDRESS_LINE_COLOR)
-  addressSeparatorLine.setAttribute("stroke-width", Constants.ADDRESS_LINE_STROKE_WIDTH)
+  addressSeparatorLine.setAttribute("stroke-width", Constants.ADDRESS_LINE_STROKE_WIDTH + Constants.UNITS)
   svgResume.appendChild(addressSeparatorLine);
 
   // Phone Number
@@ -234,7 +234,7 @@ export function svgR() {
     svgResume.appendChild(companyLocation);
 
     // Accomplishments
-    const accomplishmentYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+    var accomplishmentYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
     var accomplishmentFont = Constants.POSITION_ACCOMPLISHMENT_WEIGHT + " "
     accomplishmentFont += Constants.POSITION_ACCOMPLISHMENT_SIZE
     accomplishmentFont += Constants.UNITS + " "
