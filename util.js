@@ -9,7 +9,7 @@ export function svgR() {
   // Left Partition
   var leftCanvasRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   leftCanvasRect.style.fill = Constants.LEFT_PANEL_COLOR;
-  leftCanvasRect.setAttribute("width", '200pt');
+  leftCanvasRect.setAttribute("width", Constants.LEFT_PANEL_WIDTH + Constants.UNITS);
   leftCanvasRect.setAttribute("height", Constants.DOCUMENT_HEIGHT + Constants.UNITS);
   svgResume.appendChild(leftCanvasRect);
 
@@ -246,7 +246,6 @@ export function svgR() {
         accomplishmentFont
       )
       for (var k = 0; k < accomplishmentLines.length; k++) {
-        console.info('iterating k: ' + k + ' with ypos ' + accomplishmentYPos)
         const accomplismentLine = accomplishmentLines[k];
         var positionAccomplishmentLine = document.createElementNS("http://www.w3.org/2000/svg","text");
         positionAccomplishmentLine.setAttribute("x",Constants.POSITION_ACCOMPLISHMENT_XPOS + Constants.UNITS);
