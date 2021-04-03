@@ -103,6 +103,120 @@ export function pdfR() {
   const experience_header_options: TextOptionsLight = { baseline: "middle" }
   doc.text(Constants.EXPERIENCE_HEADER, Constants.EXPERIENCE_HEADER_XPOS, Constants.EXPERIENCE_HEADER_YPOS, experience_header_options );
 
+  var currentPositionYPos = Constants.POSITION_TITLE_YPOS_START
+  var fontToMeasure = Constants.POSITION_TITLE_WEIGHT + " "
+  fontToMeasure += Constants.POSITION_TITLE_SIZE
+  fontToMeasure += Constants.UNITS + " "
+  fontToMeasure += Constants.SVG_FONT_FAMILY
+  const hyphenWidth = getTextWidthInPoints(
+    '-',
+    fontToMeasure
+  )
+  // Individual Positions
+  for (var i = 0; i < resume.experience.length; i++) {
+    const position = resume.experience[i];
+
+    // Bullet on Divider
+    doc.setFillColor(Constants.POSITION_BULLET_COLOR);
+    doc.circle(Constants.VERTICAL_DIVIDER_XPOS, currentPositionYPos, Constants.POSITION_BULLET_RADIUS, 'F')
+
+    // Position Title
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const position_title_options: TextOptionsLight = { baseline: "middle" }
+    doc.text(position.title, Constants.POSITION_TITLE_XPOS, currentPositionYPos, position_title_options );
+    const titleWidth = getTextWidthInPoints(
+      position.title,
+      fontToMeasure
+    )
+
+    // Position Date Range
+    var positionDateRangeFont = Constants.POSITION_DATE_RANGE_WEIGHT + " "
+    positionDateRangeFont += Constants.POSITION_DATE_RANGE_SIZE
+    positionDateRangeFont += Constants.UNITS + " "
+    positionDateRangeFont += Constants.SVG_FONT_FAMILY
+    const positionDateRangeWidth = getTextWidthInPoints(
+      position.date_range,
+      positionDateRangeFont
+    )
+    const positionDateRangeXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - positionDateRangeWidth
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const position_date_range_options: TextOptionsLight = { baseline: "middle" }
+    doc.text(position.date_range, positionDateRangeXPos, currentPositionYPos, position_date_range_options );
+
+    // Hyphen After Title
+    const hyphen1XPos = Constants.POSITION_TITLE_XPOS + titleWidth + Constants.HYPEN_SPACING
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const hyphen1_options: TextOptionsLight = { baseline: "middle" }
+    doc.text('-', hyphen1XPos, currentPositionYPos, hyphen1_options );
+
+    // Company Name
+    const companyNameXPos =  hyphen1XPos + hyphenWidth + Constants.HYPEN_SPACING
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const company_name_options: TextOptionsLight = { baseline: "middle" }
+    doc.text(position.company, companyNameXPos, currentPositionYPos, company_name_options );
+    const companyNameWidth = getTextWidthInPoints(
+      position.company,
+      fontToMeasure
+    )
+
+    // Hyphen After Company Name
+    const hyphen2XPos = companyNameXPos + companyNameWidth + Constants.HYPEN_SPACING
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const hyphen2_options: TextOptionsLight = { baseline: "middle" }
+    doc.text('-', hyphen2XPos, currentPositionYPos, hyphen2_options );
+
+    // Company Location
+    const companyLocationXPos =  hyphen2XPos + hyphenWidth + Constants.HYPEN_SPACING
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.POSITION_TITLE_SIZE)
+    doc.setTextColor(Constants.POSITION_TITLE_COLOR)
+    const company_location_options: TextOptionsLight = { baseline: "middle" }
+    doc.text(position.location, companyLocationXPos, currentPositionYPos, company_location_options );
+
+    // Accomplishments
+    var accomplishmentYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+    var accomplishmentFont = Constants.POSITION_ACCOMPLISHMENT_WEIGHT + " "
+    accomplishmentFont += Constants.POSITION_ACCOMPLISHMENT_SIZE
+    accomplishmentFont += Constants.UNITS + " "
+    accomplishmentFont += Constants.SVG_FONT_FAMILY
+    for (var j = 0; j < position.accomplishments.length; j++) {
+      var accomplishment = position.accomplishments[j];
+      const accomplishmentLines = wrapLabel(
+        accomplishment,
+        Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
+        accomplishmentFont
+      )
+      for (var k = 0; k < accomplishmentLines.length; k++) {
+        const accomplismentLine = accomplishmentLines[k];
+        doc.setFont("Helvetica")
+        doc.setFontSize(Constants.POSITION_ACCOMPLISHMENT_SIZE)
+        doc.setTextColor(Constants.POSITION_ACCOMPLISHMENT_COLOR)
+        const accomplishment_options : TextOptionsLight = { baseline: "middle" }
+        doc.text(accomplismentLine, Constants.POSITION_ACCOMPLISHMENT_XPOS, accomplishmentYPos, company_location_options );
+        accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
+      }
+    }
+    currentPositionYPos = accomplishmentYPos + Constants.POSITION_VERTICAL_SPACING;
+  }
+
+  // Education Header
+  const educationHeaderYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+  doc.setFont("Helvetica")
+  doc.setFontSize(Constants.EDUCATION_HEADER_SIZE)
+  doc.setTextColor(Constants.EDUCATION_HEADER_COLOR)
+  const education_header_options : TextOptionsLight = { baseline: "middle" }
+  doc.text(Constants.EDUCATION_HEADER, Constants.POSITION_ACCOMPLISHMENT_XPOS, educationHeaderYPos, education_header_options );
+
   return doc.output('datauristring');
 
 }
