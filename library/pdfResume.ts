@@ -217,6 +217,54 @@ export function pdfR() {
   const education_header_options : TextOptionsLight = { baseline: "middle" }
   doc.text(Constants.EDUCATION_HEADER, Constants.POSITION_ACCOMPLISHMENT_XPOS, educationHeaderYPos, education_header_options );
 
+  // Education Instances
+  var educationYPos = educationHeaderYPos + Constants.HEADER_SPACING + Constants.EDUCATION_SIZE;
+  var educationFont = Constants.EDUCATION_WEIGHT + " "
+  educationFont += Constants.EDUCATION_SIZE
+  educationFont += Constants.UNITS + " "
+  educationFont += Constants.SVG_FONT_FAMILY
+
+  for (var m = 0; m < resume.education.length; m++) {
+    var education = resume.education[m];
+
+    // Bullet on Divider
+    doc.setFillColor(Constants.POSITION_BULLET_COLOR);
+    doc.circle(Constants.VERTICAL_DIVIDER_XPOS, educationYPos, Constants.POSITION_BULLET_RADIUS, 'F')
+
+    // Commencement
+    var commencementDateRangeFont = Constants.EDUCATION_WEIGHT + " "
+    commencementDateRangeFont += Constants.EDUCATION_SIZE
+    commencementDateRangeFont += Constants.UNITS + " "
+    commencementDateRangeFont += Constants.SVG_FONT_FAMILY
+    const commencementDateRangeWidth = getTextWidthInPoints(
+      education.commencement,
+      commencementDateRangeFont
+    )
+    var commencementXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - commencementDateRangeWidth
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.EDUCATION_SIZE)
+    doc.setTextColor(Constants.EDUCATION_COLOR)
+    const commencement_options : TextOptionsLight = { baseline: "middle" }
+    doc.text(education.commencement, commencementXPos, educationYPos, commencement_options );
+
+    // Education Institution
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.EDUCATION_SIZE)
+    doc.setTextColor(Constants.EDUCATION_COLOR)
+    const education_institution_options : TextOptionsLight = { baseline: "middle" }
+    doc.text(education.institution, Constants.EDUCATION_XPOS, educationYPos, education_institution_options );
+
+    // Education Degree
+    educationYPos += Constants.EDUCATION_SIZE
+    doc.setFont("Helvetica")
+    doc.setFontSize(Constants.EDUCATION_SIZE)
+    doc.setTextColor(Constants.EDUCATION_COLOR)
+    const education_degree_options : TextOptionsLight = { baseline: "middle" }
+    doc.text(education.credential, Constants.EDUCATION_XPOS, educationYPos, education_degree_options );
+
+    educationYPos += Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE
+  }
+
   return doc.output('datauristring');
 
 }
