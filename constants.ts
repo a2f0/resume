@@ -12,7 +12,7 @@ export const HEADER_SIZE                        = 14;
 export const HEADER_SPACING                     = 8;
 export const HEADER_COLOR                       = 'red';
 export const EXPERIENCE_HEADER                  = 'EXPERIENCE';
-export const SVG_FONT_FAMILY                    = 'Helvetica';
+export const FONT_FAMILY                        = 'Helvetica';
 export const HYPEN_SPACING                      = 4;
 
 export const LEFT_PANEL_XPOS                    = 0;

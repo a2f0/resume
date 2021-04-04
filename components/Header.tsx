@@ -18,6 +18,12 @@ const Header = (props) => (
             <div className={holyGrail.menuItem}>
               <Link href="/pdf">PDF</Link>
             </div>
+            <div className={holyGrail.menuItem}>
+              <Link href="/svgfactory">SVGFactory</Link>
+            </div>
+            <div className={holyGrail.menuItem}>
+              <Link href="/pdffactory">PDFFactory</Link>
+            </div>
           </div>
         </div>
         <div className={holyGrail.centerColumn}>

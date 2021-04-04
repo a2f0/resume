@@ -17,7 +17,6 @@ const Layout = props => (
           <Footer />
         </div>
         <div className={holyGrail.mainGutterRight}></div>
-
       </main>
     </div>
   </>

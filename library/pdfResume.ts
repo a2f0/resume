@@ -107,7 +107,7 @@ export function pdfR() {
   var fontToMeasure = Constants.POSITION_TITLE_WEIGHT + " "
   fontToMeasure += Constants.POSITION_TITLE_SIZE
   fontToMeasure += Constants.UNITS + " "
-  fontToMeasure += Constants.SVG_FONT_FAMILY
+  fontToMeasure += Constants.FONT_FAMILY
   const hyphenWidth = getTextWidthInPoints(
     '-',
     fontToMeasure
@@ -135,7 +135,7 @@ export function pdfR() {
     var positionDateRangeFont = Constants.POSITION_DATE_RANGE_WEIGHT + " "
     positionDateRangeFont += Constants.POSITION_DATE_RANGE_SIZE
     positionDateRangeFont += Constants.UNITS + " "
-    positionDateRangeFont += Constants.SVG_FONT_FAMILY
+    positionDateRangeFont += Constants.FONT_FAMILY
     const positionDateRangeWidth = getTextWidthInPoints(
       position.date_range,
       positionDateRangeFont
@@ -188,7 +188,7 @@ export function pdfR() {
     var accomplishmentFont = Constants.POSITION_ACCOMPLISHMENT_WEIGHT + " "
     accomplishmentFont += Constants.POSITION_ACCOMPLISHMENT_SIZE
     accomplishmentFont += Constants.UNITS + " "
-    accomplishmentFont += Constants.SVG_FONT_FAMILY
+    accomplishmentFont += Constants.FONT_FAMILY
     for (var j = 0; j < position.accomplishments.length; j++) {
       var accomplishment = position.accomplishments[j];
       const accomplishmentLines = wrapLabel(
@@ -222,7 +222,7 @@ export function pdfR() {
   var educationFont = Constants.EDUCATION_WEIGHT + " "
   educationFont += Constants.EDUCATION_SIZE
   educationFont += Constants.UNITS + " "
-  educationFont += Constants.SVG_FONT_FAMILY
+  educationFont += Constants.FONT_FAMILY
 
   for (var m = 0; m < resume.education.length; m++) {
     var education = resume.education[m];
@@ -235,7 +235,7 @@ export function pdfR() {
     var commencementDateRangeFont = Constants.EDUCATION_WEIGHT + " "
     commencementDateRangeFont += Constants.EDUCATION_SIZE
     commencementDateRangeFont += Constants.UNITS + " "
-    commencementDateRangeFont += Constants.SVG_FONT_FAMILY
+    commencementDateRangeFont += Constants.FONT_FAMILY
     const commencementDateRangeWidth = getTextWidthInPoints(
       education.commencement,
       commencementDateRangeFont
