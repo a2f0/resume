@@ -1,7 +1,7 @@
 import React, { useEffect, useState, CSSProperties } from 'react';
 import Slider from './Slider';
 import * as Constants from '../constants'
-import { svgR } from '../library/svgResume'
+import SvgResumeFactory from '../library/svgResumeFactory'
 
 export default function SvgResume() {
 
@@ -26,7 +26,8 @@ export default function SvgResume() {
   }
 
   useEffect(() => {
-    var resume = svgR();
+    var resumeFactory = new SvgResumeFactory();
+    var resume = resumeFactory.getResume();
     resume.setAttribute('width', width + Constants.UNITS);
     resume.setAttribute('height', height + Constants.UNITS);
     resume.setAttribute('viewBox', `0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`)
