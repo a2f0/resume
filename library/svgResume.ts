@@ -28,7 +28,7 @@ export function svgR() {
   firstName.setAttribute("x",Constants.FIRST_NAME_XPOS + Constants.UNITS);
   firstName.setAttribute("y",Constants.FIRST_NAME_YPOS_MIDDLE + Constants.UNITS);
   firstName.setAttribute("font-size", Constants.FIRST_NAME_SIZE + Constants.UNITS);
-  firstName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  firstName.setAttribute("font-family",Constants.FONT_FAMILY);
   firstName.setAttribute("dominant-baseline", "middle");
   firstName.setAttribute("fill", Constants.FIRST_NAME_COLOR);
   firstName.innerHTML = resume.first_name;
@@ -38,7 +38,7 @@ export function svgR() {
   var fontToMeasure =  Constants.FIRST_NAME_WEIGHT + " "
   fontToMeasure += Constants.FIRST_NAME_SIZE
   fontToMeasure += Constants.UNITS + " "
-  fontToMeasure += Constants.SVG_FONT_FAMILY
+  fontToMeasure += Constants.FONT_FAMILY
   const firstNameWidthInPoints = getTextWidthInPoints(
     resume.first_name,
     fontToMeasure
@@ -48,7 +48,7 @@ export function svgR() {
   lastName.setAttribute("x",Constants.FIRST_NAME_XPOS + firstNameWidthInPoints + Constants.UNITS);
   lastName.setAttribute("y",Constants.LAST_NAME_YPOS_MIDDLE + Constants.UNITS);
   lastName.setAttribute("font-size", Constants.LAST_NAME_SIZE + Constants.UNITS);
-  lastName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  lastName.setAttribute("font-family",Constants.FONT_FAMILY);
   lastName.setAttribute("dominant-baseline", "middle");
   lastName.setAttribute("fill", Constants.LAST_NAME_COLOR);
   lastName.innerHTML = resume.last_name;
@@ -60,7 +60,7 @@ export function svgR() {
   addressLine.setAttribute("x",Constants.ADDRESS_XPOS + Constants.UNITS);
   addressLine.setAttribute("y",Constants.ADDRESS_YPOS_MIDDLE + Constants.UNITS);
   addressLine.setAttribute("font-size", Constants.ADDRESS_SIZE + Constants.UNITS);
-  addressLine.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  addressLine.setAttribute("font-family",Constants.FONT_FAMILY);
   addressLine.setAttribute("dominant-baseline", "middle");
   addressLine.setAttribute("fill", Constants.ADDRESS_COLOR);
   addressLine.innerHTML = resume.city_state;
@@ -94,7 +94,7 @@ export function svgR() {
   phoneNumber.setAttribute("x",Constants.PHONE_NUMBER_XPOS + Constants.UNITS);
   phoneNumber.setAttribute("y",Constants.PHONE_NUMBER_YPOS + Constants.UNITS);
   phoneNumber.setAttribute("font-size", Constants.PHONE_NUMBER_SIZE + Constants.UNITS);
-  phoneNumber.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  phoneNumber.setAttribute("font-family",Constants.FONT_FAMILY);
   phoneNumber.setAttribute("dominant-baseline", "middle");
   phoneNumber.setAttribute("fill", Constants.PHONE_NUMBER_COLOR);
   phoneNumber.innerHTML = resume.phone_number;
@@ -106,7 +106,7 @@ export function svgR() {
   emailAddress.setAttribute("x",Constants.EMAIL_XPOS + Constants.UNITS);
   emailAddress.setAttribute("y",Constants.EMAIL_YPOS + Constants.UNITS);
   emailAddress.setAttribute("font-size", Constants.EMAIL_SIZE + Constants.UNITS);
-  emailAddress.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  emailAddress.setAttribute("font-family",Constants.FONT_FAMILY);
   emailAddress.setAttribute("dominant-baseline", "middle");
   emailAddress.setAttribute("fill", Constants.EMAIL_COLOR);
   emailAddress.innerHTML = resume.email;
@@ -118,7 +118,7 @@ export function svgR() {
   emailAddress.setAttribute("x",Constants.EXPERIENCE_HEADER_XPOS + Constants.UNITS);
   emailAddress.setAttribute("y",Constants.EXPERIENCE_HEADER_YPOS + Constants.UNITS);
   emailAddress.setAttribute("font-size", Constants.EXPERIENCE_HEADER_SIZE + Constants.UNITS);
-  emailAddress.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  emailAddress.setAttribute("font-family",Constants.FONT_FAMILY);
   emailAddress.setAttribute("dominant-baseline", "middle");
   emailAddress.setAttribute("fill", Constants.HEADER_COLOR);
   emailAddress.innerHTML = Constants.EXPERIENCE_HEADER;
@@ -129,7 +129,7 @@ export function svgR() {
   var fontToMeasure = Constants.POSITION_TITLE_WEIGHT + " "
   fontToMeasure += Constants.POSITION_TITLE_SIZE
   fontToMeasure += Constants.UNITS + " "
-  fontToMeasure += Constants.SVG_FONT_FAMILY
+  fontToMeasure += Constants.FONT_FAMILY
   const hyphenWidth = getTextWidthInPoints(
     '-',
     fontToMeasure
@@ -151,7 +151,7 @@ export function svgR() {
     posititionTitle.setAttribute("x",Constants.POSITION_TITLE_XPOS + Constants.UNITS);
     posititionTitle.setAttribute("y",currentPositionYPos + Constants.UNITS);
     posititionTitle.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    posititionTitle.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    posititionTitle.setAttribute("font-family",Constants.FONT_FAMILY);
     posititionTitle.setAttribute("dominant-baseline", "middle");
     posititionTitle.setAttribute("fill", Constants.POSITION_TITLE_COLOR);
     posititionTitle.innerHTML = position.title;
@@ -165,7 +165,7 @@ export function svgR() {
     var positionDateRangeFont = Constants.POSITION_DATE_RANGE_WEIGHT + " "
     positionDateRangeFont += Constants.POSITION_DATE_RANGE_SIZE
     positionDateRangeFont += Constants.UNITS + " "
-    positionDateRangeFont += Constants.SVG_FONT_FAMILY
+    positionDateRangeFont += Constants.FONT_FAMILY
     const positionDateRangeWidth = getTextWidthInPoints(
       position.date_range,
       positionDateRangeFont
@@ -175,7 +175,7 @@ export function svgR() {
     positionDateRange.setAttribute("x",positionDateRangeXPos + Constants.UNITS);
     positionDateRange.setAttribute("y",currentPositionYPos + Constants.UNITS);
     positionDateRange.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    positionDateRange.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    positionDateRange.setAttribute("font-family",Constants.FONT_FAMILY);
     positionDateRange.setAttribute("dominant-baseline", "middle");
     positionDateRange.setAttribute("fill", Constants.POSITION_TITLE_COLOR);
     positionDateRange.innerHTML = position.date_range;
@@ -187,7 +187,7 @@ export function svgR() {
     hyphen1.setAttribute("x",hyphen1XPos + Constants.UNITS);
     hyphen1.setAttribute("y",currentPositionYPos + Constants.UNITS);
     hyphen1.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    hyphen1.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    hyphen1.setAttribute("font-family",Constants.FONT_FAMILY);
     hyphen1.setAttribute("dominant-baseline", "middle");
     hyphen1.setAttribute("fill", Constants.POSITION_COMPANY_COLOR);
     hyphen1.innerHTML = '-';
@@ -199,7 +199,7 @@ export function svgR() {
     companyName.setAttribute("x",companyNameXPos + Constants.UNITS);
     companyName.setAttribute("y",currentPositionYPos + Constants.UNITS);
     companyName.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    companyName.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    companyName.setAttribute("font-family",Constants.FONT_FAMILY);
     companyName.setAttribute("dominant-baseline", "middle");
     companyName.setAttribute("fill", Constants.POSITION_COMPANY_COLOR);
     companyName.innerHTML = position.company;
@@ -215,7 +215,7 @@ export function svgR() {
     hyphen2.setAttribute("x",hyphen2XPos + Constants.UNITS);
     hyphen2.setAttribute("y",currentPositionYPos + Constants.UNITS);
     hyphen2.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    hyphen2.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    hyphen2.setAttribute("font-family",Constants.FONT_FAMILY);
     hyphen2.setAttribute("dominant-baseline", "middle");
     hyphen2.setAttribute("fill", Constants.POSITION_COMPANY_COLOR);
     hyphen2.innerHTML = '-';
@@ -227,7 +227,7 @@ export function svgR() {
     companyLocation.setAttribute("x",companyLocationXPos + Constants.UNITS);
     companyLocation.setAttribute("y",currentPositionYPos + Constants.UNITS);
     companyLocation.setAttribute("font-size", Constants.POSITION_TITLE_SIZE + Constants.UNITS);
-    companyLocation.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    companyLocation.setAttribute("font-family",Constants.FONT_FAMILY);
     companyLocation.setAttribute("dominant-baseline", "middle");
     companyLocation.setAttribute("fill", Constants.POSITION_COMPANY_COLOR);
     companyLocation.innerHTML = position.location;
@@ -238,7 +238,7 @@ export function svgR() {
     var accomplishmentFont = Constants.POSITION_ACCOMPLISHMENT_WEIGHT + " "
     accomplishmentFont += Constants.POSITION_ACCOMPLISHMENT_SIZE
     accomplishmentFont += Constants.UNITS + " "
-    accomplishmentFont += Constants.SVG_FONT_FAMILY
+    accomplishmentFont += Constants.FONT_FAMILY
     for (var j = 0; j < position.accomplishments.length; j++) {
       var accomplishment = position.accomplishments[j];
       const accomplishmentLines = wrapLabel(
@@ -252,7 +252,7 @@ export function svgR() {
         positionAccomplishmentLine.setAttribute("x",Constants.POSITION_ACCOMPLISHMENT_XPOS + Constants.UNITS);
         positionAccomplishmentLine.setAttribute("y",accomplishmentYPos + Constants.UNITS);
         positionAccomplishmentLine.setAttribute("font-size", Constants.POSITION_ACCOMPLISHMENT_SIZE + Constants.UNITS);
-        positionAccomplishmentLine.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+        positionAccomplishmentLine.setAttribute("font-family",Constants.FONT_FAMILY);
         positionAccomplishmentLine.setAttribute("dominant-baseline", "middle");
         positionAccomplishmentLine.setAttribute("fill", Constants.POSITION_ACCOMPLISHMENT_COLOR);
         positionAccomplishmentLine.innerHTML = accomplismentLine;
@@ -270,7 +270,7 @@ export function svgR() {
   educationHeader.setAttribute("x",Constants.EDUCATION_HEADER_XPOS + Constants.UNITS);
   educationHeader.setAttribute("y",educationHeaderYPos + Constants.UNITS);
   educationHeader.setAttribute("font-size", Constants.EDUCATION_HEADER_SIZE + Constants.UNITS);
-  educationHeader.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+  educationHeader.setAttribute("font-family",Constants.FONT_FAMILY);
   educationHeader.setAttribute("dominant-baseline", "middle");
   educationHeader.setAttribute("fill", Constants.EDUCATION_HEADER_COLOR);
   educationHeader.innerHTML = Constants.EDUCATION_HEADER;
@@ -281,7 +281,7 @@ export function svgR() {
   var educationFont = Constants.EDUCATION_WEIGHT + " "
   educationFont += Constants.EDUCATION_SIZE
   educationFont += Constants.UNITS + " "
-  educationFont += Constants.SVG_FONT_FAMILY
+  educationFont += Constants.FONT_FAMILY
 
   for (var m = 0; m < resume.education.length; m++) {
     var education = resume.education[m];
@@ -290,26 +290,25 @@ export function svgR() {
     var educationBulletOnDivider = document.createElementNS("http://www.w3.org/2000/svg","circle");
     educationBulletOnDivider.setAttribute("cx",Constants.VERTICAL_DIVIDER_XPOS + Constants.UNITS);
     educationBulletOnDivider.setAttribute("cy",educationYPos + Constants.UNITS);
-    educationBulletOnDivider.setAttribute("r", Constants.POSITION_BULLET_RADIUS + Constants.UNITS);
-    educationBulletOnDivider.setAttribute("fill", "red")
+    educationBulletOnDivider.setAttribute("r", Constants.EDUCATION_BULLET_RADIUS + Constants.UNITS);
+    educationBulletOnDivider.setAttribute("fill", Constants.EDUCATION_BULLET_COLOR)
     svgResume.appendChild(educationBulletOnDivider)
 
     // Commencement
     var commencementDateRangeFont = Constants.EDUCATION_WEIGHT + " "
     commencementDateRangeFont += Constants.EDUCATION_SIZE
     commencementDateRangeFont += Constants.UNITS + " "
-    commencementDateRangeFont += Constants.SVG_FONT_FAMILY
+    commencementDateRangeFont += Constants.FONT_FAMILY
     const commencementDateRangeWidth = getTextWidthInPoints(
       education.commencement,
       commencementDateRangeFont
     )
-
     var commencementXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - commencementDateRangeWidth
     var commencement = document.createElementNS("http://www.w3.org/2000/svg","text");
     commencement.setAttribute("x",commencementXPos + Constants.UNITS);
     commencement.setAttribute("y",educationYPos + Constants.UNITS);
     commencement.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
-    commencement.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    commencement.setAttribute("font-family",Constants.FONT_FAMILY);
     commencement.setAttribute("dominant-baseline", "middle");
     commencement.setAttribute("fill", Constants.EDUCATION_COLOR);
     commencement.innerHTML = education.commencement;
@@ -317,28 +316,28 @@ export function svgR() {
 
     // Education Institution
     var educationInstitution = document.createElementNS("http://www.w3.org/2000/svg","text");
-    educationInstitution.setAttribute("x",Constants.POSITION_TITLE_XPOS + Constants.UNITS);
+    educationInstitution.setAttribute("x",Constants.EDUCATION_XPOS + Constants.UNITS);
     educationInstitution.setAttribute("y",educationYPos + Constants.UNITS);
     educationInstitution.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
-    educationInstitution.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    educationInstitution.setAttribute("font-family",Constants.FONT_FAMILY);
     educationInstitution.setAttribute("dominant-baseline", "middle");
     educationInstitution.setAttribute("fill", Constants.EDUCATION_COLOR);
     educationInstitution.innerHTML = education.institution;
-    svgResume.appendChild(educationInstitution)
+    svgResume.appendChild(educationInstitution);
 
     // Education Degree
     var educationDegree = document.createElementNS("http://www.w3.org/2000/svg","text");
     educationYPos += Constants.EDUCATION_SIZE
-    educationDegree.setAttribute("x",Constants.POSITION_TITLE_XPOS + Constants.UNITS);
+    educationDegree.setAttribute("x",Constants.EDUCATION_XPOS + Constants.UNITS);
     educationDegree.setAttribute("y",educationYPos + Constants.UNITS);
     educationDegree.setAttribute("font-size", Constants.EDUCATION_SIZE + Constants.UNITS);
-    educationDegree.setAttribute("font-family",Constants.SVG_FONT_FAMILY);
+    educationDegree.setAttribute("font-family",Constants.FONT_FAMILY);
     educationDegree.setAttribute("dominant-baseline", "middle");
     educationDegree.setAttribute("fill", Constants.EDUCATION_COLOR);
     educationDegree.innerHTML = education.credential;
-    svgResume.appendChild(educationDegree)
+    svgResume.appendChild(educationDegree);
 
-    educationYPos += Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE
+    educationYPos += Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE;
 
   }
 

@@ -50,3 +50,11 @@ export function wrapLabel(label, maxWidth, font = "400 12pt Helvetica") {
   });
   return completedLines.filter(line => line !== "");
 }
+
+export function getFontString(weight, size, units, fontFamily) {
+  var fontString = weight + " "
+  fontString += size
+  fontString += units + " "
+  fontString += fontFamily
+  return fontString
+}
