@@ -1,6 +1,7 @@
 import React, { useEffect, CSSProperties } from 'react';
 import { pdfR } from '../library/pdfResume';
 import PDFObject from "pdfobject";
+import PdfResumeFactory from '../library/pdfResumeFactory'
 
 export default function PdfResume() {
 
@@ -10,7 +11,8 @@ export default function PdfResume() {
   }
 
   useEffect(() => {
-    var resume = pdfR();
+    var resumeFactory = new PdfResumeFactory()
+    const resume = resumeFactory.getResume()
     PDFObject.embed(resume, "#pdfObject");
   });
 

@@ -35,10 +35,6 @@ export default class SvgResumeFactory extends ResumeFactory {
 
   protected addCircle(x: number, y: number, radius: number, color: string ) {
     var circleToAdd = document.createElementNS("http://www.w3.org/2000/svg","circle");
-    console.info("X: " + x)
-    console.info("Y: " + y)
-    console.info("R: " + radius)
-    console.info("Fill: " + color)
     circleToAdd.setAttribute("cx",x + Constants.UNITS);
     circleToAdd.setAttribute("cy",y + Constants.UNITS);
     circleToAdd.setAttribute("r", radius + Constants.UNITS);
