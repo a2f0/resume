@@ -1,5 +1,4 @@
 import React, { useEffect, CSSProperties } from 'react';
-import { pdfR } from '../library/pdfResume';
 import PDFObject from "pdfobject";
 import PdfResumeFactory from '../library/pdfResumeFactory'
 
