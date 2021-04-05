@@ -10,9 +10,9 @@ export default function PdfResume() {
   }
 
   useEffect(() => {
-    var resumeFactory = new PdfResumeFactory()
-    const resume = resumeFactory.getResume()
-    PDFObject.embed(resume, "#pdfObject");
+    var resumeFactory = new PdfResumeFactory();
+    const resume = resumeFactory.getResume();
+    PDFObject.embed(resume.output('datauristring'), "#pdfObject");
   });
 
   return (

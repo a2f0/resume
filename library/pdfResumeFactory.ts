@@ -35,8 +35,8 @@ export default class PdfResumeFactory extends ResumeFactory {
     this.resume.circle(x, y, radius, 'F')
   }
 
-  public getResume() {
-    return this.resume.output('datauristring');
+  public getResume(): jsPDF  {
+    return this.resume
   }
 
 }

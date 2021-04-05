@@ -4,9 +4,9 @@ import { getFontString, getTextWidthInPoints, wrapLabel } from './textUtils';
 
 export default abstract class ResumeFactory {
 
-  protected abstract addCircle(x: number, y: number, radius: number, color: string)
-  protected abstract addRect(x: number, y: number, width: number, height: number, color: string)
-  protected abstract addText(x: number, y: number, fontSize: number, fontFamily: string, color: string, text: string)
+  protected abstract addCircle(x: number, y: number, radius: number, color: string): void
+  protected abstract addRect(x: number, y: number, width: number, height: number, color: string): void
+  protected abstract addText(x: number, y: number, fontSize: number, fontFamily: string, color: string, text: string): void
 
   protected populateResume() {
     // Left Partition
@@ -19,7 +19,7 @@ export default abstract class ResumeFactory {
     )
 
     // Right Partition
-     this.addRect(
+    this.addRect(
       Constants.RIGHT_PANEL_XPOS,
       Constants.RIGHT_PANEL_YPOS,
       Constants.RIGHT_PANEL_WIDTH,
@@ -331,5 +331,4 @@ export default abstract class ResumeFactory {
     }
   }
 
-  public abstract getResume()
 }

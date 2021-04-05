@@ -1,16 +1,20 @@
-export function getTextWidthInPoints(text, font = "400 12pt Helvetica") {
+export function getTextWidthInPoints(text: string, font = "400 12pt Helvetica"): number {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
-  context.font = font;
-  const widthInPixels = context.measureText(text).width;
-  const widthInPoints = widthInPixels * .75;
-  return widthInPoints;
+  if (context) {
+    context.font = font;
+    const widthInPixels = context.measureText(text).width;
+    const widthInPoints = widthInPixels * .75;
+    return widthInPoints;
+  } else {
+    return 0
+  }
 }
 
-function breakString(word, maxWidth, font = "400 14pt Helvetica") {
+function breakString(word: string, maxWidth: number, font = "400 14pt Helvetica") {
   const hyphenCharacter = '-';
   const characters = word.split("");
-  const lines = [];
+  var lines = [] as string[];
   let currentLine = "";  characters.forEach((character, index) => {
     const nextLine = `${currentLine}${character}`;
     const lineWidth = getTextWidthInPoints(nextLine, font);
@@ -23,12 +27,13 @@ function breakString(word, maxWidth, font = "400 14pt Helvetica") {
     } else {
       currentLine = nextLine;
     }
-  });  return { hyphenatedStrings: lines, remainingWord: currentLine };
+  });
+  return { hyphenatedStrings: lines, remainingWord: currentLine };
 }
 
-export function wrapLabel(label, maxWidth, font = "400 12pt Helvetica") {
+export function wrapLabel(label: string, maxWidth: number, font = "400 12pt Helvetica") {
   const words = label.split(" ");
-  const completedLines = [];
+  var completedLines = [] as string[];
   let nextLine = "";  words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
     const nextLineLength = getTextWidthInPoints(nextLine, font);
@@ -51,7 +56,7 @@ export function wrapLabel(label, maxWidth, font = "400 12pt Helvetica") {
   return completedLines.filter(line => line !== "");
 }
 
-export function getFontString(weight, size, units, fontFamily) {
+export function getFontString(weight: number, size :number, units: string, fontFamily: string): string {
   var fontString = weight + " "
   fontString += size
   fontString += units + " "

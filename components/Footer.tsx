@@ -1,6 +1,7 @@
 import holyGrail from '../styles/HolyGrail.module.css'
 import packageJson from '../package.json';
-const Footer = (props) => (
+
+const Footer = () => (
   <footer className={holyGrail.footer}>
     <div className={holyGrail.flexContainerColumnPageWidth}>
       <div className={holyGrail.leftColumn}>

@@ -20,7 +20,7 @@ export default function SvgResume() {
     textAlign: "center"
   };
 
-  function adjustCoefficient(coefficient) {
+  function adjustCoefficient(coefficient: number) {
     setWidth(Constants.DOCUMENT_WIDTH * coefficient)
     setHeight(Constants.DOCUMENT_HEIGHT * coefficient)
   }
@@ -33,26 +33,35 @@ export default function SvgResume() {
     resume.setAttribute('viewBox', `0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`)
     resume.setAttribute('preserveAspectRatio', "none")
     var svgContainer = document.getElementById("svgContainer");
-    svgContainer.innerHTML = '';
-    svgContainer.appendChild(resume);
+    if (svgContainer) {
+      svgContainer.innerHTML = '';
+      svgContainer.appendChild(resume);
+    }
+
   });
 
   const downloadSvg = () => {
-    const svg = document.getElementById('svgContainer').innerHTML;
-    const blob = new Blob([svg.toString()]);
-    const element = document.createElement("a");
-    element.download = "dan.sullivan.resume.svg";
-    element.href = window.URL.createObjectURL(blob);
-    element.click();
-    element.remove();
+    const svg = document.getElementById('svgContainer');
+    if (svg && svg.innerHTML ) {
+      const blob = new Blob([svg.toString()]);
+      const element = document.createElement("a");
+      element.download = "dan.sullivan.resume.svg";
+      element.href = window.URL.createObjectURL(blob);
+      element.click();
+      element.remove();
+    }
   }
 
   const printView = () => {
-    const svg = document.getElementById('svgContainer').innerHTML;
-    const printableView = window.open(
-      "", "_blank"
-    );
-    printableView.document.write(svg)
+    const svg = document.getElementById('svgContainer');
+    if (svg && svg.innerHTML ) {
+      const printableView = window.open(
+        "", "_blank"
+      );
+      if (printableView) {
+        printableView.document.write(svg.innerHTML)
+      }
+    }
   }
 
   return (
