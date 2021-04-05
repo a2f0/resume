@@ -1,12 +1,29 @@
-import * as Constants from '../constants'
+import * as Constants from '../constants';
 import resume from '../resume.json';
-import { getFontString, getTextWidthInPoints, wrapLabel } from './textUtils';
+import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 
 export default abstract class ResumeFactory {
-
-  protected abstract addCircle(x: number, y: number, radius: number, color: string): void
-  protected abstract addRect(x: number, y: number, width: number, height: number, color: string): void
-  protected abstract addText(x: number, y: number, fontSize: number, fontFamily: string, color: string, text: string): void
+  protected abstract addCircle(
+    x: number,
+    y: number,
+    radius: number,
+    color: string
+  ): void;
+  protected abstract addRect(
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    color: string
+  ): void;
+  protected abstract addText(
+    x: number,
+    y: number,
+    fontSize: number,
+    fontFamily: string,
+    color: string,
+    text: string
+  ): void;
 
   protected populateResume() {
     // Left Partition
@@ -16,7 +33,7 @@ export default abstract class ResumeFactory {
       Constants.LEFT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
       Constants.LEFT_PANEL_COLOR
-    )
+    );
 
     // Right Partition
     this.addRect(
@@ -25,7 +42,7 @@ export default abstract class ResumeFactory {
       Constants.RIGHT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
       Constants.RIGHT_PANEL_COLOR
-    )
+    );
 
     // First Name
     this.addText(
@@ -35,7 +52,7 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.FIRST_NAME_COLOR,
       resume.first_name
-    )
+    );
 
     // Last Name
     const firstNameWidthInPoints = getTextWidthInPoints(
@@ -46,7 +63,7 @@ export default abstract class ResumeFactory {
         Constants.UNITS,
         Constants.FONT_FAMILY
       )
-    )
+    );
     this.addText(
       Constants.FIRST_NAME_XPOS + firstNameWidthInPoints,
       Constants.LAST_NAME_YPOS_MIDDLE,
@@ -54,7 +71,7 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.LAST_NAME_COLOR,
       resume.last_name
-    )
+    );
 
     // Address Line
     this.addText(
@@ -64,7 +81,7 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.ADDRESS_COLOR,
       resume.city_state
-    )
+    );
 
     // Vertical Divider
     this.addRect(
@@ -73,7 +90,7 @@ export default abstract class ResumeFactory {
       Constants.VERTICAL_DIVIDER_STROKE_WIDTH,
       Constants.VERTICAL_DIVIDER_HEIGHT,
       Constants.VERTICAL_DIVIDER_COLOR
-    )
+    );
 
     // Address Separator
     this.addRect(
@@ -82,7 +99,7 @@ export default abstract class ResumeFactory {
       Constants.ADDRESS_LINE_WIDTH,
       Constants.ADDRESS_LINE_STROKE_WIDTH,
       Constants.ADDRESS_LINE_COLOR
-    )
+    );
 
     // Phone Number
     this.addText(
@@ -92,7 +109,7 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.PHONE_NUMBER_COLOR,
       resume.phone_number
-    )
+    );
 
     // Email Address
     this.addText(
@@ -102,7 +119,7 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.EMAIL_COLOR,
       resume.email
-    )
+    );
 
     // Experience Header
     this.addText(
@@ -112,10 +129,10 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.HEADER_COLOR,
       Constants.EXPERIENCE_HEADER
-    )
+    );
 
     // Experience
-    var currentPositionYPos = Constants.POSITION_TITLE_YPOS_START
+    let currentPositionYPos = Constants.POSITION_TITLE_YPOS_START;
     const hyphenWidth = getTextWidthInPoints(
       '-',
       getFontString(
@@ -124,10 +141,10 @@ export default abstract class ResumeFactory {
         Constants.UNITS,
         Constants.FONT_FAMILY
       )
-    )
+    );
 
     // Individual Positions
-    for (var i = 0; i < resume.experience.length; i++) {
+    for (let i = 0; i < resume.experience.length; i++) {
       const position = resume.experience[i];
 
       // Position Bullet Point
@@ -136,7 +153,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_BULLET_RADIUS,
         Constants.POSITION_BULLET_COLOR
-      )
+      );
 
       // Position Title
       this.addText(
@@ -146,7 +163,7 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         position.title
-      )
+      );
       const titleWidth = getTextWidthInPoints(
         position.title,
         getFontString(
@@ -155,7 +172,7 @@ export default abstract class ResumeFactory {
           Constants.UNITS,
           Constants.FONT_FAMILY
         )
-      )
+      );
 
       // Position Date Range
       const positionDateRangeWidth = getTextWidthInPoints(
@@ -166,8 +183,11 @@ export default abstract class ResumeFactory {
           Constants.UNITS,
           Constants.FONT_FAMILY
         )
-      )
-      const positionDateRangeXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - positionDateRangeWidth
+      );
+      const positionDateRangeXPos =
+        Constants.VERTICAL_DIVIDER_XPOS -
+        Constants.LEFT_PANEL_MARGIN -
+        positionDateRangeWidth;
       this.addText(
         positionDateRangeXPos,
         currentPositionYPos,
@@ -175,10 +195,11 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         position.date_range
-      )
+      );
 
       // Hyphen After Title
-      const hyphen1XPos = Constants.POSITION_TITLE_XPOS + titleWidth + Constants.HYPEN_SPACING
+      const hyphen1XPos =
+        Constants.POSITION_TITLE_XPOS + titleWidth + Constants.HYPEN_SPACING;
       this.addText(
         hyphen1XPos,
         currentPositionYPos,
@@ -186,10 +207,11 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         '-'
-      )
+      );
 
       // Company Name
-      const companyNameXPos =  hyphen1XPos + hyphenWidth + Constants.HYPEN_SPACING
+      const companyNameXPos =
+        hyphen1XPos + hyphenWidth + Constants.HYPEN_SPACING;
       this.addText(
         companyNameXPos,
         currentPositionYPos,
@@ -197,7 +219,7 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         position.company
-      )
+      );
       const companyNameWidth = getTextWidthInPoints(
         position.company,
         getFontString(
@@ -206,10 +228,11 @@ export default abstract class ResumeFactory {
           Constants.UNITS,
           Constants.FONT_FAMILY
         )
-      )
+      );
 
       // Hyphen After Company Name
-      const hyphen2XPos = companyNameXPos + companyNameWidth + Constants.HYPEN_SPACING
+      const hyphen2XPos =
+        companyNameXPos + companyNameWidth + Constants.HYPEN_SPACING;
       this.addText(
         hyphen2XPos,
         currentPositionYPos,
@@ -217,10 +240,11 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         '-'
-      )
+      );
 
       // Company Location
-      const companyLocationXPos =  hyphen2XPos + hyphenWidth + Constants.HYPEN_SPACING
+      const companyLocationXPos =
+        hyphen2XPos + hyphenWidth + Constants.HYPEN_SPACING;
       this.addText(
         companyLocationXPos,
         currentPositionYPos,
@@ -228,25 +252,26 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.POSITION_TITLE_COLOR,
         position.location
-      )
+      );
 
       // Accomplishments
-      var accomplishmentYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+      let accomplishmentYPos =
+        currentPositionYPos + Constants.POSITION_TITLE_SIZE;
       const accomplishmentFont = getFontString(
         Constants.POSITION_ACCOMPLISHMENT_WEIGHT,
         Constants.POSITION_ACCOMPLISHMENT_SIZE,
         Constants.UNITS,
         Constants.FONT_FAMILY
-      )
+      );
 
-      for (var j = 0; j < position.accomplishments.length; j++) {
-        var accomplishment = position.accomplishments[j];
+      for (let j = 0; j < position.accomplishments.length; j++) {
+        const accomplishment = position.accomplishments[j];
         const accomplishmentLines = wrapLabel(
           accomplishment,
           Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
           accomplishmentFont
-        )
-        for (var k = 0; k < accomplishmentLines.length; k++) {
+        );
+        for (let k = 0; k < accomplishmentLines.length; k++) {
           const accomplismentLine = accomplishmentLines[k];
           this.addText(
             Constants.POSITION_ACCOMPLISHMENT_XPOS,
@@ -255,15 +280,17 @@ export default abstract class ResumeFactory {
             Constants.FONT_FAMILY,
             Constants.POSITION_ACCOMPLISHMENT_COLOR,
             accomplismentLine
-          )
+          );
           accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
         }
       }
-      currentPositionYPos = accomplishmentYPos + Constants.POSITION_VERTICAL_SPACING;
+      currentPositionYPos =
+        accomplishmentYPos + Constants.POSITION_VERTICAL_SPACING;
     }
 
     // Education Header
-    const educationHeaderYPos = currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+    const educationHeaderYPos =
+      currentPositionYPos + Constants.POSITION_TITLE_SIZE;
     this.addText(
       Constants.EDUCATION_HEADER_XPOS,
       educationHeaderYPos,
@@ -271,17 +298,18 @@ export default abstract class ResumeFactory {
       Constants.FONT_FAMILY,
       Constants.EDUCATION_HEADER_COLOR,
       Constants.EDUCATION_HEADER
-    )
+    );
     const educationFont = getFontString(
       Constants.EDUCATION_WEIGHT,
       Constants.EDUCATION_SIZE,
       Constants.UNITS,
       Constants.FONT_FAMILY
-    )
+    );
 
-    var educationYPos = educationHeaderYPos + Constants.HEADER_SPACING + Constants.EDUCATION_SIZE;
-    for (var m = 0; m < resume.education.length; m++) {
-      var education = resume.education[m];
+    let educationYPos =
+      educationHeaderYPos + Constants.HEADER_SPACING + Constants.EDUCATION_SIZE;
+    for (let m = 0; m < resume.education.length; m++) {
+      const education = resume.education[m];
 
       // Bullet on Divider
       this.addCircle(
@@ -289,14 +317,17 @@ export default abstract class ResumeFactory {
         educationYPos,
         Constants.POSITION_BULLET_RADIUS,
         Constants.POSITION_BULLET_COLOR
-      )
+      );
 
       // Commencement
       const commencementDateRangeWidth = getTextWidthInPoints(
         education.commencement,
         educationFont
-      )
-      const commencementXPos = Constants.VERTICAL_DIVIDER_XPOS - Constants.LEFT_PANEL_MARGIN - commencementDateRangeWidth
+      );
+      const commencementXPos =
+        Constants.VERTICAL_DIVIDER_XPOS -
+        Constants.LEFT_PANEL_MARGIN -
+        commencementDateRangeWidth;
       this.addText(
         commencementXPos,
         educationYPos,
@@ -304,7 +335,7 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.EDUCATION_COLOR,
         education.commencement
-      )
+      );
 
       // Education Institution
       this.addText(
@@ -314,10 +345,10 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.EDUCATION_COLOR,
         education.institution
-      )
+      );
 
       // Education Degree
-      educationYPos += Constants.EDUCATION_SIZE
+      educationYPos += Constants.EDUCATION_SIZE;
       this.addText(
         Constants.EDUCATION_XPOS,
         educationYPos,
@@ -325,10 +356,10 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         Constants.EDUCATION_COLOR,
         education.credential
-      )
+      );
 
-      educationYPos += Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE
+      educationYPos +=
+        Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE;
     }
   }
-
 }
