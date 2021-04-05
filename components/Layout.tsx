@@ -1,10 +1,15 @@
 
+import { ReactNode } from "react";
 import holyGrail from '../styles/HolyGrail.module.css'
 import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
-const Layout = props => (
+interface IProps {
+  children: ReactNode;
+}
+
+const Layout = ({ children }: IProps) => (
   <>
     <div className={holyGrail.mainContainer}>
       <main className={holyGrail.main}>
@@ -12,7 +17,7 @@ const Layout = props => (
         <div className={holyGrail.mainColumn}>
           <Header />
           <Body>
-            {props.children}
+            {children}
           </Body>
           <Footer />
         </div>

@@ -21,7 +21,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     this.resume.appendChild(rectToAdd);
   }
 
-  protected addText(x: number, y: number, fontSize: number, fontFamily: string, color: string, text: string ) {
+  protected addText(x: number, y: number, fontSize: number, fontFamily: string, color: string, text: string ){
     var textToAdd = document.createElementNS("http://www.w3.org/2000/svg", "text");
     textToAdd.setAttribute("x",x + Constants.UNITS);
     textToAdd.setAttribute("y",y + Constants.UNITS);
@@ -42,7 +42,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     this.resume.appendChild(circleToAdd)
   }
 
-  public getResume() {
+  public getResume(): SVGElement {
     return this.resume
   }
 }

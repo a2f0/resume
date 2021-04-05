@@ -381,6 +381,11 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/pdfobject@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/pdfobject/-/pdfobject-2.0.6.tgz#67da3ce9663f93e15bcfa0d4ecea2169091ece1a"
+  integrity sha512-KtwKbfAX4FOmB9aWbwP/tURPr4oU7Sc9mc3HZJtzQV8hsPwoMyVwx9duEvAAhVjr9/WQJKBkuaAf4pfmBIiX0g==
+
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"

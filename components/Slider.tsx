@@ -1,11 +1,16 @@
 import React, { useState, } from "react";
-export default function SvgResume(props) {
+
+interface SvgResumeProps {
+  adjustCoefficient: Function;
+}
+
+export default function SvgResume({ adjustCoefficient }: SvgResumeProps) {
 
   const [value, setValue] = useState(1);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    props.adjustCoefficient(value);
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setValue(event.currentTarget.valueAsNumber);
+    adjustCoefficient(value);
   }
 
   return (
