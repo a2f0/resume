@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import holyGrail from '../styles/HolyGrail.module.css'
-import Link from 'next/link'
+import Head from 'next/head';
+import holyGrail from '../styles/HolyGrail.module.css';
+import Link from 'next/link';
 
 const Header = () => (
   <>

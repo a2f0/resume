@@ -1,4 +1,4 @@
-import holyGrail from '../styles/HolyGrail.module.css'
+import holyGrail from '../styles/HolyGrail.module.css';
 import packageJson from '../package.json';
 
 const Footer = () => (
