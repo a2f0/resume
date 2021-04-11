@@ -5,7 +5,7 @@ import {useAppSelector} from '../library/hooks';
 import {
   selectForegroundColor,
   selectBackgroundColor,
-} from '../library/resumeForegroundColorSlice';
+} from '../library/resumeConfigSlice';
 import {ResumeConfig} from '../library/resumeConfig';
 import Color from 'color';
 

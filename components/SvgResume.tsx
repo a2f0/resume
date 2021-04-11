@@ -5,7 +5,7 @@ import SvgResumeFactory from '../library/svgResumeFactory';
 import {
   selectForegroundColor,
   selectBackgroundColor,
-} from '../library/resumeForegroundColorSlice';
+} from '../library/resumeConfigSlice';
 import {useAppSelector} from '../library/hooks';
 import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';

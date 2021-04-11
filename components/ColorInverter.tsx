@@ -5,9 +5,9 @@ import {useDispatch} from 'react-redux';
 import {
   setForegroundColor,
   setBackgroundColor,
-} from '../library/resumeForegroundColorSlice';
+} from '../library/resumeConfigSlice';
 import {useAppSelector} from '../library/hooks';
-import {selectForegroundColor} from '../library/resumeForegroundColorSlice';
+import {selectForegroundColor} from '../library/resumeConfigSlice';
 
 interface IProps {
   degrees: number;
