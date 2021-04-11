@@ -9,13 +9,13 @@ My resume is a [JSON document](resume.json) that is programatically rendered int
 Install dependencies
 
 ```bash
-yarn install
+npm install
 ```
 
 Run the development server
 
 ```bash
-yarn run dev
+npm run dev
 ```
 
 ## Vercel CLI
@@ -23,6 +23,6 @@ yarn run dev
 Login / deploy
 
 ```bash
-yarn dlx vercel
-yarn dlx vercel --prod
+npx vercel
+npx vercel --prod
 ```
