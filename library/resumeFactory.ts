@@ -35,6 +35,13 @@ export default abstract class ResumeFactory {
     color: Color,
     text: string
   ): void;
+  protected abstract addLine(
+    x1: number,
+    x2: number,
+    y1: number,
+    y2: number,
+    color: Color
+  ): void;
 
   protected populateResume() {
     // Left Partition
@@ -95,20 +102,20 @@ export default abstract class ResumeFactory {
     );
 
     // Vertical Divider
-    this.addRect(
+    this.addLine(
       Constants.VERTICAL_DIVIDER_XPOS,
-      Constants.VERTICAL_DIVIDER_YPOS,
-      Constants.VERTICAL_DIVIDER_STROKE_WIDTH,
-      Constants.VERTICAL_DIVIDER_HEIGHT,
+      Constants.VERTICAL_DIVIDER_XPOS,
+      Constants.VERTICAL_DIVIDER_YPOS1,
+      Constants.VERTICAL_DIVIDER_YPOS1 + Constants.VERTICAL_DIVIDER_HEIGHT,
       this.highlightColor
     );
 
     // Address Separator
-    this.addRect(
+    this.addLine(
       Constants.ADDRESS_LINE_X1,
+      Constants.ADDRESS_LINE_X1 + Constants.ADDRESS_LINE_WIDTH,
       Constants.ADDRESS_LINE_YPOS,
-      Constants.ADDRESS_LINE_WIDTH,
-      Constants.ADDRESS_LINE_STROKE_WIDTH,
+      Constants.ADDRESS_LINE_YPOS,
       this.highlightColor
     );
 

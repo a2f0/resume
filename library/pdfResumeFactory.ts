@@ -26,7 +26,8 @@ export default class PdfResumeFactory extends ResumeFactory {
     color: Color
   ) {
     this.resume.setFillColor(color.hex());
-    this.resume.rect(x, y, width, height, 'F');
+    this.resume.setDrawColor(color.hex());
+    this.resume.rect(x, y, width, height, 'FD');
   }
 
   protected addText(
@@ -42,6 +43,18 @@ export default class PdfResumeFactory extends ResumeFactory {
     this.resume.setTextColor(color.hex());
     const options: TextOptionsLight = {baseline: 'middle'};
     this.resume.text(text, x, y, options);
+  }
+
+  protected addLine(
+    x1: number,
+    x2: number,
+    y1: number,
+    y2: number,
+    color: Color
+  ) {
+    this.resume.setLineWidth(0.75);
+    this.resume.setDrawColor(color.hex());
+    this.resume.line(x1, y1, x2, y2);
   }
 
   protected addCircle(x: number, y: number, radius: number, color: Color) {

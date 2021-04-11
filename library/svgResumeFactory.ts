@@ -28,6 +28,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     rectToAdd.setAttribute('y', y + Constants.UNITS);
     rectToAdd.setAttribute('width', width + Constants.UNITS);
     rectToAdd.setAttribute('height', height + Constants.UNITS);
+    rectToAdd.setAttribute('stroke', color.hex());
     this.resume.appendChild(rectToAdd);
   }
 
@@ -62,6 +63,26 @@ export default class SvgResumeFactory extends ResumeFactory {
     circleToAdd.setAttribute('cy', y + Constants.UNITS);
     circleToAdd.setAttribute('r', radius + Constants.UNITS);
     circleToAdd.setAttribute('fill', color.hex());
+    this.resume.appendChild(circleToAdd);
+  }
+
+  protected addLine(
+    x1: number,
+    x2: number,
+    y1: number,
+    y2: number,
+    color: Color
+  ) {
+    const circleToAdd = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'line'
+    );
+    circleToAdd.setAttribute('x1', x1 + Constants.UNITS);
+    circleToAdd.setAttribute('x2', x2 + Constants.UNITS);
+    circleToAdd.setAttribute('y1', y1 + Constants.UNITS);
+    circleToAdd.setAttribute('y2', y2 + Constants.UNITS);
+    circleToAdd.setAttribute('stroke-width', '.75' + Constants.UNITS);
+    circleToAdd.setAttribute('stroke', color.hex());
     this.resume.appendChild(circleToAdd);
   }
 
