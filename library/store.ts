@@ -1,10 +1,8 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
 import resumeReducer from './resumeConfigSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     resume: resumeReducer,
   },
 });
