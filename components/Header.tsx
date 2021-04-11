@@ -5,8 +5,8 @@ import ColorInverter from './ColorInverter';
 import Color from 'color';
 
 const Header = () => {
-  const black = Color('#FFF');
-  const white = Color('#000');
+  const black = Color('black');
+  const white = Color('white');
 
   return (
     <>

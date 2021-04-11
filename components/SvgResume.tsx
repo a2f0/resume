@@ -2,8 +2,17 @@ import React, {useEffect, useState, CSSProperties} from 'react';
 import Slider from './Slider';
 import * as Constants from '../constants';
 import SvgResumeFactory from '../library/svgResumeFactory';
+import {
+  selectForegroundColor,
+  selectBackgroundColor,
+} from '../library/resumeConfigSlice';
+import {useAppSelector} from '../library/hooks';
+import Color from 'color';
+import {ResumeConfig} from '../library/resumeConfig';
 
 export default function SvgResume() {
+  const foregroundColor = useAppSelector(selectForegroundColor);
+  const backgroundColor = useAppSelector(selectBackgroundColor);
   // SVG Document Dimensions
   const ORIGINAL_VIEWBOX_WIDTH =
     Constants.DOCUMENT_WIDTH / Constants.PIXELS_PER_POINT;
@@ -27,7 +36,11 @@ export default function SvgResume() {
   }
 
   useEffect(() => {
-    const resumeFactory = new SvgResumeFactory();
+    const config: ResumeConfig = {
+      foregroundColor: Color(foregroundColor),
+      backgroundColor: Color(backgroundColor),
+    };
+    const resumeFactory = new SvgResumeFactory(config);
     const resume = resumeFactory.getResume();
     resume.setAttribute('width', width + Constants.UNITS);
     resume.setAttribute('height', height + Constants.UNITS);

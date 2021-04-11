@@ -1,11 +1,13 @@
 import ResumeFactory from './resumeFactory';
 import * as Constants from '../constants';
+import {ResumeConfig} from '../library/resumeConfig';
+import Color from 'color';
 
 export default class SvgResumeFactory extends ResumeFactory {
   resume: SVGElement;
 
-  constructor() {
-    super();
+  constructor(config: ResumeConfig) {
+    super(config);
     this.resume = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.populateResume();
   }
@@ -15,13 +17,13 @@ export default class SvgResumeFactory extends ResumeFactory {
     y: number,
     width: number,
     height: number,
-    color: string
+    color: Color
   ) {
     const rectToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'rect'
     );
-    rectToAdd.style.fill = color;
+    rectToAdd.style.fill = color.hex();
     rectToAdd.setAttribute('x', x + Constants.UNITS);
     rectToAdd.setAttribute('y', y + Constants.UNITS);
     rectToAdd.setAttribute('width', width + Constants.UNITS);
@@ -34,7 +36,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     y: number,
     fontSize: number,
     fontFamily: string,
-    color: string,
+    color: Color,
     text: string
   ) {
     const textToAdd = document.createElementNS(
@@ -45,13 +47,13 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.setAttribute('y', y + Constants.UNITS);
     textToAdd.setAttribute('font-size', fontSize + Constants.UNITS);
     textToAdd.setAttribute('font-family', fontFamily);
-    textToAdd.setAttribute('fill', color);
+    textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
     textToAdd.innerHTML = text;
     this.resume.appendChild(textToAdd);
   }
 
-  protected addCircle(x: number, y: number, radius: number, color: string) {
+  protected addCircle(x: number, y: number, radius: number, color: Color) {
     const circleToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'circle'
@@ -59,7 +61,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     circleToAdd.setAttribute('cx', x + Constants.UNITS);
     circleToAdd.setAttribute('cy', y + Constants.UNITS);
     circleToAdd.setAttribute('r', radius + Constants.UNITS);
-    circleToAdd.setAttribute('fill', color);
+    circleToAdd.setAttribute('fill', color.hex());
     this.resume.appendChild(circleToAdd);
   }
 
