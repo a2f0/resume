@@ -17,3 +17,12 @@ Run the development server
 ```bash
 yarn run dev
 ```
+
+## Vercel CLI
+
+Login / deploy
+
+```bash
+yarn dlx vercel
+yarn dlx vercel --prod
+```
