@@ -51,7 +51,7 @@ export const ADDRESS_YPOS_MIDDLE                = ADDRESS_YPOS + ( ADDRESS_SIZE 
 
 export const VERTICAL_DIVIDER_STROKE_WIDTH      = 1;
 export const VERTICAL_DIVIDER_XPOS              = LEFT_PANEL_WIDTH;
-export const VERTICAL_DIVIDER_YPOS              = 20;
+export const VERTICAL_DIVIDER_YPOS1             = 20;
 export const VERTICAL_DIVIDER_HEIGHT            = DOCUMENT_HEIGHT - 60;
 export const VERTICAL_DIVIDER_COLOR             = DIVIDER_COLOR;
 
