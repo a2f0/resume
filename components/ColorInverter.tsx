@@ -1,15 +1,19 @@
 import React, {CSSProperties} from 'react';
 import Color from 'color';
+import {useDispatch} from 'react-redux';
+
+import {
+  setForegroundColor,
+  setBackgroundColor,
+} from '../library/resumeForegroundColorSlice';
+import {useAppSelector} from '../library/hooks';
+import {selectForegroundColor} from '../library/resumeForegroundColorSlice';
 
 interface IProps {
   degrees: number;
   foreground: Color;
   background: Color;
 }
-
-const setColors = () => {
-  console.info('Setting colors.');
-};
 
 export default function ColorInverter({
   degrees,
@@ -23,5 +27,23 @@ export default function ColorInverter({
     display: 'inline-block',
   };
 
-  return <div style={colorInverter} onClick={setColors}></div>;
+  const dispatch = useDispatch();
+  const foregroundColor = useAppSelector(selectForegroundColor);
+
+  return (
+    <div
+      style={colorInverter}
+      onClick={() => {
+        if (foregroundColor === '#FFFFFF') {
+          console.info('top');
+          dispatch(setForegroundColor('#000000'));
+          dispatch(setBackgroundColor('#FFFFFF'));
+        } else {
+          console.info('bottom');
+          dispatch(setForegroundColor('#FFFFFF'));
+          dispatch(setBackgroundColor('#000000'));
+        }
+      }}
+    ></div>
+  );
 }

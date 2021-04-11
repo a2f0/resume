@@ -1,27 +1,38 @@
+import Color from 'color';
 import * as Constants from '../constants';
 import resume from '../resume.json';
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
+import {ResumeConfig} from '../library/resumeConfig';
 
 export default abstract class ResumeFactory {
+  foregroundColor: Color = Color('white');
+  backgroundColor: Color = Color('black');
+  highlightColor: Color = Color('red');
+  lastnameColor: Color = Color('red');
+
+  constructor(config: ResumeConfig) {
+    this.foregroundColor = config.foregroundColor;
+    this.backgroundColor = config.backgroundColor;
+  }
   protected abstract addCircle(
     x: number,
     y: number,
     radius: number,
-    color: string
+    color: Color
   ): void;
   protected abstract addRect(
     x: number,
     y: number,
     width: number,
     height: number,
-    color: string
+    color: Color
   ): void;
   protected abstract addText(
     x: number,
     y: number,
     fontSize: number,
     fontFamily: string,
-    color: string,
+    color: Color,
     text: string
   ): void;
 
@@ -32,7 +43,7 @@ export default abstract class ResumeFactory {
       Constants.LEFT_PANEL_YPOS,
       Constants.LEFT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
-      Constants.LEFT_PANEL_COLOR
+      this.backgroundColor
     );
 
     // Right Partition
@@ -41,7 +52,7 @@ export default abstract class ResumeFactory {
       Constants.RIGHT_PANEL_YPOS,
       Constants.RIGHT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
-      Constants.RIGHT_PANEL_COLOR
+      this.backgroundColor
     );
 
     // First Name
@@ -50,7 +61,7 @@ export default abstract class ResumeFactory {
       Constants.FIRST_NAME_YPOS_MIDDLE,
       Constants.FIRST_NAME_SIZE,
       Constants.FONT_FAMILY,
-      Constants.FIRST_NAME_COLOR,
+      this.foregroundColor,
       resume.first_name
     );
 
@@ -69,7 +80,7 @@ export default abstract class ResumeFactory {
       Constants.LAST_NAME_YPOS_MIDDLE,
       Constants.LAST_NAME_SIZE,
       Constants.FONT_FAMILY,
-      Constants.LAST_NAME_COLOR,
+      this.lastnameColor,
       resume.last_name
     );
 
@@ -79,7 +90,7 @@ export default abstract class ResumeFactory {
       Constants.ADDRESS_YPOS_MIDDLE,
       Constants.ADDRESS_SIZE,
       Constants.FONT_FAMILY,
-      Constants.ADDRESS_COLOR,
+      this.foregroundColor,
       resume.city_state
     );
 
@@ -89,7 +100,7 @@ export default abstract class ResumeFactory {
       Constants.VERTICAL_DIVIDER_YPOS,
       Constants.VERTICAL_DIVIDER_STROKE_WIDTH,
       Constants.VERTICAL_DIVIDER_HEIGHT,
-      Constants.VERTICAL_DIVIDER_COLOR
+      this.highlightColor
     );
 
     // Address Separator
@@ -98,7 +109,7 @@ export default abstract class ResumeFactory {
       Constants.ADDRESS_LINE_YPOS,
       Constants.ADDRESS_LINE_WIDTH,
       Constants.ADDRESS_LINE_STROKE_WIDTH,
-      Constants.ADDRESS_LINE_COLOR
+      this.highlightColor
     );
 
     // Phone Number
@@ -107,7 +118,7 @@ export default abstract class ResumeFactory {
       Constants.PHONE_NUMBER_YPOS,
       Constants.PHONE_NUMBER_SIZE,
       Constants.FONT_FAMILY,
-      Constants.PHONE_NUMBER_COLOR,
+      this.foregroundColor,
       resume.phone_number
     );
 
@@ -117,7 +128,7 @@ export default abstract class ResumeFactory {
       Constants.EMAIL_YPOS,
       Constants.EMAIL_SIZE,
       Constants.FONT_FAMILY,
-      Constants.EMAIL_COLOR,
+      this.foregroundColor,
       resume.email
     );
 
@@ -127,7 +138,7 @@ export default abstract class ResumeFactory {
       Constants.EXPERIENCE_HEADER_YPOS,
       Constants.EXPERIENCE_HEADER_SIZE,
       Constants.FONT_FAMILY,
-      Constants.HEADER_COLOR,
+      this.highlightColor,
       Constants.EXPERIENCE_HEADER
     );
 
@@ -152,7 +163,7 @@ export default abstract class ResumeFactory {
         Constants.VERTICAL_DIVIDER_XPOS,
         currentPositionYPos,
         Constants.POSITION_BULLET_RADIUS,
-        Constants.POSITION_BULLET_COLOR
+        this.highlightColor
       );
 
       // Position Title
@@ -161,7 +172,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         position.title
       );
       const titleWidth = getTextWidthInPoints(
@@ -193,7 +204,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         position.date_range
       );
 
@@ -205,7 +216,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         '-'
       );
 
@@ -217,7 +228,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         position.company
       );
       const companyNameWidth = getTextWidthInPoints(
@@ -238,7 +249,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         '-'
       );
 
@@ -250,7 +261,7 @@ export default abstract class ResumeFactory {
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
-        Constants.POSITION_TITLE_COLOR,
+        this.foregroundColor,
         position.location
       );
 
@@ -278,7 +289,7 @@ export default abstract class ResumeFactory {
             accomplishmentYPos,
             Constants.POSITION_ACCOMPLISHMENT_SIZE,
             Constants.FONT_FAMILY,
-            Constants.POSITION_ACCOMPLISHMENT_COLOR,
+            this.foregroundColor,
             accomplismentLine
           );
           accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
@@ -296,7 +307,7 @@ export default abstract class ResumeFactory {
       educationHeaderYPos,
       Constants.EDUCATION_HEADER_SIZE,
       Constants.FONT_FAMILY,
-      Constants.EDUCATION_HEADER_COLOR,
+      this.highlightColor,
       Constants.EDUCATION_HEADER
     );
     const educationFont = getFontString(
@@ -316,7 +327,7 @@ export default abstract class ResumeFactory {
         Constants.VERTICAL_DIVIDER_XPOS,
         educationYPos,
         Constants.POSITION_BULLET_RADIUS,
-        Constants.POSITION_BULLET_COLOR
+        this.highlightColor
       );
 
       // Commencement
@@ -333,7 +344,7 @@ export default abstract class ResumeFactory {
         educationYPos,
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
-        Constants.EDUCATION_COLOR,
+        this.foregroundColor,
         education.commencement
       );
 
@@ -343,7 +354,7 @@ export default abstract class ResumeFactory {
         educationYPos,
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
-        Constants.EDUCATION_COLOR,
+        this.foregroundColor,
         education.institution
       );
 
@@ -354,7 +365,7 @@ export default abstract class ResumeFactory {
         educationYPos,
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
-        Constants.EDUCATION_COLOR,
+        this.foregroundColor,
         education.credential
       );
 

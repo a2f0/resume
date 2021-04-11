@@ -1,12 +1,14 @@
 import ResumeFactory from './resumeFactory';
 import {jsPDF, jsPDFOptions, TextOptionsLight} from 'jspdf';
 import * as Constants from '../constants';
+import {ResumeConfig} from '../library/resumeConfig';
+import Color from 'color';
 
 export default class PdfResumeFactory extends ResumeFactory {
   resume: jsPDF;
 
-  constructor() {
-    super();
+  constructor(config: ResumeConfig) {
+    super(config);
     const options: jsPDFOptions = {
       orientation: 'portrait',
       unit: Constants.UNITS,
@@ -21,9 +23,9 @@ export default class PdfResumeFactory extends ResumeFactory {
     y: number,
     width: number,
     height: number,
-    color: string
+    color: Color
   ) {
-    this.resume.setFillColor(color);
+    this.resume.setFillColor(color.hex());
     this.resume.rect(x, y, width, height, 'F');
   }
 
@@ -32,18 +34,18 @@ export default class PdfResumeFactory extends ResumeFactory {
     y: number,
     fontSize: number,
     fontFamily: string,
-    color: string,
+    color: Color,
     text: string
   ) {
     this.resume.setFont(fontFamily);
     this.resume.setFontSize(fontSize);
-    this.resume.setTextColor(color);
+    this.resume.setTextColor(color.hex());
     const options: TextOptionsLight = {baseline: 'middle'};
     this.resume.text(text, x, y, options);
   }
 
-  protected addCircle(x: number, y: number, radius: number, color: string) {
-    this.resume.setFillColor(color);
+  protected addCircle(x: number, y: number, radius: number, color: Color) {
+    this.resume.setFillColor(color.hex());
     this.resume.circle(x, y, radius, 'F');
   }
 
