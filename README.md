@@ -24,6 +24,12 @@ Pre-commit
 pre-commit run --all-files
 ```
 
+bump version without tagging/committing
+
+```bash
+npm version patch --git-tag-version=false
+```
+
 ## Vercel CLI
 
 Login / deploy
