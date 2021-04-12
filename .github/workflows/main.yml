@@ -19,3 +19,4 @@ jobs:
     - run: npm ci
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.2
+    - run: npx vercel --version
