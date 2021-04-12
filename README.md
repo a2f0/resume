@@ -18,6 +18,12 @@ Run the development server
 npm run dev
 ```
 
+Pre-commit
+
+```bash
+pre-commit run --all-files
+```
+
 ## Vercel CLI
 
 Login / deploy
