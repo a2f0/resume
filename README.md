@@ -21,6 +21,7 @@ npm run dev
 Pre-commit
 
 ```bash
+pre-commit install
 pre-commit run --all-files
 ```
 
