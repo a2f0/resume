@@ -3,6 +3,7 @@ import holyGrail from '../styles/HolyGrail.module.css';
 import Link from 'next/link';
 import ColorInverter from './ColorInverter';
 import Color from 'color';
+import Rainbow from './Rainbow/Rainbow';
 
 const Header = () => {
   const black = Color('black');
@@ -34,6 +35,7 @@ const Header = () => {
                   foreground={black}
                   background={white}
                 />
+                <Rainbow />
                 <ColorInverter
                   degrees={45}
                   foreground={white}
