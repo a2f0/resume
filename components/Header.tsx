@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ColorInverter from './ColorInverter';
 import Color from 'color';
 import Rainbow from './Rainbow/Rainbow';
+import DropdownMenu from './Menu/DropdownMenu';
 
 const Header = () => {
   const black = Color('black');
@@ -19,12 +20,7 @@ const Header = () => {
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
             <div className={holyGrail.flexContainerLeftAlign}>
-              <div className={holyGrail.menuItem}>
-                <Link href="/">SVG</Link>
-              </div>
-              <div className={holyGrail.menuItem}>
-                <Link href="/pdf">PDF</Link>
-              </div>
+              <DropdownMenu />
             </div>
           </div>
           <div className={holyGrail.centerColumn}>
@@ -46,8 +42,12 @@ const Header = () => {
           </div>
           <div className={holyGrail.rightColumn}>
             <div className={holyGrail.flexContainerRightAlign}>
-              <div className={holyGrail.menuItem}>One</div>
-              <div className={holyGrail.menuItem}>Two</div>
+              <div className={holyGrail.menuItem}>
+                <Link href="/">SVG</Link>
+              </div>
+              <div className={holyGrail.menuItem}>
+                <Link href="/pdf">PDF</Link>
+              </div>
             </div>
           </div>
         </div>
