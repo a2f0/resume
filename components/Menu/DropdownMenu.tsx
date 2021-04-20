@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import styled, {css} from 'styled-components';
+import {MenuButton} from './MenuButton';
 
 const MenuContainer = styled.div`
 position: relative,
@@ -9,39 +10,19 @@ justify-content: center,
 align-items: center,
 `;
 
-const MenuButton = styled.button`
-  background: #ffffff;
-  border-radius: 90px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  margin-left: auto; /* Strictly for positioning */
-  &:hover {
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
-  }
-  span {
-    font-weight: 1000;
-    vertical-align: middle;
-    font-size: 14px;
-    margin: 0 10px;
-  }
-`;
-
 interface IProps {
-  isActive?: boolean;
+  isActive: boolean;
+}
+
+interface MenuProps {
+  label: string;
 }
 
 const Menu = styled.div<IProps>`
   background: #ffffff;
   border-radius: 8px;
   position: absolute;
-  left: 0;
+  // left: 0;
   width: 300px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -72,7 +53,7 @@ const Menu = styled.div<IProps>`
 `;
 
 // https://codesandbox.io/s/dropdown-menu-jzldk?file=/src/App.js:397-441
-export default function DropdownMenu() {
+export default function DropdownMenu(props: MenuProps) {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => {
@@ -80,11 +61,9 @@ export default function DropdownMenu() {
   };
 
   return (
-    <div className="container">
+    <div>
       <MenuContainer>
-        <MenuButton onClick={onClick}>
-          <span>File</span>
-        </MenuButton>
+        <MenuButton onClick={onClick}>{props.label}</MenuButton>
         <Menu ref={dropdownRef} isActive={isActive}>
           <ul>
             <li>

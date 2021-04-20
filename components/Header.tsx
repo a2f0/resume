@@ -20,7 +20,8 @@ const Header = () => {
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
             <div className={holyGrail.flexContainerLeftAlign}>
-              <DropdownMenu />
+              <DropdownMenu label="File" />
+              <DropdownMenu label="View" />
             </div>
           </div>
           <div className={holyGrail.centerColumn}>
