@@ -1,15 +1,16 @@
-import React, {useRef} from 'react';
+import React, {useRef, ReactNode} from 'react';
 import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import {MenuContainer} from './MenuContainer';
 import {MenuButton} from './MenuButton';
 import {Menu} from './Menu';
 
 interface MenuProps {
+  children: ReactNode;
   label: string;
 }
 
 // https://codesandbox.io/s/dropdown-menu-jzldk?file=/src/App.js:397-441
-export default function DropdownMenu(props: MenuProps) {
+export default function DropdownMenu({children, label}: MenuProps) {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => {
@@ -19,16 +20,9 @@ export default function DropdownMenu(props: MenuProps) {
   return (
     <div>
       <MenuContainer>
-        <MenuButton onClick={onClick}>{props.label}</MenuButton>
+        <MenuButton onClick={onClick}>{label}</MenuButton>
         <Menu ref={dropdownRef} isActive={isActive}>
-          <ul>
-            <li>
-              <a href="#">Download PDF</a>
-            </li>
-            <li>
-              <a href="#">Download SVG</a>
-            </li>
-          </ul>
+          {children}
         </Menu>
       </MenuContainer>
     </div>
