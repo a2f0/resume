@@ -28,7 +28,6 @@ const Menu = styled.div<IProps>`
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   ul {
     list-style: none;
     padding: 0;
