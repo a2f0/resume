@@ -10,25 +10,25 @@ const ViewMenu = () => {
   const context = useMenu();
   const dispatch = useDispatch();
 
-  const setBlackForeground = () => {
-    dispatch(setForegroundColor('#FFFFFF'));
-    dispatch(setBackgroundColor('#000000'));
+  const setBlackBackground = () => {
+    dispatch(setForegroundColor('white'));
+    dispatch(setBackgroundColor('black'));
     context.setIsActive(false);
   };
 
-  const setWhiteForeground = () => {
-    dispatch(setForegroundColor('#000000'));
-    dispatch(setBackgroundColor('#FFFFFF'));
+  const setWhiteBackground = () => {
+    dispatch(setForegroundColor('black'));
+    dispatch(setBackgroundColor('white'));
     context.setIsActive(false);
   };
 
   return (
     <ul>
       <li>
-        <a onClick={setBlackForeground}>Black Background</a>
+        <a onClick={setBlackBackground}>Black Background</a>
       </li>
       <li>
-        <a onClick={setWhiteForeground}>White Background</a>
+        <a onClick={setWhiteBackground}>White Background</a>
       </li>
     </ul>
   );
