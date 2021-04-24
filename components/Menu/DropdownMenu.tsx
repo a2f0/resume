@@ -3,6 +3,7 @@ import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import {MenuContainer} from './MenuContainer';
 import {MenuButton} from './MenuButton';
 import {Menu} from './Menu';
+import {MenuProvider} from './MenuContext';
 
 interface MenuProps {
   children: ReactNode;
@@ -18,13 +19,13 @@ export default function DropdownMenu({children, label}: MenuProps) {
   };
 
   return (
-    <div>
-      <MenuContainer>
-        <MenuButton onClick={onClick}>{label}</MenuButton>
+    <MenuContainer>
+      <MenuButton onClick={onClick}>{label}</MenuButton>
+      <MenuProvider setIsActive={setIsActive}>
         <Menu ref={dropdownRef} isActive={isActive}>
           {children}
         </Menu>
-      </MenuContainer>
-    </div>
+      </MenuProvider>
+    </MenuContainer>
   );
 }

@@ -4,8 +4,9 @@ import Link from 'next/link';
 import ColorInverter from './ColorInverter';
 import Color from 'color';
 import Rainbow from './Rainbow/Rainbow';
-import FileMenu from './FileMenu';
-import ViewMenu from './ViewMenu';
+import DropdownMenu from './Menu/DropdownMenu';
+import ViewMenu from './Menu/ViewMenu';
+import FileMenu from './Menu/FileMenu';
 
 const Header = () => {
   const black = Color('black');
@@ -21,8 +22,12 @@ const Header = () => {
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
             <div className={holyGrail.flexContainerLeftAlign}>
-              <FileMenu />
-              <ViewMenu />
+              <DropdownMenu label="File">
+                <FileMenu />
+              </DropdownMenu>
+              <DropdownMenu label="View">
+                <ViewMenu />
+              </DropdownMenu>
             </div>
           </div>
           <div className={holyGrail.centerColumn}>
