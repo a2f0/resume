@@ -56,18 +56,6 @@ export default function SvgResume() {
     }
   });
 
-  const downloadSvg = () => {
-    const svg = document.getElementById('svgContainer');
-    if (svg && svg.innerHTML) {
-      const blob = new Blob([svg.toString()]);
-      const element = document.createElement('a');
-      element.download = 'dan.sullivan.resume.svg';
-      element.href = window.URL.createObjectURL(blob);
-      element.click();
-      element.remove();
-    }
-  };
-
   const printView = () => {
     const svg = document.getElementById('svgContainer');
     if (svg && svg.innerHTML) {
@@ -82,14 +70,6 @@ export default function SvgResume() {
     <>
       <Slider adjustCoefficient={adjustCoefficient} />
       <div id="svgContainer" style={positionSvg}></div>
-      <div
-        style={positionSvgTools}
-        onClick={() => {
-          downloadSvg();
-        }}
-      >
-        [Download]
-      </div>
       <div
         style={positionSvgTools}
         onClick={() => {
