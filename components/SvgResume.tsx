@@ -68,7 +68,7 @@ export default function SvgResume() {
 
   return (
     <>
-      <Slider adjustCoefficient={adjustCoefficient} />
+      {/* <Slider adjustCoefficient={adjustCoefficient} /> */}
       <div id="svgContainer" style={positionSvg}></div>
       <div
         style={positionSvgTools}

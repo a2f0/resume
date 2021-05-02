@@ -9,32 +9,32 @@
 
 .flexContainerColumnPageWidth {
   width: 100%;
-  background-color: pink;
+  background-color: #404040;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .flexContainerLeftAlign {
-  background-color: red;
+  background-color: #404040;
   display: flex;
   justify-content: flex-start;
 }
 
 .flexContainerCenterAlign {
-  background-color: orange;
+  background-color: #404040;
   display: flex;
   justify-content: center;
 }
 
 .flexContainerRightAlign {
-  background-color: white;
+  background-color: #404040;
   display: flex;
   justify-content: flex-end;
 }
 
 .menuItem {
-  background-color: purple;
+  background-color: #404040;
 }
 
 .leftColumn {
@@ -90,7 +90,7 @@
   align-items: center;
   position: sticky;
   top: 0;
-  border-bottom: var(--header-bottom-border) solid white;
+  border-bottom: var(--header-bottom-border) solid #a9a9a9;
 }
 
 .bodyContainer {
