@@ -13,18 +13,20 @@ export const Menu = styled.div<IProps>`
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
+  font-size: 14px;
+  font-family: Helvetica;
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   li {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 0px solid #dddddd;
   }
   li a {
     text-decoration: none;
     color: #333333;
-    padding: 15px 20px;
+    padding: 10px 10px;
     display: block;
   }
   ${({isActive}) =>
