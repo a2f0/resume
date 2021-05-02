@@ -1,5 +1,6 @@
 import {useMenu} from './MenuContext';
 import {useDispatch} from 'react-redux';
+import Link from 'next/link';
 
 import {
   setForegroundColor,
@@ -22,6 +23,10 @@ const ViewMenu = () => {
     context.setIsActive(false);
   };
 
+  const dismissMenu = () => {
+    context.setIsActive(false);
+  };
+
   return (
     <ul>
       <li>
@@ -29,6 +34,16 @@ const ViewMenu = () => {
       </li>
       <li>
         <a onClick={setWhiteBackground}>White Background</a>
+      </li>
+      <li>
+        <Link href="/">
+          <a onClick={dismissMenu}>SVG</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/pdf">
+          <a onClick={dismissMenu}>PDF</a>
+        </Link>
       </li>
     </ul>
   );
