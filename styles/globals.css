@@ -5,7 +5,8 @@ body {
 }
 
 :root {
+  --header-bottom-border: 1px;
   --header-height: 25px;
   --footer-height: 25px;
-  --main-width: 1000px;
+  --main-width: 850px;
 }

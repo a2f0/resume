@@ -10,7 +10,6 @@ interface MenuProps {
   label: string;
 }
 
-// https://codesandbox.io/s/dropdown-menu-jzldk?file=/src/App.js:397-441
 export default function DropdownMenu({children, label}: MenuProps) {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
@@ -19,13 +18,13 @@ export default function DropdownMenu({children, label}: MenuProps) {
   };
 
   return (
-    <MenuContainer>
-      <MenuButton onClick={onClick}>{label}</MenuButton>
-      <MenuProvider setIsActive={setIsActive}>
+    <MenuProvider setIsActive={setIsActive}>
+      <MenuContainer>
+        <MenuButton onClick={onClick}>{label}</MenuButton>
         <Menu ref={dropdownRef} isActive={isActive}>
           {children}
         </Menu>
-      </MenuProvider>
-    </MenuContainer>
+      </MenuContainer>
+    </MenuProvider>
   );
 }

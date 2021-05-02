@@ -5,12 +5,10 @@ export const DOCUMENT_WIDTH                     = 612;
 export const DOCUMENT_HEIGHT                    = 792;
 export const PIXELS_PER_POINT                   = .75;
 export const UNITS                              = 'pt';
-export const DIVIDER_COLOR                      = 'red';
 export const BACKGROUND_COLOR                   = 'black';
 export const TEXT_COLOR                         = 'white';
 export const HEADER_SIZE                        = 14;
 export const HEADER_SPACING                     = 8;
-export const HEADER_COLOR                       = 'red';
 export const EXPERIENCE_HEADER                  = 'EXPERIENCE';
 export const FONT_FAMILY                        = 'Helvetica';
 export const HYPEN_SPACING                      = 4;
@@ -38,7 +36,6 @@ export const FIRST_NAME_YPOS_MIDDLE             = FIRST_NAME_YPOS + (FIRST_NAME_
 
 export const LAST_NAME_SIZE                     = FIRST_NAME_SIZE;
 export const LAST_NAME_WEIGHT                   = FIRST_NAME_WEIGHT;
-export const LAST_NAME_COLOR                    = 'red';
 export const LAST_NAME_YPOS                     = STARTY;
 export const LAST_NAME_YPOS_MIDDLE              = LAST_NAME_YPOS + (LAST_NAME_SIZE/2);
 
@@ -53,7 +50,6 @@ export const VERTICAL_DIVIDER_STROKE_WIDTH      = 1;
 export const VERTICAL_DIVIDER_XPOS              = LEFT_PANEL_WIDTH;
 export const VERTICAL_DIVIDER_YPOS1             = 20;
 export const VERTICAL_DIVIDER_HEIGHT            = DOCUMENT_HEIGHT - 60;
-export const VERTICAL_DIVIDER_COLOR             = DIVIDER_COLOR;
 
 export const RIGHT_PANEL_MARGIN                 = LEFT_PANEL_MARGIN;
 export const RIGHT_PANEL_STARTX                 = VERTICAL_DIVIDER_XPOS + RIGHT_PANEL_MARGIN;
@@ -64,7 +60,6 @@ export const ADDRESS_LINE_YPOS                  = ADDRESS_YPOS + ADDRESS_SIZE + 
 export const ADDRESS_LINE_WIDTH                 = LEFT_PANEL_WIDTH * (1/3);
 export const ADDRESS_LINE_X2                    = VERTICAL_DIVIDER_XPOS;
 export const ADDRESS_LINE_X1                    = VERTICAL_DIVIDER_XPOS - ADDRESS_LINE_WIDTH;
-export const ADDRESS_LINE_COLOR                 = DIVIDER_COLOR;
 
 export const PHONE_NUMBER_SIZE                  = ADDRESS_SIZE;
 export const PHONE_NUMBER_WEIGHT                = 400;
@@ -99,7 +94,7 @@ export const POSITION_COMPANY_WEIGHT            = 400;
 export const POSITION_COMPANY_SIZE              = POSITION_TITLE_SIZE;
 export const POSITION_COMPANY_COLOR             = 'white';
 export const POSITION_COMPANY_XPOS              = RIGHT_PANEL_STARTX;
-export const POSITION_COMPANY_YPOS_START        = POSITION_TITLE_YPOS_START
+export const POSITION_COMPANY_YPOS_START        = POSITION_TITLE_YPOS_START;
 
 export const POSITION_ACCOMPLISHMENT_WEIGHT     = 400;
 export const POSITION_ACCOMPLISHMENT_SIZE       = POSITION_TITLE_SIZE;
@@ -107,12 +102,10 @@ export const POSITION_ACCOMPLISHMENT_COLOR      = 'white';
 export const POSITION_ACCOMPLISHMENT_XPOS       = RIGHT_PANEL_STARTX;
 export const POSITION_ACCOMPLISHMENT_MAX_WIDTH  = RIGHT_PANEL_WIDTH - ( RIGHT_PANEL_MARGIN * 2)
 
-export const POSITION_BULLET_COLOR              = 'red';
 export const POSITION_BULLET_RADIUS             = 3;
 
 export const EDUCATION_HEADER_WEIGHT            = 400;
 export const EDUCATION_HEADER_SIZE              = HEADER_SIZE;
-export const EDUCATION_HEADER_COLOR             = 'red';
 export const EDUCATION_HEADER_XPOS              = RIGHT_PANEL_STARTX;
 export const EDUCATION_HEADER                   = 'EDUCATION';
 
@@ -121,7 +114,6 @@ export const EDUCATION_SIZE                     = ADDRESS_SIZE;
 export const EDUCATION_COLOR                    = 'white';
 export const EDUCATION_XPOS                     = RIGHT_PANEL_STARTX;
 
-export const EDUCATION_BULLET_COLOR             = 'red';
 export const EDUCATION_BULLET_RADIUS            = 3;
 
 export const EDUCATION_VERTICAL_SPACING         = POSITION_VERTICAL_SPACING;
