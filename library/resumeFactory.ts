@@ -7,8 +7,7 @@ import {ResumeConfig} from '../library/resumeConfig';
 export default abstract class ResumeFactory {
   foregroundColor: Color = Color('white');
   backgroundColor: Color = Color('black');
-  highlightColor: Color = Color('red');
-  lastnameColor: Color = Color('red');
+  highlightColor: Color = Color('#909090');
 
   constructor(config: ResumeConfig) {
     this.foregroundColor = config.foregroundColor;
@@ -87,7 +86,7 @@ export default abstract class ResumeFactory {
       Constants.LAST_NAME_YPOS_MIDDLE,
       Constants.LAST_NAME_SIZE,
       Constants.FONT_FAMILY,
-      this.lastnameColor,
+      this.highlightColor,
       resume.last_name
     );
 

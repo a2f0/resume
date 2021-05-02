@@ -8,7 +8,7 @@ export const Menu = styled.div<IProps>`
   background: #ffffff;
   border-radius: 0px;
   position: absolute;
-  width: 300px;
+  width: 200px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;

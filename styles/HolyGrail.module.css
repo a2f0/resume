@@ -28,7 +28,7 @@
 }
 
 .flexContainerRightAlign {
-  background-color: blue;
+  background-color: white;
   display: flex;
   justify-content: flex-end;
 }
@@ -83,20 +83,21 @@
 }
 
 .header {
-  height: var(--header-height);
+  height: calc(var(--header-height));
   color: white;
   background-color: black;
   justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
+  border-bottom: var(--header-bottom-border) solid white;
 }
 
 .bodyContainer {
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  min-height: calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height));
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  background-color: #202020;
 }
 
 .body {
@@ -104,7 +105,7 @@
 }
 
 .footer {
-  height: var(--header-height);
+  height: var(--footer-height);
   color: white;
   background-color: black;
   justify-content: center;
