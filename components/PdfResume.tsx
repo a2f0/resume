@@ -13,9 +13,8 @@ export default function PdfResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
   const preview: CSSProperties = {
-    height: 'calc(100vh - var(--header-height) - var(--footer-height))',
-    backgroundColor: 'orange',
-    marginTop: '50px',
+    height:
+      'calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height))',
   };
 
   useEffect(() => {

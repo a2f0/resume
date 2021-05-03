@@ -1,5 +1,4 @@
 import React, {useEffect, useState, CSSProperties} from 'react';
-import Slider from './Slider';
 import * as Constants from '../constants';
 import SvgResumeFactory from '../library/svgResumeFactory';
 import {
@@ -18,22 +17,18 @@ export default function SvgResume() {
     Constants.DOCUMENT_WIDTH / Constants.PIXELS_PER_POINT;
   const ORIGINAL_VIEWBOX_HEIGHT =
     Constants.DOCUMENT_HEIGHT / Constants.PIXELS_PER_POINT;
-  const [width, setWidth] = useState(Constants.DOCUMENT_WIDTH);
-  const [height, setHeight] = useState(Constants.DOCUMENT_HEIGHT);
+  const [width] = useState(Constants.DOCUMENT_WIDTH);
+  const [height] = useState(Constants.DOCUMENT_HEIGHT);
 
   const positionSvg: CSSProperties = {
     textAlign: 'center',
     marginTop: '25px',
   };
 
-  const positionSvgTools: CSSProperties = {
-    textAlign: 'center',
-  };
-
-  function adjustCoefficient(coefficient: number) {
-    setWidth(Constants.DOCUMENT_WIDTH * coefficient);
-    setHeight(Constants.DOCUMENT_HEIGHT * coefficient);
-  }
+  // function adjustCoefficient(coefficient: number) {
+  //   setWidth(Constants.DOCUMENT_WIDTH * coefficient);
+  //   setHeight(Constants.DOCUMENT_HEIGHT * coefficient);
+  // }
 
   useEffect(() => {
     const config: ResumeConfig = {
@@ -56,28 +51,10 @@ export default function SvgResume() {
     }
   });
 
-  const printView = () => {
-    const svg = document.getElementById('svgContainer');
-    if (svg && svg.innerHTML) {
-      const printableView = window.open('', '_blank');
-      if (printableView) {
-        printableView.document.write(svg.innerHTML);
-      }
-    }
-  };
-
   return (
     <>
       {/* <Slider adjustCoefficient={adjustCoefficient} /> */}
       <div id="svgContainer" style={positionSvg}></div>
-      <div
-        style={positionSvgTools}
-        onClick={() => {
-          printView();
-        }}
-      >
-        [Printable]
-      </div>
     </>
   );
 }

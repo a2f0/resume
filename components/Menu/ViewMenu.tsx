@@ -30,10 +30,10 @@ const ViewMenu = () => {
   return (
     <ul>
       <li>
-        <a onClick={setBlackBackground}>Black Background</a>
+        <a onClick={setBlackBackground}>Dark Background</a>
       </li>
       <li>
-        <a onClick={setWhiteBackground}>White Background</a>
+        <a onClick={setWhiteBackground}>Light Background</a>
       </li>
       <li>
         <Link href="/">
@@ -42,7 +42,7 @@ const ViewMenu = () => {
       </li>
       <li>
         <Link href="/pdf">
-          <a onClick={dismissMenu}>PDF</a>
+          <a onClick={dismissMenu}>PDF Preview</a>
         </Link>
       </li>
     </ul>

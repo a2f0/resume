@@ -15,41 +15,57 @@
   align-items: center;
 }
 
-.flexContainerLeftAlign {
+.flexContainerColumnPageWidthBottom {
+  width: 100%;
+  background-color: #202020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexContainerLeftAlignTop {
   background-color: #404040;
   display: flex;
   justify-content: flex-start;
 }
 
-.flexContainerCenterAlign {
+.flexContainerCenterAlignTop {
   background-color: #404040;
   display: flex;
   justify-content: center;
 }
 
-.flexContainerRightAlign {
+.flexContainerRightAlignTop {
   background-color: #404040;
   display: flex;
   justify-content: flex-end;
 }
 
-.menuItem {
-  background-color: #404040;
+.flexContainerLeftAlignBottom {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flexContainerCenterAlignBottom {
+  display: flex;
+  justify-content: center;
+}
+
+.flexContainerRightAlignBottom {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .leftColumn {
   flex: 1;
-  background-color: rgb(21, 233, 248);
 }
 
 .centerColumn {
   flex: 1;
-  background-color: purple;
 }
 
 .rightColumn {
   flex: 1;
-  background-color: blue;
 }
 
 .main {
@@ -65,12 +81,10 @@
 .mainGutterLeft {
   position: sticky;
   top: var(--header-height);
-  background: blue;
   flex-grow: 1;
 }
 
 .mainColumn {
-  background: yellow;
   width: var(--main-width);
   min-height: 100vh;
 }
@@ -78,7 +92,6 @@
 .mainGutterRight {
   position: sticky;
   top: var(--header-height);
-  background: pink;
   flex-grow: 1;
 }
 
