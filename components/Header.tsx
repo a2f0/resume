@@ -14,7 +14,7 @@ const Header = () => {
       <header className={holyGrail.header}>
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
-            <div className={holyGrail.flexContainerLeftAlign}>
+            <div className={holyGrail.flexContainerLeftAlignTop}>
               <DropdownMenu label="File">
                 <FileMenu />
               </DropdownMenu>
@@ -24,10 +24,10 @@ const Header = () => {
             </div>
           </div>
           <div className={holyGrail.centerColumn}>
-            <div className={holyGrail.flexContainerCenterAlign} />
+            <div className={holyGrail.flexContainerCenterAlignTop} />
           </div>
           <div className={holyGrail.rightColumn}>
-            <div className={holyGrail.flexContainerRightAlign} />
+            <div className={holyGrail.flexContainerRightAlignTop} />
           </div>
         </div>
       </header>
