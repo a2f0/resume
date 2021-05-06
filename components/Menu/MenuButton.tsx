@@ -16,7 +16,7 @@ export const MenuButton = styled.button`
   vertical-align: middle;
   margin-left: auto; /* Strictly for positioning */
   &:hover {
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+    background: #d3d3d3;
   }
   span {
     font-weight: 1000;
