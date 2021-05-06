@@ -8,8 +8,8 @@ const versionContainer: CSSProperties = {
   flexDirection: 'column',
   alignItems: 'flex-end',
   justifyContent: 'flex-end',
-  fontSize: '12px',
-  fontFamily: 'monospace',
+  fontSize: '11px',
+  fontFamily: 'Helvetica',
   fontWeight: 50,
 };
 
