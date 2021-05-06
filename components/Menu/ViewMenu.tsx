@@ -1,6 +1,7 @@
 import {useMenu} from './MenuContext';
 import {useDispatch} from 'react-redux';
 import Link from 'next/link';
+import {MenuDivider} from './MenuDivider';
 
 import {
   setForegroundColor,
@@ -35,6 +36,7 @@ const ViewMenu = () => {
       <li>
         <a onClick={setWhiteBackground}>Light Background</a>
       </li>
+      <MenuDivider />
       <li>
         <Link href="/">
           <a onClick={dismissMenu}>SVG</a>
