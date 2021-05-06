@@ -1,6 +1,8 @@
 import {useMenu} from './MenuContext';
 import {useDispatch} from 'react-redux';
 import Link from 'next/link';
+import MenuDivider from './MenuDivider';
+import MenuListItem from './MenuListItem';
 
 import {
   setForegroundColor,
@@ -29,22 +31,23 @@ const ViewMenu = () => {
 
   return (
     <ul>
-      <li>
+      <MenuListItem>
         <a onClick={setBlackBackground}>Dark Background</a>
-      </li>
-      <li>
+      </MenuListItem>
+      <MenuListItem>
         <a onClick={setWhiteBackground}>Light Background</a>
-      </li>
-      <li>
+      </MenuListItem>
+      <MenuDivider />
+      <MenuListItem>
         <Link href="/">
           <a onClick={dismissMenu}>SVG</a>
         </Link>
-      </li>
-      <li>
+      </MenuListItem>
+      <MenuListItem>
         <Link href="/pdf">
           <a onClick={dismissMenu}>PDF Preview</a>
         </Link>
-      </li>
+      </MenuListItem>
     </ul>
   );
 };

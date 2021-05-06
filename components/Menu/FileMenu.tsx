@@ -9,6 +9,7 @@ import {
 import Color from 'color';
 import SvgResumeFactory from '../../library/svgResumeFactory';
 import PdfResumeFactory from '../../library/pdfResumeFactory';
+import MenuListItem from './MenuListItem';
 
 const FileMenu = () => {
   const context = useMenu();
@@ -68,12 +69,12 @@ const FileMenu = () => {
       {/* <li>
         <a onClick={printableSVG}>Printable SVG</a>
       </li> */}
-      <li>
+      <MenuListItem>
         <a onClick={downloadPDF}>Download PDF</a>
-      </li>
-      <li>
+      </MenuListItem>
+      <MenuListItem>
         <a onClick={downloadSVG}>Download SVG</a>
-      </li>
+      </MenuListItem>
     </ul>
   );
 };
