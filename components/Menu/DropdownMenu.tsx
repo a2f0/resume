@@ -17,10 +17,16 @@ export default function DropdownMenu({children, label}: MenuProps) {
     setIsActive(!isActive);
   };
 
+  const onMouseEnter = () => {
+    console.info('onMouseEnter');
+  };
+
   return (
     <MenuProvider setIsActive={setIsActive}>
       <MenuContainer>
-        <MenuButton onClick={onClick}>{label}</MenuButton>
+        <MenuButton onClick={onClick} onMouseEnter={onMouseEnter}>
+          {label}
+        </MenuButton>
         <Menu ref={dropdownRef} isActive={isActive}>
           {children}
         </Menu>
