@@ -1,4 +1,4 @@
-import {useMenu} from './MenuContext';
+import {useDropDownMenu} from './MenuContext';
 import {useDispatch} from 'react-redux';
 import Link from 'next/link';
 import MenuDivider from './MenuDivider';
@@ -10,7 +10,7 @@ import {
 } from '../../library/resumeConfigSlice';
 
 const ViewMenu = () => {
-  const context = useMenu();
+  const context = useDropDownMenu();
   const dispatch = useDispatch();
 
   const setBlackBackground = () => {

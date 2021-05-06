@@ -19,12 +19,12 @@ function MenuProvider({children, setIsActive}: MenuProps) {
   );
 }
 
-function useMenu() {
+function useDropDownMenu() {
   const context = React.useContext(MenuContext);
   if (context === undefined) {
-    throw new Error('useMenu must be used within a MenuProvider');
+    throw new Error('useDropDownMenu must be used within a MenuProvider');
   }
   return context;
 }
 
-export {MenuProvider, useMenu};
+export {MenuProvider, useDropDownMenu};
