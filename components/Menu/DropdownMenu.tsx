@@ -3,7 +3,7 @@ import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import {MenuContainer} from './MenuContainer';
 import {MenuButton} from './MenuButton';
 import {Menu} from './Menu';
-import {MenuProvider} from './MenuContext';
+import {DropdownMenuProvider} from './DropdownMenuContext';
 
 interface MenuProps {
   children: ReactNode;
@@ -22,7 +22,7 @@ export default function DropdownMenu({children, label}: MenuProps) {
   };
 
   return (
-    <MenuProvider setIsActive={setIsActive}>
+    <DropdownMenuProvider setIsActive={setIsActive}>
       <MenuContainer>
         <MenuButton onClick={onClick} onMouseEnter={onMouseEnter}>
           {label}
@@ -31,6 +31,6 @@ export default function DropdownMenu({children, label}: MenuProps) {
           {children}
         </Menu>
       </MenuContainer>
-    </MenuProvider>
+    </DropdownMenuProvider>
   );
 }

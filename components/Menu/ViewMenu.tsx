@@ -1,4 +1,4 @@
-import {useDropdownMenu} from './MenuContext';
+import {useDropdownMenu} from './DropdownMenuContext';
 import {useDispatch} from 'react-redux';
 import Link from 'next/link';
 import MenuDivider from './MenuDivider';
