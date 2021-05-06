@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useDropDownMenu} from './MenuContext';
+import {useDropdownMenu} from './MenuContext';
 import {ResumeConfig} from '../../library/resumeConfig';
 import {useAppSelector} from '../../library/hooks';
 import {
@@ -12,7 +12,7 @@ import PdfResumeFactory from '../../library/pdfResumeFactory';
 import MenuListItem from './MenuListItem';
 
 const FileMenu = () => {
-  const context = useDropDownMenu();
+  const context = useDropdownMenu();
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
   useEffect(() => {});
