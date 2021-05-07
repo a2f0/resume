@@ -1,4 +1,5 @@
-import {useMenu} from './MenuContext';
+import {useDropdownMenu} from './DropdownMenuContext';
+import {useMenuParent} from './MenuParentContext';
 import {useDispatch} from 'react-redux';
 import Link from 'next/link';
 import MenuDivider from './MenuDivider';
@@ -10,23 +11,30 @@ import {
 } from '../../library/resumeConfigSlice';
 
 const ViewMenu = () => {
-  const context = useMenu();
+  const context = useDropdownMenu();
+  const parentContext = useMenuParent();
   const dispatch = useDispatch();
 
   const setBlackBackground = () => {
     dispatch(setForegroundColor('white'));
     dispatch(setBackgroundColor('black'));
     context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
   };
 
   const setWhiteBackground = () => {
     dispatch(setForegroundColor('black'));
     dispatch(setBackgroundColor('white'));
     context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
   };
 
   const dismissMenu = () => {
     context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
   };
 
   return (
