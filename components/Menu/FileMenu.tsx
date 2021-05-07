@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDropdownMenu} from './DropdownMenuContext';
+import {useMenuParent} from './MenuParentContext';
 import {ResumeConfig} from '../../library/resumeConfig';
 import {useAppSelector} from '../../library/hooks';
 import {
@@ -13,12 +14,12 @@ import MenuListItem from './MenuListItem';
 
 const FileMenu = () => {
   const context = useDropdownMenu();
+  const parentContext = useMenuParent();
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
   useEffect(() => {});
 
   const downloadPDF = () => {
-    console.info('download PDF');
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
       backgroundColor: Color(backgroundColor),
@@ -34,7 +35,8 @@ const FileMenu = () => {
     element.click();
     element.remove();
     context.setIsActive(false);
-    context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
   };
 
   // const printableSVG = () => {
@@ -62,6 +64,8 @@ const FileMenu = () => {
     element.click();
     element.remove();
     context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
   };
 
   return (

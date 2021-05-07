@@ -1,16 +1,18 @@
 import React, {useState, useEffect, SetStateAction} from 'react';
-
+import {useMenuParent} from '../components/Menu/MenuParentContext';
 export const useDetectOutsideClick = (
   el: React.MutableRefObject<HTMLDivElement | null>,
   initialState: boolean
 ): [boolean, React.Dispatch<SetStateAction<boolean>>] => {
   const [isActive, setIsActive] = useState(initialState);
-
+  const parentContext = useMenuParent();
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       // If the active element exists and is clicked outside of
       if (el.current !== null && !el.current.contains(e.target as Node)) {
-        setIsActive(!isActive);
+        setIsActive(false);
+        parentContext.setActiveDropdown('');
+        parentContext.setIsActive(false);
       }
     };
 

@@ -3,6 +3,7 @@ import holyGrail from '../styles/HolyGrail.module.css';
 import DropdownMenu from './Menu/DropdownMenu';
 import ViewMenu from './Menu/ViewMenu';
 import FileMenu from './Menu/FileMenu';
+import MenuParent from './Menu/MenuParent';
 
 const Header = () => {
   return (
@@ -15,12 +16,14 @@ const Header = () => {
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
             <div className={holyGrail.flexContainerLeftAlignTop}>
-              <DropdownMenu label="File">
-                <FileMenu />
-              </DropdownMenu>
-              <DropdownMenu label="View">
-                <ViewMenu />
-              </DropdownMenu>
+              <MenuParent>
+                <DropdownMenu label="File">
+                  <FileMenu />
+                </DropdownMenu>
+                <DropdownMenu label="View">
+                  <ViewMenu />
+                </DropdownMenu>
+              </MenuParent>
             </div>
           </div>
           <div className={holyGrail.centerColumn}>
