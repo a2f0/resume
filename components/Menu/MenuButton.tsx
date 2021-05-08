@@ -18,10 +18,4 @@ export const MenuButton = styled.button`
   &:hover {
     background: #d3d3d3;
   }
-  span {
-    font-weight: 1000;
-    vertical-align: middle;
-    font-size: 14px;
-    margin: 0 10px;
-  }
 `;
