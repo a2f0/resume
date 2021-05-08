@@ -9,12 +9,12 @@ import CheckMark from './CheckMark';
 import MenuLink from './MenuLink';
 import {
   selectForegroundColor,
-  selectBackgroundColor,
   setForegroundColor,
   setBackgroundColor,
 } from '../../library/resumeConfigSlice';
 import {useAppSelector} from '../../library/hooks';
 import * as Constants from '../../constants';
+import resume from '../../resume.json';
 const ViewMenu = () => {
   const context = useDropdownMenu();
   const parentContext = useMenuParent();
@@ -42,6 +42,13 @@ const ViewMenu = () => {
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
+  };
+
+  const sourceCode = () => {
+    context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
+    window.open(resume.url);
   };
 
   return (
@@ -74,6 +81,13 @@ const ViewMenu = () => {
             <MenuLink>PDF Preview</MenuLink>
           </div>
         </Link>
+      </MenuListItem>
+      <MenuDivider />
+      <MenuListItem>
+        <div onClick={sourceCode}>
+          <CheckMark isActive={false} />
+          <MenuLink>Source Code</MenuLink>
+        </div>
       </MenuListItem>
     </ul>
   );
