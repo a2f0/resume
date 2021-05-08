@@ -11,6 +11,8 @@ import Color from 'color';
 import SvgResumeFactory from '../../library/svgResumeFactory';
 import PdfResumeFactory from '../../library/pdfResumeFactory';
 import MenuListItem from './MenuListItem';
+import CheckMark from './CheckMark';
+import MenuLink from './MenuLink';
 
 const FileMenu = () => {
   const context = useDropdownMenu();
@@ -74,10 +76,16 @@ const FileMenu = () => {
         <a onClick={printableSVG}>Printable SVG</a>
       </li> */}
       <MenuListItem>
-        <a onClick={downloadPDF}>Download PDF</a>
+        <div onClick={downloadPDF}>
+          <CheckMark isActive={false} />
+          <MenuLink>Download PDF</MenuLink>
+        </div>
       </MenuListItem>
       <MenuListItem>
-        <a onClick={downloadSVG}>Download SVG</a>
+        <div onClick={downloadSVG}>
+          <CheckMark isActive={false} />
+          <MenuLink>Download SVG</MenuLink>
+        </div>
       </MenuListItem>
     </ul>
   );

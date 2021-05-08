@@ -9,7 +9,6 @@ import CheckMark from './CheckMark';
 import MenuLink from './MenuLink';
 import {
   selectForegroundColor,
-  selectBackgroundColor,
   setForegroundColor,
   setBackgroundColor,
 } from '../../library/resumeConfigSlice';
