@@ -22,12 +22,11 @@ export const Menu = styled.div<IProps>`
   }
   li {
     border-bottom: 0px solid #dddddd;
+    padding: 10px 10px;
   }
   li a {
     text-decoration: none;
     color: #333333;
-    padding: 10px 10px;
-    display: block;
   }
   ${({isActive}) =>
     isActive &&

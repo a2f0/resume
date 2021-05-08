@@ -1,15 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from './store';
 import Color from 'color';
-
+import * as Constants from '../constants';
 export interface CounterState {
   foregroundColor: string;
   backgroundColor: string;
 }
 
 const initialState: CounterState = {
-  foregroundColor: '#FFF',
-  backgroundColor: '#000',
+  foregroundColor: Constants.LIGHT,
+  backgroundColor: Constants.DARK,
 };
 
 export const resumeConfigSlice = createSlice({

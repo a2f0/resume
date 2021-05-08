@@ -5,8 +5,8 @@ import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 import {ResumeConfig} from '../library/resumeConfig';
 
 export default abstract class ResumeFactory {
-  foregroundColor: Color = Color('white');
-  backgroundColor: Color = Color('black');
+  foregroundColor: Color = Color(Constants.LIGHT);
+  backgroundColor: Color = Color(Constants.DARK);
   highlightColor: Color = Color('#909090');
 
   constructor(config: ResumeConfig) {
