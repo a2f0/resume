@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuButton = styled.button`
+  --height: 25px;
   align-items: center;
   background: #ffffff;
   border: none;
@@ -9,12 +10,12 @@ export const MenuButton = styled.button`
   cursor: pointer;
   display: flex;
   font-size: 14px;
-  font-weight: 400;
   justify-content: space-between;
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   vertical-align: middle;
-  margin-left: auto; /* Strictly for positioning */
+  margin-top: calc(var(--header-height) - var(--height));
+  height: var(--height);
   &:hover {
     background: #d3d3d3;
   }
