@@ -6,6 +6,9 @@
   "city_state": "New York, NY",
   "overview": "I am interested in producing quality, maintainable software.",
   "url": "https://github.com/deepeeess/resume",
+  "internet_presences": [
+    "https://github.com/deepeeess"
+  ],
   "experience": [
     {
       "company": "Real Time Risk Solutions",
