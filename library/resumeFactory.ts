@@ -34,6 +34,15 @@ export default abstract class ResumeFactory {
     color: Color,
     text: string
   ): void;
+  protected abstract addTextWithLink(
+    x: number,
+    y: number,
+    fontSize: number,
+    fontFamily: string,
+    color: Color,
+    text: string,
+    url: string
+  ): void;
   protected abstract addLine(
     x1: number,
     x2: number,
@@ -377,6 +386,60 @@ export default abstract class ResumeFactory {
 
       educationYPos +=
         Constants.EDUCATION_VERTICAL_SPACING + Constants.ADDRESS_SIZE;
+    }
+
+    // Internet
+    this.addText(
+      Constants.FIRST_NAME_XPOS,
+      Constants.INTERNET_PRESENCES_HEADER_YPOS,
+      Constants.INTERNET_PRESENCES_HEADER_SIZE,
+      Constants.FONT_FAMILY,
+      this.highlightColor,
+      'Internet'
+    );
+
+    // Presences
+    const interenetWidthInPoints = getTextWidthInPoints(
+      'Internet',
+      getFontString(
+        Constants.FIRST_NAME_WEIGHT,
+        Constants.INTERNET_PRESENCES_HEADER_SIZE,
+        Constants.UNITS,
+        Constants.FONT_FAMILY
+      )
+    );
+    this.addText(
+      Constants.FIRST_NAME_XPOS + interenetWidthInPoints,
+      Constants.INTERNET_PRESENCES_HEADER_YPOS,
+      Constants.INTERNET_PRESENCES_HEADER_SIZE,
+      Constants.FONT_FAMILY,
+      this.foregroundColor,
+      'Presences'
+    );
+
+    // Internet Presences Separator
+    this.addLine(
+      Constants.VERTICAL_DIVIDER_XPOS,
+      Constants.VERTICAL_DIVIDER_XPOS - Constants.INTERNET_PRESENCES_LINE_WIDTH,
+      Constants.INTERNET_PRESENCES_LINE_YPOS,
+      Constants.INTERNET_PRESENCES_LINE_YPOS,
+      this.highlightColor
+    );
+
+    let internetPresenceYPos = Constants.INTERNET_PRESENCES_YPOS;
+    for (let n = 0; n < resume.internet_presences.length; n++) {
+      const internetPresence = resume.internet_presences[n];
+      // URL
+      this.addTextWithLink(
+        Constants.FIRST_NAME_XPOS,
+        internetPresenceYPos,
+        Constants.INTERNET_PRESENCES_SIZE,
+        Constants.FONT_FAMILY,
+        this.foregroundColor,
+        internetPresence,
+        internetPresence
+      );
+      internetPresenceYPos += Constants.INTERNET_PRESENCES_SIZE;
     }
   }
 }

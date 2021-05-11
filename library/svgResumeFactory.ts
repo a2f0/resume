@@ -55,6 +55,36 @@ export default class SvgResumeFactory extends ResumeFactory {
     this.resume.appendChild(textToAdd);
   }
 
+  protected addTextWithLink(
+    x: number,
+    y: number,
+    fontSize: number,
+    fontFamily: string,
+    color: Color,
+    text: string,
+    url: string
+  ) {
+    const linkToAdd = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'a'
+    );
+    linkToAdd.setAttribute('href', url);
+
+    const textToAdd = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'text'
+    );
+    textToAdd.setAttribute('x', x + Constants.UNITS);
+    textToAdd.setAttribute('y', y + Constants.UNITS);
+    textToAdd.setAttribute('font-size', fontSize + Constants.UNITS);
+    textToAdd.setAttribute('font-family', fontFamily);
+    textToAdd.setAttribute('fill', color.hex());
+    textToAdd.setAttribute('dominant-baseline', 'middle');
+    textToAdd.innerHTML = text;
+    linkToAdd.appendChild(textToAdd);
+    this.resume.appendChild(linkToAdd);
+  }
+
   protected addCircle(x: number, y: number, radius: number, color: Color) {
     const circleToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
