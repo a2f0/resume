@@ -17,3 +17,11 @@ variable "vercel_org_id" {
 variable "vercel_token" {
     type = string
 }
+
+variable "domain" {
+    type = string
+}
+
+variable "aws_region" {
+    type = string
+}
