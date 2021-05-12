@@ -8,6 +8,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 3.0"
     }
+    vercel = {
+      source = "chronark/vercel"
+      version = "0.10.0"
+    }
   }
 }
 
@@ -25,7 +29,7 @@ resource "github_actions_secret" "vercel_org_id" {
 resource "github_actions_secret" "vercel_project_id" {
   repository       =  var.github_repository
   secret_name      = "VERCEL_PROJECT_ID"
-  plaintext_value  = var.vercel_project_id
+  plaintext_value  = vercel_project.resume.id
 }
 
 resource "github_actions_secret" "vercel_token" {

@@ -1,0 +1,8 @@
+.blackbox
+.next
+.git
+.github
+.vscode
+.vercel
+node_modules
+terraform
