@@ -1,6 +1,9 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "types": [
+      "webdriverio/sync", "mocha", "expect-webdriverio"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -24,5 +27,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
