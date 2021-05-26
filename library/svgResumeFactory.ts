@@ -10,6 +10,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     super(config);
     this.resume = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.resume.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    this.resume.setAttribute('id', 'svgResume');
     this.populateResume();
   }
 
