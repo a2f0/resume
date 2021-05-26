@@ -44,6 +44,7 @@
     "@wdio/spec-reporter": "^7.6.1",
     "chromedriver": "^90.0.1",
     "eslint": "^7.17.0",
+    "expect-webdriverio": "^3.0.0",
     "gts": "^3.1.0",
     "start-server-and-test": "^1.12.3",
     "stylelint": "^13.8.0",
