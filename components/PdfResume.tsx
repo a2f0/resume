@@ -24,8 +24,10 @@ export default function PdfResume() {
     };
     const resumeFactory = new PdfResumeFactory(config);
     const resume = resumeFactory.getResume();
-    PDFObject.embed(resume.output('datauristring'), '#pdfObject');
+    PDFObject.embed(resume.output('datauristring'), '#pdfObjectContainer', {
+      id: 'pdfObject',
+    });
   });
 
-  return <div style={preview} id="pdfObject" />;
+  return <div style={preview} id="pdfObjectContainer" />;
 }

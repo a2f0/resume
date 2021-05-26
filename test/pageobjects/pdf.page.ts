@@ -2,7 +2,7 @@ import Base from './base';
 
 class PdfPage extends Base {
   get pdfResume() {
-    return $('embed');
+    return $('#pdfObject');
   }
   open() {
     return super.open('pdf');
