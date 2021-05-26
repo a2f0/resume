@@ -16,10 +16,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.2
-    - run: npx vercel --version
+    - run: npm ci
+    - name: run tests
+      uses: ianwalter/puppeteer-container@v4.0.0
+      with:
+        args: npm run ci-headless
+    - name: cleanup test artifacts
+      uses: ianwalter/puppeteer-container@v4.0.0
+      with:
+        args: rm -rf core
     # production deploy
     - uses: amondnet/vercel-action@v19
       if: github.event.ref == 'refs/heads/main'
