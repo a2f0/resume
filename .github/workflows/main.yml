@@ -16,9 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: npm ci
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.2
-    - run: npm ci
     - name: run tests
       uses: ianwalter/puppeteer-container@v4.0.0
       with:
