@@ -1,8 +1,8 @@
 import React, {ReactNode, useEffect, useRef} from 'react';
 import {DropdownMenuProvider} from './DropdownMenuContext';
-import {Menu} from './MenuItems';
 import {MenuButton} from './MenuButton';
 import {MenuContainer} from './MenuContainer';
+import {MenuItems} from './MenuItems';
 import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import {useMenuParent} from './MenuParentContext';
 
@@ -45,9 +45,13 @@ export default function DropdownMenu({children, label}: MenuProps) {
         >
           {label}
         </MenuButton>
-        <Menu ref={dropdownRef} isActive={isActive}>
+        <MenuItems
+          id={'menuItems' + label}
+          ref={dropdownRef}
+          isActive={isActive}
+        >
           {children}
-        </Menu>
+        </MenuItems>
       </MenuContainer>
     </DropdownMenuProvider>
   );

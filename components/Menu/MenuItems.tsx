@@ -2,9 +2,10 @@ import styled, {css} from 'styled-components';
 
 interface IProps {
   isActive: boolean;
+  id: string;
 }
 
-export const Menu = styled.div<IProps>`
+export const MenuItems = styled.div<IProps>`
   background: #ffffff;
   border-radius: 0px;
   position: absolute;
