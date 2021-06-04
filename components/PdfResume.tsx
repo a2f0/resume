@@ -1,13 +1,15 @@
-import React, {useEffect, CSSProperties} from 'react';
+import React, {CSSProperties, useEffect} from 'react';
+
+import {
+  selectBackgroundColor,
+  selectForegroundColor,
+} from '../library/resumeConfigSlice';
+
+import Color from 'color';
 import PDFObject from 'pdfobject';
 import PdfResumeFactory from '../library/pdfResumeFactory';
-import {useAppSelector} from '../library/hooks';
-import {
-  selectForegroundColor,
-  selectBackgroundColor,
-} from '../library/resumeConfigSlice';
 import {ResumeConfig} from '../library/resumeConfig';
-import Color from 'color';
+import {useAppSelector} from '../library/hooks';
 
 export default function PdfResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);

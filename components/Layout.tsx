@@ -1,8 +1,8 @@
-import {ReactNode} from 'react';
-import holyGrail from '../styles/HolyGrail.module.css';
-import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
+import Header from './Header';
+import {ReactNode} from 'react';
+import holyGrail from '../styles/HolyGrail.module.css';
 
 interface IProps {
   children: ReactNode;

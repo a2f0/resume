@@ -1,9 +1,10 @@
-import Head from 'next/head';
-import holyGrail from '../styles/HolyGrail.module.css';
 import DropdownMenu from './Menu/DropdownMenu';
-import ViewMenu from './Menu/ViewMenu';
 import FileMenu from './Menu/FileMenu';
+import Head from 'next/head';
 import MenuParent from './Menu/MenuParent';
+import ViewMenu from './Menu/ViewMenu';
+
+import holyGrail from '../styles/HolyGrail.module.css';
 
 const Header = () => {
   return (

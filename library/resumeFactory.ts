@@ -1,8 +1,8 @@
-import Color from 'color';
 import * as Constants from '../constants';
-import resume from '../resume.json';
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
+import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';
+import resume from '../resume.json';
 
 export default abstract class ResumeFactory {
   foregroundColor: Color = Color(Constants.LIGHT);

@@ -1,9 +1,9 @@
-import React, {useRef, useEffect, ReactNode} from 'react';
-import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
-import {MenuContainer} from './MenuContainer';
-import {MenuButton} from './MenuButton';
-import {Menu} from './MenuItems';
+import React, {ReactNode, useEffect, useRef} from 'react';
 import {DropdownMenuProvider} from './DropdownMenuContext';
+import {Menu} from './MenuItems';
+import {MenuButton} from './MenuButton';
+import {MenuContainer} from './MenuContainer';
+import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
 import {useMenuParent} from './MenuParentContext';
 
 interface MenuProps {

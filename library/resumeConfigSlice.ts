@@ -1,7 +1,8 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {RootState} from './store';
-import Color from 'color';
 import * as Constants from '../constants';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+import Color from 'color';
+import {RootState} from './store';
+
 export interface CounterState {
   foregroundColor: string;
   backgroundColor: string;

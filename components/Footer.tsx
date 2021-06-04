@@ -1,9 +1,9 @@
+import Link from 'next/link';
+import React from 'react';
 import holyGrail from '../styles/HolyGrail.module.css';
 import packageJson from '../package.json';
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
 import resume from '../resume.json';
+import styled from 'styled-components';
 
 export const VersionContainer = styled.div`
   display: flex;

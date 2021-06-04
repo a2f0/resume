@@ -1,7 +1,7 @@
-import ResumeFactory from './resumeFactory';
 import * as Constants from '../constants';
-import {ResumeConfig} from '../library/resumeConfig';
 import Color from 'color';
+import {ResumeConfig} from '../library/resumeConfig';
+import ResumeFactory from './resumeFactory';
 
 export default class SvgResumeFactory extends ResumeFactory {
   resume: SVGElement;

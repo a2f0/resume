@@ -1,20 +1,21 @@
-import {useDropdownMenu} from './DropdownMenuContext';
-import {useMenuParent} from './MenuParentContext';
-import {useDispatch} from 'react-redux';
-import {useRouter} from 'next/router';
-import Link from 'next/link';
-import MenuDivider from './MenuDivider';
-import MenuListItem from './MenuListItem';
-import CheckMark from './CheckMark';
-import MenuLink from './MenuLink';
+import * as Constants from '../../constants';
 import {
   selectForegroundColor,
-  setForegroundColor,
   setBackgroundColor,
+  setForegroundColor,
 } from '../../library/resumeConfigSlice';
-import {useAppSelector} from '../../library/hooks';
-import * as Constants from '../../constants';
+import CheckMark from './CheckMark';
+import Link from 'next/link';
+import MenuDivider from './MenuDivider';
+import MenuLink from './MenuLink';
+import MenuListItem from './MenuListItem';
 import resume from '../../resume.json';
+import {useAppSelector} from '../../library/hooks';
+import {useDispatch} from 'react-redux';
+import {useDropdownMenu} from './DropdownMenuContext';
+import {useMenuParent} from './MenuParentContext';
+import {useRouter} from 'next/router';
+
 const ViewMenu = () => {
   const context = useDropdownMenu();
   const parentContext = useMenuParent();

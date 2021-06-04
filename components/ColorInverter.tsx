@@ -1,13 +1,12 @@
 import React, {CSSProperties} from 'react';
-import Color from 'color';
-import {useDispatch} from 'react-redux';
-
 import {
-  setForegroundColor,
   setBackgroundColor,
+  setForegroundColor,
 } from '../library/resumeConfigSlice';
-import {useAppSelector} from '../library/hooks';
+import Color from 'color';
 import {selectForegroundColor} from '../library/resumeConfigSlice';
+import {useAppSelector} from '../library/hooks';
+import {useDispatch} from 'react-redux';
 
 interface IProps {
   degrees: number;
