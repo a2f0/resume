@@ -1,26 +1,36 @@
 import holyGrail from '../styles/HolyGrail.module.css';
 import packageJson from '../package.json';
-import React, {CSSProperties} from 'react';
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+import resume from '../resume.json';
 
-const versionContainer: CSSProperties = {
-  display: 'flex',
-  height: '25px',
-  flexDirection: 'column',
-  alignItems: 'flex-end',
-  justifyContent: 'flex-end',
-  fontSize: '11px',
-  fontFamily: 'Helvetica',
-  fontWeight: 50,
-};
+export const VersionContainer = styled.div`
+  display: flex;
+  height: 25px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+`;
+
+export const VersionLink = styled.a`
+  color: white;
+  font-size: 12px;
+  font-family: Helvetica;
+  font-weight: 10;
+  text-decoration: none;
+`;
 
 const Footer = () => (
   <footer className={holyGrail.footer}>
     <div className={holyGrail.flexContainerColumnPageWidthBottom}>
       <div className={holyGrail.leftColumn}>
         <div className={holyGrail.flexContainerLeftAlignBottom}>
-          <div style={versionContainer}>
-            <span>v{[packageJson.version]}</span>
-          </div>
+          <VersionContainer>
+            <Link href={resume.url} passHref>
+              <VersionLink>v{packageJson.version}</VersionLink>
+            </Link>
+          </VersionContainer>
         </div>
       </div>
       <div className={holyGrail.centerColumn}>
