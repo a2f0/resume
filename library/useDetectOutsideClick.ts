@@ -1,4 +1,4 @@
-import React, {useState, useEffect, SetStateAction} from 'react';
+import React, {SetStateAction, useEffect, useState} from 'react';
 import {useMenuParent} from '../components/Menu/MenuParentContext';
 export const useDetectOutsideClick = (
   el: React.MutableRefObject<HTMLDivElement | null>,

@@ -1,13 +1,13 @@
-import React, {useEffect, useState, CSSProperties} from 'react';
 import * as Constants from '../constants';
-import SvgResumeFactory from '../library/svgResumeFactory';
+import React, {CSSProperties, useEffect, useState} from 'react';
 import {
-  selectForegroundColor,
   selectBackgroundColor,
+  selectForegroundColor,
 } from '../library/resumeConfigSlice';
-import {useAppSelector} from '../library/hooks';
 import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';
+import SvgResumeFactory from '../library/svgResumeFactory';
+import {useAppSelector} from '../library/hooks';
 
 export default function SvgResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);

@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
+import {
+  selectBackgroundColor,
+  selectForegroundColor,
+} from '../../library/resumeConfigSlice';
+import CheckMark from './CheckMark';
+import Color from 'color';
+import MenuLink from './MenuLink';
+import MenuListItem from './MenuListItem';
+import PdfResumeFactory from '../../library/pdfResumeFactory';
+import {ResumeConfig} from '../../library/resumeConfig';
+import SvgResumeFactory from '../../library/svgResumeFactory';
+import {useAppSelector} from '../../library/hooks';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
-import {ResumeConfig} from '../../library/resumeConfig';
-import {useAppSelector} from '../../library/hooks';
-import {
-  selectForegroundColor,
-  selectBackgroundColor,
-} from '../../library/resumeConfigSlice';
-import Color from 'color';
-import SvgResumeFactory from '../../library/svgResumeFactory';
-import PdfResumeFactory from '../../library/pdfResumeFactory';
-import MenuListItem from './MenuListItem';
-import CheckMark from './CheckMark';
-import MenuLink from './MenuLink';
 
 const FileMenu = () => {
   const context = useDropdownMenu();

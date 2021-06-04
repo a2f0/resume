@@ -1,8 +1,8 @@
-import ResumeFactory from './resumeFactory';
-import {jsPDF, jsPDFOptions, TextOptionsLight} from 'jspdf';
 import * as Constants from '../constants';
-import {ResumeConfig} from '../library/resumeConfig';
+import {TextOptionsLight, jsPDF, jsPDFOptions} from 'jspdf';
 import Color from 'color';
+import {ResumeConfig} from '../library/resumeConfig';
+import ResumeFactory from './resumeFactory';
 
 export default class PdfResumeFactory extends ResumeFactory {
   resume: jsPDF;
