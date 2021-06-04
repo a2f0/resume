@@ -9,5 +9,5 @@ My resume is a [JSON document](resume.json) that is programatically rendered int
 ```bash
 npm install
 pre-commit install
-npm run dev
+npm run server
 ```
