@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo ${{github.event_name}}
+    - run: echo ${{github.event.ref}}
     - run: npm audit --audit-level=high
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
