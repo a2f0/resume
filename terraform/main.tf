@@ -9,7 +9,7 @@ terraform {
       version = "~> 3.0"
     }
     vercel = {
-      source = "chronark/vercel"
+      source  = "chronark/vercel"
       version = "0.10.0"
     }
   }

@@ -1,31 +1,31 @@
 variable "github_owner" {
-    type = string
+  type = string
 }
 
 variable "github_repository" {
-    type = string
+  type = string
 }
 
 variable "github_token" {
-    type = string
+  type = string
 }
 
 variable "vercel_org_id" {
-    type = string
+  type = string
 }
 
 variable "vercel_token" {
-    type = string
+  type = string
 }
 
 variable "domain" {
-    type = string
+  type = string
 }
 
 variable "aws_region" {
-    type = string
+  type = string
 }
 
 variable "slack_webhook_url" {
-    type = string
+  type = string
 }
