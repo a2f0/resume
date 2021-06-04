@@ -5,6 +5,9 @@ export default class Base {
   get fileMenuItems() {
     return $('#menuItemsFile');
   }
+  async activateFileMenu() {
+    await (await this.fileMenuButton).click();
+  }
   get viewMenuButton() {
     return $('#menuButtonView');
   }
