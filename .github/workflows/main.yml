@@ -14,8 +14,6 @@ jobs:
         node-version: [14.x]
     steps:
     - uses: actions/checkout@v2
-    - run: echo ${{github.event_name}}
-    - run: echo ${{github.event.ref}}
     - run: npm audit --audit-level=high
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -27,7 +25,7 @@ jobs:
     - run: npm run ci-headless
     # production deploy
     - uses: amondnet/vercel-action@v19
-      if: ${{ github.event.ref == 'refs/heads/main' && github.event_name == 'push ' }}
+      if: ${{ github.event.ref == 'refs/heads/main' && github.event_name == 'push' }}
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         vercel-args: '--prod'
@@ -35,7 +33,7 @@ jobs:
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
     # non-production deploy
     - uses: amondnet/vercel-action@v19
-      if: ${{ github.event_name == 'push ' }}
+      if: ${{ github.event.ref != 'refs/heads/main' && github.event_name == 'push' }}
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
