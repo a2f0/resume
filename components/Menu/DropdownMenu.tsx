@@ -38,7 +38,11 @@ export default function DropdownMenu({children, label}: MenuProps) {
   return (
     <DropdownMenuProvider setIsActive={setIsActive}>
       <MenuContainer>
-        <MenuButton onClick={onClick} onMouseEnter={onMouseEnter}>
+        <MenuButton
+          id={'menuButton' + label}
+          onClick={onClick}
+          onMouseEnter={onMouseEnter}
+        >
           {label}
         </MenuButton>
         <Menu ref={dropdownRef} isActive={isActive}>
