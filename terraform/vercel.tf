@@ -3,9 +3,9 @@ provider "vercel" {
 }
 
 resource "vercel_project" "resume" {
-  name = "resume"
+  name         = "resume"
   node_version = "14.x"
-  framework = "nextjs"
+  framework    = "nextjs"
   git_repository {
     type = "github"
     repo = "${var.github_owner}/${var.github_repository}"

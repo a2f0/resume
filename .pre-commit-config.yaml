@@ -1,16 +1,26 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
     rev: v2.3.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/pre-commit/mirrors-eslint
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: 'https://github.com/pre-commit/mirrors-eslint'
     rev: ''
     hooks:
-    -   id: eslint
--   repo: https://github.com/awebdeveloper/pre-commit-stylelint
+      - id: eslint
+  - repo: 'https://github.com/awebdeveloper/pre-commit-stylelint'
     rev: ''
     hooks:
-    -   id: stylelint
-        additional_dependencies: ['stylelint@13.8.0', 'stylelint-config-standard@20.0.0']
+      - id: stylelint
+        additional_dependencies:
+          - stylelint@13.8.0
+          - stylelint-config-standard@20.0.0
+  - repo: 'https://github.com/gruntwork-io/pre-commit'
+    rev: v0.1.12
+    hooks:
+      - id: terraform-fmt
+      - id: tflint
+      - id: shellcheck
+      - id: gofmt
+      - id: golint
