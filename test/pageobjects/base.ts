@@ -15,3 +15,6 @@ export default class Base {
     return browser.url(`http://localhost:4001/${path}`);
   }
 }
+
+const BasePage = new Base();
+export {BasePage};
