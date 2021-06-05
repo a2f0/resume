@@ -2,7 +2,9 @@
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "types": [
-      "webdriverio/sync", "mocha", "expect-webdriverio"
+      "expect-webdriverio",
+      "@wdio/mocha-framework",
+      "webdriverio/async"
     ],
     "lib": [
       "dom",
