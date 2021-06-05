@@ -5,9 +5,6 @@ export default class Base {
   get fileMenuItems() {
     return $('#menuItemsFile');
   }
-  async activateFileMenu() {
-    await (await this.fileMenuButton).click();
-  }
   get viewMenuButton() {
     return $('#menuButtonView');
   }
@@ -18,3 +15,6 @@ export default class Base {
     return browser.url(`http://localhost:4001/${path}`);
   }
 }
+
+const BasePage = new Base();
+export {BasePage};
