@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <>
       <Head>
-        <title>Resume</title>
+        <title>&lrm;</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={holyGrail.header}>
