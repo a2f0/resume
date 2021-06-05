@@ -9,6 +9,7 @@
     "test-headless": "npx wdio run wdio.headless.conf.ts",
     "ci": "start-server-and-test server-test http-get://localhost:4001 test",
     "ci-headless": "start-server-and-test server-test http-get://localhost:4001 test-headless",
+    "ci-server-running": "server-test http-get://localhost:4001 test",
     "build": "next build",
     "start": "next start",
     "lint": "gts lint",
