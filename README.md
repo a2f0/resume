@@ -10,4 +10,5 @@ My resume is a [JSON document](resume.json) that is programatically rendered int
 npm install
 pre-commit install
 npm run server
+npm run ci
 ```
