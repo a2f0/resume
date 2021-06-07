@@ -13,6 +13,7 @@ export const config: WebdriverIO.Config = {
             '--disable-features=NetworkService',
             '--no-sandbox',
             '--disable-dev-shm-usage',
+            '--window-size=1366,2160',
           ],
         },
       },
