@@ -17,14 +17,16 @@ export default abstract class ResumeFactory {
     x: number,
     y: number,
     radius: number,
-    color: Color
+    color: Color,
+    id: string
   ): void;
   protected abstract addRect(
     x: number,
     y: number,
     width: number,
     height: number,
-    color: Color
+    color: Color,
+    id: string
   ): void;
   protected abstract addText(
     x: number,
@@ -32,7 +34,8 @@ export default abstract class ResumeFactory {
     fontSize: number,
     fontFamily: string,
     color: Color,
-    text: string
+    text: string,
+    id: string
   ): void;
   protected abstract addTextWithLink(
     x: number,
@@ -41,46 +44,47 @@ export default abstract class ResumeFactory {
     fontFamily: string,
     color: Color,
     text: string,
-    url: string
+    url: string,
+    id: string
   ): void;
   protected abstract addLine(
     x1: number,
     x2: number,
     y1: number,
     y2: number,
-    color: Color
+    color: Color,
+    id: string
   ): void;
 
   protected populateResume() {
-    // Left Partition
     this.addRect(
       Constants.LEFT_PANEL_XPOS,
       Constants.LEFT_PANEL_YPOS,
       Constants.LEFT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
-      this.backgroundColor
+      this.backgroundColor,
+      'leftPartition'
     );
 
-    // Right Partition
     this.addRect(
       Constants.RIGHT_PANEL_XPOS,
       Constants.RIGHT_PANEL_YPOS,
       Constants.RIGHT_PANEL_WIDTH,
       Constants.DOCUMENT_HEIGHT,
-      this.backgroundColor
+      this.backgroundColor,
+      'rightPartition'
     );
 
-    // First Name
     this.addText(
       Constants.FIRST_NAME_XPOS,
       Constants.FIRST_NAME_YPOS_MIDDLE,
       Constants.FIRST_NAME_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.first_name
+      resume.first_name,
+      'firstName'
     );
 
-    // Last Name
     const firstNameWidthInPoints = getTextWidthInPoints(
       resume.first_name,
       getFontString(
@@ -96,65 +100,66 @@ export default abstract class ResumeFactory {
       Constants.LAST_NAME_SIZE,
       Constants.FONT_FAMILY,
       this.highlightColor,
-      resume.last_name
+      resume.last_name,
+      'lastName'
     );
 
-    // Address Line
     this.addText(
       Constants.ADDRESS_XPOS,
       Constants.ADDRESS_YPOS_MIDDLE,
       Constants.ADDRESS_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.city_state
+      resume.city_state,
+      'addressLine'
     );
 
-    // Vertical Divider
     this.addLine(
       Constants.VERTICAL_DIVIDER_XPOS,
       Constants.VERTICAL_DIVIDER_XPOS,
       Constants.VERTICAL_DIVIDER_YPOS1,
       Constants.VERTICAL_DIVIDER_YPOS1 + Constants.VERTICAL_DIVIDER_HEIGHT,
-      this.highlightColor
+      this.highlightColor,
+      'verticalDivider'
     );
 
-    // Address Separator
     this.addLine(
       Constants.ADDRESS_LINE_X1,
       Constants.ADDRESS_LINE_X1 + Constants.ADDRESS_LINE_WIDTH,
       Constants.ADDRESS_LINE_YPOS,
       Constants.ADDRESS_LINE_YPOS,
-      this.highlightColor
+      this.highlightColor,
+      'addressSeparator'
     );
 
-    // Phone Number
     this.addText(
       Constants.PHONE_NUMBER_XPOS,
       Constants.PHONE_NUMBER_YPOS,
       Constants.PHONE_NUMBER_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.phone_number
+      resume.phone_number,
+      'phoneNumber'
     );
 
-    // Email Address
     this.addText(
       Constants.EMAIL_XPOS,
       Constants.EMAIL_YPOS,
       Constants.EMAIL_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.email
+      resume.email,
+      'emailAddress'
     );
 
-    // Experience Header
     this.addText(
       Constants.EXPERIENCE_HEADER_XPOS,
       Constants.EXPERIENCE_HEADER_YPOS,
       Constants.EXPERIENCE_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.highlightColor,
-      Constants.EXPERIENCE_HEADER
+      Constants.EXPERIENCE_HEADER,
+      'experienceHeader'
     );
 
     // Experience
@@ -173,22 +178,22 @@ export default abstract class ResumeFactory {
     for (let i = 0; i < resume.experience.length; i++) {
       const position = resume.experience[i];
 
-      // Position Bullet Point
       this.addCircle(
         Constants.VERTICAL_DIVIDER_XPOS,
         currentPositionYPos,
         Constants.POSITION_BULLET_RADIUS,
-        this.highlightColor
+        this.highlightColor,
+        'positionBulletPoint-' + i
       );
 
-      // Position Title
       this.addText(
         Constants.POSITION_TITLE_XPOS,
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        position.title
+        position.title,
+        'positionTitle-' + i
       );
       const titleWidth = getTextWidthInPoints(
         position.title,
@@ -220,7 +225,8 @@ export default abstract class ResumeFactory {
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        position.date_range
+        position.date_range,
+        'positionDateRange-' + i
       );
 
       // Hyphen After Title
@@ -232,10 +238,10 @@ export default abstract class ResumeFactory {
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        '-'
+        '-',
+        'hyphenAfterTitle-' + i
       );
 
-      // Company Name
       const companyNameXPos =
         hyphen1XPos + hyphenWidth + Constants.HYPEN_SPACING;
       this.addText(
@@ -244,7 +250,8 @@ export default abstract class ResumeFactory {
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        position.company
+        position.company,
+        'positionCompanyName-' + i
       );
       const companyNameWidth = getTextWidthInPoints(
         position.company,
@@ -265,7 +272,8 @@ export default abstract class ResumeFactory {
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        '-'
+        '-',
+        'hyphenAfterCompanyName-' + i
       );
 
       // Company Location
@@ -277,7 +285,8 @@ export default abstract class ResumeFactory {
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        position.location
+        position.location,
+        'positionCompanyLocation-'
       );
 
       // Accomplishments
@@ -305,7 +314,8 @@ export default abstract class ResumeFactory {
             Constants.POSITION_ACCOMPLISHMENT_SIZE,
             Constants.FONT_FAMILY,
             this.foregroundColor,
-            accomplismentLine
+            accomplismentLine,
+            `positionAccomplishmentLine-${i}-${j}-${k}`
           );
           accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
         }
@@ -323,7 +333,8 @@ export default abstract class ResumeFactory {
       Constants.EDUCATION_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.highlightColor,
-      Constants.EDUCATION_HEADER
+      Constants.EDUCATION_HEADER,
+      'educationHeader'
     );
     const educationFont = getFontString(
       Constants.EDUCATION_WEIGHT,
@@ -337,15 +348,14 @@ export default abstract class ResumeFactory {
     for (let m = 0; m < resume.education.length; m++) {
       const education = resume.education[m];
 
-      // Bullet on Divider
       this.addCircle(
         Constants.VERTICAL_DIVIDER_XPOS,
         educationYPos,
         Constants.POSITION_BULLET_RADIUS,
-        this.highlightColor
+        this.highlightColor,
+        `educationBullet-${m}`
       );
 
-      // Commencement
       const commencementDateRangeWidth = getTextWidthInPoints(
         education.commencement,
         educationFont
@@ -360,7 +370,8 @@ export default abstract class ResumeFactory {
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        education.commencement
+        education.commencement,
+        `educationCommencement-${m}`
       );
 
       // Education Institution
@@ -370,7 +381,8 @@ export default abstract class ResumeFactory {
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        education.institution
+        education.institution,
+        `educationInstitution-${m}`
       );
 
       // Education Degree
@@ -381,7 +393,8 @@ export default abstract class ResumeFactory {
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        education.credential
+        education.credential,
+        `educationDegree-${m}`
       );
 
       educationYPos +=
@@ -395,7 +408,8 @@ export default abstract class ResumeFactory {
       Constants.INTERNET_PRESENCES_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.highlightColor,
-      'Internet'
+      'Internet',
+      'internetLabel'
     );
 
     // Presences
@@ -414,7 +428,8 @@ export default abstract class ResumeFactory {
       Constants.INTERNET_PRESENCES_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      'Presences'
+      'Presences',
+      'PresencesLabel'
     );
 
     // Internet Presences Separator
@@ -423,7 +438,8 @@ export default abstract class ResumeFactory {
       Constants.VERTICAL_DIVIDER_XPOS - Constants.INTERNET_PRESENCES_LINE_WIDTH,
       Constants.INTERNET_PRESENCES_LINE_YPOS,
       Constants.INTERNET_PRESENCES_LINE_YPOS,
-      this.highlightColor
+      this.highlightColor,
+      'internetPresencesSeparator'
     );
 
     let internetPresenceYPos = Constants.INTERNET_PRESENCES_YPOS;
@@ -437,7 +453,8 @@ export default abstract class ResumeFactory {
         Constants.FONT_FAMILY,
         this.foregroundColor,
         internetPresence,
-        internetPresence
+        internetPresence,
+        `internetPresences-${n}`
       );
       internetPresenceYPos += Constants.INTERNET_PRESENCES_SIZE;
     }

@@ -55,13 +55,13 @@ const ViewMenu = () => {
   return (
     <ul>
       <MenuListItem>
-        <div onClick={setBlackBackground}>
+        <div id="darkBackgroundMenuOption" onClick={setBlackBackground}>
           <CheckMark isActive={foregroundColor === Constants.LIGHT} />
           <MenuLink>Dark Background</MenuLink>
         </div>
       </MenuListItem>
       <MenuListItem>
-        <div onClick={setWhiteBackground}>
+        <div id="lightBackgroundMenuOption" onClick={setWhiteBackground}>
           <CheckMark isActive={foregroundColor === Constants.DARK} />
           <MenuLink>Light Background</MenuLink>
         </div>

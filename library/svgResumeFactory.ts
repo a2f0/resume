@@ -19,7 +19,8 @@ export default class SvgResumeFactory extends ResumeFactory {
     y: number,
     width: number,
     height: number,
-    color: Color
+    color: Color,
+    id: string
   ) {
     const rectToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
@@ -31,6 +32,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     rectToAdd.setAttribute('width', width + Constants.UNITS);
     rectToAdd.setAttribute('height', height + Constants.UNITS);
     rectToAdd.setAttribute('stroke', color.hex());
+    rectToAdd.setAttribute('id', id);
     this.resume.appendChild(rectToAdd);
   }
 
@@ -40,7 +42,8 @@ export default class SvgResumeFactory extends ResumeFactory {
     fontSize: number,
     fontFamily: string,
     color: Color,
-    text: string
+    text: string,
+    id: string
   ) {
     const textToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
@@ -52,6 +55,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.setAttribute('font-family', fontFamily);
     textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
+    textToAdd.setAttribute('id', id);
     textToAdd.innerHTML = text;
     this.resume.appendChild(textToAdd);
   }
@@ -63,7 +67,8 @@ export default class SvgResumeFactory extends ResumeFactory {
     fontFamily: string,
     color: Color,
     text: string,
-    url: string
+    url: string,
+    id: string
   ) {
     const linkToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
@@ -82,11 +87,18 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
     textToAdd.innerHTML = text;
+    textToAdd.setAttribute('id', id);
     linkToAdd.appendChild(textToAdd);
     this.resume.appendChild(linkToAdd);
   }
 
-  protected addCircle(x: number, y: number, radius: number, color: Color) {
+  protected addCircle(
+    x: number,
+    y: number,
+    radius: number,
+    color: Color,
+    id: string
+  ) {
     const circleToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'circle'
@@ -95,6 +107,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     circleToAdd.setAttribute('cy', y + Constants.UNITS);
     circleToAdd.setAttribute('r', radius + Constants.UNITS);
     circleToAdd.setAttribute('fill', color.hex());
+    circleToAdd.setAttribute('id', id);
     this.resume.appendChild(circleToAdd);
   }
 
@@ -103,19 +116,21 @@ export default class SvgResumeFactory extends ResumeFactory {
     x2: number,
     y1: number,
     y2: number,
-    color: Color
+    color: Color,
+    id: string
   ) {
-    const circleToAdd = document.createElementNS(
+    const lineToAdd = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'line'
     );
-    circleToAdd.setAttribute('x1', x1 + Constants.UNITS);
-    circleToAdd.setAttribute('x2', x2 + Constants.UNITS);
-    circleToAdd.setAttribute('y1', y1 + Constants.UNITS);
-    circleToAdd.setAttribute('y2', y2 + Constants.UNITS);
-    circleToAdd.setAttribute('stroke-width', '.75' + Constants.UNITS);
-    circleToAdd.setAttribute('stroke', color.hex());
-    this.resume.appendChild(circleToAdd);
+    lineToAdd.setAttribute('x1', x1 + Constants.UNITS);
+    lineToAdd.setAttribute('x2', x2 + Constants.UNITS);
+    lineToAdd.setAttribute('y1', y1 + Constants.UNITS);
+    lineToAdd.setAttribute('y2', y2 + Constants.UNITS);
+    lineToAdd.setAttribute('stroke-width', '.75' + Constants.UNITS);
+    lineToAdd.setAttribute('stroke', color.hex());
+    lineToAdd.setAttribute('id', id);
+    this.resume.appendChild(lineToAdd);
   }
 
   public getResume(): SVGElement {
