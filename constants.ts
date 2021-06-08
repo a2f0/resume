@@ -13,7 +13,7 @@ export const EXPERIENCE_HEADER                  = 'EXPERIENCE';
 export const FONT_FAMILY                        = 'Helvetica';
 export const HYPEN_SPACING                      = 4;
 export const DARK                               = '#000000';
-export const LIGHT                              = '#FFFFFF';
+export const LIGHT                              = '#ffffff';
 
 export const LEFT_PANEL_XPOS                    = 0;
 export const LEFT_PANEL_YPOS                    = 0;
