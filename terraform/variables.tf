@@ -1,3 +1,12 @@
+variable "aws_region" {
+  type = string
+
+}
+
+variable "domain" {
+  type = string
+}
+
 variable "github_owner" {
   type = string
 }
@@ -10,22 +19,18 @@ variable "github_token" {
   type = string
 }
 
+variable "gsuite_impersonated_user_email" {
+  type = string
+}
+
+variable "slack_webhook_url" {
+  type = string
+}
+
 variable "vercel_org_id" {
   type = string
 }
 
 variable "vercel_token" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
-variable "aws_region" {
-  type = string
-}
-
-variable "slack_webhook_url" {
   type = string
 }
