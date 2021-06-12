@@ -12,5 +12,9 @@ terraform {
       source  = "chronark/vercel"
       version = "0.10.0"
     }
+    gsuite = {
+      source  = "DeviaVir/gsuite"
+      version = "~> 0.1"
+    }
   }
 }

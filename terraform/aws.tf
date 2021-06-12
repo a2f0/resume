@@ -2,16 +2,16 @@ provider "aws" {
   region = var.aws_region
 }
 
-data "aws_route53_zone" "resume" {
+data "aws_route53_zone" "zone" {
   name = var.domain
 }
 
-resource "aws_route53_record" "resume-ns" {
+resource "aws_route53_record" "ns" {
   allow_overwrite = true
   name            = var.domain
   ttl             = 60
   type            = "NS"
-  zone_id         = data.aws_route53_zone.resume.zone_id
+  zone_id         = data.aws_route53_zone.zone.zone_id
 
   records = [
     "ns-468.awsdns-58.com",
@@ -21,14 +21,41 @@ resource "aws_route53_record" "resume-ns" {
   ]
 }
 
-resource "aws_route53_record" "resume-a" {
+resource "aws_route53_record" "a" {
   allow_overwrite = true
   name            = var.domain
   ttl             = 60
   type            = "A"
-  zone_id         = data.aws_route53_zone.resume.zone_id
+  zone_id         = data.aws_route53_zone.zone.zone_id
 
   records = [
     "76.76.21.21"
+  ]
+}
+
+resource "aws_route53_record" "txt" {
+  allow_overwrite = true
+  ttl             = 60
+  name            = var.domain
+  type            = "TXT"
+  zone_id         = data.aws_route53_zone.zone.zone_id
+
+  records = [
+    "google-site-verification=8z0T7bFJBKuloHIP6B-4eeWVxOozHOGoNpMwqVb_Pwc"
+  ]
+}
+
+resource "aws_route53_record" "mx" {
+  zone_id = data.aws_route53_zone.zone.zone_id
+  name    = ""
+  ttl     = 60
+  type    = "MX"
+
+  records = [
+    "1 ASPMX.L.GOOGLE.COM",
+    "5 ALT1.ASPMX.L.GOOGLE.COM",
+    "5 ALT2.ASPMX.L.GOOGLE.COM",
+    "10 ASPMX2.GOOGLEMAIL.COM",
+    "10 ASPMX3.GOOGLEMAIL.COM",
   ]
 }
