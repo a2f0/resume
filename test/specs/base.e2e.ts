@@ -2,7 +2,7 @@ import {BasePage} from '../pageobjects/base';
 import assert from 'assert';
 
 describe('Menu Behavior', () => {
-  it('should show/hide based on clicking and hoveing', async () => {
+  it('should show/hide based on clicking and hovering', async () => {
     await BasePage.open('');
     expect(BasePage.fileMenuButton).toBeExisting();
     expect(BasePage.fileMenuItems).toBeExisting();

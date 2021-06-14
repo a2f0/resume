@@ -11,6 +11,12 @@ export default class Base {
   get viewMenuItems() {
     return $('#menuItemsView');
   }
+  get downloadSvgMenuOption() {
+    return $('#downloadSvgMenuOption');
+  }
+  get downloadPdfMenuOption() {
+    return $('#downloadPdfMenuOption');
+  }
   open(path: string) {
     return browser.url(`http://localhost:4001/${path}`);
   }

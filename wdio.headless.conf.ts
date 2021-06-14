@@ -1,3 +1,4 @@
+import * as Constants from './constants';
 import {config as sharedConfig} from './wdio.shared.conf';
 
 export const config: WebdriverIO.Config = {
@@ -7,6 +8,11 @@ export const config: WebdriverIO.Config = {
       {
         browserName: 'chrome',
         'goog:chromeOptions': {
+          prefs: {
+            directory_upgrade: true,
+            prompt_for_download: false,
+            'download.default_directory': Constants.TEST_DOWNLOAD_DIR,
+          },
           args: [
             '--headless',
             '--disable-gpu',
