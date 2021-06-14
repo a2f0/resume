@@ -1,3 +1,6 @@
+import path from 'path';
+
+export const TEST_DOWNLOAD_DIR                  = path.join(__dirname, 'test', 'tempDownload');
 export const STARTX                             = 15;
 export const STARTY                             = 15;
 export const RIGHT_PANEL_STARTY                 = 110;

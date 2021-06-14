@@ -76,13 +76,13 @@ const FileMenu = () => {
         <a onClick={printableSVG}>Printable SVG</a>
       </li> */}
       <MenuListItem>
-        <div onClick={downloadPDF}>
+        <div id="downloadPdfMenuOption" onClick={downloadPDF}>
           <CheckMark isActive={false} />
           <MenuLink>Download PDF</MenuLink>
         </div>
       </MenuListItem>
       <MenuListItem>
-        <div onClick={downloadSVG}>
+        <div id="downloadSvgMenuOption" onClick={downloadSVG}>
           <CheckMark isActive={false} />
           <MenuLink>Download SVG</MenuLink>
         </div>

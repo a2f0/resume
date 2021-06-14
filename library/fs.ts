@@ -1,0 +1,31 @@
+import fs from 'fs';
+import path from 'path';
+
+export default function waitForFileExists(filePath: string, timeout: number) {
+  return new Promise<void>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      watcher.close();
+      reject(
+        new Error('File did not exists and was not created during the timeout.')
+      );
+    }, timeout);
+
+    fs.access(filePath, fs.constants.R_OK, err => {
+      if (!err) {
+        clearTimeout(timer);
+        watcher.close();
+        resolve();
+      }
+    });
+
+    const dir = path.dirname(filePath);
+    const basename = path.basename(filePath);
+    const watcher = fs.watch(dir, (eventType, filename) => {
+      if (eventType === 'rename' && filename === basename) {
+        clearTimeout(timer);
+        watcher.close();
+        resolve();
+      }
+    });
+  });
+}
