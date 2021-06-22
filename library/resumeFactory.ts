@@ -132,23 +132,25 @@ export default abstract class ResumeFactory {
       'addressSeparator'
     );
 
-    this.addText(
+    this.addTextWithLink(
       Constants.PHONE_NUMBER_XPOS,
       Constants.PHONE_NUMBER_YPOS,
       Constants.PHONE_NUMBER_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.phone_number,
+      resume.phone_number.number,
+      resume.phone_number.uri,
       'phoneNumber'
     );
 
-    this.addText(
+    this.addTextWithLink(
       Constants.EMAIL_XPOS,
       Constants.EMAIL_YPOS,
       Constants.EMAIL_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      resume.email,
+      resume.email.email,
+      resume.email.uri,
       'emailAddress'
     );
 
