@@ -15,10 +15,25 @@
   ],
   "experience": [
     {
-      "company": "Real Time Risk Solutions",
-      "title": "VP of Engineering (Current)",
+      "company": "Tearleads",
+      "title": "Product Builder",
       "date_range": "1/2021 - Current",
-      "description": "When I started working at RTRS, I was the only developer, a freelancer, and my hours were capped at seven per week due to funding.  Almost four years later, I am on staff and we are doing business with Fortune 500 companies. I lead a team of engineers spanning mobile, web, and backend.",
+      "description": "I optimize repetitive manual access patterns of atomic subproblems to create efficiency for humans in technical roles.",
+      "url": "https://tearleads.com/",
+      "accomplishments": [
+      ],
+      "location": "Chicago, USA",
+      "technologies": [
+        "Django",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "company": "Real Time Risk Solutions",
+      "title": "VP of Engineering",
+      "date_range": "1/2021 - Current",
+      "description": "When I started working at RTRS, I was the sole developer, a contractor, and my hours were capped at seven per week due to funding.  Years later, I led a team of engineers building a product being used by Fortune 500 companies. My leadership spanned mobile, web, and backend.",
+      "url": "https://rtrs.co",
       "accomplishments": [
         "I focus heavily on API security of a multirole, multitenant application.",
         "Wrote over 1000 integration/unit tests for Django/DRF.",
@@ -33,9 +48,10 @@
     },
     {
       "company": "Aker",
-      "title": "IoT Engineer (Freelancer)",
+      "title": "IoT Engineer (Contract)",
       "date_range": "6/2017 - 11/2019",
       "description": "This was a cutting edge hardware technology project that I served on as the lead developer for the first two iterations.",
+      "url": "https://aker.ag",
       "accomplishments": [
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
@@ -44,9 +60,10 @@
     },
     {
       "company": "Ball Horticultural Company",
-      "title": "DevOps Engineer (Freelancer)",
+      "title": "DevOps Engineer (Contract)",
       "date_range": "6/2017 - 11/2019",
-      "description": "I was hired to automate the build and release of iOS, Android, and Rails applications, then retained to complete additional work.",
+      "description": "Automated the build and release of iOS, Android, and Rails applications, then retained to complete additional work.",
+      "url": "https://www.ballhort.com/",
       "accomplishments": [
         "Completed two major version upgrades of a monolithic Rails code base.",
         "consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
@@ -58,12 +75,14 @@
     {
       "institution": "The University of Chicago",
       "credential": "Master of Computer Science",
-      "commencement": "Class of 2013"
+      "commencement": "Class of 2013",
+      "url": "https://cs.uchicago.edu/"
     },
     {
       "institution": "The University of Iowa",
       "credential": "Bachelor of Business Administration (Management Information Systems)",
-      "commencement": "Class of 2003"
+      "commencement": "Class of 2003",
+      "url": "https://tippie.uiowa.edu/"
     }
   ]
 }

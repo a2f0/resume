@@ -244,13 +244,14 @@ export default abstract class ResumeFactory {
 
       const companyNameXPos =
         hyphen1XPos + hyphenWidth + Constants.HYPEN_SPACING;
-      this.addText(
+      this.addTextWithLink(
         companyNameXPos,
         currentPositionYPos,
         Constants.POSITION_TITLE_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
         position.company,
+        position.url,
         'positionCompanyName-' + i
       );
       const companyNameWidth = getTextWidthInPoints(
@@ -375,13 +376,14 @@ export default abstract class ResumeFactory {
       );
 
       // Education Institution
-      this.addText(
+      this.addTextWithLink(
         Constants.EDUCATION_XPOS,
         educationYPos,
         Constants.EDUCATION_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
         education.institution,
+        education.url,
         `educationInstitution-${m}`
       );
 
