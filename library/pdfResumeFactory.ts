@@ -57,7 +57,13 @@ export default class PdfResumeFactory extends ResumeFactory {
     this.resume.setFont(fontFamily);
     this.resume.setFontSize(fontSize);
     this.resume.setTextColor(color.hex());
-    this.resume.textWithLink(text, x, y, {url: url});
+    const options: TextOptionsLight = {baseline: 'middle'};
+    this.resume.text(text, x, y, options);
+    const dimensions = this.resume.getTextDimensions(text);
+    const halfFontHeight = fontSize / 2;
+    this.resume.link(x, y - halfFontHeight, dimensions.w, dimensions.h, {
+      url: url,
+    });
   }
 
   protected addLine(
