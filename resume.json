@@ -75,6 +75,32 @@
         "consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
       ],
       "location": "Chicago, USA"
+    },
+    {
+      "company": "The University of Chicago",
+      "title": "Senior Systems Administrator",
+      "date_range": "6/2017 - 11/2019",
+      "description": "",
+      "url": "https://www.ballhort.com/",
+      "accomplishments": [
+        "Consolidated several AD environments with zero impact.",
+        "Implemented Active Directory, DFS, ",
+        "Built a custom DOS 6.22 distribution."
+      ],
+      "location": "Chicago, USA"
+    },
+    {
+      "company": "The University of Chicago",
+      "title": "Security Engineer",
+      "date_range": "6/2017 - 11/2019",
+      "description": "",
+      "url": "https://www.ballhort.com/",
+      "accomplishments": [
+        "Consolidated several AD environments with zero impact.",
+        "Implemented Active Directory, DFS, ",
+        "Built a custom DOS 6.22 distribution."
+      ],
+      "location": "Chicago, USA"
     }
   ],
   "education": [
