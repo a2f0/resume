@@ -304,6 +304,13 @@ export default abstract class ResumeFactory {
 
       for (let j = 0; j < position.accomplishments.length; j++) {
         const accomplishment = position.accomplishments[j];
+        this.addCircle(
+          Constants.POSITION_ACCOMPLISHMENT_BULLET_XPOS,
+          accomplishmentYPos,
+          Constants.POSITION_ACCOMPLISHMENT_BULLET_RADIUS,
+          this.foregroundColor,
+          `accomplishmentBullet-${i}-${j}`
+        );
         const accomplishmentLines = wrapLabel(
           accomplishment,
           Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
