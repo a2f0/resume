@@ -125,7 +125,7 @@ export const EDUCATION_XPOS                         = RIGHT_PANEL_STARTX;
 export const EDUCATION_BULLET_RADIUS                = 3;
 export const EDUCATION_VERTICAL_SPACING             = POSITION_VERTICAL_SPACING;
 
-export const INTERNET_PRESENCES_HEADER_YPOS         = DOCUMENT_HEIGHT - 200;
+export const INTERNET_PRESENCES_HEADER_YPOS         = DOCUMENT_HEIGHT - 150;
 export const INTERNET_PRESENCES_HEADER_SIZE         = 14;
 
 export const INTERNET_PRESENCES_LINE_SPACING        = 12;
