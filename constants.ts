@@ -1,37 +1,37 @@
 /* eslint-disable prettier/prettier */
 import path from 'path';
 
-export const TEST_DOWNLOAD_DIR                  = path.join(__dirname, 'test', 'tempDownload');
-export const STARTX                             = 15;
-export const STARTY                             = 15;
-export const RIGHT_PANEL_STARTY                 = 95;
-export const DOCUMENT_WIDTH                     = 612;
-export const DOCUMENT_HEIGHT                    = 792;
-export const PIXELS_PER_POINT                   = .75;
-export const UNITS                              = 'pt';
-export const BACKGROUND_COLOR                   = 'black';
-export const TEXT_COLOR                         = 'white';
-export const HEADER_SIZE                        = 14;
-export const HEADER_SPACING                     = 8;
-export const EXPERIENCE_HEADER                  = 'EXPERIENCE';
-export const FONT_FAMILY                        = 'Helvetica';
-export const HYPEN_SPACING                      = 4;
-export const DARK                               = '#000000';
-export const LIGHT                              = '#ffffff';
+export const TEST_DOWNLOAD_DIR                      = path.join(__dirname, 'test', 'tempDownload');
+export const STARTX                                 = 18;
+export const STARTY                                 = 18;
+export const RIGHT_PANEL_STARTY                     = 95;
+export const DOCUMENT_WIDTH                         = 612;
+export const DOCUMENT_HEIGHT                        = 792;
+export const PIXELS_PER_POINT                       = .75;
+export const UNITS                                  = 'pt';
+export const BACKGROUND_COLOR                       = 'black';
+export const TEXT_COLOR                             = 'white';
+export const HEADER_SIZE                            = 14;
+export const HEADER_SPACING                         = 8;
+export const EXPERIENCE_HEADER                      = 'EXPERIENCE';
+export const FONT_FAMILY                            = 'Helvetica';
+export const HYPEN_SPACING                          = 4;
+export const DARK                                   = '#000000';
+export const LIGHT                                  = '#ffffff';
+export const CENTER_BULLET_MARGIN                   = 10;
 
 export const LEFT_PANEL_XPOS                        = 0;
 export const LEFT_PANEL_YPOS                        = 0;
 export const LEFT_PANEL_PERCENTAGE                  = .27;
 export const LEFT_PANEL_WIDTH                       = LEFT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
 export const LEFT_PANEL_COLOR                       = BACKGROUND_COLOR;
-export const LEFT_PANEL_MARGIN                      = 10
+export const LEFT_PANEL_MARGIN                      = 18
 
 export const RIGHT_PANEL_XPOS                       = LEFT_PANEL_WIDTH;
 export const RIGHT_PANEL_YPOS                       = 0;
 export const RIGHT_PANEL_COLOR                      = BACKGROUND_COLOR;
 export const RIGHT_PANEL_PERCENTAGE                 = 1 - LEFT_PANEL_PERCENTAGE;
 export const RIGHT_PANEL_WIDTH                      = RIGHT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
-export const RIGHT_PANEL_RIGHT_MARGIN               = 10;
 
 export const FIRST_NAME_SIZE                        = 17;
 export const FIRST_NAME_WEIGHT                      = 400;
@@ -58,10 +58,10 @@ export const VERTICAL_DIVIDER_YPOS1                 = 20;
 export const VERTICAL_DIVIDER_HEIGHT                = DOCUMENT_HEIGHT - 60;
 
 export const RIGHT_PANEL_MARGIN                     = LEFT_PANEL_MARGIN;
-export const RIGHT_PANEL_STARTX                     = VERTICAL_DIVIDER_XPOS + RIGHT_PANEL_MARGIN;
+export const RIGHT_PANEL_STARTX                     = VERTICAL_DIVIDER_XPOS + CENTER_BULLET_MARGIN;
 
 export const ADDRESS_LINE_STROKE_WIDTH              = 1;
-export const ADDRESS_LINE_SPACING                   = 12;
+export const ADDRESS_LINE_SPACING                   = 6;
 export const ADDRESS_LINE_YPOS                      = ADDRESS_YPOS + ADDRESS_SIZE + ADDRESS_LINE_SPACING;
 export const ADDRESS_LINE_WIDTH                     = LEFT_PANEL_WIDTH * (1/3);
 export const ADDRESS_LINE_X2                        = VERTICAL_DIVIDER_XPOS;
@@ -105,11 +105,11 @@ export const POSITION_COMPANY_YPOS_START            = POSITION_TITLE_YPOS_START;
 export const POSITION_ACCOMPLISHMENT_WEIGHT         = 400;
 export const POSITION_ACCOMPLISHMENT_SIZE           = POSITION_TITLE_SIZE;
 export const POSITION_ACCOMPLISHMENT_COLOR          = 'white';
-export const POSITION_ACCOMPLISHMENT_BULLET_RADIUS  = 1.5
+export const POSITION_ACCOMPLISHMENT_BULLET_RADIUS  = 1
 export const POSITION_ACCOMPLISHMENT_BULLET_XPOS    = RIGHT_PANEL_STARTX + POSITION_ACCOMPLISHMENT_BULLET_RADIUS * 2
-export const POSITION_ACCOMPLISHMENT_BULLET_SPACING = 6
-export const POSITION_ACCOMPLISHMENT_XPOS           = POSITION_ACCOMPLISHMENT_BULLET_XPOS + POSITION_ACCOMPLISHMENT_BULLET_SPACING;
-export const POSITION_ACCOMPLISHMENT_MAX_WIDTH      = RIGHT_PANEL_WIDTH - ( RIGHT_PANEL_MARGIN * 2) - POSITION_ACCOMPLISHMENT_BULLET_SPACING + POSITION_ACCOMPLISHMENT_BULLET_RADIUS;
+export const POSITION_ACCOMPLISHMENT_BULLET_MARGIN  = 6
+export const POSITION_ACCOMPLISHMENT_XPOS           = POSITION_ACCOMPLISHMENT_BULLET_XPOS + POSITION_ACCOMPLISHMENT_BULLET_MARGIN;
+export const POSITION_ACCOMPLISHMENT_MAX_WIDTH      = RIGHT_PANEL_WIDTH - ( RIGHT_PANEL_MARGIN * 2) - POSITION_ACCOMPLISHMENT_BULLET_MARGIN + POSITION_ACCOMPLISHMENT_BULLET_RADIUS;
 
 export const POSITION_BULLET_RADIUS                 = 3;
 
@@ -125,10 +125,10 @@ export const EDUCATION_XPOS                         = RIGHT_PANEL_STARTX;
 export const EDUCATION_BULLET_RADIUS                = 3;
 export const EDUCATION_VERTICAL_SPACING             = POSITION_VERTICAL_SPACING;
 
-export const INTERNET_PRESENCES_HEADER_YPOS         = DOCUMENT_HEIGHT - 150;
+export const INTERNET_PRESENCES_HEADER_YPOS         = DOCUMENT_HEIGHT - 97;
 export const INTERNET_PRESENCES_HEADER_SIZE         = 14;
 
-export const INTERNET_PRESENCES_LINE_SPACING        = 12;
+export const INTERNET_PRESENCES_LINE_SPACING        = 4;
 export const INTERNET_PRESENCES_LINE_YPOS           = INTERNET_PRESENCES_HEADER_YPOS + (INTERNET_PRESENCES_HEADER_SIZE/2) + INTERNET_PRESENCES_LINE_SPACING;
 export const INTERNET_PRESENCES_LINE_WIDTH          = LEFT_PANEL_WIDTH * (1/10);
 
