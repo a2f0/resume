@@ -83,9 +83,10 @@
       "description": "",
       "url": "https://www.ballhort.com/",
       "accomplishments": [
-        "Consolidated several AD environments with zero impact.",
-        "Implemented Active Directory, DFS, ",
-        "Built a custom DOS 6.22 distribution."
+        "Greenfielded a multimillion dollar research computing infrastructure. Executed core buildout and consolidated disparate source environments.",
+        "Led the design and implementation of a bioinformatics data analysis and tool pipeline platform. Automated filesystem hierarchy and POSIX ACL consistency with web data libraries.",
+        "Developed a custom ERP system in Ruby on Rails. Coded numerous core features including metered cloud billing, client invoicing, mainframe transaction processing, roll-up multidimensional reporting, subsidization tracking, automatic asset lifecycle initiation, and role-based security.",
+        "Wrote a Python provisioning tool for synchronizing IAM objects between Internet2 Grouper, Centrify DirectControl, and Isilon OneFS. Achieved global UID/GID to SID coherency."
       ],
       "location": "Chicago, USA"
     },
@@ -96,9 +97,11 @@
       "description": "",
       "url": "https://www.ballhort.com/",
       "accomplishments": [
-        "Consolidated several AD environments with zero impact.",
-        "Implemented Active Directory, DFS, ",
-        "Built a custom DOS 6.22 distribution."
+        "Identified point in time ownership of IP addresses by designing a common information model, metadata abstraction schema, and time series correlation logic for billions of unstructured events. Performed index tuning and optimization.",
+        "Authored a multi-user GnuPG wrapper for facilitating granular access control to privileged passwords.",
+        "Performed Expect.pm automation against an IP network comprised of 2000+ programmable assets.",
+        "Implemented cross-platform PKI authenticated IPsec. Achieved proficiency in IKE debugging.",
+        "Deployed a vendor-neutral network ACL management and provisioning platform."
       ],
       "location": "Chicago, USA"
     }

@@ -219,7 +219,7 @@ export default abstract class ResumeFactory {
       );
       const positionDateRangeXPos =
         Constants.VERTICAL_DIVIDER_XPOS -
-        Constants.LEFT_PANEL_MARGIN -
+        Constants.CENTER_BULLET_MARGIN -
         positionDateRangeWidth;
       this.addText(
         positionDateRangeXPos,
@@ -372,7 +372,7 @@ export default abstract class ResumeFactory {
       );
       const commencementXPos =
         Constants.VERTICAL_DIVIDER_XPOS -
-        Constants.LEFT_PANEL_MARGIN -
+        Constants.CENTER_BULLET_MARGIN -
         commencementDateRangeWidth;
       this.addText(
         commencementXPos,
