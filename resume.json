@@ -27,6 +27,7 @@
       "description": "I optimize repetitive manual access patterns of atomic subproblems to create efficiency for humans in technical roles.",
       "url": "https://tearleads.com/",
       "accomplishments": [
+        "Built a publicly available and service to optimize repetitive access patterns of atomic subproblems to create efficiency for humans in technical roles."
       ],
       "location": "Chicago, USA",
       "technologies": [
@@ -38,11 +39,11 @@
       "company": "Real Time Risk Solutions",
       "title": "VP of Engineering (Most Recent)",
       "date_range": "1/2021 - 4/2021",
-      "description": "When I started working at RTRS, I was the sole developer, a contractor, and my hours were capped at seven per week due to funding.  Years later, I led a team of engineers building a product being used by Fortune 500 companies. My leadership spanned mobile, web, and backend.",
+      "description": "When I started working at RTRS, I was the sole developer, a contractor, and my hours were capped at seven per week due to funding.  Years later, I led a team of engineers building a product used by Fortune 500 companies. My leadership spanned mobile, web, and backend.",
       "url": "https://rtrs.co",
       "accomplishments": [
-        "I focus heavily on API security of a multirole, multitenant application.",
-        "Wrote over 1000 integration/unit tests for Django/DRF.",
+        "Adanced from a contractor role to leading a team of engineers building a risk mitigation product being used by Fortune 500 companies.  Leadership spanned FE/BE, mobile, web and cloud.",
+        "Wrote over 1000 integration/unit tests for Django/DRF and performed major release framework/dependency upgrades.",
         "Automated deployments and code quality checks using Github Actions.",
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       ],
@@ -59,8 +60,9 @@
       "description": "This was a cutting edge hardware technology project that I served on as the lead developer for the first two iterations.",
       "url": "https://aker.ag",
       "accomplishments": [
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+        "Wrote a web-based cluster manager and sensor polling subsystem for parallelized data aggregation across layer 3 boundaries.",
+        "Completed extensive TX/RX serial and I²C (AMD SAMD21 Arduino) against ",
+        "Wrote custom hardware drivers for a CDM7160 C02 module and Nimbleink 4G LTE celluar modem. Built a web-based wpa_supplicant wrapper and backend route manager for layer 3 flow between data uplinks."
       ],
       "location": "Chicago, USA"
     },
@@ -71,21 +73,21 @@
       "description": "Automated the build and release of iOS, Android, and Rails applications, then retained to complete additional work.",
       "url": "https://www.ballhort.com/",
       "accomplishments": [
-        "Completed two major version upgrades of a monolithic Rails code base.",
-        "consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+        "Completed two major version upgrades of a monolithic Rails code base including AMS.",
+        "Automated the build and release of iOS, Android, and Rails applications using Jenkins."
       ],
       "location": "Chicago, USA"
     },
     {
-      "company": "The University of Chicago",
+      "company": "The Center for Research Informatics",
       "title": "Senior Systems Administrator",
       "date_range": "6/2017 - 11/2019",
       "description": "",
-      "url": "https://www.ballhort.com/",
+      "url": "https://cri.uchicago.edu/",
       "accomplishments": [
-        "Greenfielded a multimillion dollar research computing infrastructure. Executed core buildout and consolidated disparate source environments.",
-        "Led the design and implementation of a bioinformatics data analysis and tool pipeline platform. Automated filesystem hierarchy and POSIX ACL consistency with web data libraries.",
-        "Developed a custom ERP system in Ruby on Rails. Coded numerous core features including metered cloud billing, client invoicing, mainframe transaction processing, roll-up multidimensional reporting, subsidization tracking, automatic asset lifecycle initiation, and role-based security.",
+        "Greenfielded a multimillion dollar research computing environment. Executed core buildout and consolidated disparate source environments.",
+        "Led the design and implementation of an HPC-integrated bioinformatics data analysis and tool pipeline platform (Galaxy, Torque). Automated filesystem hierarchy and POSIX ACL consistency with web data libraries.",
+        "Developed a billing ERP system in Ruby on Rails. Coded numerous features including metered cloud billing, client invoicing, mainframe transaction processing, roll-up multidimensional reporting, subsidization tracking, automatic asset lifecycle initiation, and role-based security.",
         "Wrote a Python provisioning tool for synchronizing IAM objects between Internet2 Grouper, Centrify DirectControl, and Isilon OneFS. Achieved global UID/GID to SID coherency."
       ],
       "location": "Chicago, USA"
@@ -97,7 +99,7 @@
       "description": "",
       "url": "https://www.ballhort.com/",
       "accomplishments": [
-        "Identified point in time ownership of IP addresses by designing a common information model, metadata abstraction schema, and time series correlation logic for billions of unstructured events. Performed index tuning and optimization.",
+        "Identified point in time ownership of IP addresses by designing a common information model, metadata abstraction schema, and time series correlation logic for billions of unstructured events (Splunk). Performed index tuning and optimization.",
         "Authored a multi-user GnuPG wrapper for facilitating granular access control to privileged passwords.",
         "Performed Expect.pm automation against an IP network comprised of 2000+ programmable assets.",
         "Implemented cross-platform PKI authenticated IPsec. Achieved proficiency in IKE debugging.",
