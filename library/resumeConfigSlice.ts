@@ -3,12 +3,12 @@ import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 import Color from 'color';
 import {RootState} from './store';
 
-export interface CounterState {
+export interface ResumeConfigState {
   foregroundColor: string;
   backgroundColor: string;
 }
 
-const initialState: CounterState = {
+const initialState: ResumeConfigState = {
   foregroundColor: Constants.LIGHT,
   backgroundColor: Constants.DARK,
 };

@@ -28,15 +28,7 @@ const FileMenu = () => {
     };
     const resumeFactory = new PdfResumeFactory(config);
     const resume = resumeFactory.getResume();
-    const blob = new Blob([resume.output()], {
-      type: 'application/pdf',
-    });
-    const element = document.createElement('a');
-    element.download = 'dan.sullivan.resume.pdf';
-    element.href = window.URL.createObjectURL(blob);
-    element.click();
-    element.remove();
-    context.setIsActive(false);
+    resume.save('dan.sullivan.resume.pdf');
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
   };
