@@ -6,11 +6,13 @@ import {RootState} from './store';
 export interface ResumeConfigState {
   foregroundColor: string;
   backgroundColor: string;
+  scale: number;
 }
 
 const initialState: ResumeConfigState = {
   foregroundColor: Constants.LIGHT,
   backgroundColor: Constants.DARK,
+  scale: 1,
 };
 
 export const resumeConfigSlice = createSlice({
@@ -23,12 +25,16 @@ export const resumeConfigSlice = createSlice({
     setBackgroundColor: (state, action: PayloadAction<string>) => {
       state.backgroundColor = Color(action.payload).hex();
     },
+    setScale: (state, action: PayloadAction<number>) => {
+      state.scale = action.payload;
+    },
   },
 });
 
 export const {
   setForegroundColor,
   setBackgroundColor,
+  setScale,
 } = resumeConfigSlice.actions;
 
 export const selectForegroundColor = (state: RootState) => {
@@ -37,6 +43,10 @@ export const selectForegroundColor = (state: RootState) => {
 
 export const selectBackgroundColor = (state: RootState) => {
   return state.resume.backgroundColor;
+};
+
+export const selectScale = (state: RootState) => {
+  return state.resume.scale;
 };
 
 export default resumeConfigSlice.reducer;

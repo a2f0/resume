@@ -1,8 +1,10 @@
 import * as Constants from '../../constants';
 import {
   selectForegroundColor,
+  selectScale,
   setBackgroundColor,
   setForegroundColor,
+  setScale,
 } from '../../library/resumeConfigSlice';
 import CheckMark from './CheckMark';
 import Link from 'next/link';
@@ -22,6 +24,7 @@ const ViewMenu = () => {
   const dispatch = useDispatch();
   const {asPath} = useRouter();
   const foregroundColor = useAppSelector(selectForegroundColor);
+  const scale = useAppSelector(selectScale);
 
   const setBlackBackground = () => {
     dispatch(setForegroundColor(Constants.LIGHT));
@@ -34,6 +37,13 @@ const ViewMenu = () => {
   const setWhiteBackground = () => {
     dispatch(setForegroundColor(Constants.DARK));
     dispatch(setBackgroundColor(Constants.LIGHT));
+    context.setIsActive(false);
+    parentContext.setActiveDropdown('');
+    parentContext.setIsActive(false);
+  };
+
+  const setScaleFactor = (scale: number) => {
+    dispatch(setScale(scale));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
@@ -65,6 +75,31 @@ const ViewMenu = () => {
           <CheckMark isActive={foregroundColor === Constants.DARK} />
           <MenuLink>Light Background</MenuLink>
         </div>
+      </MenuListItem>
+      <MenuDivider />
+      <MenuListItem>
+        <Link href="/">
+          <div onClick={() => setScaleFactor(1.3)}>
+            <CheckMark isActive={scale === 1.3} />
+            <MenuLink onClick={dismissMenu}>130%</MenuLink>
+          </div>
+        </Link>
+      </MenuListItem>
+      <MenuListItem>
+        <Link href="/">
+          <div onClick={() => setScaleFactor(1.15)}>
+            <CheckMark isActive={scale === 1.15} />
+            <MenuLink onClick={dismissMenu}>115%</MenuLink>
+          </div>
+        </Link>
+      </MenuListItem>
+      <MenuListItem>
+        <Link href="/">
+          <div onClick={() => setScaleFactor(1)}>
+            <CheckMark isActive={scale === 1} />
+            <MenuLink onClick={dismissMenu}>Real Size</MenuLink>
+          </div>
+        </Link>
       </MenuListItem>
       <MenuDivider />
       <MenuListItem>
