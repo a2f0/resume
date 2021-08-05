@@ -7,28 +7,25 @@ import {
 import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';
 import SvgResumeFactory from '../library/svgResumeFactory';
+import {selectScale} from '../library/resumeConfigSlice';
 import {useAppSelector} from '../library/hooks';
 
 export default function SvgResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
-  // SVG Document Dimensions
-  const ORIGINAL_VIEWBOX_WIDTH =
-    Constants.DOCUMENT_WIDTH / Constants.PIXELS_PER_POINT;
-  const ORIGINAL_VIEWBOX_HEIGHT =
-    Constants.DOCUMENT_HEIGHT / Constants.PIXELS_PER_POINT;
-  const [width] = useState(Constants.DOCUMENT_WIDTH);
-  const [height] = useState(Constants.DOCUMENT_HEIGHT);
-
   const positionSvg: CSSProperties = {
     textAlign: 'center',
     marginTop: '25px',
   };
 
-  // function adjustCoefficient(coefficient: number) {
-  //   setWidth(Constants.DOCUMENT_WIDTH * coefficient);
-  //   setHeight(Constants.DOCUMENT_HEIGHT * coefficient);
-  // }
+  const scale = useAppSelector(selectScale);
+  const [width] = useState(Constants.DOCUMENT_WIDTH);
+  const [height] = useState(Constants.DOCUMENT_HEIGHT);
+
+  const ORIGINAL_VIEWBOX_WIDTH =
+    Constants.DOCUMENT_WIDTH / Constants.PIXELS_PER_POINT;
+  const ORIGINAL_VIEWBOX_HEIGHT =
+    Constants.DOCUMENT_HEIGHT / Constants.PIXELS_PER_POINT;
 
   useEffect(() => {
     const config: ResumeConfig = {
@@ -37,8 +34,9 @@ export default function SvgResume() {
     };
     const resumeFactory = new SvgResumeFactory(config);
     const resume = resumeFactory.getResume();
-    resume.setAttribute('width', width + Constants.UNITS);
-    resume.setAttribute('height', height + Constants.UNITS);
+    // SVG Document Dimensions (SVG viewport dimensions are in pixels)
+    resume.setAttribute('width', width * scale + Constants.UNITS);
+    resume.setAttribute('height', height * scale + Constants.UNITS);
     resume.setAttribute(
       'viewBox',
       `0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`
@@ -51,10 +49,5 @@ export default function SvgResume() {
     }
   });
 
-  return (
-    <>
-      {/* <Slider adjustCoefficient={adjustCoefficient} /> */}
-      <div id="svgContainer" style={positionSvg}></div>
-    </>
-  );
+  return <div id="svgContainer" style={positionSvg}></div>;
 }

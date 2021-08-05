@@ -21,8 +21,18 @@ export const VersionLink = styled.a`
   text-decoration: none;
 `;
 
+export const StyledFooter = styled.footer`
+  height: var(--footer-height);
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+`;
+
 const Footer = () => (
-  <footer className={holyGrail.footer}>
+  <StyledFooter className={holyGrail.footer}>
     <div className={holyGrail.flexContainerColumnPageWidthBottom}>
       <div className={holyGrail.leftColumn}>
         <div className={holyGrail.flexContainerLeftAlignBottom}>
@@ -40,6 +50,6 @@ const Footer = () => (
         <div className={holyGrail.flexContainerRightAlignBottom}></div>
       </div>
     </div>
-  </footer>
+  </StyledFooter>
 );
 export default Footer;
