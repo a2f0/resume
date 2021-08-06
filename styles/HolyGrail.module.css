@@ -90,17 +90,6 @@
   flex-grow: 1;
 }
 
-.header {
-  height: calc(var(--header-height));
-  color: white;
-  background-color: black;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  border-bottom: var(--header-bottom-border) solid #a9a9a9;
-}
-
 .bodyContainer {
   min-height: calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height));
   display: flex;
