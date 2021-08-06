@@ -23,19 +23,17 @@ const MainColumn = styled.div<IMainColumnProps>`
 const Layout = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
   return (
-    <>
-      <div className={holyGrail.mainContainer}>
-        <main className={holyGrail.main}>
-          <div className={holyGrail.mainGutterLeft}></div>
-          <MainColumn scale={scale}>
-            <Header />
-            <Body>{children}</Body>
-            <Footer />
-          </MainColumn>
-          <div className={holyGrail.mainGutterRight}></div>
-        </main>
-      </div>
-    </>
+    <div className={holyGrail.mainContainer}>
+      <main className={holyGrail.main}>
+        <div className={holyGrail.mainGutterLeft}></div>
+        <MainColumn scale={scale}>
+          <Header />
+          <Body>{children}</Body>
+          <Footer />
+        </MainColumn>
+        <div className={holyGrail.mainGutterRight}></div>
+      </main>
+    </div>
   );
 };
 
