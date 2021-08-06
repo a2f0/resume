@@ -1,5 +1,6 @@
 import Body from './Body';
 import Footer from './Footer';
+import Gutter from './Gutter';
 import Header from './Header';
 import {ReactNode} from 'react';
 import holyGrail from '../styles/HolyGrail.module.css';
@@ -25,13 +26,13 @@ const Layout = ({children}: IProps) => {
   return (
     <div className={holyGrail.mainContainer}>
       <main className={holyGrail.main}>
-        <div className={holyGrail.mainGutterLeft}></div>
+        <Gutter />
         <MainColumn scale={scale}>
           <Header />
           <Body>{children}</Body>
           <Footer />
         </MainColumn>
-        <div className={holyGrail.mainGutterRight}></div>
+        <Gutter />
       </main>
     </div>
   );
