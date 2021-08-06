@@ -31,7 +31,7 @@ const Header = () => {
         <title>&lrm;</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <StyledHeader className={holyGrail.header} scale={scale}>
+      <StyledHeader scale={scale}>
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
             <div className={holyGrail.flexContainerLeftAlignTop}>

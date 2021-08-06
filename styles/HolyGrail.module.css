@@ -78,13 +78,6 @@
   background-color: var(--main-background-color);
 }
 
-.bodyContainer {
-  min-height: calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height));
-  display: flex;
-  flex-direction: column;
-  background-color: #202020;
-}
-
 .body {
   flex: 1;
 }
