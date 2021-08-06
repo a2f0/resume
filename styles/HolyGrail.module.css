@@ -78,18 +78,6 @@
   background-color: var(--main-background-color);
 }
 
-.mainGutterLeft {
-  position: sticky;
-  top: var(--header-height);
-  flex-grow: 1;
-}
-
-.mainGutterRight {
-  position: sticky;
-  top: var(--header-height);
-  flex-grow: 1;
-}
-
 .bodyContainer {
   min-height: calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height));
   display: flex;
