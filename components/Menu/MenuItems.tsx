@@ -3,18 +3,20 @@ import styled, {css} from 'styled-components';
 interface IProps {
   isActive: boolean;
   id: string;
+  scale: number;
 }
 
 export const MenuItems = styled.div<IProps>`
   background: #ffffff;
   border-radius: 0px;
   position: absolute;
-  width: 200px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  width: calc(${props => props.scale} * 200px);
+  box-shadow: 0 calc(${props => props.scale} * 1px)
+    calc(${props => props.scale} * 8px) rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
-  font-size: 14px;
+  transform: translateY(calc(${props => props.scale} * -20px));
+  font-size: calc(${props => props.scale} * 14px);
   font-family: Helvetica;
   ul {
     list-style: none;
@@ -23,7 +25,8 @@ export const MenuItems = styled.div<IProps>`
   }
   li {
     border-bottom: 0px solid #dddddd;
-    padding: 10px 10px;
+    padding: calc(${props => props.scale} * 10px)
+      calc(${props => props.scale} * 10px);
   }
   li a {
     text-decoration: none;

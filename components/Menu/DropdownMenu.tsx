@@ -53,6 +53,7 @@ export default function DropdownMenu({children, label}: MenuProps) {
           id={'menuItems' + label}
           ref={dropdownRef}
           isActive={isActive}
+          scale={scale}
         >
           {children}
         </MenuItems>
