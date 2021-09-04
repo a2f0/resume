@@ -7,7 +7,6 @@ import {
   setScale,
 } from '../../library/resumeConfigSlice';
 import CheckMark from './CheckMark';
-import Link from 'next/link';
 import MenuDivider from './MenuDivider';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
@@ -23,6 +22,7 @@ const ViewMenu = () => {
   const parentContext = useMenuParent();
   const dispatch = useDispatch();
   const {asPath} = useRouter();
+  const router = useRouter();
   const foregroundColor = useAppSelector(selectForegroundColor);
   const scale = useAppSelector(selectScale);
 
@@ -64,66 +64,60 @@ const ViewMenu = () => {
 
   return (
     <ul>
-      <MenuListItem>
-        <div id="darkBackgroundMenuOption" onClick={setBlackBackground}>
-          <CheckMark isActive={foregroundColor === Constants.LIGHT} />
-          <MenuLink>Dark Background</MenuLink>
-        </div>
+      <MenuListItem
+        id="darkBackgroundMenuOption"
+        onClick={setBlackBackground}
+        scale={scale}
+      >
+        <CheckMark isActive={foregroundColor === Constants.LIGHT} />
+        <MenuLink>Dark Background</MenuLink>
       </MenuListItem>
-      <MenuListItem>
-        <div id="lightBackgroundMenuOption" onClick={setWhiteBackground}>
-          <CheckMark isActive={foregroundColor === Constants.DARK} />
-          <MenuLink>Light Background</MenuLink>
-        </div>
-      </MenuListItem>
-      <MenuDivider />
-      <MenuListItem>
-        <Link href="/">
-          <div onClick={() => setScaleFactor(1.3)}>
-            <CheckMark isActive={scale === 1.3} />
-            <MenuLink onClick={dismissMenu}>130%</MenuLink>
-          </div>
-        </Link>
-      </MenuListItem>
-      <MenuListItem>
-        <Link href="/">
-          <div onClick={() => setScaleFactor(1.15)}>
-            <CheckMark isActive={scale === 1.15} />
-            <MenuLink onClick={dismissMenu}>115%</MenuLink>
-          </div>
-        </Link>
-      </MenuListItem>
-      <MenuListItem>
-        <Link href="/">
-          <div onClick={() => setScaleFactor(1)}>
-            <CheckMark isActive={scale === 1} />
-            <MenuLink onClick={dismissMenu}>Real Size</MenuLink>
-          </div>
-        </Link>
+      <MenuListItem
+        id="lightBackgroundMenuOption"
+        onClick={setWhiteBackground}
+        scale={scale}
+      >
+        <CheckMark isActive={foregroundColor === Constants.DARK} />
+        <MenuLink>Light Background</MenuLink>
       </MenuListItem>
       <MenuDivider />
-      <MenuListItem>
-        <Link href="/">
-          <div onClick={dismissMenu}>
-            <CheckMark isActive={asPath === '/'} />
-            <MenuLink onClick={dismissMenu}>SVG</MenuLink>
-          </div>
-        </Link>
+      <MenuListItem onClick={() => setScaleFactor(1.3)} scale={scale}>
+        <CheckMark isActive={scale === 1.3} />
+        <MenuLink onClick={dismissMenu}>130%</MenuLink>
       </MenuListItem>
-      <MenuListItem>
-        <Link href="/pdf">
-          <div onClick={dismissMenu}>
-            <CheckMark isActive={asPath === '/pdf'} />
-            <MenuLink>PDF Preview</MenuLink>
-          </div>
-        </Link>
+      <MenuListItem onClick={() => setScaleFactor(1.15)} scale={scale}>
+        <CheckMark isActive={scale === 1.15} />
+        <MenuLink onClick={dismissMenu}>115%</MenuLink>
+      </MenuListItem>
+      <MenuListItem onClick={() => setScaleFactor(1)} scale={scale}>
+        <CheckMark isActive={scale === 1} />
+        <MenuLink onClick={dismissMenu}>Real Size</MenuLink>
       </MenuListItem>
       <MenuDivider />
-      <MenuListItem>
-        <div onClick={sourceCode}>
-          <CheckMark isActive={false} />
-          <MenuLink>Source Code</MenuLink>
-        </div>
+      <MenuListItem
+        onClick={() => {
+          dismissMenu;
+          router.push('/');
+        }}
+        scale={scale}
+      >
+        <CheckMark isActive={asPath === '/'} />
+        <MenuLink>SVG</MenuLink>
+      </MenuListItem>
+      <MenuListItem
+        onClick={() => {
+          dismissMenu;
+          router.push('/pdf');
+        }}
+        scale={scale}
+      >
+        <CheckMark isActive={asPath === '/pdf'} />
+        <MenuLink>PDF Preview</MenuLink>
+      </MenuListItem>
+      <MenuDivider />
+      <MenuListItem onClick={sourceCode} scale={scale}>
+        <CheckMark isActive={false} />
+        <MenuLink>Source Code</MenuLink>
       </MenuListItem>
     </ul>
   );

@@ -19,7 +19,10 @@ describe('SVG Resume', () => {
     const darkBackgroundMenuOption = await SvgPage.darkBackgroundMenuOption;
     const lightBackgroundMenuOption = await SvgPage.lightBackgroundMenuOption;
     let leftPartitionColor = await leftPartition.getCSSProperty('fill');
-    assert.strictEqual(leftPartitionColor.parsed.hex, Constants.DARK);
+    assert.strictEqual(
+      leftPartitionColor.parsed.hex?.toUpperCase(),
+      Constants.DARK
+    );
     viewMenuButton.click();
     await viewMenuItems.waitForDisplayed();
     lightBackgroundMenuOption.click();
@@ -27,7 +30,7 @@ describe('SVG Resume', () => {
     await leftPartition.waitUntil(
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
-        return leftPartitionColor.parsed.hex === Constants.LIGHT;
+        return leftPartitionColor.parsed.hex?.toUpperCase() === Constants.LIGHT;
       },
       {
         timeout: 30000,
@@ -42,7 +45,7 @@ describe('SVG Resume', () => {
     await leftPartition.waitUntil(
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
-        return leftPartitionColor.parsed.hex === Constants.DARK;
+        return leftPartitionColor.parsed.hex?.toUpperCase() === Constants.DARK;
       },
       {
         timeout: 30000,

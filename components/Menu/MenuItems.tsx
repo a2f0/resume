@@ -23,15 +23,6 @@ export const MenuItems = styled.div<IProps>`
     padding: 0;
     margin: 0;
   }
-  li {
-    border-bottom: 0px solid #dddddd;
-    padding: calc(${props => props.scale} * 10px)
-      calc(${props => props.scale} * 10px);
-  }
-  li a {
-    text-decoration: none;
-    color: #333333;
-  }
   ${({isActive}) =>
     isActive &&
     css`

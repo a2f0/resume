@@ -10,6 +10,7 @@ import MenuListItem from './MenuListItem';
 import PdfResumeFactory from '../../library/pdfResumeFactory';
 import {ResumeConfig} from '../../library/resumeConfig';
 import SvgResumeFactory from '../../library/svgResumeFactory';
+import {selectScale} from '../../library/resumeConfigSlice';
 import {useAppSelector} from '../../library/hooks';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
@@ -19,6 +20,7 @@ const FileMenu = () => {
   const parentContext = useMenuParent();
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
+  const scale = useAppSelector(selectScale);
   useEffect(() => {});
 
   const downloadPDF = () => {
@@ -67,17 +69,21 @@ const FileMenu = () => {
       {/* <li>
         <a onClick={printableSVG}>Printable SVG</a>
       </li> */}
-      <MenuListItem>
-        <div id="downloadPdfMenuOption" onClick={downloadPDF}>
-          <CheckMark isActive={false} />
-          <MenuLink>Download PDF</MenuLink>
-        </div>
+      <MenuListItem
+        id="downloadPdfMenuOption"
+        onClick={downloadPDF}
+        scale={scale}
+      >
+        <CheckMark isActive={false} />
+        <MenuLink>Download PDF</MenuLink>
       </MenuListItem>
-      <MenuListItem>
-        <div id="downloadSvgMenuOption" onClick={downloadSVG}>
-          <CheckMark isActive={false} />
-          <MenuLink>Download SVG</MenuLink>
-        </div>
+      <MenuListItem
+        id="downloadSvgMenuOption"
+        onClick={downloadSVG}
+        scale={scale}
+      >
+        <CheckMark isActive={false} />
+        <MenuLink>Download SVG</MenuLink>
       </MenuListItem>
     </ul>
   );

@@ -18,7 +18,7 @@ export const EXPERIENCE_HEADER                      = 'Experience';
 export const FONT_FAMILY                            = 'Helvetica';
 export const HYPEN_SPACING                          = 4;
 export const DARK                                   = '#000000';
-export const LIGHT                                  = '#ffffff';
+export const LIGHT                                  = '#FFFFFF';
 export const CENTER_BULLET_MARGIN                   = 8;
 
 export const LEFT_PANEL_XPOS                        = 0;
