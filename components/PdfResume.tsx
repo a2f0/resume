@@ -9,6 +9,7 @@ import Color from 'color';
 import PDFObject from 'pdfobject';
 import PdfResumeFactory from '../library/pdfResumeFactory';
 import {ResumeConfig} from '../library/resumeConfig';
+import {selectScale} from '../library/resumeConfigSlice';
 import {useAppSelector} from '../library/hooks';
 
 export default function PdfResume() {
@@ -18,6 +19,7 @@ export default function PdfResume() {
     height:
       'calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height))',
   };
+  const scale = useAppSelector(selectScale);
 
   useEffect(() => {
     const config: ResumeConfig = {
@@ -28,6 +30,14 @@ export default function PdfResume() {
     const resume = resumeFactory.getResume();
     PDFObject.embed(resume.output('datauristring'), '#pdfObjectContainer', {
       id: 'pdfObject',
+      pdfOpenParams: {
+        scrollbars: '0',
+        toolbar: '0',
+        statusbar: '0',
+        navpanes: '0',
+        zoom: `${scale * 100}`,
+        pagemode: 'none',
+      },
     });
   });
 
