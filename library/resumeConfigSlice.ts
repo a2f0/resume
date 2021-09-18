@@ -31,11 +31,8 @@ export const resumeConfigSlice = createSlice({
   },
 });
 
-export const {
-  setForegroundColor,
-  setBackgroundColor,
-  setScale,
-} = resumeConfigSlice.actions;
+export const {setForegroundColor, setBackgroundColor, setScale} =
+  resumeConfigSlice.actions;
 
 export const selectForegroundColor = (state: RootState) => {
   return state.resume.foregroundColor;
