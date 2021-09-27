@@ -44,8 +44,7 @@
       "accomplishments": [
         "Adanced from a contractor role to leading a team of engineers building a risk mitigation product being used by Fortune 500 companies.  Leadership spanned FE/BE, mobile, web and cloud.",
         "Wrote over 1000 integration/unit tests for Django/DRF and performed major release framework/dependency upgrades.",
-        "Automated deployments and code quality checks using Github Actions.",
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Automated deployments and code quality checks using Github Actions."
       ],
       "location": "Chicago, USA",
       "technologies": [
@@ -62,7 +61,7 @@
       "accomplishments": [
         "Wrote a web-based cluster manager and sensor polling subsystem for parallelized data aggregation across layer 3 boundaries.",
         "Completed extensive TX/RX serial and I²C (AMD SAMD21 Arduino) against ",
-        "Wrote custom hardware drivers for a CDM7160 C02 module and Nimbleink 4G LTE celluar modem. Built a web-based wpa_supplicant wrapper and backend route manager for layer 3 flow between data uplinks."
+        "Wrote custom hardware drivers for a CDM7160 CO₂ module and Nimbleink 4G LTE celluar modem. Built a web-based wpa_supplicant wrapper and backend route manager for layer 3 flow between data uplinks."
       ],
       "location": "Chicago, USA"
     },
