@@ -25,7 +25,7 @@ const Layout = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
   return (
     <div className={holyGrail.mainContainer}>
-      <main className={holyGrail.main}>
+      <main>
         <Gutter />
         <MainColumn scale={scale}>
           <Header />

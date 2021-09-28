@@ -26,7 +26,7 @@ const Body = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
   return (
     <BodyContainer scale={scale}>
-      <div className={holyGrail.body}>{children}</div>
+      <div>{children}</div>
     </BodyContainer>
   );
 };
