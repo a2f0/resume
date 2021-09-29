@@ -26,17 +26,17 @@ const ViewMenu = () => {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const scale = useAppSelector(selectScale);
 
-  const setBlackBackground = () => {
-    dispatch(setForegroundColor(Constants.LIGHT));
-    dispatch(setBackgroundColor(Constants.DARK));
+  const setDarkTheme = () => {
+    dispatch(setForegroundColor(Constants.DARK_THEME_FOREGROUND));
+    dispatch(setBackgroundColor(Constants.DARK_THEME_BACKGROUND));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
   };
 
-  const setWhiteBackground = () => {
-    dispatch(setForegroundColor(Constants.DARK));
-    dispatch(setBackgroundColor(Constants.LIGHT));
+  const setLightTheme = () => {
+    dispatch(setForegroundColor(Constants.LIGHT_THEME_FOREGROUND));
+    dispatch(setBackgroundColor(Constants.LIGHT_THEME_BACKGROUND));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
@@ -65,19 +65,23 @@ const ViewMenu = () => {
   return (
     <ul>
       <MenuListItem
-        id="darkBackgroundMenuOption"
-        onClick={setBlackBackground}
+        id="darkThemeMenuOption"
+        onClick={setDarkTheme}
         scale={scale}
       >
-        <CheckMark isActive={foregroundColor === Constants.LIGHT} />
+        <CheckMark
+          isActive={foregroundColor === Constants.DARK_THEME_FOREGROUND}
+        />
         <MenuLink>Dark Background</MenuLink>
       </MenuListItem>
       <MenuListItem
-        id="lightBackgroundMenuOption"
-        onClick={setWhiteBackground}
+        id="lightThemeMenuOption"
+        onClick={setLightTheme}
         scale={scale}
       >
-        <CheckMark isActive={foregroundColor === Constants.DARK} />
+        <CheckMark
+          isActive={foregroundColor === Constants.LIGHT_THEME_FOREGROUND}
+        />
         <MenuLink>Light Background</MenuLink>
       </MenuListItem>
       <MenuDivider />

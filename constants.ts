@@ -10,27 +10,26 @@ export const DOCUMENT_HEIGHT                        = 792;
 export const PIXELS_PER_POINT                       = .75;
 export const STANDARD_FONT_SIZE                     = 9.5;
 export const UNITS                                  = 'pt';
-export const BACKGROUND_COLOR                       = 'black';
-export const TEXT_COLOR                             = 'white';
+export const DARK_THEME_FOREGROUND                  = '#DCDCDC';
+export const DARK_THEME_BACKGROUND                  = '#000000'
+export const LIGHT_THEME_FOREGROUND                 = '#000000';
+export const LIGHT_THEME_BACKGROUND                 = '#FFFFFF'
+
 export const HEADER_SIZE                            = 12;
 export const HEADER_SPACING                         = 4;
-export const EXPERIENCE_HEADER                      = 'Experience';
+export const EXPERIENCE_HEADER                      = 'EXPERIENCE';
 export const FONT_FAMILY                            = 'Helvetica';
 export const HYPEN_SPACING                          = 4;
-export const DARK                                   = '#000000';
-export const LIGHT                                  = '#FFFFFF';
 export const CENTER_BULLET_MARGIN                   = 8;
 
 export const LEFT_PANEL_XPOS                        = 0;
 export const LEFT_PANEL_YPOS                        = 0;
 export const LEFT_PANEL_PERCENTAGE                  = .25;
 export const LEFT_PANEL_WIDTH                       = LEFT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
-export const LEFT_PANEL_COLOR                       = BACKGROUND_COLOR;
 export const LEFT_PANEL_MARGIN                      = 18
 
 export const RIGHT_PANEL_XPOS                       = LEFT_PANEL_WIDTH;
 export const RIGHT_PANEL_YPOS                       = 0;
-export const RIGHT_PANEL_COLOR                      = BACKGROUND_COLOR;
 export const RIGHT_PANEL_PERCENTAGE                 = 1 - LEFT_PANEL_PERCENTAGE;
 export const RIGHT_PANEL_WIDTH                      = RIGHT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
 
@@ -117,7 +116,7 @@ export const POSITION_BULLET_RADIUS                 = 2.75;
 export const EDUCATION_HEADER_WEIGHT                = 400;
 export const EDUCATION_HEADER_SIZE                  = HEADER_SIZE;
 export const EDUCATION_HEADER_XPOS                  = RIGHT_PANEL_STARTX;
-export const EDUCATION_HEADER                       = 'Education';
+export const EDUCATION_HEADER                       = 'EDUCATION';
 export const EDUCATION_WEIGHT                       = 400;
 export const EDUCATION_SIZE                         = ADDRESS_SIZE;
 export const EDUCATION_COLOR                        = 'white';

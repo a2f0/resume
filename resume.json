@@ -60,8 +60,8 @@
       "url": "https://aker.ag",
       "accomplishments": [
         "Wrote a web-based cluster manager and sensor polling subsystem for parallelized data aggregation across layer 3 boundaries.",
-        "Completed extensive TX/RX serial and I²C (AMD SAMD21 Arduino) against ",
-        "Wrote custom hardware drivers for a CDM7160 CO₂ module and Nimbleink 4G LTE celluar modem. Built a web-based wpa_supplicant wrapper and backend route manager for layer 3 flow between data uplinks."
+        "Completed extensive TX/RX serial and I2C (AMD SAMD21 Arduino) against ",
+        "Wrote custom hardware drivers for a CDM7160 CO2 module and Nimbleink 4G LTE celluar modem. Built a web-based wpa_supplicant wrapper and backend route manager for layer 3 flow between data uplinks."
       ],
       "location": "Chicago, USA"
     },

@@ -7,11 +7,11 @@ class SvgPage extends Base {
   get svgResume() {
     return $('#svgResume');
   }
-  get darkBackgroundMenuOption() {
-    return $('#darkBackgroundMenuOption');
+  get darkThemeMenuOption() {
+    return $('#darkThemeMenuOption');
   }
-  get lightBackgroundMenuOption() {
-    return $('#lightBackgroundMenuOption');
+  get lightThemeMenuOption() {
+    return $('#lightThemeMenuOption');
   }
   open() {
     return super.open('');
