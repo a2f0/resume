@@ -86,6 +86,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.setAttribute('font-family', fontFamily);
     textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
+    textToAdd.setAttribute('class', 'hoverable');
     textToAdd.innerHTML = text;
     textToAdd.setAttribute('id', id);
     linkToAdd.appendChild(textToAdd);

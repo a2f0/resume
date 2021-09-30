@@ -13,7 +13,7 @@ import {selectScale} from '../library/resumeConfigSlice';
 import styled from 'styled-components';
 import {useAppSelector} from '../library/hooks';
 
-export const PdfObjectContainer = styled.div`
+const PdfObjectContainer = styled.div`
   height: calc(
     100vh - var(--header-height) - var(--header-bottom-border) -
       var(--footer-height)
