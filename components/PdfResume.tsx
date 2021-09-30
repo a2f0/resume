@@ -1,4 +1,4 @@
-import React, {CSSProperties, useEffect} from 'react';
+import React, {useEffect} from 'react';
 
 import {
   selectBackgroundColor,
@@ -10,15 +10,19 @@ import PDFObject from 'pdfobject';
 import PdfResumeFactory from '../library/pdfResumeFactory';
 import {ResumeConfig} from '../library/resumeConfig';
 import {selectScale} from '../library/resumeConfigSlice';
+import styled from 'styled-components';
 import {useAppSelector} from '../library/hooks';
+
+export const PdfObjectContainer = styled.div`
+  height: calc(
+    100vh - var(--header-height) - var(--header-bottom-border) -
+      var(--footer-height)
+  );
+`;
 
 export default function PdfResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
-  const preview: CSSProperties = {
-    height:
-      'calc(100vh - var(--header-height) - var(--header-bottom-border) - var(--footer-height))',
-  };
   const scale = useAppSelector(selectScale);
 
   useEffect(() => {
@@ -41,5 +45,5 @@ export default function PdfResume() {
     });
   });
 
-  return <div style={preview} id="pdfObjectContainer" />;
+  return <PdfObjectContainer id="pdfObjectContainer" />;
 }
