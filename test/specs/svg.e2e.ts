@@ -16,21 +16,24 @@ describe('SVG Resume', () => {
     const leftPartition = await SvgPage.leftPartition;
     const viewMenuButton = await SvgPage.viewMenuButton;
     const viewMenuItems = await SvgPage.viewMenuItems;
-    const darkBackgroundMenuOption = await SvgPage.darkBackgroundMenuOption;
-    const lightBackgroundMenuOption = await SvgPage.lightBackgroundMenuOption;
+    const darkThemeMenuOption = await SvgPage.darkThemeMenuOption;
+    const lightThemeMenuOption = await SvgPage.lightThemeMenuOption;
     let leftPartitionColor = await leftPartition.getCSSProperty('fill');
     assert.strictEqual(
       leftPartitionColor.parsed.hex?.toUpperCase(),
-      Constants.DARK
+      Constants.DARK_THEME_BACKGROUND
     );
     viewMenuButton.click();
     await viewMenuItems.waitForDisplayed();
-    lightBackgroundMenuOption.click();
+    lightThemeMenuOption.click();
 
     await leftPartition.waitUntil(
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
-        return leftPartitionColor.parsed.hex?.toUpperCase() === Constants.LIGHT;
+        return (
+          leftPartitionColor.parsed.hex?.toUpperCase() ===
+          Constants.LIGHT_THEME_BACKGROUND
+        );
       },
       {
         timeout: 30000,
@@ -40,12 +43,15 @@ describe('SVG Resume', () => {
 
     viewMenuButton.click();
     await viewMenuItems.waitForDisplayed();
-    darkBackgroundMenuOption.click();
+    darkThemeMenuOption.click();
 
     await leftPartition.waitUntil(
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
-        return leftPartitionColor.parsed.hex?.toUpperCase() === Constants.DARK;
+        return (
+          leftPartitionColor.parsed.hex?.toUpperCase() ===
+          Constants.DARK_THEME_BACKGROUND
+        );
       },
       {
         timeout: 30000,

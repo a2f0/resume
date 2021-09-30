@@ -5,8 +5,8 @@ import {ResumeConfig} from '../library/resumeConfig';
 import resume from '../resume.json';
 
 export default abstract class ResumeFactory {
-  foregroundColor: Color = Color(Constants.LIGHT);
-  backgroundColor: Color = Color(Constants.DARK);
+  foregroundColor: Color = Color(Constants.DARK_THEME_FOREGROUND);
+  backgroundColor: Color = Color(Constants.DARK_THEME_BACKGROUND);
   highlightColor: Color = Color('#909090');
 
   constructor(config: ResumeConfig) {

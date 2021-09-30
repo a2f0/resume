@@ -10,9 +10,9 @@ export interface ResumeConfigState {
 }
 
 const initialState: ResumeConfigState = {
-  foregroundColor: Constants.LIGHT,
-  backgroundColor: Constants.DARK,
-  scale: 1.15,
+  foregroundColor: Constants.DARK_THEME_FOREGROUND,
+  backgroundColor: Constants.DARK_THEME_BACKGROUND,
+  scale: 1.3,
 };
 
 export const resumeConfigSlice = createSlice({

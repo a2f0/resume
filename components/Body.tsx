@@ -1,5 +1,4 @@
 import {ReactNode} from 'react';
-import holyGrail from '../styles/HolyGrail.module.css';
 import {selectScale} from '../library/resumeConfigSlice';
 import styled from 'styled-components';
 import {useAppSelector} from '../library/hooks';
