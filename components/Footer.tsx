@@ -14,11 +14,14 @@ export const VersionContainer = styled.div`
 `;
 
 export const VersionLink = styled.a`
-  color: white;
+  color: #202020;
   font-size: 12px;
   font-family: Helvetica;
   font-weight: 10;
   text-decoration: none;
+  :hover {
+    color: white;
+  }
 `;
 
 export const StyledFooter = styled.footer`
