@@ -8,7 +8,14 @@ import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';
 import SvgResumeFactory from '../library/svgResumeFactory';
 import {selectScale} from '../library/resumeConfigSlice';
+import styled from 'styled-components';
 import {useAppSelector} from '../library/hooks';
+
+const SvgContainer = styled.div`
+  .hoverable:hover {
+    fill: #909090;
+  }
+`;
 
 export default function SvgResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
@@ -35,6 +42,7 @@ export default function SvgResume() {
     const resumeFactory = new SvgResumeFactory(config);
     const resume = resumeFactory.getResume();
     // SVG Document Dimensions (SVG viewport dimensions are in pixels)
+    resume.setAttribute('class', 'svg');
     resume.setAttribute('width', width * scale + Constants.UNITS);
     resume.setAttribute('height', height * scale + Constants.UNITS);
     resume.setAttribute(
@@ -49,5 +57,11 @@ export default function SvgResume() {
     }
   });
 
-  return <div id="svgContainer" style={positionSvg}></div>;
+  return (
+    <SvgContainer
+      className="svg"
+      id="svgContainer"
+      style={positionSvg}
+    ></SvgContainer>
+  );
 }
