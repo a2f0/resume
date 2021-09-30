@@ -419,13 +419,13 @@ export default abstract class ResumeFactory {
       Constants.INTERNET_PRESENCES_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.highlightColor,
-      'Internet',
-      'internetLabel'
+      'WEB',
+      'WebLabel'
     );
 
     // Presences
     const interenetWidthInPoints = getTextWidthInPoints(
-      'Internet',
+      'WEB',
       getFontString(
         Constants.FIRST_NAME_WEIGHT,
         Constants.INTERNET_PRESENCES_HEADER_SIZE,
@@ -439,7 +439,7 @@ export default abstract class ResumeFactory {
       Constants.INTERNET_PRESENCES_HEADER_SIZE,
       Constants.FONT_FAMILY,
       this.foregroundColor,
-      'Presences',
+      'PRESENCES',
       'PresencesLabel'
     );
 
@@ -456,6 +456,7 @@ export default abstract class ResumeFactory {
     let internetPresenceYPos = Constants.INTERNET_PRESENCES_YPOS;
     for (let n = 0; n < resume.internet_presences.length; n++) {
       const internetPresence = resume.internet_presences[n];
+      const wihoutUrlPrefix = internetPresence.split('//')[1];
       // URL
       this.addTextWithLink(
         Constants.FIRST_NAME_XPOS,
@@ -463,7 +464,7 @@ export default abstract class ResumeFactory {
         Constants.INTERNET_PRESENCES_SIZE,
         Constants.FONT_FAMILY,
         this.foregroundColor,
-        internetPresence,
+        wihoutUrlPrefix,
         internetPresence,
         `internetPresences-${n}`
       );
