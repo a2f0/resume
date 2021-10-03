@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {
   selectBackgroundColor,
   selectForegroundColor,
+  selectHighlightColor,
 } from '../../library/resumeConfigSlice';
 import CheckMark from './CheckMark';
 import Color from 'color';
@@ -20,6 +21,7 @@ const FileMenu = () => {
   const parentContext = useMenuParent();
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
+  const highlightColor = useAppSelector(selectHighlightColor);
   const scale = useAppSelector(selectScale);
   useEffect(() => {});
 
@@ -27,6 +29,7 @@ const FileMenu = () => {
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
       backgroundColor: Color(backgroundColor),
+      highlightColor: Color(highlightColor),
     };
     const resumeFactory = new PdfResumeFactory(config);
     const resume = resumeFactory.getResume();
@@ -49,6 +52,7 @@ const FileMenu = () => {
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
       backgroundColor: Color(backgroundColor),
+      highlightColor: Color(highlightColor),
     };
     const resumeFactory = new SvgResumeFactory(config);
     const blob = new Blob([resumeFactory.getResume().outerHTML.toString()], {
