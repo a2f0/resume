@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {
   selectBackgroundColor,
   selectForegroundColor,
+  selectHighlightColor,
 } from '../library/resumeConfigSlice';
 
 import Color from 'color';
@@ -23,12 +24,14 @@ const PdfObjectContainer = styled.div`
 export default function PdfResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
+  const highlightColor = useAppSelector(selectHighlightColor);
   const scale = useAppSelector(selectScale);
 
   useEffect(() => {
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
       backgroundColor: Color(backgroundColor),
+      highlightColor: Color(highlightColor),
     };
     const resumeFactory = new PdfResumeFactory(config);
     const resume = resumeFactory.getResume();

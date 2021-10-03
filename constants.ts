@@ -11,9 +11,11 @@ export const PIXELS_PER_POINT                       = .75;
 export const STANDARD_FONT_SIZE                     = 9.5;
 export const UNITS                                  = 'pt';
 export const DARK_THEME_FOREGROUND                  = '#DCDCDC';
-export const DARK_THEME_BACKGROUND                  = '#000000'
+export const DARK_THEME_BACKGROUND                  = '#000000';
+export const DARK_THEME_HIGHLIGHT                   = '#909090';
 export const LIGHT_THEME_FOREGROUND                 = '#000000';
-export const LIGHT_THEME_BACKGROUND                 = '#FFFFFF'
+export const LIGHT_THEME_BACKGROUND                 = '#FFFFFF';
+export const LIGHT_THEME_HIGHLIGHT                  = '#707070';
 
 export const HEADER_SIZE                            = 12;
 export const HEADER_SPACING                         = 4;

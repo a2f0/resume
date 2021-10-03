@@ -7,11 +7,12 @@ import resume from '../resume.json';
 export default abstract class ResumeFactory {
   foregroundColor: Color = Color(Constants.DARK_THEME_FOREGROUND);
   backgroundColor: Color = Color(Constants.DARK_THEME_BACKGROUND);
-  highlightColor: Color = Color('#909090');
+  highlightColor: Color = Color(Constants.DARK_THEME_HIGHLIGHT);
 
   constructor(config: ResumeConfig) {
     this.foregroundColor = config.foregroundColor;
     this.backgroundColor = config.backgroundColor;
+    this.highlightColor = config.highlightColor;
   }
   protected abstract addCircle(
     x: number,
