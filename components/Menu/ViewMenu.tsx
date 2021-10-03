@@ -4,6 +4,7 @@ import {
   selectScale,
   setBackgroundColor,
   setForegroundColor,
+  setHighlightColor,
   setScale,
 } from '../../library/resumeConfigSlice';
 import CheckMark from './CheckMark';
@@ -29,6 +30,7 @@ const ViewMenu = () => {
   const setDarkTheme = () => {
     dispatch(setForegroundColor(Constants.DARK_THEME_FOREGROUND));
     dispatch(setBackgroundColor(Constants.DARK_THEME_BACKGROUND));
+    dispatch(setHighlightColor(Constants.DARK_THEME_HIGHLIGHT));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
@@ -37,6 +39,7 @@ const ViewMenu = () => {
   const setLightTheme = () => {
     dispatch(setForegroundColor(Constants.LIGHT_THEME_FOREGROUND));
     dispatch(setBackgroundColor(Constants.LIGHT_THEME_BACKGROUND));
+    dispatch(setHighlightColor(Constants.LIGHT_THEME_HIGHLIGHT));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);

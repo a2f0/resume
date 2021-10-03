@@ -3,6 +3,7 @@ import React, {CSSProperties, useEffect, useState} from 'react';
 import {
   selectBackgroundColor,
   selectForegroundColor,
+  selectHighlightColor,
 } from '../library/resumeConfigSlice';
 import Color from 'color';
 import {ResumeConfig} from '../library/resumeConfig';
@@ -20,6 +21,7 @@ const SvgContainer = styled.div`
 export default function SvgResume() {
   const foregroundColor = useAppSelector(selectForegroundColor);
   const backgroundColor = useAppSelector(selectBackgroundColor);
+  const highlightColor = useAppSelector(selectHighlightColor);
   const positionSvg: CSSProperties = {
     textAlign: 'center',
     marginTop: '25px',
@@ -38,6 +40,7 @@ export default function SvgResume() {
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
       backgroundColor: Color(backgroundColor),
+      highlightColor: Color(highlightColor),
     };
     const resumeFactory = new SvgResumeFactory(config);
     const resume = resumeFactory.getResume();
