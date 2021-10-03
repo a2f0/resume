@@ -75,7 +75,7 @@ const ViewMenu = () => {
         <CheckMark
           isActive={foregroundColor === Constants.DARK_THEME_FOREGROUND}
         />
-        <MenuLink>Dark Background</MenuLink>
+        <MenuLink>Dark Theme</MenuLink>
       </MenuListItem>
       <MenuListItem
         id="lightThemeMenuOption"
@@ -85,7 +85,7 @@ const ViewMenu = () => {
         <CheckMark
           isActive={foregroundColor === Constants.LIGHT_THEME_FOREGROUND}
         />
-        <MenuLink>Light Background</MenuLink>
+        <MenuLink>Light Theme</MenuLink>
       </MenuListItem>
       <MenuDivider />
       <MenuListItem onClick={() => setScaleFactor(1.3)} scale={scale}>
