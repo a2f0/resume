@@ -367,24 +367,6 @@ export default abstract class ResumeFactory {
         `educationBullet-${m}`
       );
 
-      const commencementDateRangeWidth = getTextWidthInPoints(
-        education.commencement,
-        educationFont
-      );
-      const commencementXPos =
-        Constants.VERTICAL_DIVIDER_XPOS -
-        Constants.CENTER_BULLET_MARGIN -
-        commencementDateRangeWidth;
-      this.addText(
-        commencementXPos,
-        educationYPos,
-        Constants.EDUCATION_SIZE,
-        Constants.FONT_FAMILY,
-        this.foregroundColor,
-        education.commencement,
-        `educationCommencement-${m}`
-      );
-
       // Education Institution
       this.addTextWithLink(
         Constants.EDUCATION_XPOS,
