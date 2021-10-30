@@ -347,12 +347,6 @@ export default abstract class ResumeFactory {
       Constants.EDUCATION_HEADER,
       'educationHeader'
     );
-    const educationFont = getFontString(
-      Constants.EDUCATION_WEIGHT,
-      Constants.EDUCATION_SIZE,
-      Constants.UNITS,
-      Constants.FONT_FAMILY
-    );
 
     let educationYPos =
       educationHeaderYPos + Constants.HEADER_SPACING + Constants.EDUCATION_SIZE;
