@@ -8,6 +8,10 @@ export const config: WebdriverIO.Config = {
       {
         browserName: 'chrome',
         'goog:chromeOptions': {
+          // This path is hardcoded to the determinstic path configured by
+          // setup-chrome inside of Github actions. It can be commented out
+          // to use the default. See .github/workflows/main.yml
+          binary: '/tmp/custom-chrome/chrome',
           prefs: {
             directory_upgrade: true,
             prompt_for_download: false,
