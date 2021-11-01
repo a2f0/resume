@@ -13,7 +13,7 @@
     ],
     "rootDir": ".",
     "outDir": "build",
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "noEmit": true,
     "esModuleInterop": true,
