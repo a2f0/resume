@@ -1,12 +1,12 @@
-import Body from './Body';
-import Footer from './Footer';
-import Gutter from './Gutter';
-import Header from './Header';
+import Body from '../Body';
+import Footer from '../Footer';
+import Gutter from '../Gutter';
+import Header from '../Header';
 import {ReactNode} from 'react';
-import holyGrail from '../styles/HolyGrail.module.css';
-import {selectScale} from '../library/resumeConfigSlice';
+import holyGrail from '../../styles/HolyGrail.module.css';
+import {selectScale} from '../../library/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../library/hooks';
+import {useAppSelector} from '../../library/hooks';
 
 interface IProps {
   children: ReactNode;
@@ -21,7 +21,7 @@ const MainColumn = styled.div<IMainColumnProps>`
   min-height: 100vh;
 `;
 
-const Layout = ({children}: IProps) => {
+const Main = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
   return (
     <div className={holyGrail.mainContainer}>
@@ -38,4 +38,4 @@ const Layout = ({children}: IProps) => {
   );
 };
 
-export default Layout;
+export default Main;
