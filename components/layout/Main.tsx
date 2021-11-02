@@ -1,6 +1,6 @@
 import Body from '../Body';
 import Footer from './Footer';
-import Gutter from '../Gutter';
+import Gutter from './Gutter';
 import Header from '../Header';
 import MainColumn from './MainColumn';
 import {ReactNode} from 'react';
