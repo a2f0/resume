@@ -23,10 +23,6 @@ const BodyContainer = styled.div<IBodyContainerProps>`
 
 const Body = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
-  return (
-    <BodyContainer scale={scale}>
-      <div>{children}</div>
-    </BodyContainer>
-  );
+  return <BodyContainer scale={scale}>{children}</BodyContainer>;
 };
 export default Body;
