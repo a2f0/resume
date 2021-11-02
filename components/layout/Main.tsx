@@ -2,24 +2,15 @@ import Body from '../Body';
 import Footer from '../Footer';
 import Gutter from '../Gutter';
 import Header from '../Header';
+import MainColumn from './MainColumn';
 import {ReactNode} from 'react';
 import holyGrail from '../../styles/HolyGrail.module.css';
 import {selectScale} from '../../library/resumeConfigSlice';
-import styled from 'styled-components';
 import {useAppSelector} from '../../library/hooks';
 
 interface IProps {
   children: ReactNode;
 }
-
-interface IMainColumnProps {
-  scale: number;
-}
-
-const MainColumn = styled.div<IMainColumnProps>`
-  width: calc(var(--main-width) * ${props => props.scale});
-  min-height: 100vh;
-`;
 
 const Main = ({children}: IProps) => {
   const scale = useAppSelector(selectScale);
