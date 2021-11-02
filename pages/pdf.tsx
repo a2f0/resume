@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Main';
 import PdfResume from '../components/PdfResume';
 import React from 'react';
 
