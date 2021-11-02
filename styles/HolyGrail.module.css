@@ -1,12 +1,3 @@
-.mainContainer {
-  margin-left: calc(100vw - 100%);
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .flexContainerColumnPageWidth {
   width: 100%;
   background-color: #404040;
