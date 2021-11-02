@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "version": "0.1.71",
+  "version": "0.1.72",
   "private": true,
   "scripts": {
     "server": "next dev -p 4000",
@@ -45,6 +45,7 @@
     "@wdio/spec-reporter": "^7.7.3",
     "chromedriver": "^95.0.0",
     "eslint": "^7.28.0",
+    "eslint-plugin-import": "^2.25.2",
     "expect-webdriverio": "^3.1.0",
     "gts": "^3.1.0",
     "start-server-and-test": "^1.12.5",
