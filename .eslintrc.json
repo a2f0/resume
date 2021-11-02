@@ -1,6 +1,9 @@
 {
   "extends": "./node_modules/gts/",
+  "plugins": ["import"],
   "rules": {
+    "indent": ["error", 2],
+    "import/no-commonjs": "error",
     "sort-imports": "error"
   }
 }
