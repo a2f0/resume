@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import holyGrail from '../styles/HolyGrail.module.css';
-import packageJson from '../package.json';
-import resume from '../resume.json';
+import packageJson from '../../package.json';
+import resume from '../../resume.json';
 import styled from 'styled-components';
 
 export const VersionContainer = styled.div`
@@ -35,7 +35,7 @@ export const StyledFooter = styled.footer`
 `;
 
 const Footer = () => (
-  <StyledFooter className={holyGrail.footer}>
+  <StyledFooter>
     <div className={holyGrail.flexContainerColumnPageWidthBottom}>
       <div className={holyGrail.leftColumn}>
         <div className={holyGrail.flexContainerLeftAlignBottom}>
