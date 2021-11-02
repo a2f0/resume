@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
-import {selectScale} from '../library/resumeConfigSlice';
+import {selectScale} from '../../library/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../library/hooks';
+import {useAppSelector} from '../../library/hooks';
 
 interface IProps {
   children: ReactNode;

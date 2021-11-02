@@ -1,4 +1,4 @@
-import Body from '../Body';
+import Body from './Body';
 import Footer from './Footer';
 import Gutter from './Gutter';
 import Header from '../Header';
