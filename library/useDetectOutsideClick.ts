@@ -1,5 +1,5 @@
 import React, {SetStateAction, useEffect, useState} from 'react';
-import {useMenuParent} from '../components/Menu/MenuParentContext';
+import {useMenuParent} from '../components/menu/MenuParentContext';
 export const useDetectOutsideClick = (
   el: React.MutableRefObject<HTMLDivElement | null>,
   initialState: boolean
