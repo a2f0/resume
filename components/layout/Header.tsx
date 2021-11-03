@@ -1,12 +1,12 @@
-import DropdownMenu from './menu/DropdownMenu';
-import FileMenu from './menu/FileMenu';
+import DropdownMenu from '../menu/DropdownMenu';
+import FileMenu from '../menu/FileMenu';
 import Head from 'next/head';
-import MenuParent from './menu/MenuParent';
-import ViewMenu from './menu/ViewMenu';
-import holyGrail from '../styles/HolyGrail.module.css';
-import {selectScale} from '../library/resumeConfigSlice';
+import MenuParent from '../menu/MenuParent';
+import ViewMenu from '../menu/ViewMenu';
+import holyGrail from '../../styles/HolyGrail.module.css';
+import {selectScale} from '../../library/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../library/hooks';
+import {useAppSelector} from '../../library/hooks';
 
 interface IProps {
   scale: number;
