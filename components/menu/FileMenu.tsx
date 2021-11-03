@@ -38,16 +38,6 @@ const FileMenu = () => {
     parentContext.setIsActive(false);
   };
 
-  // const printableSVG = () => {
-  //   const svg = document.getElementById('svgContainer');
-  //   if (svg && svg.innerHTML) {
-  //     const printableView = window.open('', '_blank');
-  //     if (printableView) {
-  //       printableView.document.write(svg.innerHTML);
-  //     }
-  //   }
-  // };
-
   const downloadSVG = () => {
     const config: ResumeConfig = {
       foregroundColor: Color(foregroundColor),
@@ -70,9 +60,6 @@ const FileMenu = () => {
 
   return (
     <ul>
-      {/* <li>
-        <a onClick={printableSVG}>Printable SVG</a>
-      </li> */}
       <MenuListItem
         id="downloadPdfMenuOption"
         onClick={downloadPDF}
