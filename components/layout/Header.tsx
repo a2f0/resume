@@ -1,5 +1,6 @@
 import DropdownMenu from '../menu/DropdownMenu';
 import FileMenu from '../menu/FileMenu';
+import FlexColumn from './FlexColumn';
 import FlexContainerCenterAlign from './FlexContainerCenterAlign';
 import FlexContainerLeftAlign from './FlexContainerLeftAlign';
 import FlexContainerRightAlign from './FlexContainerRightAlign';
@@ -36,7 +37,7 @@ const Header = () => {
       </Head>
       <StyledHeader scale={scale}>
         <div className={holyGrail.flexContainerColumnPageWidth}>
-          <div className={holyGrail.leftColumn}>
+          <FlexColumn>
             <FlexContainerLeftAlign>
               <MenuParent>
                 <DropdownMenu label="File">
@@ -47,14 +48,14 @@ const Header = () => {
                 </DropdownMenu>
               </MenuParent>
             </FlexContainerLeftAlign>
-          </div>
-          <div className={holyGrail.centerColumn}>
+          </FlexColumn>
+          <FlexColumn>
             <FlexContainerCenterAlign />
             <FlexContainerCenterAlign />
-          </div>
-          <div className={holyGrail.rightColumn}>
+          </FlexColumn>
+          <FlexColumn>
             <FlexContainerRightAlign></FlexContainerRightAlign>
-          </div>
+          </FlexColumn>
         </div>
       </StyledHeader>
     </>
