@@ -1,6 +1,5 @@
 .flexContainerColumnPageWidth {
   width: 100%;
-  background-color: #404040;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,39 +11,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.flexContainerLeftAlignTop {
-  background-color: #404040;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.flexContainerCenterAlignTop {
-  background-color: #404040;
-  display: flex;
-  justify-content: center;
-}
-
-.flexContainerRightAlignTop {
-  background-color: #404040;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.flexContainerLeftAlignBottom {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.flexContainerCenterAlignBottom {
-  display: flex;
-  justify-content: center;
-}
-
-.flexContainerRightAlignBottom {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .leftColumn {
