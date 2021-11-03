@@ -1,5 +1,8 @@
 import DropdownMenu from '../menu/DropdownMenu';
 import FileMenu from '../menu/FileMenu';
+import FlexContainerCenterAlign from './FlexContainerCenterAlign';
+import FlexContainerLeftAlign from './FlexContainerLeftAlign';
+import FlexContainerRightAlign from './FlexContainerRightAlign';
 import Head from 'next/head';
 import MenuParent from '../menu/MenuParent';
 import ViewMenu from '../menu/ViewMenu';
@@ -14,8 +17,8 @@ interface IProps {
 
 const StyledHeader = styled.header<IProps>`
   height: calc(var(--header-height) * ${props => props.scale});
+  background-color: #404040;
   color: white;
-  background-color: black;
   justify-content: center;
   align-items: center;
   position: sticky;
@@ -34,7 +37,7 @@ const Header = () => {
       <StyledHeader scale={scale}>
         <div className={holyGrail.flexContainerColumnPageWidth}>
           <div className={holyGrail.leftColumn}>
-            <div className={holyGrail.flexContainerLeftAlignTop}>
+            <FlexContainerLeftAlign>
               <MenuParent>
                 <DropdownMenu label="File">
                   <FileMenu />
@@ -43,13 +46,14 @@ const Header = () => {
                   <ViewMenu />
                 </DropdownMenu>
               </MenuParent>
-            </div>
+            </FlexContainerLeftAlign>
           </div>
           <div className={holyGrail.centerColumn}>
-            <div className={holyGrail.flexContainerCenterAlignTop} />
+            <FlexContainerCenterAlign />
+            <FlexContainerCenterAlign />
           </div>
           <div className={holyGrail.rightColumn}>
-            <div className={holyGrail.flexContainerRightAlignTop} />
+            <FlexContainerRightAlign></FlexContainerRightAlign>
           </div>
         </div>
       </StyledHeader>

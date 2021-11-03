@@ -1,3 +1,6 @@
+import FlexContainerCenterAlign from './FlexContainerCenterAlign';
+import FlexContainerLeftAlign from './FlexContainerLeftAlign';
+import FlexContainerRightAlign from './FlexContainerRightAlign';
 import Link from 'next/link';
 import React from 'react';
 import holyGrail from '../../styles/HolyGrail.module.css';
@@ -38,19 +41,19 @@ const Footer = () => (
   <StyledFooter>
     <div className={holyGrail.flexContainerColumnPageWidthBottom}>
       <div className={holyGrail.leftColumn}>
-        <div className={holyGrail.flexContainerLeftAlignBottom}>
+        <FlexContainerLeftAlign>
           <VersionContainer>
             <Link href={resume.url} passHref>
               <VersionLink>v{packageJson.version}</VersionLink>
             </Link>
           </VersionContainer>
-        </div>
+        </FlexContainerLeftAlign>
       </div>
       <div className={holyGrail.centerColumn}>
-        <div className={holyGrail.flexContainerCenterAlignBottom}></div>
+        <FlexContainerCenterAlign></FlexContainerCenterAlign>
       </div>
       <div className={holyGrail.rightColumn}>
-        <div className={holyGrail.flexContainerRightAlignBottom}></div>
+        <FlexContainerRightAlign></FlexContainerRightAlign>
       </div>
     </div>
   </StyledFooter>
