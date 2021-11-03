@@ -1,10 +1,10 @@
 import FlexColumn from './FlexColumn';
 import FlexContainerCenterAlign from './FlexContainerCenterAlign';
+import FlexContainerColumnPageWidth from './FlexContainerColumnPageWidth';
 import FlexContainerLeftAlign from './FlexContainerLeftAlign';
 import FlexContainerRightAlign from './FlexContainerRightAlign';
 import Link from 'next/link';
 import React from 'react';
-import holyGrail from '../../styles/HolyGrail.module.css';
 import packageJson from '../../package.json';
 import resume from '../../resume.json';
 import styled from 'styled-components';
@@ -40,7 +40,7 @@ export const StyledFooter = styled.footer`
 
 const Footer = () => (
   <StyledFooter>
-    <div className={holyGrail.flexContainerColumnPageWidthBottom}>
+    <FlexContainerColumnPageWidth>
       <FlexColumn>
         <FlexContainerLeftAlign>
           <VersionContainer>
@@ -56,7 +56,7 @@ const Footer = () => (
       <FlexColumn>
         <FlexContainerRightAlign></FlexContainerRightAlign>
       </FlexColumn>
-    </div>
+    </FlexContainerColumnPageWidth>
   </StyledFooter>
 );
 export default Footer;
