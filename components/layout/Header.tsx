@@ -2,12 +2,12 @@ import DropdownMenu from '../menu/DropdownMenu';
 import FileMenu from '../menu/FileMenu';
 import FlexColumn from './FlexColumn';
 import FlexContainerCenterAlign from './FlexContainerCenterAlign';
+import FlexContainerColumnPageWidth from './FlexContainerColumnPageWidth';
 import FlexContainerLeftAlign from './FlexContainerLeftAlign';
 import FlexContainerRightAlign from './FlexContainerRightAlign';
 import Head from 'next/head';
 import MenuParent from '../menu/MenuParent';
 import ViewMenu from '../menu/ViewMenu';
-import holyGrail from '../../styles/HolyGrail.module.css';
 import {selectScale} from '../../library/resumeConfigSlice';
 import styled from 'styled-components';
 import {useAppSelector} from '../../library/hooks';
@@ -36,7 +36,7 @@ const Header = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <StyledHeader scale={scale}>
-        <div className={holyGrail.flexContainerColumnPageWidth}>
+        <FlexContainerColumnPageWidth>
           <FlexColumn>
             <FlexContainerLeftAlign>
               <MenuParent>
@@ -56,7 +56,7 @@ const Header = () => {
           <FlexColumn>
             <FlexContainerRightAlign></FlexContainerRightAlign>
           </FlexColumn>
-        </div>
+        </FlexContainerColumnPageWidth>
       </StyledHeader>
     </>
   );
