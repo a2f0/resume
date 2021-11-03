@@ -31,7 +31,7 @@ export const VersionLink = styled.a`
 export const StyledFooter = styled.footer`
   height: var(--footer-height);
   color: white;
-  background-color: black;
+  background-color: #202020;
   justify-content: center;
   align-items: center;
   position: sticky;
