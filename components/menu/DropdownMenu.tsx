@@ -3,9 +3,9 @@ import {DropdownMenuProvider} from './DropdownMenuContext';
 import {MenuButton} from './MenuButton';
 import {MenuContainer} from './MenuContainer';
 import {MenuItems} from './MenuItems';
-import {selectScale} from '../../library/resumeConfigSlice';
-import {useAppSelector} from '../../library/hooks';
-import {useDetectOutsideClick} from '../../library/useDetectOutsideClick';
+import {selectScale} from '../../lib/resumeConfigSlice';
+import {useAppSelector} from '../../lib/hooks';
+import {useDetectOutsideClick} from '../../lib/useDetectOutsideClick';
 import {useMenuParent} from './MenuParentContext';
 
 interface MenuProps {

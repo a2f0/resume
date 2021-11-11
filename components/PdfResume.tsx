@@ -4,15 +4,15 @@ import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
-} from '../library/resumeConfigSlice';
+} from '../lib/resumeConfigSlice';
 
 import Color from 'color';
 import PDFObject from 'pdfobject';
-import PdfResumeFactory from '../library/pdfResumeFactory';
-import {ResumeConfig} from '../library/resumeConfig';
-import {selectScale} from '../library/resumeConfigSlice';
+import PdfResumeFactory from '../lib/pdfResumeFactory';
+import {ResumeConfig} from '../lib/resumeConfig';
+import {selectScale} from '../lib/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../library/hooks';
+import {useAppSelector} from '../lib/hooks';
 
 const PdfObjectContainer = styled.div`
   height: calc(

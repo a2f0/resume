@@ -1,7 +1,7 @@
 import * as Constants from '../constants';
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 import Color from 'color';
-import {ResumeConfig} from '../library/resumeConfig';
+import {ResumeConfig} from './resumeConfig';
 import resume from '../resume.json';
 
 export default abstract class ResumeFactory {

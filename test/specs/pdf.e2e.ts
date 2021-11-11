@@ -2,7 +2,7 @@ import * as Constants from '../../constants';
 import PdfPage from '../pageobjects/pdf.page';
 import assert from 'assert';
 import path from 'path';
-import waitForFileExists from '../../library/fs';
+import waitForFileExists from '../lib/fs';
 
 describe('PDF Resume', () => {
   it('should load', async () => {

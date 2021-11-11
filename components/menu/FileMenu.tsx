@@ -3,16 +3,16 @@ import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
-} from '../../library/resumeConfigSlice';
+} from '../../lib/resumeConfigSlice';
 import CheckMark from './CheckMark';
 import Color from 'color';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
-import PdfResumeFactory from '../../library/pdfResumeFactory';
-import {ResumeConfig} from '../../library/resumeConfig';
-import SvgResumeFactory from '../../library/svgResumeFactory';
-import {selectScale} from '../../library/resumeConfigSlice';
-import {useAppSelector} from '../../library/hooks';
+import PdfResumeFactory from '../../lib/pdfResumeFactory';
+import {ResumeConfig} from '../../lib/resumeConfig';
+import SvgResumeFactory from '../../lib/svgResumeFactory';
+import {selectScale} from '../../lib/resumeConfigSlice';
+import {useAppSelector} from '../../lib/hooks';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
 

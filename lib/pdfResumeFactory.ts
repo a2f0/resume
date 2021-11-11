@@ -1,7 +1,7 @@
 import * as Constants from '../constants';
 import {TextOptionsLight, jsPDF, jsPDFOptions} from 'jspdf';
 import Color from 'color';
-import {ResumeConfig} from '../library/resumeConfig';
+import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
 
 export default class PdfResumeFactory extends ResumeFactory {

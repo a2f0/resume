@@ -6,13 +6,13 @@ import {
   setForegroundColor,
   setHighlightColor,
   setScale,
-} from '../../library/resumeConfigSlice';
+} from '../../lib/resumeConfigSlice';
 import CheckMark from './CheckMark';
 import MenuDivider from './MenuDivider';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
 import resume from '../../resume.json';
-import {useAppSelector} from '../../library/hooks';
+import {useAppSelector} from '../../lib/hooks';
 import {useDispatch} from 'react-redux';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
