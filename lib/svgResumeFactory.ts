@@ -1,6 +1,6 @@
 import * as Constants from '../constants';
 import Color from 'color';
-import {ResumeConfig} from '../library/resumeConfig';
+import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
 
 export default class SvgResumeFactory extends ResumeFactory {

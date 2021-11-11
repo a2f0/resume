@@ -2,7 +2,7 @@ import * as Constants from '../../constants';
 import SvgPage from '../pageobjects/svg.page';
 import assert from 'assert';
 import path from 'path';
-import waitForFileExists from '../../library/fs';
+import waitForFileExists from '../lib/fs';
 
 describe('SVG Resume', () => {
   it('should load', async () => {

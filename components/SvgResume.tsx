@@ -4,13 +4,13 @@ import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
-} from '../library/resumeConfigSlice';
+} from '../lib/resumeConfigSlice';
 import Color from 'color';
-import {ResumeConfig} from '../library/resumeConfig';
-import SvgResumeFactory from '../library/svgResumeFactory';
-import {selectScale} from '../library/resumeConfigSlice';
+import {ResumeConfig} from '../lib/resumeConfig';
+import SvgResumeFactory from '../lib/svgResumeFactory';
+import {selectScale} from '../lib/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../library/hooks';
+import {useAppSelector} from '../lib/hooks';
 
 const SvgContainer = styled.div`
   .hoverable:hover {

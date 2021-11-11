@@ -1,6 +1,6 @@
-import {selectScale} from '../../library/resumeConfigSlice';
+import {selectScale} from '../../lib/resumeConfigSlice';
 import styled from 'styled-components';
-import {useAppSelector} from '../../library/hooks';
+import {useAppSelector} from '../../lib/hooks';
 
 interface IProps {
   scale: number;
