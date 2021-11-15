@@ -80,7 +80,7 @@
         "Wrote a sensor polling subsystem and web-based cluster manager for data aggregation through a hybrid microcontroller SBC fabric. Completed extensive TX/RX serial and I2C programming against INA219, BME280, MCP9808, SSD1306, VL53L0X, DS18B20, and other components.",
         "Developed applicable knowledge of physical prototyping including 3D printing, materials selection, power subsystems, soldering/wiring, and thermal regulation.",
         "Wrote a Nimbleink 4G LTE cellular connection manager and IP route governor for deterministic traffic flow across redundant uplinks." ,
-        "Wrote an NMEA stream parser to assemble geolocated Exif data with sensor output.",
+        "Wrote an NMEA stream parser to assemble Exif data comprised of geolocated sensor output.",
         "Implemented a serverless blur detection workflow to identify unprocessable image captures.",
         "Built a web-based wpa_supplicant wrapper to facilitate user-configurable 802.11 parameters.",
         "Wrote a hardware driver for a CDM7160 CO2 module."
