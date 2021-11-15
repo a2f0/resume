@@ -72,6 +72,17 @@
       ]
     },
     {
+      "company": "Ball Horticultural Company",
+      "title": "DevOps Engineer (Contract)",
+      "date_range": "Sep 2017 - Sep 2020",
+      "url": "https://www.ballhort.com/",
+      "accomplishments": [
+        "Completed extensive application performance profiling to identify bottlenecks and made changes to optimize hardware utilization and response times for deeply-nested/polymorphic data structures.",
+        "Automated code signing and release automation of iOS, Android, and Rails applications."
+      ],
+      "location": "Chicago, USA"
+    },
+    {
       "company": "Aker",
       "title": "IoT Engineer (Contract)",
       "date_range": "Aug 2017 - Aug 2019",
@@ -88,23 +99,12 @@
       "location": "Chicago, USA"
     },
     {
-      "company": "Ball Horticultural Company",
-      "title": "DevOps Engineer (Contract)",
-      "date_range": "Sep 2017 - Sep 2020",
-      "url": "https://www.ballhort.com/",
-      "accomplishments": [
-        "Completed extensive application performance profiling to identify bottlenecks and made changes to optimize hardware utilization and response times for deeply-nested/polymorphic data structures.",
-        "Automated code signing and release automation of iOS, Android, and Rails applications."
-      ],
-      "location": "Chicago, USA"
-    },
-    {
       "company": "The Center for Research Informatics",
       "title": "Senior Systems Administrator",
       "date_range": "Jun 2011 - May 2017",
       "url": "https://cri.uchicago.edu/",
       "accomplishments": [
-        "Greenfielded a multimillion dollar computing environment (NIST SP 800-53 compliant).",
+        "Greenfielded a multimillion dollar research computing environment (NIST SP 800-53 compliant).",
         "Implemented an HPC-integrated bioinformatics tool pipelining platform (Galaxy, Torque). Built an API integration to ensure POSIX ACL parity with web libraries.",
         "Developed a customer-facing metered cloud billing system including client invoicing, mainframe transaction processing, roll-up reporting, subsidization tracking, and asset lifecycle initiation (Rails).",
         "Wrote a provisioning tool for synchronizing IAM objects between Internet2 Grouper, Centrify DirectControl, and Isilon OneFS. Achieved global UID/GID to SID coherency."
