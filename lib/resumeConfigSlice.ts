@@ -14,7 +14,7 @@ const initialState: ResumeConfigState = {
   foregroundColor: Constants.DARK_THEME_FOREGROUND,
   backgroundColor: Constants.DARK_THEME_BACKGROUND,
   highlightColor: Constants.DARK_THEME_HIGHLIGHT,
-  scale: 1.3,
+  scale: 1.5,
 };
 
 export const resumeConfigSlice = createSlice({

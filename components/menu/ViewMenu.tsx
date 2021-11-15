@@ -88,13 +88,13 @@ const ViewMenu = () => {
         <MenuLink>Light Theme</MenuLink>
       </MenuListItem>
       <MenuDivider />
-      <MenuListItem onClick={() => setScaleFactor(1.3)} scale={scale}>
-        <CheckMark isActive={scale === 1.3} />
-        <MenuLink onClick={dismissMenu}>130%</MenuLink>
+      <MenuListItem onClick={() => setScaleFactor(1.5)} scale={scale}>
+        <CheckMark isActive={scale === 1.5} />
+        <MenuLink onClick={dismissMenu}>150%</MenuLink>
       </MenuListItem>
-      <MenuListItem onClick={() => setScaleFactor(1.15)} scale={scale}>
-        <CheckMark isActive={scale === 1.15} />
-        <MenuLink onClick={dismissMenu}>115%</MenuLink>
+      <MenuListItem onClick={() => setScaleFactor(1.25)} scale={scale}>
+        <CheckMark isActive={scale === 1.25} />
+        <MenuLink onClick={dismissMenu}>125%</MenuLink>
       </MenuListItem>
       <MenuListItem onClick={() => setScaleFactor(1)} scale={scale}>
         <CheckMark isActive={scale === 1} />
