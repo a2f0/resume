@@ -16,6 +16,7 @@ export const config: WebdriverIO.Config = {
           prompt_for_download: false,
           'download.default_directory': Constants.TEST_DOWNLOAD_DIR,
         },
+        args: ['--window-size=1366,2160'],
       },
       acceptInsecureCerts: true,
     },
