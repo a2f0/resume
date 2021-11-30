@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "version": "0.1.98",
+  "version": "0.1.99",
   "private": true,
   "scripts": {
     "server": "next dev -p 4000",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/color": "^3.0.1",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.9",
+    "@types/node": "^16.11.11",
     "@types/pdfobject": "^2.2.0",
     "@types/react": "^17.0.9",
     "@types/react-redux": "^7.1.16",

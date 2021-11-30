@@ -45,8 +45,8 @@
       "date_range": "May 2017 - Current",
       "url": "https://devopsrockstars.com/",
       "accomplishments": [
-        "Ran a successful hardware/software consulting practice with broad industry execution in social media, financial services, risk management, agriculture, and healthcare.",
-        "Litigated pro se in a federal TTAB trial against a multibillion dollar corporate entity. Received a favorable settlement and garnered hundreds of educational hours studying trademark law."
+        "Ran a successful hardware/software consulting business with broad industry execution in social networking, financial services, risk management, agriculture, and healthcare.",
+        "Litigated pro se in a federal TTAB trial against a multibillion dollar corporate entity. Received a favorable settlement and practiced hundreds of hours of trademark law."
       ],
       "location": "Chicago, USA",
       "technologies": [
@@ -61,7 +61,7 @@
       "date_range": "Aug 2017 - April 2021",
       "url": "https://rtrs.co",
       "accomplishments": [
-        "Advanced from a part-time contractor to leading an engineering team building a product used by Fortune 500 companies. Leadership spanned FE/BE, mobile, web and cloud.",
+        "Advanced from a part-time contractor to leading an engineering team building a risk management product used by Fortune 500 companies. Leadership spanned FE/BE, mobile, web and cloud.",
         "Addressed attribute-level merge collisions for a distributed asynchronous write cache.",
         "Coded abstract constructs to enforce a flexible multidimensional REST security model."
       ],
@@ -88,15 +88,25 @@
       "date_range": "Aug 2017 - Aug 2019",
       "url": "https://aker.ag",
       "accomplishments": [
-        "Wrote a sensor polling subsystem and web-based cluster manager for data aggregation through a hybrid microcontroller SBC fabric. Completed extensive TX/RX serial and I2C programming against INA219, BME280, MCP9808, SSD1306, VL53L0X, DS18B20, and other components.",
-        "Developed applicable knowledge of physical prototyping including 3D printing, materials selection, power subsystems, soldering/wiring, and thermal regulation.",
-        "Wrote a Nimbleink 4G LTE cellular connection manager and IP route governor for deterministic traffic flow across redundant uplinks." ,
-        "Wrote an NMEA stream parser to assemble Exif data comprised of geolocated sensor output.",
-        "Implemented a serverless blur detection workflow to identify unprocessable image captures.",
-        "Built a web-based wpa_supplicant wrapper to facilitate user-configurable 802.11 parameters.",
-        "Wrote a hardware driver for a CDM7160 CO2 module."
+        "Engineered a sensor polling subsystem and cluster manager for data aggregation through a hybrid microcontroller SBC fabric. Completed extensive TX/RX serial, I2C, and GPIO programming.",
+        "Built an LTE cellular connection manager and IP route governor for redundant network uplinks." ,
+        "Created a web-based wpa_supplicant wrapper to facilitate user-configurable 802.11 parameters.",
+        "Identified unusable imaging captures by building a serverless blur detection workflow.",
+        "Wrote a hardware driver for a CDM7160 CO2 module.",
+        "Coded an NMEA stream parser and assembled Exif embedded geolocated sensor output."
       ],
-      "location": "Chicago, USA"
+      "location": "Chicago, USA",
+      "technologies": [
+        "AWS",
+        "BME280",
+        "DS18B20",
+        "INA219",
+        "Lambda",
+        "MCP9808",
+        "Ruby on Rails",
+        "SSD1306",
+        "VL53L0X"
+      ]
     },
     {
       "company": "The Center for Research Informatics",
