@@ -104,6 +104,7 @@ export const POSITION_COMPANY_COLOR                 = 'white';
 export const POSITION_COMPANY_XPOS                  = RIGHT_PANEL_STARTX;
 export const POSITION_COMPANY_YPOS_START            = POSITION_TITLE_YPOS_START;
 
+export const POSITION_ACCOMPLISMENTS_SPACING        = 1;
 export const POSITION_ACCOMPLISHMENT_WEIGHT         = 400;
 export const POSITION_ACCOMPLISHMENT_SIZE           = POSITION_TITLE_SIZE;
 export const POSITION_ACCOMPLISHMENT_COLOR          = 'white';

@@ -295,7 +295,9 @@ export default abstract class ResumeFactory {
 
       // Accomplishments
       let accomplishmentYPos =
-        currentPositionYPos + Constants.POSITION_TITLE_SIZE;
+        currentPositionYPos +
+        Constants.POSITION_TITLE_SIZE +
+        Constants.POSITION_ACCOMPLISMENTS_SPACING;
       const accomplishmentFont = getFontString(
         Constants.POSITION_ACCOMPLISHMENT_WEIGHT,
         Constants.POSITION_ACCOMPLISHMENT_SIZE,
