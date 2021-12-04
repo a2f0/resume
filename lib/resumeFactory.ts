@@ -297,7 +297,7 @@ export default abstract class ResumeFactory {
       let accomplishmentYPos =
         currentPositionYPos +
         Constants.POSITION_TITLE_SIZE +
-        Constants.POSITION_ACCOMPLISMENTS_SPACING;
+        Constants.POSITION_ACCOMPLISMENT_HEADER_SPACING;
       const accomplishmentFont = getFontString(
         Constants.POSITION_ACCOMPLISHMENT_WEIGHT,
         Constants.POSITION_ACCOMPLISHMENT_SIZE,
@@ -331,6 +331,15 @@ export default abstract class ResumeFactory {
             `positionAccomplishmentLine-${i}-${j}-${k}`
           );
           accomplishmentYPos += Constants.POSITION_ACCOMPLISHMENT_SIZE;
+          if (k < accomplishmentLines.length - 1) {
+            // Then it is not the last line in the accomplishment.
+            // Add some vertical spacing for the next line.
+            accomplishmentYPos += Constants.POSITION_ACCOMPLISMENT_LINE_SPACING;
+          }
+        }
+        if (j < position.accomplishments.length - 1) {
+          // Then there is another accomplishment
+          accomplishmentYPos += Constants.POSITION_ACCOMPLISMENT_SPACING;
         }
       }
       currentPositionYPos =
