@@ -10,7 +10,7 @@ export const MenuButton = styled.button<IProps>`
   background: #ffffff;
   border: none;
   border-radius: 0px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 1px solid gray;
   cursor: pointer;
   display: flex;
   font-size: calc(${props => props.scale} * 14px);
@@ -19,6 +19,8 @@ export const MenuButton = styled.button<IProps>`
     calc(${props => props.scale} * 6px);
   transition: box-shadow 0.4s ease;
   vertical-align: middle;
+  margin-left: 0;
+  margin-right: 0;
   margin-top: calc(
     (${props => props.scale} * var(--header-height)) - var(--height)
   );
