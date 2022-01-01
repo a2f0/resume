@@ -8,7 +8,7 @@ export const RIGHT_PANEL_STARTY                     = 77;
 export const DOCUMENT_WIDTH                         = 612;
 export const DOCUMENT_HEIGHT                        = 792;
 export const PIXELS_PER_POINT                       = .75;
-export const STANDARD_FONT_SIZE                     = 9.5;
+export const STANDARD_FONT_SIZE                     = 9.75;
 export const UNITS                                  = 'pt';
 export const DARK_THEME_FOREGROUND                  = '#DCDCDC';
 export const DARK_THEME_BACKGROUND                  = '#0F0F0F';
@@ -26,7 +26,7 @@ export const CENTER_BULLET_MARGIN                   = 8;
 
 export const LEFT_PANEL_XPOS                        = 0;
 export const LEFT_PANEL_YPOS                        = 0;
-export const LEFT_PANEL_PERCENTAGE                  = .25;
+export const LEFT_PANEL_PERCENTAGE                  = .23;
 export const LEFT_PANEL_WIDTH                       = LEFT_PANEL_PERCENTAGE * DOCUMENT_WIDTH;
 export const LEFT_PANEL_MARGIN                      = 18
 
