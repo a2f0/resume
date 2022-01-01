@@ -7,6 +7,7 @@ npm install
 pre-commit install
 npm run server
 npm run ci
+npx wdio run wdio.shared.conf.ts --spec test/specs/constants.unit.ts
 ```
 
 ## Testing builds
