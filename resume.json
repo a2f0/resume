@@ -30,13 +30,18 @@
       ],
       "location": "Chicago, USA",
       "technologies": [
-        "Django",
-        "Docker",
-        "ECS",
-        "Terraform",
         "AWS",
+        "Cloudflare",
+        "Django Rest Framework",
+        "Docker",
         "EC2",
-        "PostgreSQL"
+        "GitHub Actions",
+        "MUI",
+        "PostgreSQL",
+        "React",
+        "Terraform",
+        "TypeScript",
+        "Vercel"
       ]
     },
     {
@@ -50,9 +55,11 @@
       ],
       "location": "Chicago, USA",
       "technologies": [
+        "PostgreSQL",
         "React",
+        "MUI",
         "Ruby on Rails",
-        "PostgreSQL"
+        "Solr"
       ]
     },
     {
@@ -67,6 +74,7 @@
       ],
       "location": "Chicago, USA",
       "technologies": [
+        "Azure",
         "Django",
         "PostgreSQL"
       ]
@@ -80,7 +88,12 @@
         "Completed extensive application performance profiling to identify bottlenecks and made changes to optimize hardware utilization and response times for deeply-nested/polymorphic data structures.",
         "Automated code signing and release automation of iOS, Android, and Rails applications."
       ],
-      "location": "Chicago, USA"
+      "location": "Chicago, USA",
+      "technologies": [
+        "AWS",
+        "fastlane",
+        "Linode"
+      ]
     },
     {
       "company": "Aker",

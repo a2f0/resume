@@ -17,3 +17,9 @@ Deploy to Vercel without having to commit or push (the randomized URL for viewin
 ```bash
 npx vercel
 ```
+
+Spell check against a [aspell definition in dotfiles](https://github.com/a2f0/dotfiles/blob/main/files/aspell.en.pws)
+
+```bash
+aspell --master=en_US --lang=en_US -c resume.json
+```
