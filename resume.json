@@ -20,6 +20,28 @@
   ],
   "experience": [
     {
+      "company": "Thinkspan",
+      "title": "Software Engineer (Senior)",
+      "date_range": "Feb 2022 - Current",
+      "url": "https://thinkspan.com",
+      "accomplishments": [
+        "Building a zero trust encrypted graph database at the network edge."
+      ],
+      "location": "Remote",
+      "technologies": [
+        "Bitwarden",
+        "Confluence",
+        "Fastlane",
+        "Figma",
+        "Flow",
+        "Gradle",
+        "Jira",
+        "Miro",
+        "React Native",
+        "Storybook.js"
+      ]
+    },
+    {
       "company": "Tearleads",
       "title": "Product Builder",
       "date_range": "April 2021 - Current",
@@ -28,7 +50,7 @@
         "Increased developer and sysadmin productivity by creating a public application that optimizes repetitive access patterns for atomic pieces of meaningful data.",
         "Built and deployed all components from scratch including FE/BE, CI/CD, static code analysis, test coverage, IaC, containerized workflows, OAuth2 integration, and observability instrumentation."
       ],
-      "location": "Chicago, USA",
+      "location": "Remote",
       "technologies": [
         "AWS",
         "Cloudflare",
