@@ -20,7 +20,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.6.0",
+    "@reduxjs/toolkit": "^1.8.0",
     "@wdio/cli": "^7.16.16",
     "color": "^4.2.1",
     "jspdf": "^2.3.1",
