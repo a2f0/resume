@@ -9,6 +9,9 @@ repos:
     rev: ''
     hooks:
       - id: eslint
+        additional_dependencies:
+        - eslint@8.10.0
+        - typescript-eslint
   - repo: 'https://github.com/awebdeveloper/pre-commit-stylelint'
     rev: ''
     hooks:
