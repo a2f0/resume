@@ -3,6 +3,7 @@
 ## Quick Start
 
 ```bash
+nvm use
 npm install
 pre-commit install
 npm run server
