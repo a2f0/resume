@@ -113,6 +113,7 @@
       "location": "Chicago, USA",
       "technologies": [
         "AWS",
+        "Athena",
         "fastlane",
         "Linode"
       ]
