@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
-    "@wdio/cli": "^7.16.16",
+    "@wdio/cli": "^7.19.3",
     "color": "^4.2.1",
     "jspdf": "^2.3.1",
     "next": "^12.1.0",
