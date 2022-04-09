@@ -40,7 +40,7 @@ export default function DropdownMenu({children, label}: MenuProps) {
 
   return (
     <DropdownMenuProvider setIsActive={setIsActive}>
-      <MenuContainer>
+      <MenuContainer ref={dropdownRef}>
         <MenuButton
           scale={scale}
           id={'menuButton' + label}
@@ -49,12 +49,7 @@ export default function DropdownMenu({children, label}: MenuProps) {
         >
           {label}
         </MenuButton>
-        <MenuItems
-          id={'menuItems' + label}
-          ref={dropdownRef}
-          isActive={isActive}
-          scale={scale}
-        >
+        <MenuItems id={'menuItems' + label} isActive={isActive} scale={scale}>
           {children}
         </MenuItems>
       </MenuContainer>
