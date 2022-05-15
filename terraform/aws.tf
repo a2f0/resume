@@ -21,18 +21,6 @@ resource "aws_route53_record" "ns" {
   ]
 }
 
-resource "aws_route53_record" "a" {
-  allow_overwrite = true
-  name            = var.domain
-  ttl             = 60
-  type            = "A"
-  zone_id         = data.aws_route53_zone.zone.zone_id
-
-  records = [
-    "76.76.21.21"
-  ]
-}
-
 resource "aws_route53_record" "txt" {
   allow_overwrite = true
   ttl             = 60
@@ -57,5 +45,29 @@ resource "aws_route53_record" "mx" {
     "5 ALT2.ASPMX.L.GOOGLE.COM",
     "10 ASPMX2.GOOGLEMAIL.COM",
     "10 ASPMX3.GOOGLEMAIL.COM",
+  ]
+}
+
+resource "aws_route53_record" "a" {
+  allow_overwrite = true
+  name            = var.domain
+  ttl             = 60
+  type            = "A"
+  zone_id         = data.aws_route53_zone.zone.zone_id
+
+  records = [
+    "76.76.21.21"
+  ]
+}
+
+resource "aws_route53_record" "a-staging" {
+  allow_overwrite = true
+  name            = var.domain_staging
+  ttl             = 60
+  type            = "A"
+  zone_id         = data.aws_route53_zone.zone.zone_id
+
+  records = [
+    "76.76.21.21"
   ]
 }

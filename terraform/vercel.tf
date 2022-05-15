@@ -1,22 +1,22 @@
 provider "vercel" {
-  token = var.vercel_token
+  api_token = var.vercel_token
 }
 
 resource "vercel_project" "resume" {
-  name         = "resume"
-  node_version = "14.x"
-  framework    = "nextjs"
-  git_repository {
+  name      = "resume"
+  framework = "nextjs"
+  git_repository = {
     type = "github"
     repo = "${var.github_owner}/${var.github_repository}"
   }
 }
 
-resource "vercel_domain" "resume" {
-  name = var.domain
+resource "vercel_project_domain" "resume" {
+  project_id = vercel_project.resume.id
+  domain     = var.domain
 }
 
-resource "vercel_alias" "resume" {
+resource "vercel_project_domain" "resume_staging" {
   project_id = vercel_project.resume.id
-  domain     = vercel_domain.resume.name
+  domain     = var.domain_staging
 }
