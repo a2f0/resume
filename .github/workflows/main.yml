@@ -43,15 +43,16 @@ jobs:
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         vercel-args: '--prod'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
     # staging-deploy
     - uses: amondnet/vercel-action@v20
       if: ${{ github.event.ref != 'refs/heads/staging' && github.event_name == 'push' }}
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        alias-domains: ${{ secrets.STAGING_DOMAIN }}
     - name: Post to slack
       uses: 8398a7/action-slack@v3
       if: ${{ failure() }}
