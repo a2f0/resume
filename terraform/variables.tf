@@ -6,6 +6,10 @@ variable "domain" {
   type = string
 }
 
+variable "domain_staging" {
+  type = string
+}
+
 variable "github_owner" {
   type = string
 }

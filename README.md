@@ -20,10 +20,12 @@ npx next dev -p 4001
 npx wdio run wdio.headless.conf.ts --spec test/specs/constants.unit.ts
 ```
 
-Deploy to Vercel without having to commit or push (the randomized URL for viewing build will be in the output of this command).
+Deploy to Vercel without having to commit or push (the randomized URL for viewing build will be in the output of this command). Note: this will create the directory `.vercel` at the root of the project, which is in .gitignore.  So, if this is a clean clone, this will prompt for a setup.  Following the setup prompts configure the local repo.
 
 ```sh
+# preview deployment
 npx vercel
+npx vercel --prod
 ```
 
 Spell check against a [aspell definition in dotfiles](https://github.com/a2f0/dotfiles/blob/main/files/aspell.en.pws)
