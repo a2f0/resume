@@ -1,26 +1,6 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/chronark/vercel" {
-  version     = "0.10.0"
-  constraints = "0.10.0"
-  hashes = [
-    "h1:2AJt3F/p0QGUJlf5omEET7K1ejFJEoWS86bb/ECl8ZM=",
-    "zh:564f346b153e153868320b2b0bca672a7ea23be90abbb947d3a82ac1087d5eb2",
-    "zh:5f5ef1398a3480fb5be159f71797928bbfe0686b6d3fb79400ec62c3232ffd5d",
-    "zh:63cdeeab29db5e82eb1dc725b898b459aa8406695bb29aed4f6aee871cb60201",
-    "zh:8c71a94a7155cbd325fe3559a6e87dda87658f3842c5c2e721823202e7fc9135",
-    "zh:8f2f56cadb56a8f760833dbd12f764e2c5f755cc13066d704c5d323e58d695aa",
-    "zh:9ddd987aa75394784e2416c2d2858a61d2ef420662a28c804eff4c0360bec21d",
-    "zh:a2ee57d2dd14bf0955fc6cb87cb637aab65123fba05f73945c044dc243e1a53d",
-    "zh:bcb6a5d0b25c441e0b33ebbdc364d7637dfb79b29d24c6f4e626d9b5031a9d5b",
-    "zh:c45d7439775788cca3b3cedd7177978f5fca9258b9835eeb16cdc7badb6f8da2",
-    "zh:cc2dfb89a6608e77aa03c3ce0f47fc941af5604a326f24a6b76d7667d5f4358f",
-    "zh:e268f4e2923bae5427e896f877296c3f80e9ac3d1707df5af3839faa51e673c8",
-    "zh:f95e1537ad8a3eb2f41fd7a87c4088e180c17ef004f655a360d1e3913c4f87a4",
-  ]
-}
-
 provider "registry.terraform.io/deviavir/gsuite" {
   version     = "0.1.62"
   constraints = "~> 0.1"
