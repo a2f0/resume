@@ -2,6 +2,9 @@
   "name": "resume",
   "version": "0.1.109",
   "private": true,
+  "engines": {
+    "node": "=16.15.0"
+  },
   "scripts": {
     "server": "next dev -p 4000",
     "server-test": "next dev -p 4001",
