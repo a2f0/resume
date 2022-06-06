@@ -25,7 +25,7 @@ jobs:
       name: Setup TFLint
       with:
         tflint_version: v0.28.1
-    - uses: pre-commit/action@v2.0.3
+    - uses: pre-commit/action@v3.0.0
     - uses: browser-actions/setup-chrome@latest
       name: Setup Chrome
       with:
