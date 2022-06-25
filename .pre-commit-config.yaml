@@ -32,4 +32,5 @@ repos:
       - id: check-for-unpinned-dependencies
         name: check-for-unpinned-dependencies
         entry: npx check-for-unpinned-dependencies
+        pass_filenames: false
         language: node
