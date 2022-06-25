@@ -27,3 +27,9 @@ repos:
       - id: shellcheck
       - id: gofmt
       - id: golint
+  - repo: local
+    hooks:
+      - id: check-for-unpinned-dependencies
+        name: check-for-unpinned-dependencies
+        entry: check-for-unpinned-dependencies
+        language: node
