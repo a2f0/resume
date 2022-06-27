@@ -26,7 +26,7 @@
     "@reduxjs/toolkit": "1.8.2",
     "@wdio/cli": "7.20.5",
     "color": "4.2.3",
-    "jspdf": "2.3.1",
+    "jspdf": "2.5.1",
     "next": "12.1.6",
     "pdfobject": "2.2.8",
     "react": "18.2.0",
