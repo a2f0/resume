@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@a2f0/check-for-unpinned-dependencies": "1.0.4",
-    "@types/color": "3.0.1",
+    "@types/color": "3.0.3",
     "@types/mocha": "9.1.1",
     "@types/node": "18.0.0",
     "@types/pdfobject": "2.2.0",
