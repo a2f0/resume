@@ -29,6 +29,7 @@
       ],
       "location": "Remote",
       "technologies": [
+        "Metro Bundler",
         "Bitwarden",
         "Confluence",
         "Fastlane",
@@ -69,7 +70,7 @@
     {
       "company": "DevOpsRockstars",
       "title": "Owner",
-      "date_range": "May 2017 - Current",
+      "date_range": "May 2017 - February 2022",
       "url": "https://devopsrockstars.com/",
       "accomplishments": [
         "Ran a successful hardware/software consulting business with broad industry execution in social networking, financial services, risk management, agriculture, and healthcare.",
