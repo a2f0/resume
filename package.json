@@ -33,7 +33,7 @@
     "react-dom": "18.2.0",
     "react-redux": "8.0.4",
     "redux": "4.2.0",
-    "styled-components": "5.3.5"
+    "styled-components": "5.3.6"
   },
   "devDependencies": {
     "@a2f0/check-for-unpinned-dependencies": "1.0.4",
