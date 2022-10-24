@@ -39,7 +39,8 @@
         "Jira",
         "Miro",
         "React Native",
-        "Storybook.js"
+        "Storybook",
+        "Sinon.JS"
       ]
     },
     {
