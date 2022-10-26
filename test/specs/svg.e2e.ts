@@ -62,28 +62,14 @@ describe('SVG Resume', () => {
 
   it('should download an svg', async () => {
     await SvgPage.open();
-    expect(SvgPage.fileMenuButton).toBeExisting();
-    expect(SvgPage.fileMenuItems).toBeExisting();
-    const fileMenuButton = await SvgPage.fileMenuButton;
-    const fileMenuItems = await SvgPage.fileMenuItems;
-    const downloadSvgMenuOption = await SvgPage.downloadSvgMenuOption;
-    let fileVisibility;
-    let svgDownloadVisibility;
-    // Click the File menu to show it, then click it again to hide it.
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'hidden');
-    svgDownloadVisibility = await downloadSvgMenuOption.getCSSProperty(
-      'visibility'
-    );
-    assert.strictEqual(svgDownloadVisibility.value, 'hidden');
-    fileMenuButton.click();
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'visible');
-    svgDownloadVisibility = await downloadSvgMenuOption.getCSSProperty(
-      'visibility'
-    );
-    assert.strictEqual(svgDownloadVisibility.value, 'visible');
-    downloadSvgMenuOption.click();
+    await expect(SvgPage.fileMenuButton).toBeExisting();
+    await expect(SvgPage.fileMenuItems).toBeExisting();
+    await expect(SvgPage.fileMenuItems).not.toBeDisplayed();
+    await expect(SvgPage.downloadSvgMenuOption).not.toBeDisplayed();
+    await SvgPage.fileMenuButton.click();
+    await expect(SvgPage.fileMenuItems).toBeDisplayed();
+    await expect(SvgPage.downloadSvgMenuOption).toBeDisplayed();
+    await SvgPage.downloadSvgMenuOption.click();
     const filePath = path.join(
       Constants.TEST_DOWNLOAD_DIR,
       'dan.sullivan.resume.svg'
