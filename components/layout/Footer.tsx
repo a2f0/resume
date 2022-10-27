@@ -44,7 +44,7 @@ const Footer = () => (
       <FlexColumn>
         <FlexContainerLeftAlign>
           <VersionContainer>
-            <Link href={resume.url} passHref>
+            <Link href={resume.url} passHref legacyBehavior>
               <VersionLink>v{packageJson.version}</VersionLink>
             </Link>
           </VersionContainer>
