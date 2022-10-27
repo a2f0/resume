@@ -43,7 +43,7 @@ export const config: WebdriverIO.Config = {
     }
   },
   onComplete: async function () {
-    fs.rmdir(Constants.TEST_DOWNLOAD_DIR, {recursive: true}, err => {
+    fs.rm(Constants.TEST_DOWNLOAD_DIR, {recursive: true}, err => {
       if (err) {
         throw err;
       }
