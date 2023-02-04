@@ -4,7 +4,7 @@
     "types": [
       "expect-webdriverio",
       "@wdio/mocha-framework",
-      "webdriverio/async"
+      "@wdio/globals/types"
     ],
     "lib": [
       "dom",
