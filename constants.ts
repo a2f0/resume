@@ -1,7 +1,4 @@
 /* eslint-disable prettier/prettier */
-import path from 'path';
-
-export const TEST_DOWNLOAD_DIR                      = path.join(__dirname, 'test', 'tempDownload');
 export const STARTX                                 = 18; // .25 inches from edge of page
 export const STARTY                                 = 18; // .25 inches from edge of page
 export const RIGHT_PANEL_STARTY                     = 77;

@@ -1,5 +1,5 @@
-import * as Constants from './constants';
 import fs from 'fs';
+import {testDownloadDir} from './test/testDownloadDir';
 
 export const config: WebdriverIO.Config = {
   runner: 'local',
@@ -14,7 +14,7 @@ export const config: WebdriverIO.Config = {
         prefs: {
           directory_upgrade: true,
           prompt_for_download: false,
-          'download.default_directory': Constants.TEST_DOWNLOAD_DIR,
+          'download.default_directory': testDownloadDir,
         },
         args: ['--window-size=1366,2160'],
       },
@@ -35,21 +35,17 @@ export const config: WebdriverIO.Config = {
     timeout: 60000,
   },
   onPrepare: async function () {
-    if (!fs.existsSync(Constants.TEST_DOWNLOAD_DIR)) {
-      console.info(
-        'Creating download directory: ' + Constants.TEST_DOWNLOAD_DIR
-      );
-      fs.mkdirSync(Constants.TEST_DOWNLOAD_DIR);
+    if (!fs.existsSync(testDownloadDir)) {
+      console.info('Creating download directory: ' + testDownloadDir);
+      fs.mkdirSync(testDownloadDir);
     }
   },
   onComplete: async function () {
-    fs.rm(Constants.TEST_DOWNLOAD_DIR, {recursive: true}, err => {
+    fs.rm(testDownloadDir, {recursive: true}, err => {
       if (err) {
         throw err;
       }
-      console.log(
-        `Download directory ${Constants.TEST_DOWNLOAD_DIR} was deleted.`
-      );
+      console.log(`Download directory ${testDownloadDir} was deleted.`);
     });
   },
 };

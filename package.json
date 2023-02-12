@@ -2,14 +2,21 @@
   "name": "resume",
   "version": "0.1.109",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "=16.15.0"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "avoid"
   },
   "scripts": {
     "server": "next dev -p 4000",
     "server-test": "next dev -p 4001",
-    "test": "npx wdio run wdio.shared.conf.ts",
-    "test-headless": "npx wdio run wdio.headless.conf.ts",
+    "test": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm' npx wdio run wdio.shared.conf.ts",
+    "test-headless": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm' npx wdio run wdio.headless.conf.ts",
     "ci": "start-server-and-test server-test http-get://localhost:4001 test",
     "ci-headless": "start-server-and-test server-test http-get://localhost:4001 test-headless",
     "build": "next build",

@@ -1,6 +1,6 @@
-import * as Constants from '../../constants';
 import PdfPage from '../pageobjects/pdf.page';
 import path from 'path';
+import {testDownloadDir} from '../testDownloadDir';
 import waitForFileExists from '../lib/fs';
 
 describe('PDF Resume', () => {
@@ -19,10 +19,7 @@ describe('PDF Resume', () => {
     await expect(PdfPage.fileMenuItems).toBeDisplayed();
     await expect(PdfPage.downloadPdfMenuOption).toBeDisplayed();
     PdfPage.downloadPdfMenuOption.click();
-    const filePath = path.join(
-      Constants.TEST_DOWNLOAD_DIR,
-      'dan.sullivan.resume.pdf'
-    );
+    const filePath = path.join(testDownloadDir, 'dan.sullivan.resume.pdf');
     await browser.call(async () => {
       return await waitForFileExists(filePath, 3000);
     });

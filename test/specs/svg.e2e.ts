@@ -2,6 +2,7 @@ import * as Constants from '../../constants';
 import SvgPage from '../pageobjects/svg.page';
 import assert from 'assert';
 import path from 'path';
+import {testDownloadDir} from '../testDownloadDir';
 import waitForFileExists from '../lib/fs';
 
 describe('SVG Resume', () => {
@@ -70,10 +71,7 @@ describe('SVG Resume', () => {
     await expect(SvgPage.fileMenuItems).toBeDisplayed();
     await expect(SvgPage.downloadSvgMenuOption).toBeDisplayed();
     await SvgPage.downloadSvgMenuOption.click();
-    const filePath = path.join(
-      Constants.TEST_DOWNLOAD_DIR,
-      'dan.sullivan.resume.svg'
-    );
+    const filePath = path.join(testDownloadDir, 'dan.sullivan.resume.svg');
     await browser.call(async () => {
       return await waitForFileExists(filePath, 3000);
     });
