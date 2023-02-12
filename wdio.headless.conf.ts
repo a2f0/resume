@@ -1,5 +1,5 @@
-import * as Constants from './constants';
 import {config as sharedConfig} from './wdio.shared.conf';
+import {testDownloadDir} from './test/testDownloadDir';
 
 if (process.env.CUSTOM_CHROME_PATH) {
   console.info(
@@ -22,7 +22,7 @@ export const config: WebdriverIO.Config = {
           prefs: {
             directory_upgrade: true,
             prompt_for_download: false,
-            'download.default_directory': Constants.TEST_DOWNLOAD_DIR,
+            'download.default_directory': testDownloadDir,
           },
           args: [
             '--headless',
