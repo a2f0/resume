@@ -59,7 +59,7 @@
     "chromedriver": "109.0.0",
     "eslint": "8.35.0",
     "eslint-plugin-import": "2.27.5",
-    "expect-webdriverio": "4.1.1",
+    "expect-webdriverio": "4.1.2",
     "gts": "3.1.1",
     "start-server-and-test": "2.0.0",
     "typescript": "4.9.5",
