@@ -22,7 +22,9 @@ export const config: WebdriverIO.Config = {
           prefs: {
             directory_upgrade: true,
             prompt_for_download: false,
-            'download.default_directory': testDownloadDir,
+            download: {
+              default_directory: testDownloadDir,
+            },
           },
           args: [
             '--headless',
