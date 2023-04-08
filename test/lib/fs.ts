@@ -6,7 +6,9 @@ export default function waitForFileExists(filePath: string, timeout: number) {
     const timer = setTimeout(() => {
       watcher.close();
       reject(
-        new Error('File did not exists and was not created during the timeout.')
+        new Error(
+          `File did not exist and was not created during the timeout: ${filePath}`
+        )
       );
     }, timeout);
 
