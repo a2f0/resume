@@ -64,7 +64,7 @@
     "gts": "3.1.1",
     "start-server-and-test": "2.0.0",
     "typescript": "5.0.4",
-    "vercel": "28.18.4",
+    "vercel": "29.0.3",
     "wdio-chromedriver-service": "8.1.1"
   }
 }
