@@ -30,7 +30,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "1.9.3",
+    "@reduxjs/toolkit": "1.9.5",
     "@wdio/cli": "8.10.7",
     "color": "4.2.3",
     "eslint-config-next": "13.4.7",
