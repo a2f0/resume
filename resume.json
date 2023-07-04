@@ -21,11 +21,12 @@
   "experience": [
     {
       "company": "Thinkspan",
-      "title": "Software Engineer (Senior)",
+      "title": "VP of Engineering",
       "date_range": "Feb 2022 - Current",
       "url": "https://thinkspan.com",
       "accomplishments": [
-        "Building an encrypted graph database and configuration-driven UI at the network edge."
+        "Promoted from a senior engineer to VP of Engineering in under a year.",
+        "Built a zero-knowledge CRDT for a proprietary distributed graph database."
       ],
       "location": "Remote",
       "technologies": [
@@ -46,11 +47,10 @@
     {
       "company": "Tearleads",
       "title": "Product Builder",
-      "date_range": "April 2021 - Current",
+      "date_range": "April 2021 - Jan 2021",
       "url": "https://tearleads.com/",
       "accomplishments": [
-        "Increased developer and sysadmin productivity by creating a public application that optimizes repetitive access patterns for atomic pieces of meaningful data.",
-        "Built and deployed all components from scratch including FE/BE, CI/CD, static code analysis, test coverage, IaC, containerized workflows, OAuth2 integration, and observability instrumentation."
+        "Created a note-taking system designed for computer programmers and system administrators."
       ],
       "location": "Remote",
       "technologies": [
@@ -66,24 +66,6 @@
         "Terraform",
         "TypeScript",
         "Vercel"
-      ]
-    },
-    {
-      "company": "DevOpsRockstars",
-      "title": "Owner",
-      "date_range": "May 2017 - February 2022",
-      "url": "https://devopsrockstars.com/",
-      "accomplishments": [
-        "Ran a successful hardware/software consulting business with broad industry execution in social networking, financial services, risk management, agriculture, and healthcare.",
-        "Defended pro se in a federal TTAB trial against a multibillion dollar corporate entity. Received a favorable settlement and practiced hundreds of hours of trademark law."
-      ],
-      "location": "Chicago, USA",
-      "technologies": [
-        "PostgreSQL",
-        "React",
-        "MUI",
-        "Ruby on Rails",
-        "Solr"
       ]
     },
     {
