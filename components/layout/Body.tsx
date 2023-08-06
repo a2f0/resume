@@ -13,8 +13,9 @@ interface IBodyContainerProps {
 
 const BodyContainer = styled.div<IBodyContainerProps>`
   min-height: calc(
-    100vh - calc(var(--header-height) * ${props => props.scale}) -
-      var(--header-bottom-border) - var(--footer-height)
+    100vh - calc(var(--header-height) * ${props => props.scale}) - var(
+        --header-bottom-border
+      ) - var(--footer-height)
   );
   display: flex;
   flex-direction: column;

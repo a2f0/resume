@@ -16,8 +16,9 @@ import {useAppSelector} from '../lib/hooks';
 
 const PdfObjectContainer = styled.div`
   height: calc(
-    100vh - var(--header-height) - var(--header-bottom-border) -
-      var(--footer-height)
+    100vh - var(--header-height) - var(--header-bottom-border) - var(
+        --footer-height
+      )
   );
 `;
 
