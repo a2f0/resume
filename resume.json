@@ -139,7 +139,11 @@
         "Developed a customer-facing metered cloud billing system including client invoicing, mainframe transaction processing, roll-up reporting, subsidization tracking, and asset lifecycle initiation (Rails).",
         "Wrote a provisioning tool for synchronizing IAM objects between Internet2 Grouper, Centrify DirectControl, and Isilon OneFS. Achieved global UID/GID to SID coherency."
       ],
-      "location": "Chicago, USA"
+      "location": "Chicago, USA",
+      "technologies": [
+        "SaltStack",
+        "IIS"
+      ]
     },
     {
       "company": "The University of Chicago",
