@@ -141,7 +141,8 @@
       ],
       "location": "Chicago, USA",
       "technologies": [
-        "SaltStack"
+        "SaltStack",
+        "IIS"
       ]
     },
     {
