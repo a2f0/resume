@@ -1,19 +1,19 @@
 import Base from './base';
 
 class SvgPage extends Base {
-  get leftPartition() {
+  get leftPartition(): ChainablePromiseElement {
     return $('#leftPartition');
   }
-  get svgResume() {
+  get svgResume(): ChainablePromiseElement {
     return $('#svgResume');
   }
-  get darkThemeMenuOption() {
+  get darkThemeMenuOption(): ChainablePromiseElement {
     return $('#darkThemeMenuOption');
   }
-  get lightThemeMenuOption() {
+  get lightThemeMenuOption(): ChainablePromiseElement {
     return $('#lightThemeMenuOption');
   }
-  open() {
+  open(): ReturnType<WebdriverIO.Browser['url']> {
     return super.open('');
   }
 }

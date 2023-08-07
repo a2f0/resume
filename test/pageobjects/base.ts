@@ -1,23 +1,23 @@
 export default class Base {
-  get fileMenuButton() {
+  get fileMenuButton(): ChainablePromiseElement {
     return $('#menuButtonFile');
   }
-  get fileMenuItems() {
+  get fileMenuItems(): ChainablePromiseElement {
     return $('#menuItemsFile');
   }
-  get viewMenuButton() {
+  get viewMenuButton(): ChainablePromiseElement {
     return $('#menuButtonView');
   }
-  get viewMenuItems() {
+  get viewMenuItems(): ChainablePromiseElement {
     return $('#menuItemsView');
   }
-  get downloadSvgMenuOption() {
+  get downloadSvgMenuOption(): ChainablePromiseElement {
     return $('#downloadSvgMenuOption');
   }
-  get downloadPdfMenuOption() {
+  get downloadPdfMenuOption(): ChainablePromiseElement {
     return $('#downloadPdfMenuOption');
   }
-  open(path: string) {
+  open(path: string): ReturnType<WebdriverIO.Browser['url']> {
     return browser.url(`http://localhost:4001/${path}`);
   }
 }
