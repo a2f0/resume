@@ -1,16 +1,16 @@
 import Base from './base';
 
 class SvgPage extends Base {
-  get leftPartition(): ChainablePromiseElement {
+  get leftPartition(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#leftPartition');
   }
-  get svgResume(): ChainablePromiseElement {
+  get svgResume(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#svgResume');
   }
-  get darkThemeMenuOption(): ChainablePromiseElement {
+  get darkThemeMenuOption(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#darkThemeMenuOption');
   }
-  get lightThemeMenuOption(): ChainablePromiseElement {
+  get lightThemeMenuOption(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#lightThemeMenuOption');
   }
   open(): ReturnType<WebdriverIO.Browser['url']> {

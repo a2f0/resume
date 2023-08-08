@@ -1,7 +1,7 @@
 import Base from './base';
 
 class PdfPage extends Base {
-  get pdfResume(): ChainablePromiseElement {
+  get pdfResume(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#pdfObject');
   }
   open(): ReturnType<WebdriverIO.Browser['url']> {
