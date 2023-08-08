@@ -1,20 +1,20 @@
 export default class Base {
-  get fileMenuButton(): ChainablePromiseElement {
+  get fileMenuButton(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#menuButtonFile');
   }
-  get fileMenuItems(): ChainablePromiseElement {
+  get fileMenuItems(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#menuItemsFile');
   }
-  get viewMenuButton(): ChainablePromiseElement {
+  get viewMenuButton(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#menuButtonView');
   }
-  get viewMenuItems(): ChainablePromiseElement {
+  get viewMenuItems(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#menuItemsView');
   }
-  get downloadSvgMenuOption(): ChainablePromiseElement {
+  get downloadSvgMenuOption(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#downloadSvgMenuOption');
   }
-  get downloadPdfMenuOption(): ChainablePromiseElement {
+  get downloadPdfMenuOption(): ReturnType<WebdriverIO.Browser['$']> {
     return $('#downloadPdfMenuOption');
   }
   open(path: string): ReturnType<WebdriverIO.Browser['url']> {
