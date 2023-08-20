@@ -49,7 +49,7 @@ export default function DropdownMenu({children, label}: MenuProps) {
         >
           {label}
         </MenuButton>
-        <MenuItems id={'menuItems' + label} isActive={isActive} scale={scale}>
+        <MenuItems id={'menuItems' + label} $isActive={isActive} scale={scale}>
           {children}
         </MenuItems>
       </MenuContainer>

@@ -73,7 +73,7 @@ const ViewMenu = () => {
         scale={scale}
       >
         <CheckMark
-          isActive={foregroundColor === Constants.DARK_THEME_FOREGROUND}
+          $isActive={foregroundColor === Constants.DARK_THEME_FOREGROUND}
         />
         <MenuLink>Dark Theme</MenuLink>
       </MenuListItem>
@@ -83,21 +83,21 @@ const ViewMenu = () => {
         scale={scale}
       >
         <CheckMark
-          isActive={foregroundColor === Constants.LIGHT_THEME_FOREGROUND}
+          $isActive={foregroundColor === Constants.LIGHT_THEME_FOREGROUND}
         />
         <MenuLink>Light Theme</MenuLink>
       </MenuListItem>
       <MenuDivider />
       <MenuListItem onClick={() => setScaleFactor(1.5)} scale={scale}>
-        <CheckMark isActive={scale === 1.5} />
+        <CheckMark $isActive={scale === 1.5} />
         <MenuLink onClick={dismissMenu}>150%</MenuLink>
       </MenuListItem>
       <MenuListItem onClick={() => setScaleFactor(1.25)} scale={scale}>
-        <CheckMark isActive={scale === 1.25} />
+        <CheckMark $isActive={scale === 1.25} />
         <MenuLink onClick={dismissMenu}>125%</MenuLink>
       </MenuListItem>
       <MenuListItem onClick={() => setScaleFactor(1)} scale={scale}>
-        <CheckMark isActive={scale === 1} />
+        <CheckMark $isActive={scale === 1} />
         <MenuLink onClick={dismissMenu}>Real Size</MenuLink>
       </MenuListItem>
       <MenuDivider />
@@ -108,7 +108,7 @@ const ViewMenu = () => {
         }}
         scale={scale}
       >
-        <CheckMark isActive={asPath === '/'} />
+        <CheckMark $isActive={asPath === '/'} />
         <MenuLink>SVG</MenuLink>
       </MenuListItem>
       <MenuListItem
@@ -118,12 +118,12 @@ const ViewMenu = () => {
         }}
         scale={scale}
       >
-        <CheckMark isActive={asPath === '/pdf'} />
+        <CheckMark $isActive={asPath === '/pdf'} />
         <MenuLink>PDF Preview</MenuLink>
       </MenuListItem>
       <MenuDivider />
       <MenuListItem onClick={sourceCode} scale={scale}>
-        <CheckMark isActive={false} />
+        <CheckMark $isActive={false} />
         <MenuLink>Source Code</MenuLink>
       </MenuListItem>
     </ul>

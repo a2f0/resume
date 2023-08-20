@@ -65,7 +65,7 @@ const FileMenu = () => {
         onClick={downloadPDF}
         scale={scale}
       >
-        <CheckMark isActive={false} />
+        <CheckMark $isActive={false} />
         <MenuLink>Download PDF</MenuLink>
       </MenuListItem>
       <MenuListItem
@@ -73,7 +73,7 @@ const FileMenu = () => {
         onClick={downloadSVG}
         scale={scale}
       >
-        <CheckMark isActive={false} />
+        <CheckMark $isActive={false} />
         <MenuLink>Download SVG</MenuLink>
       </MenuListItem>
     </ul>
