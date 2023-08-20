@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components';
 
 interface IProps {
-  isActive: boolean;
+  $isActive: boolean;
   id: string;
   scale: number;
 }
@@ -23,8 +23,8 @@ export const MenuItems = styled.div<IProps>`
     padding: 0;
     margin: 0;
   }
-  ${({isActive}) =>
-    isActive &&
+  ${({$isActive}) =>
+    $isActive &&
     css`
       opacity: 1;
       visibility: visible;
