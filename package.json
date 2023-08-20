@@ -33,7 +33,7 @@
     "@reduxjs/toolkit": "1.9.5",
     "@wdio/cli": "8.14.4",
     "color": "4.2.3",
-    "eslint-config-next": "13.4.12",
+    "eslint-config-next": "13.4.19",
     "jspdf": "2.5.1",
     "next": "13.4.19",
     "pdfobject": "2.2.12",
