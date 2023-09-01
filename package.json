@@ -58,7 +58,7 @@
     "@wdio/mocha-framework": "8.14.0",
     "@wdio/spec-reporter": "8.14.0",
     "chromedriver": "116.0.0",
-    "eslint": "8.46.0",
+    "eslint": "8.48.0",
     "eslint-plugin-import": "2.28.1",
     "expect-webdriverio": "4.2.7",
     "gts": "5.0.0",
