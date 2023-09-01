@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
-    "@wdio/cli": "8.14.4",
+    "@wdio/cli": "8.15.10",
     "color": "4.2.3",
     "eslint-config-next": "13.4.19",
     "jspdf": "2.5.1",
