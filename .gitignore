@@ -50,3 +50,6 @@ terraform.rc
 
 google-credentials.json
 tempDownload
+
+chrome
+chromedriver
