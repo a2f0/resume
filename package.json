@@ -53,7 +53,7 @@
     "@types/react": "18.2.20",
     "@types/react-redux": "7.1.25",
     "@types/styled-components": "5.1.26",
-    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/eslint-plugin": "6.16.0",
     "@wdio/cli": "8.26.1",
     "@wdio/local-runner": "8.26.1",
     "@wdio/mocha-framework": "8.27.0",
