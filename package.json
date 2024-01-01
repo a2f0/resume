@@ -41,7 +41,7 @@
     "react-redux": "8.1.2",
     "redux": "4.2.1",
     "styled-components": "6.0.7",
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.2"
   },
   "devDependencies": {
     "@a2f0/check-for-unpinned-dependencies": "1.0.4",
