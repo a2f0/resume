@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
     - uses: terraform-linters/setup-tflint@v4
       name: Setup TFLint
       with:
