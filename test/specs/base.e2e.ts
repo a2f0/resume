@@ -1,56 +1,35 @@
 import {BasePage} from '../pageobjects/base';
-import assert from 'assert';
 
 describe('Menu Behavior', () => {
   it('should show/hide based on clicking and hovering', async () => {
     await BasePage.open('');
-    expect(BasePage.fileMenuButton).toBeExisting();
-    expect(BasePage.fileMenuItems).toBeExisting();
-    const fileMenuButton = await BasePage.fileMenuButton;
-    const fileMenuItems = await BasePage.fileMenuItems;
-    const viewMenuButton = await BasePage.viewMenuButton;
-    const viewMenuItems = await BasePage.viewMenuItems;
-    let fileVisibility;
-    let viewVisibility;
+    await expect(BasePage.fileMenuButton).toBeExisting();
+    await expect(BasePage.fileMenuItems).toBeExisting();
     // Click the File menu to show it, then click it again to hide it.
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'hidden');
-    fileMenuButton.click();
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'visible');
-    fileMenuButton.click();
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'hidden');
+    await expect(BasePage.fileMenuItems).not.toBeDisplayed();
+    BasePage.fileMenuButton.click();
+    await expect(BasePage.fileMenuItems).toBeDisplayed();
+    BasePage.fileMenuButton.click();
+    await expect(BasePage.fileMenuItems).not.toBeDisplayed();
 
     // Click the View menu to show it, then click it again to hide it.
-    viewVisibility = await viewMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(viewVisibility.value, 'hidden');
-    viewMenuButton.click();
-    viewVisibility = await viewMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(viewVisibility.value, 'visible');
-    viewMenuButton.click();
-    viewVisibility = await viewMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(viewVisibility.value, 'hidden');
+    await expect(BasePage.viewMenuItems).not.toBeDisplayed();
+    BasePage.viewMenuButton.click();
+    await expect(BasePage.viewMenuItems).toBeDisplayed();
+    BasePage.viewMenuButton.click();
+    await expect(BasePage.viewMenuItems).not.toBeDisplayed();
 
     // Click the File menu to show it, then hover the View menu to hide the File menu.
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'hidden');
-    fileMenuButton.click();
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'visible');
-    await viewMenuButton.moveTo();
-    await viewMenuItems.waitForDisplayed();
-    viewVisibility = await viewMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(viewVisibility.value, 'visible');
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'hidden');
+    await expect(BasePage.fileMenuItems).not.toBeDisplayed();
+    BasePage.fileMenuButton.click();
+    await expect(BasePage.fileMenuItems).toBeDisplayed();
+    await BasePage.viewMenuButton.moveTo();
+    await BasePage.viewMenuItems.waitForDisplayed();
+    await expect(BasePage.fileMenuItems).not.toBeDisplayed();
 
     //Hover back to the File menu to show it, and make sure the View menu hides.
-    await fileMenuButton.moveTo();
-    await fileMenuButton.waitForDisplayed();
-    fileVisibility = await fileMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(fileVisibility.value, 'visible');
-    viewVisibility = await viewMenuItems.getCSSProperty('visibility');
-    assert.strictEqual(viewVisibility.value, 'hidden');
+    await BasePage.fileMenuButton.moveTo();
+    await BasePage.fileMenuButton.waitForDisplayed();
+    await expect(BasePage.viewMenuItems).not.toBeDisplayed();
   });
 });
