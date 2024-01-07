@@ -86,3 +86,24 @@ export function getFontString(
   fontString += fontFamily;
   return fontString;
 }
+
+const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/;
+interface Match {
+  text: string;
+  url: string;
+  index: number;
+  plainString: string;
+}
+
+export function extractLinks(markdownString: string): Match[] {
+  const match = markdownString.match(markdownLinkRegex);
+  const matches: Match[] = [];
+  if (match) {
+    const [, text, url] = match;
+    const plainString = markdownString.replace(markdownLinkRegex, text);
+    const index = markdownString.indexOf(match[0]);
+    matches.push({text, url, index, plainString});
+  }
+
+  return matches;
+}
