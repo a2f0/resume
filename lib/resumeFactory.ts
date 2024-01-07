@@ -314,7 +314,7 @@ export default abstract class ResumeFactory {
           this.foregroundColor,
           `accomplishmentBullet-${i}-${j}`
         );
-        const accomplishmentLines = wrapLabel(
+        const {lines: accomplishmentLines} = wrapLabel(
           accomplishment,
           Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
           accomplishmentFont
