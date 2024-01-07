@@ -4,6 +4,8 @@
   "rules": {
     "indent": ["error", 2],
     "import/no-commonjs": "error",
-    "sort-imports": "error"
+    "sort-imports": "error",
+     // This is not a published npm package - no-unpublished-import is not required.
+    "node/no-unpublished-import": 0
   }
 }
