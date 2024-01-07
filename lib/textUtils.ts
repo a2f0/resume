@@ -42,10 +42,10 @@ function breakString(
 export function wrapLabel(
   label: string,
   maxWidth: number,
-  font = '400 12pt Helvetica'
+  font: string // Example: '400 12pt Helvetica'
 ) {
   const words = label.split(' ');
-  const completedLines = [] as string[];
+  const lines: string[] = [];
   let nextLine = '';
   words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
@@ -56,10 +56,10 @@ export function wrapLabel(
         maxWidth,
         font
       );
-      completedLines.push(nextLine, ...hyphenatedStrings);
+      lines.push(nextLine, ...hyphenatedStrings);
       nextLine = remainingWord;
     } else if (nextLineLength + wordLength >= maxWidth) {
-      completedLines.push(nextLine);
+      lines.push(nextLine);
       nextLine = word;
     } else {
       nextLine = [nextLine, word].filter(Boolean).join(' ');
@@ -67,10 +67,11 @@ export function wrapLabel(
     const currentWord = index + 1;
     const isLastWord = currentWord === words.length;
     if (isLastWord) {
-      completedLines.push(nextLine);
+      lines.push(nextLine);
     }
   });
-  return completedLines.filter(line => line !== '');
+
+  return {lines};
 }
 
 export function getFontString(
