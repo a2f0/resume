@@ -87,23 +87,40 @@ export function getFontString(
   return fontString;
 }
 
-const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/;
+const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
 interface Match {
   text: string;
   url: string;
   index: number;
+}
+
+interface ExtractLinksResult {
+  matches: Match[];
   plainString: string;
 }
 
-export function extractLinks(markdownString: string): Match[] {
-  const match = markdownString.match(markdownLinkRegex);
+function createMarkDownUrl(label: string, url: string): string {
+  return `[${label}](${url})`;
+}
+
+export function extractLinks(markdownString: string): ExtractLinksResult {
   const matches: Match[] = [];
-  if (match) {
+
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(markdownString)) !== null) {
     const [, text, url] = match;
-    const plainString = markdownString.replace(markdownLinkRegex, text);
-    const index = markdownString.indexOf(match[0]);
-    matches.push({text, url, index, plainString});
+    let index = markdownString.indexOf(match[0]);
+    // Add 1 for the bracket.
+    index = index + 1;
+    const detectedValue: string = createMarkDownUrl(text, url);
+    markdownString = markdownString.replace(detectedValue, text);
+    matches.push({text, url, index});
   }
 
-  return matches;
+  const extractLinksResponse: ExtractLinksResult = {
+    matches,
+    plainString: markdownString,
+  };
+
+  return extractLinksResponse;
 }
