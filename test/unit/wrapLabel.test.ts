@@ -53,5 +53,17 @@ describe('textUtils', () => {
       expect(index).toBe(8);
       expect(plainString).toBe('This is google.');
     });
+    test('it extracts a link when the link text wraps across lines', () => {
+      const result = extractLinks(
+        'This is [a long link that maks to google, intentionally of course, to wrap it.](https://google.com).'
+      );
+      expect(result).not.toBe([]);
+      expect(result.length).toBe(1);
+    });
+    test('it does not extract a link when there is not one', () => {
+      const result = extractLinks('This is google.');
+      expect(result).not.toBe([]);
+      expect(result.length).toBe(0);
+    });
   });
 });
