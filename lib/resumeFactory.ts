@@ -69,9 +69,9 @@ export default abstract class ResumeFactory {
     );
 
     this.addRect(
-      Constants.RIGHT_PANEL_XPOS,
-      Constants.RIGHT_PANEL_YPOS,
-      Constants.RIGHT_PANEL_WIDTH,
+      config.rightPanelPos.x,
+      config.rightPanelPos.y,
+      config.rightPanelWidth,
       config.documentHeight,
       this.backgroundColor,
       'rightPartition'
