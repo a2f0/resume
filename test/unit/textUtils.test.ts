@@ -1,6 +1,7 @@
 import * as Constants from '../../constants';
 import {describe, expect, test} from 'vitest';
 import {extractLinks, getFontString, wrapLabel} from '../../lib/textUtils';
+import {fireEvent} from '@testing-library/react';
 
 describe('textUtils', () => {
   describe('wrapLabel', () => {
@@ -28,13 +29,18 @@ describe('textUtils', () => {
         Constants.UNITS,
         Constants.FONT_FAMILY
       );
+      expect(window.innerWidth).toBe(1024);
+      expect(window.innerHeight).toBe(768);
+      window.innerWidth = 640;
+      window.innerHeight = 480;
+      fireEvent(window, new Event('resize'));
+      expect(window.innerWidth).toBe(640);
+      expect(window.innerHeight).toBe(480);
       const {lines} = wrapLabel(
         'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to make the test pass.',
         Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
         accomplishmentFont
       );
-      expect(window.innerWidth).toBe(1024);
-      expect(window.innerHeight).toBe(768);
       expect(lines.length).toBe(2);
       expect(lines[0]).toBe(
         'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to'
