@@ -107,10 +107,10 @@ export default abstract class ResumeFactory {
     );
 
     this.addText(
-      Constants.ADDRESS_XPOS,
-      Constants.ADDRESS_YPOS_MIDDLE,
-      Constants.ADDRESS_SIZE,
-      Constants.FONT_FAMILY,
+      config.addressPos.x,
+      config.addressYPosMiddle,
+      config.addressSize,
+      config.fontFamily,
       this.foregroundColor,
       resume.city_state,
       'addressLine'

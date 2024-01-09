@@ -6,6 +6,7 @@ interface ICoordinate {
 interface IResumeConfiguration {
   documentWidth: number;
   documentHeight: number;
+  standardFontSize: number;
   startX: number;
   startY: number;
   units: string;
@@ -20,11 +21,15 @@ interface IResumeConfiguration {
   rightPanelPos: ICoordinate;
   rightPanelPercentage: number;
   rightPanelWidth: number;
+  addressPos: ICoordinate;
+  addressYPosMiddle: number;
+  addressSize: number;
 }
 
 class ResumeConfiguration implements IResumeConfiguration {
   documentWidth = 612;
   documentHeight = 792;
+  standardFontSize = 9.75;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
   units = 'pt';
@@ -39,6 +44,10 @@ class ResumeConfiguration implements IResumeConfiguration {
   rightPanelPos = {x: this.leftPanelWidth, y: 0};
   rightPanelPercentage = 1 - this.leftPanelPercentage;
   rightPanelWidth = this.rightPanelPercentage * this.documentWidth;
+  addressPos = {x: this.startX, y: this.startY + this.nameSize};
+  addressSize = this.standardFontSize;
+  addressYPosMiddle = this.addressPos.y + this.addressSize / 2;
+  addressWeight = 400;
 }
 
 const resumeConfiguration = new ResumeConfiguration();
