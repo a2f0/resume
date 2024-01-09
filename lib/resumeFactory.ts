@@ -78,9 +78,9 @@ export default abstract class ResumeFactory {
     );
 
     this.addText(
-      config.firstNamePos.x,
-      config.firstNameYPosMiddle,
-      config.firstNameSize,
+      config.namePos.x,
+      config.nameYPosMiddle,
+      config.nameSize,
       config.fontFamily,
       this.foregroundColor,
       resume.first_name,
