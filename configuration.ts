@@ -12,6 +12,7 @@ interface IResumeConfiguration {
   firstNameSize: number;
   firstNameYPosMiddle: number;
   leftPanelPos: ICoordinate;
+  rightPanelPos: ICoordinate;
   leftPanelPercentage: number;
 }
 
@@ -26,6 +27,9 @@ class ResumeConfiguration implements IResumeConfiguration {
   leftPanelPos = {x: 0, y: 0};
   leftPanelPercentage = 0.23;
   leftPanelWidth = this.leftPanelPercentage * this.documentWidth;
+  rightPanelPos = {x: this.leftPanelWidth, y: 0};
+  rightPanelPercentage = 1 - this.leftPanelPercentage;
+  rightPanelWidth = this.rightPanelPercentage * this.documentWidth;
 }
 
 const resumeConfiguration = new ResumeConfiguration();
