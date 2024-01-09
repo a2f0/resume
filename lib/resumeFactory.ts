@@ -72,7 +72,7 @@ export default abstract class ResumeFactory {
       Constants.RIGHT_PANEL_XPOS,
       Constants.RIGHT_PANEL_YPOS,
       Constants.RIGHT_PANEL_WIDTH,
-      Constants.DOCUMENT_HEIGHT,
+      config.documentHeight,
       this.backgroundColor,
       'rightPartition'
     );
