@@ -90,17 +90,17 @@ export default abstract class ResumeFactory {
     const firstNameWidthInPoints = getTextWidthInPoints(
       resume.first_name,
       getFontString(
-        Constants.FIRST_NAME_WEIGHT,
-        Constants.FIRST_NAME_SIZE,
-        Constants.UNITS,
-        Constants.FONT_FAMILY
+        config.nameWeight,
+        config.nameSize,
+        config.units,
+        config.fontFamily
       )
     );
     this.addText(
-      Constants.FIRST_NAME_XPOS + firstNameWidthInPoints,
-      Constants.LAST_NAME_YPOS_MIDDLE,
-      Constants.LAST_NAME_SIZE,
-      Constants.FONT_FAMILY,
+      config.namePos.x + firstNameWidthInPoints,
+      config.nameYPosMiddle,
+      config.nameSize,
+      config.fontFamily,
       this.highlightColor,
       resume.last_name,
       'lastName'

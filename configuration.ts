@@ -8,13 +8,18 @@ interface IResumeConfiguration {
   documentHeight: number;
   startX: number;
   startY: number;
+  units: string;
+  fontFamily: string;
   namePos: ICoordinate;
   nameSize: number;
+  nameWeight: number;
   nameYPosMiddle: number;
   leftPanelPos: ICoordinate;
-  rightPanelPos: ICoordinate;
   leftPanelPercentage: number;
-  fontFamily: string;
+  leftPanelWidth: number;
+  rightPanelPos: ICoordinate;
+  rightPanelPercentage: number;
+  rightPanelWidth: number;
 }
 
 class ResumeConfiguration implements IResumeConfiguration {
@@ -22,8 +27,10 @@ class ResumeConfiguration implements IResumeConfiguration {
   documentHeight = 792;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
+  units = 'pt';
   fontFamily = 'Helvetica';
   namePos = {x: this.startX, y: this.startY};
+  nameWeight = 400;
   nameSize = 15;
   nameYPosMiddle = this.namePos.y + this.nameSize / 2;
   leftPanelPos = {x: 0, y: 0};
