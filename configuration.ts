@@ -14,6 +14,7 @@ interface IResumeConfiguration {
   leftPanelPos: ICoordinate;
   rightPanelPos: ICoordinate;
   leftPanelPercentage: number;
+  fontFamily: string;
 }
 
 class ResumeConfiguration implements IResumeConfiguration {
@@ -21,6 +22,7 @@ class ResumeConfiguration implements IResumeConfiguration {
   documentHeight = 792;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
+  fontFamily = 'Helvetica';
   firstNamePos = {x: this.startX, y: this.startY};
   firstNameSize = 15;
   firstNameYPosMiddle = this.firstNamePos.y + this.firstNameSize / 2;
