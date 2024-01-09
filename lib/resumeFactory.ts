@@ -2,6 +2,7 @@ import * as Constants from '../constants';
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
+import {resumeConfiguration as config} from '../configuration';
 import resume from '../resume.json';
 
 export default abstract class ResumeFactory {
@@ -59,10 +60,10 @@ export default abstract class ResumeFactory {
 
   protected populateResume() {
     this.addRect(
-      Constants.LEFT_PANEL_XPOS,
-      Constants.LEFT_PANEL_YPOS,
-      Constants.LEFT_PANEL_WIDTH,
-      Constants.DOCUMENT_HEIGHT,
+      config.leftPanelPos.x,
+      config.leftPanelPos.y,
+      config.leftPanelWidth,
+      config.documentHeight,
       this.backgroundColor,
       'leftPartition'
     );
@@ -71,7 +72,7 @@ export default abstract class ResumeFactory {
       Constants.RIGHT_PANEL_XPOS,
       Constants.RIGHT_PANEL_YPOS,
       Constants.RIGHT_PANEL_WIDTH,
-      Constants.DOCUMENT_HEIGHT,
+      config.documentHeight,
       this.backgroundColor,
       'rightPartition'
     );
