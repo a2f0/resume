@@ -24,6 +24,7 @@ interface IResumeConfiguration {
   addressPos: ICoordinate;
   addressYPosMiddle: number;
   addressSize: number;
+  verticalDividerPos: ICoordinate;
 }
 
 class ResumeConfiguration implements IResumeConfiguration {
@@ -48,6 +49,8 @@ class ResumeConfiguration implements IResumeConfiguration {
   addressSize = this.standardFontSize;
   addressYPosMiddle = this.addressPos.y + this.addressSize / 2;
   addressWeight = 400;
+  verticalDividerPos = {x: this.leftPanelWidth, y: 20};
+  verticalDividerHeight = this.documentHeight - 20;
 }
 
 const resumeConfiguration = new ResumeConfiguration();
