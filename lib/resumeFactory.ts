@@ -117,10 +117,10 @@ export default abstract class ResumeFactory {
     );
 
     this.addLine(
-      Constants.VERTICAL_DIVIDER_XPOS,
-      Constants.VERTICAL_DIVIDER_XPOS,
-      Constants.VERTICAL_DIVIDER_YPOS1,
-      Constants.VERTICAL_DIVIDER_YPOS1 + Constants.VERTICAL_DIVIDER_HEIGHT,
+      config.verticalDividerPos.x,
+      config.verticalDividerPos.x,
+      config.verticalDividerPos.y,
+      config.verticalDividerPos.y + Constants.VERTICAL_DIVIDER_HEIGHT,
       this.highlightColor,
       'verticalDivider'
     );
