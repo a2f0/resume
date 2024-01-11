@@ -32,8 +32,8 @@ export default function SvgResume() {
   };
 
   const scale = useAppSelector(selectScale);
-  const [width] = useState(Constants.DOCUMENT_WIDTH);
-  const [height] = useState(Constants.DOCUMENT_HEIGHT);
+  const [width] = useState(documentWidth);
+  const [height] = useState(documentHeight);
 
   const ORIGINAL_VIEWBOX_WIDTH = documentWidth / pixelsPerPoint;
   const ORIGINAL_VIEWBOX_HEIGHT = documentHeight / pixelsPerPoint;
