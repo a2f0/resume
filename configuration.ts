@@ -115,7 +115,7 @@ class ResumeConfiguration implements IResumeConfiguration {
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
   rightPanelStartY = 77;
-  units = 'pt';
+  units = 'pt' as const;
   fontFamily = 'Helvetica';
   headerSize = 12;
   headerSpacing = 4;
