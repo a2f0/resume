@@ -1,4 +1,3 @@
-import * as Constants from '../constants';
 import React, {CSSProperties, useEffect, useState} from 'react';
 import {
   selectBackgroundColor,
