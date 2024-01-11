@@ -9,6 +9,9 @@ interface IResumeConfiguration {
   darkForegroundColor: string;
   darkBackgroundColor: string;
   darkHighlightColor: string;
+  lightForegroundColor: string;
+  lightBackgroundColor: string;
+  lightHighlightColor: string;
   standardFontSize: number;
   startX: number;
   startY: number;
@@ -103,6 +106,9 @@ class ResumeConfiguration implements IResumeConfiguration {
   darkForegroundColor = '#DCDCDC';
   darkBackgroundColor = '#0F0F0F';
   darkHighlightColor = '#909090';
+  lightForegroundColor = '#000000';
+  lightBackgroundColor = '#FFFFFF';
+  lightHighlightColor = '#707070';
   standardFontSize = 9.75;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page

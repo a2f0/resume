@@ -2,8 +2,11 @@ import * as Constants from '../../constants';
 import SvgPage from '../pageobjects/svg.page';
 import assert from 'assert';
 import path from 'path';
+import {resumeConfiguration} from '../../configuration';
 import {testDownloadDir} from '../testDownloadDir';
 import waitForFileExists from '../lib/fs';
+
+const {darkBackgroundColor, lightBackgroundColor} = resumeConfiguration;
 
 describe('SVG Resume', () => {
   it('should load', async () => {
@@ -32,8 +35,7 @@ describe('SVG Resume', () => {
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
         return (
-          leftPartitionColor.parsed.hex?.toUpperCase() ===
-          Constants.LIGHT_THEME_BACKGROUND
+          leftPartitionColor.parsed.hex?.toUpperCase() === lightBackgroundColor
         );
       },
       {
@@ -50,8 +52,7 @@ describe('SVG Resume', () => {
       async () => {
         leftPartitionColor = await leftPartition.getCSSProperty('fill');
         return (
-          leftPartitionColor.parsed.hex?.toUpperCase() ===
-          Constants.DARK_THEME_BACKGROUND
+          leftPartitionColor.parsed.hex?.toUpperCase() === darkBackgroundColor
         );
       },
       {
