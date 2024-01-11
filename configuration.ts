@@ -13,6 +13,7 @@ interface IResumeConfiguration {
   lightBackgroundColor: string;
   lightHighlightColor: string;
   standardFontSize: number;
+  pixelsPerPoint: number;
   startX: number;
   startY: number;
   rightPanelStartY: number;
@@ -110,6 +111,7 @@ class ResumeConfiguration implements IResumeConfiguration {
   lightBackgroundColor = '#FFFFFF';
   lightHighlightColor = '#707070';
   standardFontSize = 9.75;
+  pixelsPerPoint = 0.75;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
   rightPanelStartY = 77;
