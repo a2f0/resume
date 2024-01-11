@@ -1,4 +1,3 @@
-import * as Constants from '../../constants';
 import SvgPage from '../pageobjects/svg.page';
 import assert from 'assert';
 import path from 'path';
@@ -25,7 +24,7 @@ describe('SVG Resume', () => {
     let leftPartitionColor = await leftPartition.getCSSProperty('fill');
     assert.strictEqual(
       leftPartitionColor.parsed.hex?.toUpperCase(),
-      Constants.DARK_THEME_BACKGROUND
+      darkBackgroundColor
     );
     viewMenuButton.click();
     await viewMenuItems.waitForDisplayed();
