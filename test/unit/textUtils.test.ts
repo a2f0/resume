@@ -51,9 +51,9 @@ describe('textUtils', () => {
       );
       expect(lines.length).toBe(2);
       expect(lines[0]).toBe(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to'
+        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to make'
       );
-      expect(lines[1]).toBe('make the test pass.');
+      expect(lines[1]).toBe('the test pass.');
     });
   });
   describe('extractLinks', () => {

@@ -26,6 +26,7 @@ jobs:
       with:
         tflint_version: v0.28.1
     - uses: pre-commit/action@v3.0.0
+    - run: npm run unit
     - run: npm run ci-headless
       env:
         CHROME_VERSION: ${{ matrix.chrome-version }}
