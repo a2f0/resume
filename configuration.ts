@@ -1,5 +1,3 @@
-import Color from 'color';
-
 interface ICoordinate {
   x: number;
   y: number;
@@ -8,9 +6,9 @@ interface ICoordinate {
 interface IResumeConfiguration {
   documentWidth: number;
   documentHeight: number;
-  foregroundColor: Color;
-  backgroundColor: Color;
-  highlightColor: Color;
+  darkForegroundColor: string;
+  darkBackgroundColor: string;
+  darkHighlightColor: string;
   standardFontSize: number;
   startX: number;
   startY: number;
@@ -102,9 +100,9 @@ interface IResumeConfiguration {
 class ResumeConfiguration implements IResumeConfiguration {
   documentWidth = 612;
   documentHeight = 792;
-  foregroundColor = Color('#DCDCDC');
-  backgroundColor = Color('#0F0F0F');
-  highlightColor = Color('#909090');
+  darkForegroundColor = '#DCDCDC';
+  darkBackgroundColor = '#0F0F0F';
+  darkHighlightColor = '#909090';
   standardFontSize = 9.75;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
