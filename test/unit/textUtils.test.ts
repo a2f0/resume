@@ -1,20 +1,28 @@
-import * as Constants from '../../constants';
 import {describe, expect, test} from 'vitest';
 import {extractLinks, getFontString, wrapLabel} from '../../lib/textUtils';
 import {fireEvent} from '@testing-library/react';
+import {resumeConfiguration} from '../../configuration';
+
+const {
+  positionAccomplishmentWeight,
+  positionAccomplishmentSize,
+  positionAccomplishmentMaxWidth,
+  units,
+  fontFamily,
+} = resumeConfiguration;
 
 describe('textUtils', () => {
   describe('wrapLabel', () => {
     test('it does not wrap a short accomplishment.', () => {
       const accomplishmentFont = getFontString(
-        Constants.POSITION_ACCOMPLISHMENT_WEIGHT,
-        Constants.POSITION_ACCOMPLISHMENT_SIZE,
-        Constants.UNITS,
-        Constants.FONT_FAMILY
+        positionAccomplishmentWeight,
+        positionAccomplishmentSize,
+        units,
+        fontFamily
       );
       const {lines} = wrapLabel(
         'This is a short accomplishment.',
-        Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
+        positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
       expect(window.innerWidth).toBe(1024);
@@ -24,10 +32,10 @@ describe('textUtils', () => {
     });
     test('it wraps a long accomplishment.', () => {
       const accomplishmentFont = getFontString(
-        Constants.POSITION_ACCOMPLISHMENT_WEIGHT,
-        Constants.POSITION_ACCOMPLISHMENT_SIZE,
-        Constants.UNITS,
-        Constants.FONT_FAMILY
+        positionAccomplishmentWeight,
+        positionAccomplishmentSize,
+        units,
+        fontFamily
       );
       expect(window.innerWidth).toBe(1024);
       expect(window.innerHeight).toBe(768);
@@ -37,15 +45,17 @@ describe('textUtils', () => {
       expect(window.innerWidth).toBe(640);
       expect(window.innerHeight).toBe(480);
       const {lines} = wrapLabel(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to make the test pass.',
-        Constants.POSITION_ACCOMPLISHMENT_MAX_WIDTH,
+        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, exponentially increasing the chance for wrapping.',
+        positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
       expect(lines.length).toBe(2);
       expect(lines[0]).toBe(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to'
+        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course,'
       );
-      expect(lines[1]).toBe('make the test pass.');
+      expect(lines[1]).toBe(
+        'exponentially increasing the chance for wrapping.'
+      );
     });
   });
   describe('extractLinks', () => {

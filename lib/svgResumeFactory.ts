@@ -1,7 +1,9 @@
-import * as Constants from '../constants';
 import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
+import {resumeConfiguration} from '../configuration';
+
+const {units} = resumeConfiguration;
 
 export default class SvgResumeFactory extends ResumeFactory {
   resume: SVGElement;
@@ -27,10 +29,10 @@ export default class SvgResumeFactory extends ResumeFactory {
       'rect'
     );
     rectToAdd.style.fill = color.hex();
-    rectToAdd.setAttribute('x', x + Constants.UNITS);
-    rectToAdd.setAttribute('y', y + Constants.UNITS);
-    rectToAdd.setAttribute('width', width + Constants.UNITS);
-    rectToAdd.setAttribute('height', height + Constants.UNITS);
+    rectToAdd.setAttribute('x', x + units);
+    rectToAdd.setAttribute('y', y + units);
+    rectToAdd.setAttribute('width', width + units);
+    rectToAdd.setAttribute('height', height + units);
     rectToAdd.setAttribute('stroke', color.hex());
     rectToAdd.setAttribute('id', id);
     this.resume.appendChild(rectToAdd);
@@ -49,9 +51,9 @@ export default class SvgResumeFactory extends ResumeFactory {
       'http://www.w3.org/2000/svg',
       'text'
     );
-    textToAdd.setAttribute('x', x + Constants.UNITS);
-    textToAdd.setAttribute('y', y + Constants.UNITS);
-    textToAdd.setAttribute('font-size', fontSize + Constants.UNITS);
+    textToAdd.setAttribute('x', x + units);
+    textToAdd.setAttribute('y', y + units);
+    textToAdd.setAttribute('font-size', fontSize + units);
     textToAdd.setAttribute('font-family', fontFamily);
     textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
@@ -80,9 +82,9 @@ export default class SvgResumeFactory extends ResumeFactory {
       'http://www.w3.org/2000/svg',
       'text'
     );
-    textToAdd.setAttribute('x', x + Constants.UNITS);
-    textToAdd.setAttribute('y', y + Constants.UNITS);
-    textToAdd.setAttribute('font-size', fontSize + Constants.UNITS);
+    textToAdd.setAttribute('x', x + units);
+    textToAdd.setAttribute('y', y + units);
+    textToAdd.setAttribute('font-size', fontSize + units);
     textToAdd.setAttribute('font-family', fontFamily);
     textToAdd.setAttribute('fill', color.hex());
     textToAdd.setAttribute('dominant-baseline', 'middle');
@@ -104,9 +106,9 @@ export default class SvgResumeFactory extends ResumeFactory {
       'http://www.w3.org/2000/svg',
       'circle'
     );
-    circleToAdd.setAttribute('cx', x + Constants.UNITS);
-    circleToAdd.setAttribute('cy', y + Constants.UNITS);
-    circleToAdd.setAttribute('r', radius + Constants.UNITS);
+    circleToAdd.setAttribute('cx', x + units);
+    circleToAdd.setAttribute('cy', y + units);
+    circleToAdd.setAttribute('r', radius + units);
     circleToAdd.setAttribute('fill', color.hex());
     circleToAdd.setAttribute('id', id);
     this.resume.appendChild(circleToAdd);
@@ -124,11 +126,11 @@ export default class SvgResumeFactory extends ResumeFactory {
       'http://www.w3.org/2000/svg',
       'line'
     );
-    lineToAdd.setAttribute('x1', x1 + Constants.UNITS);
-    lineToAdd.setAttribute('x2', x2 + Constants.UNITS);
-    lineToAdd.setAttribute('y1', y1 + Constants.UNITS);
-    lineToAdd.setAttribute('y2', y2 + Constants.UNITS);
-    lineToAdd.setAttribute('stroke-width', '.75' + Constants.UNITS);
+    lineToAdd.setAttribute('x1', x1 + units);
+    lineToAdd.setAttribute('x2', x2 + units);
+    lineToAdd.setAttribute('y1', y1 + units);
+    lineToAdd.setAttribute('y2', y2 + units);
+    lineToAdd.setAttribute('stroke-width', '.75' + units);
     lineToAdd.setAttribute('stroke', color.hex());
     lineToAdd.setAttribute('id', id);
     this.resume.appendChild(lineToAdd);

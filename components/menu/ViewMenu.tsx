@@ -1,4 +1,3 @@
-import * as Constants from '../../constants';
 import {
   selectForegroundColor,
   selectScale,
@@ -12,11 +11,21 @@ import MenuDivider from './MenuDivider';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
 import resume from '../../resume.json';
+import {resumeConfiguration} from '../../configuration';
 import {useAppSelector} from '../../lib/hooks';
 import {useDispatch} from 'react-redux';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
 import {useRouter} from 'next/router';
+
+const {
+  darkForegroundColor,
+  darkBackgroundColor,
+  darkHighlightColor,
+  lightForegroundColor,
+  lightBackgroundColor,
+  lightHighlightColor,
+} = resumeConfiguration;
 
 const ViewMenu = () => {
   const context = useDropdownMenu();
@@ -28,18 +37,18 @@ const ViewMenu = () => {
   const scale = useAppSelector(selectScale);
 
   const setDarkTheme = () => {
-    dispatch(setForegroundColor(Constants.DARK_THEME_FOREGROUND));
-    dispatch(setBackgroundColor(Constants.DARK_THEME_BACKGROUND));
-    dispatch(setHighlightColor(Constants.DARK_THEME_HIGHLIGHT));
+    dispatch(setForegroundColor(darkForegroundColor));
+    dispatch(setBackgroundColor(darkBackgroundColor));
+    dispatch(setHighlightColor(darkHighlightColor));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
   };
 
   const setLightTheme = () => {
-    dispatch(setForegroundColor(Constants.LIGHT_THEME_FOREGROUND));
-    dispatch(setBackgroundColor(Constants.LIGHT_THEME_BACKGROUND));
-    dispatch(setHighlightColor(Constants.LIGHT_THEME_HIGHLIGHT));
+    dispatch(setForegroundColor(lightForegroundColor));
+    dispatch(setBackgroundColor(lightBackgroundColor));
+    dispatch(setHighlightColor(lightHighlightColor));
     context.setIsActive(false);
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
@@ -72,9 +81,7 @@ const ViewMenu = () => {
         onClick={setDarkTheme}
         scale={scale}
       >
-        <CheckMark
-          $isActive={foregroundColor === Constants.DARK_THEME_FOREGROUND}
-        />
+        <CheckMark $isActive={foregroundColor === darkForegroundColor} />
         <MenuLink>Dark Theme</MenuLink>
       </MenuListItem>
       <MenuListItem
@@ -82,9 +89,7 @@ const ViewMenu = () => {
         onClick={setLightTheme}
         scale={scale}
       >
-        <CheckMark
-          $isActive={foregroundColor === Constants.LIGHT_THEME_FOREGROUND}
-        />
+        <CheckMark $isActive={foregroundColor === lightForegroundColor} />
         <MenuLink>Light Theme</MenuLink>
       </MenuListItem>
       <MenuDivider />

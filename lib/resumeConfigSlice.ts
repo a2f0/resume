@@ -1,7 +1,10 @@
-import * as Constants from '../constants';
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 import Color from 'color';
 import {RootState} from './store';
+import {resumeConfiguration} from '../configuration';
+
+const {darkForegroundColor, darkBackgroundColor, darkHighlightColor} =
+  resumeConfiguration;
 
 export interface ResumeConfigState {
   foregroundColor: string;
@@ -11,9 +14,9 @@ export interface ResumeConfigState {
 }
 
 const initialState: ResumeConfigState = {
-  foregroundColor: Constants.DARK_THEME_FOREGROUND,
-  backgroundColor: Constants.DARK_THEME_BACKGROUND,
-  highlightColor: Constants.DARK_THEME_HIGHLIGHT,
+  foregroundColor: darkForegroundColor,
+  backgroundColor: darkBackgroundColor,
+  highlightColor: darkHighlightColor,
   scale: 1.5,
 };
 
