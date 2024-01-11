@@ -22,7 +22,7 @@ export const config: WebdriverIO.Config = {
   exclude: [],
   maxInstances: 1,
   capabilities: [chromeCapabilities],
-  logLevel: 'info',
+  logLevel: 'silent',
   bail: 0,
   baseUrl: 'http://localhost:4001',
   waitforTimeout: 10000,
