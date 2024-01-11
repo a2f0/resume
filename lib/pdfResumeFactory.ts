@@ -1,8 +1,10 @@
-import * as Constants from '../constants';
 import {TextOptionsLight, jsPDF, jsPDFOptions} from 'jspdf';
 import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
+import {resumeConfiguration} from '../configuration';
+
+const {units} = resumeConfiguration;
 
 export default class PdfResumeFactory extends ResumeFactory {
   resume: jsPDF;
@@ -11,7 +13,7 @@ export default class PdfResumeFactory extends ResumeFactory {
     super(config);
     const options: jsPDFOptions = {
       orientation: 'portrait',
-      unit: Constants.UNITS,
+      unit: units,
       format: 'letter',
     };
     this.resume = new jsPDF(options);

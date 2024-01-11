@@ -1,5 +1,3 @@
-import Color from 'color';
-
 interface ICoordinate {
   x: number;
   y: number;
@@ -8,10 +6,14 @@ interface ICoordinate {
 interface IResumeConfiguration {
   documentWidth: number;
   documentHeight: number;
-  foregroundColor: Color;
-  backgroundColor: Color;
-  highlightColor: Color;
+  darkForegroundColor: string;
+  darkBackgroundColor: string;
+  darkHighlightColor: string;
+  lightForegroundColor: string;
+  lightBackgroundColor: string;
+  lightHighlightColor: string;
   standardFontSize: number;
+  pixelsPerPoint: number;
   startX: number;
   startY: number;
   rightPanelStartY: number;
@@ -102,14 +104,18 @@ interface IResumeConfiguration {
 class ResumeConfiguration implements IResumeConfiguration {
   documentWidth = 612;
   documentHeight = 792;
-  foregroundColor = Color('#DCDCDC');
-  backgroundColor = Color('#0F0F0F');
-  highlightColor = Color('#909090');
+  darkForegroundColor = '#DCDCDC';
+  darkBackgroundColor = '#0F0F0F';
+  darkHighlightColor = '#909090';
+  lightForegroundColor = '#000000';
+  lightBackgroundColor = '#FFFFFF';
+  lightHighlightColor = '#707070';
   standardFontSize = 9.75;
+  pixelsPerPoint = 0.75;
   startX = 18; // .25 inches from edge of page
   startY = 18; // .25 inches from edge of page
   rightPanelStartY = 77;
-  units = 'pt';
+  units = 'pt' as const;
   fontFamily = 'Helvetica';
   headerSize = 12;
   headerSpacing = 4;
