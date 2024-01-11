@@ -45,15 +45,17 @@ describe('textUtils', () => {
       expect(window.innerWidth).toBe(640);
       expect(window.innerHeight).toBe(480);
       const {lines} = wrapLabel(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to make the test pass.',
+        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, exponentially increasing the chance for wrapping.',
         positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
       expect(lines.length).toBe(2);
       expect(lines[0]).toBe(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, to'
+        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course,'
       );
-      expect(lines[1]).toBe('make the test pass.');
+      expect(lines[1]).toBe(
+        'exponentially increasing the chance for wrapping.'
+      );
     });
   });
   describe('extractLinks', () => {
