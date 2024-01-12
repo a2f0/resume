@@ -11,15 +11,16 @@ const {
   fontFamily,
 } = resumeConfiguration;
 
+const accomplishmentFont = getFontString(
+  positionAccomplishmentWeight,
+  positionAccomplishmentSize,
+  units,
+  fontFamily
+);
+
 describe('textUtils', () => {
   describe('wrapLabel', () => {
     test('it does not wrap a short accomplishment.', () => {
-      const accomplishmentFont = getFontString(
-        positionAccomplishmentWeight,
-        positionAccomplishmentSize,
-        units,
-        fontFamily
-      );
       const {lines} = wrapLabel(
         'This is a short accomplishment.',
         positionAccomplishmentMaxWidth,
@@ -29,6 +30,15 @@ describe('textUtils', () => {
       expect(window.innerHeight).toBe(768);
       expect(lines.length).toBe(1);
       expect(lines[0]).toBe('This is a short accomplishment.');
+    });
+    test('it extracts a link with an index position', () => {
+      const {lines} = wrapLabel(
+        'This is [google](https://google.com).',
+        positionAccomplishmentMaxWidth,
+        accomplishmentFont
+      );
+      expect(lines.length).toBe(1);
+      expect(lines[0]).toBe('This is google.');
     });
     test('it wraps a long accomplishment.', () => {
       const accomplishmentFont = getFontString(

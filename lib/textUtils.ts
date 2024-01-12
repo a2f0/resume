@@ -44,9 +44,12 @@ export function wrapLabel(
   maxWidth: number,
   font: string // Example: '400 12pt Helvetica'
 ) {
-  const words = label.split(' ');
+  const extractLinksResult: ExtractLinksResult = extractLinks(label);
+  const {plainString} = extractLinksResult;
+  const words = plainString.split(' ');
   const lines: string[] = [];
   let nextLine = '';
+
   words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
     const nextLineLength = getTextWidthInPoints(nextLine, font);
