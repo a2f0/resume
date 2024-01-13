@@ -74,7 +74,8 @@ export function wrapLabel(
     }
   });
 
-  return {lines};
+  const filteredBlankLines = lines.filter(line => line !== '');
+  return {lines: filteredBlankLines};
 }
 
 export function getFontString(
