@@ -60,7 +60,7 @@
     "@wdio/spec-reporter": "8.27.0",
     "eslint": "8.56.0",
     "eslint-plugin-import": "2.29.1",
-    "expect-webdriverio": "4.8.0",
+    "expect-webdriverio": "4.9.3",
     "gts": "5.2.0",
     "jsdom": "23.2.0",
     "start-server-and-test": "2.0.3",
