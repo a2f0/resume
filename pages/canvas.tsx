@@ -1,5 +1,5 @@
-import Main from '../components/layout/Main';
 import CanvasResume from '../components/CanvasResume';
+import Main from '../components/layout/Main';
 
 export default function Canvas() {
   return (

@@ -6,30 +6,35 @@ import {resumeConfiguration} from '../configuration';
 const {units} = resumeConfiguration;
 
 function scaleValueWithUnit(value: number, scale: number): string {
-  return value * scale + units
+  return value * scale + units;
 }
 
 function scaleValue(value: number, scale: number): number {
-  return value * scale
+  return value * scale;
 }
 
 export default class CanvasResumeFactory extends ResumeFactory {
   resume: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  scale: number
-  
-  constructor(config: ResumeConfig, width: number, height: number, scale: number) {
+  scale: number;
+
+  constructor(
+    config: ResumeConfig,
+    width: number,
+    height: number,
+    scale: number
+  ) {
     super(config);
     this.resume = document.createElement('canvas');
     this.resume.setAttribute('width', scaleValueWithUnit(width, scale));
     this.resume.setAttribute('height', scaleValueWithUnit(height, scale));
-    this.scale = scale
-    const context = this.resume.getContext("2d") 
-    if (context == null) {
-      throw new Error ('2d context cannot be null')
+    this.scale = scale;
+    const context = this.resume.getContext('2d');
+    if (context === null) {
+      throw new Error('2d context cannot be null');
     }
-    this.ctx = context
-    
+    this.ctx = context;
+
     this.populateResume();
   }
 
@@ -42,7 +47,12 @@ export default class CanvasResumeFactory extends ResumeFactory {
     id: string
   ) {
     this.ctx.fillStyle = color.hex();
-    this.ctx.fillRect(scaleValue(x, this.scale), scaleValue(y, this.scale), scaleValue(width, this.scale), scaleValue(height, this.scale));
+    this.ctx.fillRect(
+      scaleValue(x, this.scale),
+      scaleValue(y, this.scale),
+      scaleValue(width, this.scale),
+      scaleValue(height, this.scale)
+    );
   }
 
   protected addText(
@@ -53,9 +63,7 @@ export default class CanvasResumeFactory extends ResumeFactory {
     color: Color,
     text: string,
     id: string
-  ) {
-    
-  }
+  ) {}
 
   protected addTextWithLink(
     x: number,
@@ -66,9 +74,7 @@ export default class CanvasResumeFactory extends ResumeFactory {
     text: string,
     url: string,
     id: string
-  ) {
-    
-  }
+  ) {}
 
   protected addCircle(
     x: number,
@@ -76,9 +82,7 @@ export default class CanvasResumeFactory extends ResumeFactory {
     radius: number,
     color: Color,
     id: string
-  ) {
-    
-  }
+  ) {}
 
   protected addLine(
     x1: number,
@@ -87,9 +91,7 @@ export default class CanvasResumeFactory extends ResumeFactory {
     y2: number,
     color: Color,
     id: string
-  ) {
-    
-  }
+  ) {}
 
   public getResume(): HTMLCanvasElement {
     return this.resume;

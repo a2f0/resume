@@ -4,9 +4,9 @@ import {
   selectForegroundColor,
   selectHighlightColor,
 } from '../lib/resumeConfigSlice';
+import CanvasResumeFactory from '../lib/canvasResumeFactory';
 import Color from 'color';
 import {ResumeConfig} from '../lib/resumeConfig';
-import CanvasResumeFactory from '../lib/canvasResumeFactory';
 import {resumeConfiguration} from '../configuration';
 import {selectScale} from '../lib/resumeConfigSlice';
 import styled from 'styled-components';
