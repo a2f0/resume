@@ -119,6 +119,16 @@ const ViewMenu = () => {
       <MenuListItem
         onClick={() => {
           dismissMenu;
+          router.push('/canvas');
+        }}
+        scale={scale}
+      >
+        <CheckMark $isActive={asPath === '/canvas'} />
+        <MenuLink>HTML Canvas</MenuLink>
+      </MenuListItem>
+      <MenuListItem
+        onClick={() => {
+          dismissMenu;
           router.push('/pdf');
         }}
         scale={scale}
