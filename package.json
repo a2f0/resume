@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "version": "0.1.121",
+  "version": "0.1.124",
   "private": true,
   "type": "module",
   "engines": {
@@ -15,8 +15,8 @@
   "scripts": {
     "server": "next dev -p 4000",
     "server-test": "next dev -p 4001",
-    "test": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm' npx wdio run wdio.shared.conf.ts",
-    "test-headless": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm' npx wdio run wdio.headless.conf.ts",
+    "test": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm --no-warnings' npx wdio run wdio.shared.conf.ts",
+    "test-headless": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader ts-node/esm --no-warnings' npx wdio run wdio.headless.conf.ts",
     "ci": "start-server-and-test server-test http-get://localhost:4001 test",
     "ci-headless": "start-server-and-test server-test http-get://localhost:4001 test-headless",
     "build": "next build",
@@ -26,8 +26,6 @@
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint",
     "unit": "vitest --no-watch --environment jsdom"
   },
   "dependencies": {
