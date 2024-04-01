@@ -61,7 +61,7 @@
     "eslint": "8.57.0",
     "eslint-plugin-import": "2.29.1",
     "expect-webdriverio": "4.11.9",
-    "gts": "5.2.0",
+    "gts": "5.3.0",
     "jsdom": "24.0.0",
     "start-server-and-test": "2.0.3",
     "typescript": "5.3.3",
