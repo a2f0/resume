@@ -2,7 +2,7 @@ import Base from './base';
 
 class PdfPage extends Base {
   get pdfResume(): ReturnType<WebdriverIO.Browser['$']> {
-    return $('#pdfObject');
+    return $('#pdfObjectContainer');
   }
   open(): ReturnType<WebdriverIO.Browser['url']> {
     return super.open('pdf');

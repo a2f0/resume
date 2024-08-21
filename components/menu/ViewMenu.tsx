@@ -108,7 +108,7 @@ const ViewMenu = () => {
       <MenuDivider />
       <MenuListItem
         onClick={() => {
-          dismissMenu;
+          dismissMenu();
           router.push('/');
         }}
         scale={scale}
@@ -118,7 +118,7 @@ const ViewMenu = () => {
       </MenuListItem>
       <MenuListItem
         onClick={() => {
-          dismissMenu;
+          dismissMenu();
           router.push('/pdf');
         }}
         scale={scale}

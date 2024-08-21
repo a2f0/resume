@@ -1,4 +1,5 @@
 import {chromeCapabilities, config as sharedConfig} from './wdio.shared.conf';
+import video from 'wdio-video-reporter';
 
 const headlessChromeCapabilities = {
   ...chromeCapabilities,
@@ -14,6 +15,7 @@ const headlessChromeCapabilities = {
       '--disable-features=NetworkService',
       '--no-sandbox',
       '--disable-dev-shm-usage',
+      '--disable-software-rasterizer',
     ],
   },
 };
@@ -23,4 +25,13 @@ export const config: WebdriverIO.Config = {
   ...{
     capabilities: [headlessChromeCapabilities],
   },
+  reporters: [
+    [
+      video,
+      {
+        saveAllVideos: true,
+        videoSlowdownMultiplier: 3,
+      },
+    ],
+  ],
 };
