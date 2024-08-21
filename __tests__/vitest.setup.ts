@@ -3,7 +3,14 @@ import {cleanup} from '@testing-library/react';
 
 import {createCanvas} from 'canvas';
 
-// Add the canvas implementation to the global scope
-global.HTMLCanvasElement = createCanvas().constructor;
+const canvas = createCanvas(800, 600);
+
+global.HTMLCanvasElement = class extends HTMLCanvasElement {
+  constructor() {
+    super();
+  }
+};
+
+Object.setPrototypeOf(canvas, global.HTMLCanvasElement.prototype);
 
 afterEach(cleanup);
