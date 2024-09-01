@@ -40,7 +40,7 @@
     "redux": "5.0.1",
     "styled-components": "6.1.12",
     "ts-node": "10.9.2",
-    "wdio-video-reporter": "5.2.0"
+    "wdio-video-reporter": "6.0.0"
   },
   "devDependencies": {
     "@a2f0/check-for-unpinned-dependencies": "1.0.4",
