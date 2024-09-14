@@ -44,12 +44,10 @@ export function wrapLabel(
   maxWidth: number,
   font: string // Example: '400 12pt Helvetica'
 ) {
-  const {plainString} = extractLinks(label);
-
+  const {plainString, matches} = extractLinks(label);
   const words = plainString.split(' ');
   const lines: string[] = [];
   let currentLine = '';
-
   words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
     const nextLineLength = getTextWidthInPoints(currentLine, font);
@@ -79,7 +77,8 @@ export function wrapLabel(
   });
 
   const filteredBlankLines = lines.filter(line => line !== '');
-  return {lines: filteredBlankLines};
+  const chunkedLines = breakLinesIntoChunks(filteredBlankLines, matches);
+  return chunkedLines;
 }
 
 export function getFontString(
@@ -96,11 +95,13 @@ export function getFontString(
 }
 
 // Markdown link
-const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+
 interface Match {
   text: string;
   url: string;
-  indexPosition: number;
+  index: number;
+  length: number;
 }
 
 interface ExtractLinksResult {
@@ -114,12 +115,13 @@ export function extractLinks(markdownString: string): ExtractLinksResult {
   let offset = 0;
 
   let match: RegExpExecArray | null;
-  while ((match = regex.exec(markdownString)) !== null) {
-    const [fullMatch, text, url] = match;
-    const indexPosition = match.index + 1 - offset; // Add 1 for the opening bracket
-    matches.push({text, url, indexPosition});
 
-    // Replace the full match with just the text in plainString
+  while ((match = linkRegex.exec(markdownString)) !== null) {
+    const [fullMatch, text, url] = match;
+    const index = match.index - offset;
+    matches.push({text, url, index, length: text.length});
+
+    // Replace only the markdown syntax in plainString, keeping the text
     plainString =
       plainString.slice(0, match.index - offset) +
       text +
@@ -131,3 +133,59 @@ export function extractLinks(markdownString: string): ExtractLinksResult {
 
   return {matches, plainString};
 }
+
+type Chunk = {text: string; isMatch: boolean; url?: string};
+export type ChunkedLine = {lineIndex: number; chunks: Chunk[]};
+
+function breakLinesIntoChunks(
+  lines: string[],
+  matches: Match[]
+): ChunkedLine[] {
+  const result: ChunkedLine[] = [];
+  let matchIndex = 0;
+  let totalChars = 0;
+
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+    const line = lines[lineIndex];
+    const ChunkedLine: Chunk[] = [];
+    let lastIndex = 0;
+
+    while (matchIndex < matches.length) {
+      const {index, length, url} = matches[matchIndex];
+      const matchStartInLine = index - totalChars;
+
+      if (matchStartInLine >= line.length) break;
+
+      // Add unmatched text before the current match
+      if (matchStartInLine > lastIndex) {
+        ChunkedLine.push({
+          text: line.slice(lastIndex, matchStartInLine),
+          isMatch: false,
+        });
+      }
+
+      // Add the matched text with URL
+      const matchEndInLine = Math.min(matchStartInLine + length, line.length);
+      ChunkedLine.push({
+        text: line.slice(matchStartInLine, matchEndInLine),
+        isMatch: true,
+        url,
+      });
+
+      lastIndex = matchEndInLine;
+      matchIndex++;
+
+      if (matchEndInLine === line.length) break;
+    }
+
+    // Add any remaining unmatched text after the last match
+    if (lastIndex < line.length) {
+      ChunkedLine.push({text: line.slice(lastIndex), isMatch: false});
+    }
+
+    result.push({lineIndex, chunks: ChunkedLine});
+    totalChars += line.length + 1; // +1 for newline character
+  }
+
+  return result;
+} //

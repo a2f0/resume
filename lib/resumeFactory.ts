@@ -1,4 +1,5 @@
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
+import type {ChunkedLine} from './textUtils';
 import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import {resumeConfiguration as config} from '../configuration';
@@ -313,22 +314,24 @@ export default abstract class ResumeFactory {
           this.foregroundColor,
           `accomplishmentBullet-${i}-${j}`
         );
-        const {lines: accomplishmentLines} = wrapLabel(
+        const accomplishmentLines: ChunkedLine[] = wrapLabel(
           accomplishment,
           config.positionAccomplishmentMaxWidth,
           accomplishmentFont
         );
         for (let k = 0; k < accomplishmentLines.length; k++) {
-          const accomplismentLine = accomplishmentLines[k];
-          this.addText(
-            config.positionAccomplishmentXPos,
-            accomplishmentYPos,
-            config.positionAccomplishmentSize,
-            config.fontFamily,
-            this.foregroundColor,
-            accomplismentLine,
-            `positionAccomplishmentLine-${i}-${j}-${k}`
-          );
+          const chunkedLine: ChunkedLine = accomplishmentLines[k];
+          for (const chunk of chunkedLine.chunks) {
+            this.addText(
+              config.positionAccomplishmentXPos,
+              accomplishmentYPos,
+              config.positionAccomplishmentSize,
+              config.fontFamily,
+              this.foregroundColor,
+              chunk.text,
+              `positionAccomplishmentLine-${i}-${j}-${k}`
+            );
+          }
           accomplishmentYPos += config.positionAccomplishmentSize;
           if (k < accomplishmentLines.length - 1) {
             // Then it is not the last line in the accomplishment.
