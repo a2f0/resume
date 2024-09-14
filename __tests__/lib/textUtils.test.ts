@@ -70,29 +70,51 @@ describe('textUtils', () => {
   });
   describe('extractLinks', () => {
     test('it extracts a link with an index position', () => {
-      const result = extractLinks('This is [google](https://google.com).');
-      expect(result.matches).not.toBe([]);
-      expect(result.matches.length).toBe(1);
-      const {text, url, indexPosition} = result.matches[0];
+      const {matches, plainString} = extractLinks(
+        'This is [google](https://google.com).'
+      );
+      expect(plainString).toBe('This is google.');
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(1);
+      const {text, url, indexPosition} = matches[0];
       expect(text).toBe('google');
       expect(url).toBe('https://google.com');
       expect(indexPosition).toBe(9);
-      expect(result.plainString).toBe('This is google.');
     });
     test('it extracts a link when the link text wraps across lines', () => {
-      const result = extractLinks(
+      const {matches, plainString} = extractLinks(
         'This is [a long link that maks to google, intentionally of course, to wrap it](https://google.com).'
       );
-      expect(result).not.toBe([]);
-      expect(result.matches.length).toBe(1);
-      expect(result.plainString).toBe(
+      expect(plainString).toBe(
+        'This is a long link that maks to google, intentionally of course, to wrap it.'
+      );
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(1);
+      expect(plainString).toBe(
         'This is a long link that maks to google, intentionally of course, to wrap it.'
       );
     });
     test('it does not extract a link when there is not one', () => {
-      const result = extractLinks('This is google.');
-      expect(result.matches).not.toBe([]);
-      expect(result.matches.length).toBe(0);
+      const {plainString, matches} = extractLinks('This is google.');
+      expect(plainString).toBe('This is google.');
+      expect(matches).toEqual([]);
+      expect(matches.length).toBe(0);
+    });
+    test('it extracts multiple links', () => {
+      const {matches, plainString} = extractLinks(
+        'This is [google](https://google.com) and this is [yahoo](https://yahoo.com).'
+      );
+      expect(plainString).toBe('This is google and this is yahoo.');
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(2);
+      let {text, url, indexPosition} = matches[0];
+      expect(text).toBe('google');
+      expect(url).toBe('https://google.com');
+      expect(indexPosition).toBe(9);
+      ({text, url, indexPosition} = matches[1]);
+      expect(text).toBe('yahoo');
+      expect(url).toBe('https://yahoo.com');
+      expect(indexPosition).toBe(28);
     });
   });
 });

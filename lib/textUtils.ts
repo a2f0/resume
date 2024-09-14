@@ -44,7 +44,7 @@ export function wrapLabel(
   maxWidth: number,
   font: string // Example: '400 12pt Helvetica'
 ) {
-  const {plainString, matches} = extractLinks(label);
+  const {plainString} = extractLinks(label);
 
   const words = plainString.split(' ');
   const lines: string[] = [];
@@ -108,28 +108,26 @@ interface ExtractLinksResult {
   plainString: string;
 }
 
-function createMarkDownUrl(label: string, url: string): string {
-  return `[${label}](${url})`;
-}
-
 export function extractLinks(markdownString: string): ExtractLinksResult {
   const matches: Match[] = [];
+  let plainString = markdownString;
+  let offset = 0;
 
   let match: RegExpExecArray | null;
   while ((match = regex.exec(markdownString)) !== null) {
-    const [, text, url] = match;
-    let indexPosition = markdownString.indexOf(match[0]);
-    // Add 1 for the opening bracket.
-    indexPosition = indexPosition + 1;
-    const detectedValue: string = createMarkDownUrl(text, url);
-    markdownString = markdownString.replace(detectedValue, text);
+    const [fullMatch, text, url] = match;
+    const indexPosition = match.index + 1 - offset; // Add 1 for the opening bracket
     matches.push({text, url, indexPosition});
+
+    // Replace the full match with just the text in plainString
+    plainString =
+      plainString.slice(0, match.index - offset) +
+      text +
+      plainString.slice(match.index - offset + fullMatch.length);
+
+    // Update offset
+    offset += fullMatch.length - text.length;
   }
 
-  const extractLinksResponse: ExtractLinksResult = {
-    matches,
-    plainString: markdownString,
-  };
-
-  return extractLinksResponse;
+  return {matches, plainString};
 }
