@@ -73,10 +73,10 @@ describe('textUtils', () => {
       const result = extractLinks('This is [google](https://google.com).');
       expect(result.matches).not.toBe([]);
       expect(result.matches.length).toBe(1);
-      const {text, url, index} = result.matches[0];
+      const {text, url, indexPosition} = result.matches[0];
       expect(text).toBe('google');
       expect(url).toBe('https://google.com');
-      expect(index).toBe(9);
+      expect(indexPosition).toBe(9);
       expect(result.plainString).toBe('This is google.');
     });
     test('it extracts a link when the link text wraps across lines', () => {
