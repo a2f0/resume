@@ -1,8 +1,13 @@
+import {
+  Match,
+  breakLinesIntoChunks,
+  extractLinks,
+  getFontString,
+  wrapLabel,
+} from '../../lib/textUtils';
 import {describe, expect, test} from 'vitest';
-import {extractLinks, getFontString, wrapLabel} from '../../lib/textUtils';
 import {fireEvent} from '@testing-library/react';
 import {resumeConfiguration} from '../../configuration';
-
 const {
   positionAccomplishmentWeight,
   positionAccomplishmentSize,
@@ -152,6 +157,24 @@ describe('textUtils', () => {
       expect(text).toBe('yahoo');
       expect(url).toBe('https://yahoo.com');
       expect(index).toBe(27);
+    });
+  });
+  describe('breakLinesIntoChunks', () => {
+    test('it correctly chunks a single line with no matches', () => {
+      const lines = ['This is a simple line without matches'];
+      const matches: Match[] = [];
+      const result = breakLinesIntoChunks(lines, matches);
+      expect(result).toEqual([
+        {
+          lineIndex: 0,
+          chunks: [
+            {
+              text: 'This is a simple line without matches',
+              isMatch: false,
+            },
+          ],
+        },
+      ]);
     });
   });
 });

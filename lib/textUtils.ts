@@ -97,7 +97,7 @@ export function getFontString(
 // Markdown link
 const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
 
-interface Match {
+export interface Match {
   text: string;
   url: string;
   index: number;
@@ -137,7 +137,7 @@ export function extractLinks(markdownString: string): ExtractLinksResult {
 type Chunk = {text: string; isMatch: boolean; url?: string};
 export type ChunkedLine = {lineIndex: number; chunks: Chunk[]};
 
-function breakLinesIntoChunks(
+export function breakLinesIntoChunks(
   lines: string[],
   matches: Match[]
 ): ChunkedLine[] {
