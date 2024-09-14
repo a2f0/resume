@@ -1,8 +1,13 @@
+import {
+  Match,
+  breakLinesIntoChunks,
+  extractLinks,
+  getFontString,
+  wrapLabel,
+} from '../../lib/textUtils';
 import {describe, expect, test} from 'vitest';
-import {extractLinks, getFontString, wrapLabel} from '../../lib/textUtils';
 import {fireEvent} from '@testing-library/react';
 import {resumeConfiguration} from '../../configuration';
-
 const {
   positionAccomplishmentWeight,
   positionAccomplishmentSize,
@@ -50,13 +55,17 @@ describe('textUtils', () => {
         lineIndex: 0,
         chunks: [
           {
-            text: 'This is g',
+            text: 'This is ',
             isMatch: false,
           },
           {
-            text: 'oogle.',
+            text: 'google',
             isMatch: true,
             url: 'https://google.com',
+          },
+          {
+            text: '.',
+            isMatch: false,
           },
         ],
       });
@@ -103,29 +112,69 @@ describe('textUtils', () => {
   });
   describe('extractLinks', () => {
     test('it extracts a link with an index position', () => {
-      const result = extractLinks('This is [google](https://google.com).');
-      expect(result.matches).not.toBe([]);
-      expect(result.matches.length).toBe(1);
-      const {text, url, index} = result.matches[0];
+      const {matches, plainString} = extractLinks(
+        'This is [google](https://google.com).'
+      );
+      expect(plainString).toBe('This is google.');
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(1);
+      const {text, url, index} = matches[0];
       expect(text).toBe('google');
       expect(url).toBe('https://google.com');
-      expect(index).toBe(9);
-      expect(result.plainString).toBe('This is google.');
+      expect(index).toBe(8);
     });
     test('it extracts a link when the link text wraps across lines', () => {
-      const result = extractLinks(
+      const {matches, plainString} = extractLinks(
         'This is [a long link that maks to google, intentionally of course, to wrap it](https://google.com).'
       );
-      expect(result).not.toBe([]);
-      expect(result.matches.length).toBe(1);
-      expect(result.plainString).toBe(
+      expect(plainString).toBe(
+        'This is a long link that maks to google, intentionally of course, to wrap it.'
+      );
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(1);
+      expect(plainString).toBe(
         'This is a long link that maks to google, intentionally of course, to wrap it.'
       );
     });
     test('it does not extract a link when there is not one', () => {
-      const result = extractLinks('This is google.');
-      expect(result.matches).not.toBe([]);
-      expect(result.matches.length).toBe(0);
+      const {plainString, matches} = extractLinks('This is google.');
+      expect(plainString).toBe('This is google.');
+      expect(matches).toEqual([]);
+      expect(matches.length).toBe(0);
+    });
+    test('it extracts multiple links', () => {
+      const {matches, plainString} = extractLinks(
+        'This is [google](https://google.com) and this is [yahoo](https://yahoo.com).'
+      );
+      expect(plainString).toBe('This is google and this is yahoo.');
+      expect(matches).not.toEqual([]);
+      expect(matches.length).toBe(2);
+      let {text, url, index} = matches[0];
+      expect(text).toBe('google');
+      expect(url).toBe('https://google.com');
+      expect(index).toBe(8);
+      ({text, url, index} = matches[1]);
+      expect(text).toBe('yahoo');
+      expect(url).toBe('https://yahoo.com');
+      expect(index).toBe(27);
+    });
+  });
+  describe('breakLinesIntoChunks', () => {
+    test('it correctly chunks a single line with no matches', () => {
+      const lines = ['This is a simple line without matches'];
+      const matches: Match[] = [];
+      const result = breakLinesIntoChunks(lines, matches);
+      expect(result).toEqual([
+        {
+          lineIndex: 0,
+          chunks: [
+            {
+              text: 'This is a simple line without matches',
+              isMatch: false,
+            },
+          ],
+        },
+      ]);
     });
   });
 });

@@ -21,7 +21,7 @@ function breakString(
 ) {
   const hyphenCharacter = '-';
   const characters = word.split('');
-  const lines = [] as string[];
+  const lines: string[] = [];
   let currentLine = '';
   characters.forEach((character, index) => {
     const nextLine = `${currentLine}${character}`;
@@ -47,28 +47,32 @@ export function wrapLabel(
   const {plainString, matches} = extractLinks(label);
   const words = plainString.split(' ');
   const lines: string[] = [];
-  let nextLine = '';
+  let currentLine = '';
   words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
-    const nextLineLength = getTextWidthInPoints(nextLine, font);
+    const nextLineLength = getTextWidthInPoints(currentLine, font);
     if (wordLength > maxWidth) {
+      // Then the word does not fit onto a single line.
       const {hyphenatedStrings, remainingWord} = breakString(
         word,
         maxWidth,
         font
       );
-      lines.push(nextLine, ...hyphenatedStrings);
-      nextLine = remainingWord;
+      lines.push(currentLine, ...hyphenatedStrings);
+      currentLine = remainingWord;
     } else if (nextLineLength + wordLength >= maxWidth) {
-      lines.push(nextLine);
-      nextLine = word;
+      // Then the line has reached its maximum length.
+      lines.push(currentLine);
+      currentLine = word;
     } else {
-      nextLine = [nextLine, word].filter(Boolean).join(' ');
+      // Then the word fits on the line.
+      // .filter(Boolean) removes falsy values.
+      currentLine = [currentLine, word].filter(Boolean).join(' ');
     }
     const currentWord = index + 1;
     const isLastWord = currentWord === words.length;
     if (isLastWord) {
-      lines.push(nextLine);
+      lines.push(currentLine);
     }
   });
 
@@ -90,10 +94,10 @@ export function getFontString(
   return fontString;
 }
 
-// Markdown URL
-const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+// Markdown link
+const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
 
-interface Match {
+export interface Match {
   text: string;
   url: string;
   index: number;
@@ -105,36 +109,35 @@ interface ExtractLinksResult {
   plainString: string;
 }
 
-function createMarkDownUrl(label: string, url: string): string {
-  return `[${label}](${url})`;
-}
-
 export function extractLinks(markdownString: string): ExtractLinksResult {
   const matches: Match[] = [];
+  let plainString = markdownString;
+  let offset = 0;
 
   let match: RegExpExecArray | null;
-  while ((match = regex.exec(markdownString)) !== null) {
-    const [, text, url] = match;
-    let index = markdownString.indexOf(match[0]);
-    // Add 1 for the bracket.
-    index = index + 1;
-    const detectedValue: string = createMarkDownUrl(text, url);
-    markdownString = markdownString.replace(detectedValue, text);
+
+  while ((match = linkRegex.exec(markdownString)) !== null) {
+    const [fullMatch, text, url] = match;
+    const index = match.index - offset;
     matches.push({text, url, index, length: text.length});
+
+    // Replace only the markdown syntax in plainString, keeping the text
+    plainString =
+      plainString.slice(0, match.index - offset) +
+      text +
+      plainString.slice(match.index - offset + fullMatch.length);
+
+    // Update offset
+    offset += fullMatch.length - text.length;
   }
 
-  const extractLinksResponse: ExtractLinksResult = {
-    matches,
-    plainString: markdownString,
-  };
-
-  return extractLinksResponse;
+  return {matches, plainString};
 }
 
 type Chunk = {text: string; isMatch: boolean; url?: string};
 export type ChunkedLine = {lineIndex: number; chunks: Chunk[]};
 
-function breakLinesIntoChunks(
+export function breakLinesIntoChunks(
   lines: string[],
   matches: Match[]
 ): ChunkedLine[] {
