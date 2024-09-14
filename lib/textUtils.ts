@@ -21,7 +21,7 @@ function breakString(
 ) {
   const hyphenCharacter = '-';
   const characters = word.split('');
-  const lines = [] as string[];
+  const lines: string[] = [];
   let currentLine = '';
   characters.forEach((character, index) => {
     const nextLine = `${currentLine}${character}`;
@@ -44,33 +44,37 @@ export function wrapLabel(
   maxWidth: number,
   font: string // Example: '400 12pt Helvetica'
 ) {
-  const extractLinksResult: ExtractLinksResult = extractLinks(label);
-  const {plainString} = extractLinksResult;
+  const {plainString, matches} = extractLinks(label);
+
   const words = plainString.split(' ');
   const lines: string[] = [];
-  let nextLine = '';
+  let currentLine = '';
 
   words.forEach((word, index) => {
     const wordLength = getTextWidthInPoints(`${word}`, font);
-    const nextLineLength = getTextWidthInPoints(nextLine, font);
+    const nextLineLength = getTextWidthInPoints(currentLine, font);
     if (wordLength > maxWidth) {
+      // Then the word does not fit onto a single line.
       const {hyphenatedStrings, remainingWord} = breakString(
         word,
         maxWidth,
         font
       );
-      lines.push(nextLine, ...hyphenatedStrings);
-      nextLine = remainingWord;
+      lines.push(currentLine, ...hyphenatedStrings);
+      currentLine = remainingWord;
     } else if (nextLineLength + wordLength >= maxWidth) {
-      lines.push(nextLine);
-      nextLine = word;
+      // Then the line has reached its maximum length.
+      lines.push(currentLine);
+      currentLine = word;
     } else {
-      nextLine = [nextLine, word].filter(Boolean).join(' ');
+      // Then the word fits on the line.
+      // .filter(Boolean) removes falsy values.
+      currentLine = [currentLine, word].filter(Boolean).join(' ');
     }
     const currentWord = index + 1;
     const isLastWord = currentWord === words.length;
     if (isLastWord) {
-      lines.push(nextLine);
+      lines.push(currentLine);
     }
   });
 
