@@ -95,11 +95,12 @@ export function getFontString(
   return fontString;
 }
 
+// Markdown link
 const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
 interface Match {
   text: string;
   url: string;
-  index: number;
+  indexPosition: number;
 }
 
 interface ExtractLinksResult {
@@ -117,12 +118,12 @@ export function extractLinks(markdownString: string): ExtractLinksResult {
   let match: RegExpExecArray | null;
   while ((match = regex.exec(markdownString)) !== null) {
     const [, text, url] = match;
-    let index = markdownString.indexOf(match[0]);
-    // Add 1 for the bracket.
-    index = index + 1;
+    let indexPosition = markdownString.indexOf(match[0]);
+    // Add 1 for the opening bracket.
+    indexPosition = indexPosition + 1;
     const detectedValue: string = createMarkDownUrl(text, url);
     markdownString = markdownString.replace(detectedValue, text);
-    matches.push({text, url, index});
+    matches.push({text, url, indexPosition});
   }
 
   const extractLinksResponse: ExtractLinksResult = {
