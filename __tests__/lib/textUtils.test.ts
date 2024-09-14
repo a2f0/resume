@@ -21,24 +21,45 @@ const accomplishmentFont = getFontString(
 describe('textUtils', () => {
   describe('wrapLabel', () => {
     test('it does not wrap a short accomplishment.', () => {
-      const {lines} = wrapLabel(
+      const chunkedLines = wrapLabel(
         'This is a short accomplishment.',
         positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
       expect(window.innerWidth).toBe(1024);
       expect(window.innerHeight).toBe(768);
-      expect(lines.length).toBe(1);
-      expect(lines[0]).toBe('This is a short accomplishment.');
+      expect(chunkedLines.length).toBe(1);
+      expect(chunkedLines[0]).toEqual({
+        chunks: [
+          {
+            isMatch: false,
+            text: 'This is a short accomplishment.',
+          },
+        ],
+        lineIndex: 0,
+      });
     });
     test('it extracts a link with an index position', () => {
-      const {lines} = wrapLabel(
+      const chunkedLines = wrapLabel(
         'This is [google](https://google.com).',
         positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
-      expect(lines.length).toBe(1);
-      expect(lines[0]).toBe('This is google.');
+      expect(chunkedLines.length).toBe(1);
+      expect(chunkedLines[0]).toEqual({
+        lineIndex: 0,
+        chunks: [
+          {
+            text: 'This is g',
+            isMatch: false,
+          },
+          {
+            text: 'oogle.',
+            isMatch: true,
+            url: 'https://google.com',
+          },
+        ],
+      });
     });
     test('it wraps a long accomplishment.', () => {
       const accomplishmentFont = getFontString(
@@ -54,18 +75,30 @@ describe('textUtils', () => {
       fireEvent(window, new Event('resize'));
       expect(window.innerWidth).toBe(640);
       expect(window.innerHeight).toBe(480);
-      const {lines} = wrapLabel(
+      const chunkedLines = wrapLabel(
         'This is a long accomplishment. It definitely wraps more than one line, intentionally of course, exponentially increasing the chance for wrapping.',
         positionAccomplishmentMaxWidth,
         accomplishmentFont
       );
-      expect(lines.length).toBe(2);
-      expect(lines[0]).toBe(
-        'This is a long accomplishment. It definitely wraps more than one line, intentionally of course,'
-      );
-      expect(lines[1]).toBe(
-        'exponentially increasing the chance for wrapping.'
-      );
+      expect(chunkedLines.length).toBe(2);
+      expect(chunkedLines[0]).toEqual({
+        lineIndex: 0,
+        chunks: [
+          {
+            text: 'This is a long accomplishment. It definitely wraps more than one line, intentionally of course,',
+            isMatch: false,
+          },
+        ],
+      });
+      expect(chunkedLines[1]).toEqual({
+        lineIndex: 1,
+        chunks: [
+          {
+            text: 'exponentially increasing the chance for wrapping.',
+            isMatch: false,
+          },
+        ],
+      });
     });
   });
   describe('extractLinks', () => {
