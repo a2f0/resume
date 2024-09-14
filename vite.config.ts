@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['test/vitest.setup.ts'],
+    setupFiles: ['__tests__/vitest.setup.ts'],
     // https://github.com/vitest-dev/vitest/issues/740
     maxWorkers: 1,
     minWorkers: 0,
