@@ -161,7 +161,7 @@ describe('textUtils', () => {
     });
   });
   describe('breakLinesIntoChunks', () => {
-    test('it correctly chunks a single line with no matches', () => {
+    test('chunks a single line with no matches', () => {
       const lines = ['This is a simple line without matches'];
       const matches: Match[] = [];
       const result = breakLinesIntoChunks(lines, matches);
@@ -177,7 +177,7 @@ describe('textUtils', () => {
         },
       ]);
     });
-    test('breakLinesIntoChunks works correctly with a single markdown link', () => {
+    test('chunks with a single markdown link', () => {
       const markdownString =
         'This is a sentence with a [link](https://example.com) in it.';
 
@@ -203,6 +203,36 @@ describe('textUtils', () => {
         },
       ];
 
+      expect(result).toEqual(expectedResult);
+    });
+    test('chunks with two markdown links', () => {
+      const markdownString =
+        'This is a sentence with [two](https://example1.com) [links](https://example2.com) in it.';
+
+      const {matches, plainString} = extractLinks(markdownString);
+
+      expect(plainString).toBe('This is a sentence with two links in it.');
+
+      expect(matches).toEqual([
+        {text: 'two', url: 'https://example1.com', index: 24, length: 3},
+        {text: 'links', url: 'https://example2.com', index: 28, length: 5},
+      ]);
+
+      const lines = plainString.split('\n');
+      const result = breakLinesIntoChunks(lines, matches);
+
+      const expectedResult: ChunkedLine[] = [
+        {
+          lineIndex: 0,
+          chunks: [
+            {text: 'This is a sentence with ', isMatch: false},
+            {text: 'two', isMatch: true, url: 'https://example1.com'},
+            {text: ' ', isMatch: false},
+            {text: 'links', isMatch: true, url: 'https://example2.com'},
+            {text: ' in it.', isMatch: false},
+          ],
+        },
+      ];
       expect(result).toEqual(expectedResult);
     });
   });
