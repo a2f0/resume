@@ -1,4 +1,5 @@
 import {
+  ChunkedLine,
   Match,
   breakLinesIntoChunks,
   extractLinks,
@@ -175,6 +176,34 @@ describe('textUtils', () => {
           ],
         },
       ]);
+    });
+    test('breakLinesIntoChunks works correctly with a single markdown link', () => {
+      const markdownString =
+        'This is a sentence with a [link](https://example.com) in it.';
+
+      const {matches, plainString} = extractLinks(markdownString);
+
+      expect(plainString).toBe('This is a sentence with a link in it.');
+
+      expect(matches).toEqual([
+        {text: 'link', url: 'https://example.com', index: 26, length: 4},
+      ]);
+
+      const lines = plainString.split('\n');
+      const result = breakLinesIntoChunks(lines, matches);
+
+      const expectedResult: ChunkedLine[] = [
+        {
+          lineIndex: 0,
+          chunks: [
+            {text: 'This is a sentence with a ', isMatch: false},
+            {text: 'link', isMatch: true, url: 'https://example.com'},
+            {text: ' in it.', isMatch: false},
+          ],
+        },
+      ];
+
+      expect(result).toEqual(expectedResult);
     });
   });
 });
