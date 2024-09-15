@@ -1,8 +1,9 @@
+import {ChunkedLine, breakLinesIntoChunks, extractLinks} from './textUtils';
 import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
-import type {ChunkedLine} from './textUtils';
 import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import {resumeConfiguration as config} from '../configuration';
+import invariant from 'invariant';
 import resume from '../resume.json';
 
 export default abstract class ResumeFactory {
@@ -247,29 +248,48 @@ export default abstract class ResumeFactory {
       );
 
       const companyNameXPos = hyphen1XPos + hyphenWidth + config.hyphenSpacing;
-      this.addTextWithLink(
-        companyNameXPos,
-        currentPositionYPos,
-        config.positionTitleSize,
-        config.fontFamily,
-        this.foregroundColor,
-        position.company,
-        position.url,
-        'positionCompanyName-' + i
-      );
-      const companyNameWidth = getTextWidthInPoints(
-        position.company,
-        getFontString(
-          config.positionTitleWeight,
-          config.positionTitleSize,
-          config.units,
-          config.fontFamily
-        )
-      );
+      const {matches, plainString} = extractLinks(position.company);
+      const lineChunks = breakLinesIntoChunks([plainString], matches);
+      invariant(lineChunks.length === 1, 'Expected 1 line chunk');
+      const chunkedLine = lineChunks[0];
+      let currentXPos = companyNameXPos;
+      for (const chunk of chunkedLine.chunks) {
+        if (chunk.isMatch) {
+          invariant(chunk.url, 'Expected a url for a match');
+          this.addTextWithLink(
+            currentXPos,
+            currentPositionYPos,
+            config.positionTitleSize,
+            config.fontFamily,
+            this.foregroundColor,
+            chunk.text,
+            chunk.url,
+            'positionCompanyName-' + i
+          );
+        } else {
+          this.addText(
+            currentXPos,
+            currentPositionYPos,
+            config.positionTitleSize,
+            config.fontFamily,
+            this.foregroundColor,
+            chunk.text,
+            'positionCompanyName-' + i
+          );
+        }
+        currentXPos += getTextWidthInPoints(
+          chunk.text,
+          getFontString(
+            config.positionTitleWeight,
+            config.positionTitleSize,
+            config.units,
+            config.fontFamily
+          )
+        );
+      }
 
       // Hyphen After Company Name
-      const hyphen2XPos =
-        companyNameXPos + companyNameWidth + config.hyphenSpacing;
+      const hyphen2XPos = currentXPos + config.hyphenSpacing;
       this.addText(
         hyphen2XPos,
         currentPositionYPos,

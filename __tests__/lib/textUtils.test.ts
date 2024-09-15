@@ -235,5 +235,24 @@ describe('textUtils', () => {
       ];
       expect(result).toEqual(expectedResult);
     });
+    test('chunks a single line with Thinkspan link', () => {
+      const markdownString = '[Thinkspan](https://thinkspan.com)';
+      const {matches, plainString} = extractLinks(markdownString);
+      const lines = [plainString];
+      const result = breakLinesIntoChunks(lines, matches);
+
+      expect(result).toEqual([
+        {
+          lineIndex: 0,
+          chunks: [
+            {
+              text: 'Thinkspan',
+              isMatch: true,
+              url: 'https://thinkspan.com',
+            },
+          ],
+        },
+      ]);
+    });
   });
 });
