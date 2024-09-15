@@ -20,10 +20,9 @@
   ],
   "experience": [
     {
-      "company": "Thinkspan",
+      "company": "[Thinkspan](https://thinkspan.com)",
       "title": "VP of Engineering",
       "date_range": "Feb 2022 - Current",
-      "url": "https://thinkspan.com",
       "accomplishments": [
         "Promoted from a senior engineer to VP of Engineering in under a year.",
         "Built a zero-knowledge CRDT for a proprietary distributed graph database."
@@ -45,10 +44,9 @@
       ]
     },
     {
-      "company": "Tearleads",
+      "company": "[Tearleads](https://tearleads.com/)",
       "title": "Product Builder",
       "date_range": "April 2021 - Jan 2022",
-      "url": "https://tearleads.com/",
       "accomplishments": [
         "Created a note-taking system for computer programmers and system administrators."
       ],
@@ -69,10 +67,9 @@
       ]
     },
     {
-      "company": "Real Time Risk Solutions",
+      "company": "[Real Time Risk Solutions](https://rtrs.co)",
       "title": "VP of Engineering",
       "date_range": "Aug 2017 - April 2021",
-      "url": "https://rtrs.co",
       "accomplishments": [
         "Advanced from a part-time contractor to leading an engineering team building a risk management product being used by Fortune 500 companies.",
         "Addressed attribute-level merge collisions for a distributed asynchronous write cache.",
@@ -86,10 +83,9 @@
       ]
     },
     {
-      "company": "Ball Horticultural Company",
+      "company": "[Ball Horticultural Company](https://www.ballhort.com/)",
       "title": "DevOps Engineer (Contract)",
       "date_range": "Sep 2017 - Sep 2020",
-      "url": "https://www.ballhort.com/",
       "accomplishments": [
         "Completed extensive application performance profiling to identify bottlenecks and made changes to optimize hardware utilization and response times for deeply-nested/polymorphic data structures.",
         "Automated code signing and release automation of iOS, Android, and Rails applications."
@@ -103,10 +99,9 @@
       ]
     },
     {
-      "company": "Aker",
+      "company": "Aker (acquired by [IntelinAir](https://www.intelinair.com/))",
       "title": "IoT Engineer (Contract)",
       "date_range": "Aug 2017 - Aug 2019",
-      "url": "https://aker.ag",
       "accomplishments": [
         "Engineered a sensor polling subsystem and cluster manager for data aggregation through a hybrid microcontroller SBC fabric. Completed extensive TX/RX serial, I2C, and GPIO programming.",
         "Built an LTE cellular connection manager and IP route governor for redundant network uplinks." ,
@@ -129,10 +124,9 @@
       ]
     },
     {
-      "company": "The Center for Research Informatics",
+      "company": "[The Center for Research Informatics](https://cri.uchicago.edu/)",
       "title": "Senior Systems Administrator",
       "date_range": "Jun 2011 - May 2017",
-      "url": "https://cri.uchicago.edu/",
       "accomplishments": [
         "Greenfielded a multimillion dollar research computing environment (NIST SP 800-53 compliant).",
         "Implemented an HPC-integrated bioinformatics tool pipelining platform (Galaxy, Torque). Built an API integration to ensure POSIX ACL parity with web libraries.",
@@ -146,10 +140,9 @@
       ]
     },
     {
-      "company": "The University of Chicago",
+      "company": "[The University of Chicago](https://www.uchicago.edu/)",
       "title": "Security Engineer",
       "date_range": "Apr 2006 - Jun 2011",
-      "url": "https://www.uchicago.edu/",
       "accomplishments": [
         "Identified point in time ownership of L4 NAT sessions by designing a common information model, metadata abstraction schema, and correlation logic for billions of unstructured events (Splunk).",
         "Authored a multi-user GnuPG wrapper to facilitate granular access control to encrypted files.",
