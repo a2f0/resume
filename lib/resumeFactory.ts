@@ -4,7 +4,7 @@ import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import {resumeConfiguration as config} from '../configuration';
 import invariant from 'invariant';
-import resume from '../resume.json';
+import {resume} from './resume';
 
 export default abstract class ResumeFactory {
   foregroundColor: Color;
@@ -84,12 +84,12 @@ export default abstract class ResumeFactory {
       config.nameSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.first_name,
+      resume.firstName,
       'firstName'
     );
 
     const firstNameWidthInPoints = getTextWidthInPoints(
-      resume.first_name,
+      resume.firstName,
       getFontString(
         config.nameWeight,
         config.nameSize,
@@ -103,7 +103,7 @@ export default abstract class ResumeFactory {
       config.nameSize,
       config.fontFamily,
       this.highlightColor,
-      resume.last_name,
+      resume.lastName,
       'lastName'
     );
 
@@ -113,7 +113,7 @@ export default abstract class ResumeFactory {
       config.addressSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.city_state,
+      resume.cityState,
       'addressLine'
     );
 
@@ -141,8 +141,8 @@ export default abstract class ResumeFactory {
       config.phoneNumberSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.phone_number.number,
-      resume.phone_number.uri,
+      resume.phoneNumber.number,
+      resume.phoneNumber.uri,
       'phoneNumber'
     );
 
@@ -461,8 +461,8 @@ export default abstract class ResumeFactory {
     );
 
     let internetPresenceYPos = config.internetPresencesYPos;
-    for (let n = 0; n < resume.internet_presences.length; n++) {
-      const internetPresence = resume.internet_presences[n];
+    for (let n = 0; n < resume.internetPresences.length; n++) {
+      const internetPresence = resume.internetPresences[n];
       const wihoutUrlPrefix = internetPresence.split('//')[1];
       // URL
       this.addTextWithLink(
