@@ -13,6 +13,7 @@ import {ResumeConfig} from '../lib/resumeConfig';
 import {selectScale} from '../lib/resumeConfigSlice';
 import styled from 'styled-components';
 import {useAppSelector} from '../lib/hooks';
+import {resume} from '../lib/resume';
 
 const PdfObjectContainer = styled.div`
   height: calc(
@@ -34,9 +35,9 @@ export default function PdfResume() {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new PdfResumeFactory(config);
-    const resume = resumeFactory.getResume();
-    PDFObject.embed(resume.output('datauristring'), '#pdfObjectContainer', {
+    const resumeFactory = new PdfResumeFactory(config, resume);
+    const pdfResume = resumeFactory.getResume();
+    PDFObject.embed(pdfResume.output('datauristring'), '#pdfObjectContainer', {
       id: 'pdfObject',
       pdfOpenParams: {
         scrollbars: '0',

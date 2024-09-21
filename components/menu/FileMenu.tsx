@@ -15,6 +15,7 @@ import {selectScale} from '../../lib/resumeConfigSlice';
 import {useAppSelector} from '../../lib/hooks';
 import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
+import {resume} from '../../lib/resume';
 
 const FileMenu = () => {
   const context = useDropdownMenu();
@@ -31,9 +32,9 @@ const FileMenu = () => {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new PdfResumeFactory(config);
-    const resume = resumeFactory.getResume();
-    resume.save('dan.sullivan.resume.pdf');
+    const resumeFactory = new PdfResumeFactory(config, resume);
+    const pdfResume = resumeFactory.getResume();
+    pdfResume.save('dan.sullivan.resume.pdf');
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
   };
@@ -44,7 +45,7 @@ const FileMenu = () => {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new SvgResumeFactory(config);
+    const resumeFactory = new SvgResumeFactory(config, resume);
     const blob = new Blob([resumeFactory.getResume().outerHTML.toString()], {
       type: 'image/svg+xml',
     });

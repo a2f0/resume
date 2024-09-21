@@ -146,4 +146,4 @@ class Resume {
 
 const resume = new Resume(resumeData);
 
-export {resume};
+export {resume, Resume};

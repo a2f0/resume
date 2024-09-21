@@ -11,6 +11,7 @@ import {resumeConfiguration} from '../configuration';
 import {selectScale} from '../lib/resumeConfigSlice';
 import styled from 'styled-components';
 import {useAppSelector} from '../lib/hooks';
+import {resume} from '../lib/resume';
 
 const SvgContainer = styled.div`
   .hoverable:hover {
@@ -43,21 +44,21 @@ export default function SvgResume() {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new SvgResumeFactory(config);
-    const resume = resumeFactory.getResume();
+    const resumeFactory = new SvgResumeFactory(config, resume);
+    const svgResume = resumeFactory.getResume();
     // SVG Document Dimensions (SVG viewport dimensions are in pixels)
-    resume.setAttribute('class', 'svg');
-    resume.setAttribute('width', width * scale + units);
-    resume.setAttribute('height', height * scale + units);
-    resume.setAttribute(
+    svgResume.setAttribute('class', 'svg');
+    svgResume.setAttribute('width', width * scale + units);
+    svgResume.setAttribute('height', height * scale + units);
+    svgResume.setAttribute(
       'viewBox',
       `0 0 ${ORIGINAL_VIEWBOX_WIDTH} ${ORIGINAL_VIEWBOX_HEIGHT}`
     );
-    resume.setAttribute('preserveAspectRatio', 'none');
+    svgResume.setAttribute('preserveAspectRatio', 'none');
     const svgContainer = document.getElementById('svgContainer');
     if (svgContainer) {
       svgContainer.innerHTML = '';
-      svgContainer.appendChild(resume);
+      svgContainer.appendChild(svgResume);
     }
   });
 

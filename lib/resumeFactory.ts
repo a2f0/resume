@@ -4,17 +4,19 @@ import Color from 'color';
 import {ResumeConfig} from './resumeConfig';
 import {resumeConfiguration as config} from '../configuration';
 import invariant from 'invariant';
-import {resume} from './resume';
+import {Resume} from './resume';
 
 export default abstract class ResumeFactory {
   foregroundColor: Color;
   backgroundColor: Color;
   highlightColor: Color;
+  resume: Resume;
 
-  constructor(config: ResumeConfig) {
+  constructor(config: ResumeConfig, resume: Resume) {
     this.foregroundColor = config.foregroundColor;
     this.backgroundColor = config.backgroundColor;
     this.highlightColor = config.highlightColor;
+    this.resume = resume;
   }
   protected abstract addCircle(
     x: number,
@@ -84,12 +86,12 @@ export default abstract class ResumeFactory {
       config.nameSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.firstName,
+      this.resume.firstName,
       'firstName'
     );
 
     const firstNameWidthInPoints = getTextWidthInPoints(
-      resume.firstName,
+      this.resume.firstName,
       getFontString(
         config.nameWeight,
         config.nameSize,
@@ -103,7 +105,7 @@ export default abstract class ResumeFactory {
       config.nameSize,
       config.fontFamily,
       this.highlightColor,
-      resume.lastName,
+      this.resume.lastName,
       'lastName'
     );
 
@@ -113,7 +115,7 @@ export default abstract class ResumeFactory {
       config.addressSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.cityState,
+      this.resume.cityState,
       'addressLine'
     );
 
@@ -141,8 +143,8 @@ export default abstract class ResumeFactory {
       config.phoneNumberSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.phoneNumber.number,
-      resume.phoneNumber.uri,
+      this.resume.phoneNumber.number,
+      this.resume.phoneNumber.uri,
       'phoneNumber'
     );
 
@@ -152,8 +154,8 @@ export default abstract class ResumeFactory {
       config.emailSize,
       config.fontFamily,
       this.foregroundColor,
-      resume.email.email,
-      resume.email.uri,
+      this.resume.email.email,
+      this.resume.email.uri,
       'emailAddress'
     );
 
@@ -180,8 +182,8 @@ export default abstract class ResumeFactory {
     );
 
     // Individual Positions
-    for (let i = 0; i < resume.experience.length; i++) {
-      const position = resume.experience[i];
+    for (let i = 0; i < this.resume.experience.length; i++) {
+      const position = this.resume.experience[i];
 
       this.addCircle(
         config.verticalDividerPos.x,
@@ -381,8 +383,8 @@ export default abstract class ResumeFactory {
 
     let educationYPos =
       educationHeaderYPos + config.headerSpacing + config.educationSize;
-    for (let m = 0; m < resume.education.length; m++) {
-      const education = resume.education[m];
+    for (let m = 0; m < this.resume.education.length; m++) {
+      const education = this.resume.education[m];
 
       this.addCircle(
         config.verticalDividerPos.x,
@@ -461,8 +463,8 @@ export default abstract class ResumeFactory {
     );
 
     let internetPresenceYPos = config.internetPresencesYPos;
-    for (let n = 0; n < resume.internetPresences.length; n++) {
-      const internetPresence = resume.internetPresences[n];
+    for (let n = 0; n < this.resume.internetPresences.length; n++) {
+      const internetPresence = this.resume.internetPresences[n];
       const wihoutUrlPrefix = internetPresence.split('//')[1];
       // URL
       this.addTextWithLink(
