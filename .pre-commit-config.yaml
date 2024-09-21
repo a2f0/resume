@@ -25,3 +25,8 @@ repos:
         entry: npx eslint .
         pass_filenames: false
         language: node
+      - id: ajv
+        name: ajv
+        entry: npx tsx lib/scripts/ajv.ts
+        pass_filenames: false
+        language: node
