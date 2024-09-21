@@ -1,9 +1,10 @@
-import {TextOptionsLight, jsPDF, jsPDFOptions} from 'jspdf';
 import Color from 'color';
-import {ResumeConfig} from './resumeConfig';
-import ResumeFactory from './resumeFactory';
+import {jsPDF, jsPDFOptions, TextOptionsLight} from 'jspdf';
+
 import {resumeConfiguration} from '../configuration';
 import {Resume} from './resume';
+import {ResumeConfig} from './resumeConfig';
+import ResumeFactory from './resumeFactory';
 
 const {units} = resumeConfiguration;
 

@@ -1,19 +1,18 @@
+import Color from 'color';
+import PDFObject from 'pdfobject';
 import React, {useEffect} from 'react';
+import styled from 'styled-components';
 
+import {useAppSelector} from '../lib/hooks';
+import PdfResumeFactory from '../lib/pdfResumeFactory';
+import {resume} from '../lib/resume';
+import {ResumeConfig} from '../lib/resumeConfig';
 import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
 } from '../lib/resumeConfigSlice';
-
-import Color from 'color';
-import PDFObject from 'pdfobject';
-import PdfResumeFactory from '../lib/pdfResumeFactory';
-import {ResumeConfig} from '../lib/resumeConfig';
 import {selectScale} from '../lib/resumeConfigSlice';
-import styled from 'styled-components';
-import {useAppSelector} from '../lib/hooks';
-import {resume} from '../lib/resume';
 
 const PdfObjectContainer = styled.div`
   height: calc(

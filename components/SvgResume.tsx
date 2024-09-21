@@ -1,17 +1,18 @@
+import Color from 'color';
 import React, {CSSProperties, useEffect, useState} from 'react';
+import styled from 'styled-components';
+
+import {resumeConfiguration} from '../configuration';
+import {useAppSelector} from '../lib/hooks';
+import {resume} from '../lib/resume';
+import {ResumeConfig} from '../lib/resumeConfig';
 import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
 } from '../lib/resumeConfigSlice';
-import Color from 'color';
-import {ResumeConfig} from '../lib/resumeConfig';
-import SvgResumeFactory from '../lib/svgResumeFactory';
-import {resumeConfiguration} from '../configuration';
 import {selectScale} from '../lib/resumeConfigSlice';
-import styled from 'styled-components';
-import {useAppSelector} from '../lib/hooks';
-import {resume} from '../lib/resume';
+import SvgResumeFactory from '../lib/svgResumeFactory';
 
 const SvgContainer = styled.div`
   .hoverable:hover {

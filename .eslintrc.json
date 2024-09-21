@@ -8,12 +8,12 @@
   "plugins": [
     "node",
     "prettier",
-    "import"
+    "import",
+    "simple-import-sort"
   ],
   "rules": {
     "indent": ["error", 2],
     "import/no-commonjs": "error",
-    "sort-imports": "error",
      // This is not a published npm package - no-unpublished-import is not required.
     "node/no-unpublished-import": 0,
     // Everything down from here is from gts
@@ -26,6 +26,8 @@
     "prefer-arrow-callback": "error",
     "no-trailing-spaces": "error",
     "quotes": ["warn", "single", { "avoidEscape": true }],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
     "no-restricted-properties": [
       "error",
       {

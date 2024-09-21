@@ -1,13 +1,14 @@
+import Link from 'next/link';
+import React from 'react';
+import styled from 'styled-components';
+
+import packageJson from '../../package.json';
+import resume from '../../resume.json';
 import FlexColumn from './FlexColumn';
 import FlexContainerCenterAlign from './FlexContainerCenterAlign';
 import FlexContainerColumnPageWidth from './FlexContainerColumnPageWidth';
 import FlexContainerLeftAlign from './FlexContainerLeftAlign';
 import FlexContainerRightAlign from './FlexContainerRightAlign';
-import Link from 'next/link';
-import React from 'react';
-import packageJson from '../../package.json';
-import resume from '../../resume.json';
-import styled from 'styled-components';
 
 export const VersionContainer = styled.div`
   display: flex;

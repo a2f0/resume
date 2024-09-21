@@ -1,8 +1,9 @@
 import Color from 'color';
-import {ResumeConfig} from './resumeConfig';
-import ResumeFactory from './resumeFactory';
+
 import {resumeConfiguration} from '../configuration';
 import {Resume} from './resume';
+import {ResumeConfig} from './resumeConfig';
+import ResumeFactory from './resumeFactory';
 const {units} = resumeConfiguration;
 
 export default class SvgResumeFactory extends ResumeFactory {

@@ -1,16 +1,17 @@
+import Head from 'next/head';
+import styled from 'styled-components';
+
+import {useAppSelector} from '../../lib/hooks';
+import {selectScale} from '../../lib/resumeConfigSlice';
 import DropdownMenu from '../menu/DropdownMenu';
 import FileMenu from '../menu/FileMenu';
+import MenuParent from '../menu/MenuParent';
+import ViewMenu from '../menu/ViewMenu';
 import FlexColumn from './FlexColumn';
 import FlexContainerCenterAlign from './FlexContainerCenterAlign';
 import FlexContainerColumnPageWidth from './FlexContainerColumnPageWidth';
 import FlexContainerLeftAlign from './FlexContainerLeftAlign';
 import FlexContainerRightAlign from './FlexContainerRightAlign';
-import Head from 'next/head';
-import MenuParent from '../menu/MenuParent';
-import ViewMenu from '../menu/ViewMenu';
-import {selectScale} from '../../lib/resumeConfigSlice';
-import styled from 'styled-components';
-import {useAppSelector} from '../../lib/hooks';
 
 interface IProps {
   scale: number;

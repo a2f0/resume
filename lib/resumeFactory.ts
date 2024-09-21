@@ -1,10 +1,11 @@
-import {ChunkedLine, breakLinesIntoChunks, extractLinks} from './textUtils';
-import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 import Color from 'color';
-import {ResumeConfig} from './resumeConfig';
-import {resumeConfiguration as config} from '../configuration';
 import invariant from 'invariant';
+
+import {resumeConfiguration as config} from '../configuration';
 import {Resume} from './resume';
+import {ResumeConfig} from './resumeConfig';
+import {breakLinesIntoChunks, ChunkedLine, extractLinks} from './textUtils';
+import {getFontString, getTextWidthInPoints, wrapLabel} from './textUtils';
 
 export default abstract class ResumeFactory {
   foregroundColor: Color;

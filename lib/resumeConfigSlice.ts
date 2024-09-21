@@ -1,7 +1,8 @@
-import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import Color from 'color';
-import {RootState} from './store';
+
 import {resumeConfiguration} from '../configuration';
+import {RootState} from './store';
 
 const {darkForegroundColor, darkBackgroundColor, darkHighlightColor} =
   resumeConfiguration;

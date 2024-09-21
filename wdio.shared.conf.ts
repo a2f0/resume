@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import {testDownloadDir} from './test/testDownloadDir';
 
 export const chromeCapabilities = {

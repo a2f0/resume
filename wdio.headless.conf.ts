@@ -1,5 +1,6 @@
-import {chromeCapabilities, config as sharedConfig} from './wdio.shared.conf';
 import video from 'wdio-video-reporter';
+
+import {chromeCapabilities, config as sharedConfig} from './wdio.shared.conf';
 
 const headlessChromeCapabilities = {
   ...chromeCapabilities,

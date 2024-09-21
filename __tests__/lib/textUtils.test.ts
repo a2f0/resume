@@ -1,14 +1,15 @@
+import {fireEvent} from '@testing-library/react';
+import {describe, expect, test} from 'vitest';
+
+import {resumeConfiguration} from '../../configuration';
 import {
-  ChunkedLine,
-  Match,
   breakLinesIntoChunks,
+  ChunkedLine,
   extractLinks,
   getFontString,
+  Match,
   wrapLabel,
 } from '../../lib/textUtils';
-import {describe, expect, test} from 'vitest';
-import {fireEvent} from '@testing-library/react';
-import {resumeConfiguration} from '../../configuration';
 const {
   positionAccomplishmentWeight,
   positionAccomplishmentSize,
