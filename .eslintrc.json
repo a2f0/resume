@@ -28,6 +28,7 @@
     "quotes": ["warn", "single", { "avoidEscape": true }],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "@typescript-eslint/await-thenable": "error",
     "no-restricted-properties": [
       "error",
       {
@@ -68,7 +69,8 @@
       },
       "parserOptions": {
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
       }
     }
   ]

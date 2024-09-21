@@ -17,11 +17,11 @@ describe('SVG Resume', () => {
   it('should work with the light/dark theme switcher', async () => {
     await SvgPage.open();
     expect(SvgPage.leftPartition).toBeExisting();
-    const leftPartition = await SvgPage.leftPartition;
-    const viewMenuButton = await SvgPage.viewMenuButton;
-    const viewMenuItems = await SvgPage.viewMenuItems;
-    const darkThemeMenuOption = await SvgPage.darkThemeMenuOption;
-    const lightThemeMenuOption = await SvgPage.lightThemeMenuOption;
+    const leftPartition = SvgPage.leftPartition;
+    const viewMenuButton = SvgPage.viewMenuButton;
+    const viewMenuItems = SvgPage.viewMenuItems;
+    const darkThemeMenuOption = SvgPage.darkThemeMenuOption;
+    const lightThemeMenuOption = SvgPage.lightThemeMenuOption;
     let leftPartitionColor = await leftPartition.getCSSProperty('fill');
     assert.strictEqual(
       leftPartitionColor.parsed.hex?.toUpperCase(),
