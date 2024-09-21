@@ -11,8 +11,6 @@ repos:
       - id: terraform-fmt
       - id: tflint
       - id: shellcheck
-      - id: gofmt
-      - id: golint
   - repo: local
     hooks:
       - id: check-for-unpinned-dependencies
