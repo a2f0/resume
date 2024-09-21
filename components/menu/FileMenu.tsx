@@ -1,19 +1,21 @@
+import Color from 'color';
 import React, {useEffect} from 'react';
+
+import {useAppSelector} from '../../lib/hooks';
+import PdfResumeFactory from '../../lib/pdfResumeFactory';
+import {resume} from '../../lib/resume';
+import {ResumeConfig} from '../../lib/resumeConfig';
 import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
 } from '../../lib/resumeConfigSlice';
+import {selectScale} from '../../lib/resumeConfigSlice';
+import SvgResumeFactory from '../../lib/svgResumeFactory';
 import CheckMark from './CheckMark';
-import Color from 'color';
+import {useDropdownMenu} from './DropdownMenuContext';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
-import PdfResumeFactory from '../../lib/pdfResumeFactory';
-import {ResumeConfig} from '../../lib/resumeConfig';
-import SvgResumeFactory from '../../lib/svgResumeFactory';
-import {selectScale} from '../../lib/resumeConfigSlice';
-import {useAppSelector} from '../../lib/hooks';
-import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
 
 const FileMenu = () => {
@@ -31,9 +33,9 @@ const FileMenu = () => {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new PdfResumeFactory(config);
-    const resume = resumeFactory.getResume();
-    resume.save('dan.sullivan.resume.pdf');
+    const resumeFactory = new PdfResumeFactory(config, resume);
+    const pdfResume = resumeFactory.getResume();
+    pdfResume.save('dan.sullivan.resume.pdf');
     parentContext.setActiveDropdown('');
     parentContext.setIsActive(false);
   };
@@ -44,7 +46,7 @@ const FileMenu = () => {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new SvgResumeFactory(config);
+    const resumeFactory = new SvgResumeFactory(config, resume);
     const blob = new Blob([resumeFactory.getResume().outerHTML.toString()], {
       type: 'image/svg+xml',
     });

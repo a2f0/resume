@@ -1,11 +1,12 @@
 import React, {ReactNode, useEffect, useRef} from 'react';
+
+import {useAppSelector} from '../../lib/hooks';
+import {selectScale} from '../../lib/resumeConfigSlice';
+import {useDetectOutsideClick} from '../../lib/useDetectOutsideClick';
 import {DropdownMenuProvider} from './DropdownMenuContext';
 import {MenuButton} from './MenuButton';
 import {MenuContainer} from './MenuContainer';
 import {MenuItems} from './MenuItems';
-import {selectScale} from '../../lib/resumeConfigSlice';
-import {useAppSelector} from '../../lib/hooks';
-import {useDetectOutsideClick} from '../../lib/useDetectOutsideClick';
 import {useMenuParent} from './MenuParentContext';
 
 interface MenuProps {

@@ -1,22 +1,24 @@
-import {TextOptionsLight, jsPDF, jsPDFOptions} from 'jspdf';
 import Color from 'color';
+import {jsPDF, jsPDFOptions, TextOptionsLight} from 'jspdf';
+
+import {resumeConfiguration} from '../configuration';
+import {Resume} from './resume';
 import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
-import {resumeConfiguration} from '../configuration';
 
 const {units} = resumeConfiguration;
 
 export default class PdfResumeFactory extends ResumeFactory {
-  resume: jsPDF;
+  encodedResume: jsPDF;
 
-  constructor(config: ResumeConfig) {
-    super(config);
+  constructor(config: ResumeConfig, resume: Resume) {
+    super(config, resume);
     const options: jsPDFOptions = {
       orientation: 'portrait',
       unit: units,
       format: 'letter',
     };
-    this.resume = new jsPDF(options);
+    this.encodedResume = new jsPDF(options);
     this.populateResume();
   }
 
@@ -27,9 +29,9 @@ export default class PdfResumeFactory extends ResumeFactory {
     height: number,
     color: Color
   ) {
-    this.resume.setFillColor(color.hex());
-    this.resume.setDrawColor(color.hex());
-    this.resume.rect(x, y, width, height, 'FD');
+    this.encodedResume.setFillColor(color.hex());
+    this.encodedResume.setDrawColor(color.hex());
+    this.encodedResume.rect(x, y, width, height, 'FD');
   }
 
   protected addText(
@@ -40,11 +42,11 @@ export default class PdfResumeFactory extends ResumeFactory {
     color: Color,
     text: string
   ) {
-    this.resume.setFont(fontFamily);
-    this.resume.setFontSize(fontSize);
-    this.resume.setTextColor(color.hex());
+    this.encodedResume.setFont(fontFamily);
+    this.encodedResume.setFontSize(fontSize);
+    this.encodedResume.setTextColor(color.hex());
     const options: TextOptionsLight = {baseline: 'middle'};
-    this.resume.text(text, x, y, options);
+    this.encodedResume.text(text, x, y, options);
   }
 
   protected addTextWithLink(
@@ -56,14 +58,14 @@ export default class PdfResumeFactory extends ResumeFactory {
     text: string,
     url: string
   ) {
-    this.resume.setFont(fontFamily);
-    this.resume.setFontSize(fontSize);
-    this.resume.setTextColor(color.hex());
+    this.encodedResume.setFont(fontFamily);
+    this.encodedResume.setFontSize(fontSize);
+    this.encodedResume.setTextColor(color.hex());
     const options: TextOptionsLight = {baseline: 'middle'};
-    this.resume.text(text, x, y, options);
-    const dimensions = this.resume.getTextDimensions(text);
+    this.encodedResume.text(text, x, y, options);
+    const dimensions = this.encodedResume.getTextDimensions(text);
     const halfFontHeight = fontSize / 2;
-    this.resume.link(x, y - halfFontHeight, dimensions.w, dimensions.h, {
+    this.encodedResume.link(x, y - halfFontHeight, dimensions.w, dimensions.h, {
       url: url,
     });
   }
@@ -75,17 +77,17 @@ export default class PdfResumeFactory extends ResumeFactory {
     y2: number,
     color: Color
   ) {
-    this.resume.setLineWidth(0.75);
-    this.resume.setDrawColor(color.hex());
-    this.resume.line(x1, y1, x2, y2);
+    this.encodedResume.setLineWidth(0.75);
+    this.encodedResume.setDrawColor(color.hex());
+    this.encodedResume.line(x1, y1, x2, y2);
   }
 
   protected addCircle(x: number, y: number, radius: number, color: Color) {
-    this.resume.setFillColor(color.hex());
-    this.resume.circle(x, y, radius, 'F');
+    this.encodedResume.setFillColor(color.hex());
+    this.encodedResume.circle(x, y, radius, 'F');
   }
 
   public getResume(): jsPDF {
-    return this.resume;
+    return this.encodedResume;
   }
 }

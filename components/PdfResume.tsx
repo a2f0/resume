@@ -1,18 +1,18 @@
+import Color from 'color';
+import PDFObject from 'pdfobject';
 import React, {useEffect} from 'react';
+import styled from 'styled-components';
 
+import {useAppSelector} from '../lib/hooks';
+import PdfResumeFactory from '../lib/pdfResumeFactory';
+import {resume} from '../lib/resume';
+import {ResumeConfig} from '../lib/resumeConfig';
 import {
   selectBackgroundColor,
   selectForegroundColor,
   selectHighlightColor,
 } from '../lib/resumeConfigSlice';
-
-import Color from 'color';
-import PDFObject from 'pdfobject';
-import PdfResumeFactory from '../lib/pdfResumeFactory';
-import {ResumeConfig} from '../lib/resumeConfig';
 import {selectScale} from '../lib/resumeConfigSlice';
-import styled from 'styled-components';
-import {useAppSelector} from '../lib/hooks';
 
 const PdfObjectContainer = styled.div`
   height: calc(
@@ -34,9 +34,9 @@ export default function PdfResume() {
       backgroundColor: Color(backgroundColor),
       highlightColor: Color(highlightColor),
     };
-    const resumeFactory = new PdfResumeFactory(config);
-    const resume = resumeFactory.getResume();
-    PDFObject.embed(resume.output('datauristring'), '#pdfObjectContainer', {
+    const resumeFactory = new PdfResumeFactory(config, resume);
+    const pdfResume = resumeFactory.getResume();
+    PDFObject.embed(pdfResume.output('datauristring'), '#pdfObjectContainer', {
       id: 'pdfObject',
       pdfOpenParams: {
         scrollbars: '0',

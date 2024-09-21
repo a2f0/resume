@@ -1,7 +1,8 @@
-import PdfPage from '../pageobjects/pdf.page';
 import path from 'path';
-import {testDownloadDir} from '../testDownloadDir';
+
 import waitForFileExists from '../lib/fs';
+import PdfPage from '../pageobjects/pdf.page';
+import {testDownloadDir} from '../testDownloadDir';
 
 describe('PDF Resume', () => {
   it('should load', async () => {

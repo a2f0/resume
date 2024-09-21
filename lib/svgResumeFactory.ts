@@ -1,18 +1,22 @@
 import Color from 'color';
+
+import {resumeConfiguration} from '../configuration';
+import {Resume} from './resume';
 import {ResumeConfig} from './resumeConfig';
 import ResumeFactory from './resumeFactory';
-import {resumeConfiguration} from '../configuration';
-
 const {units} = resumeConfiguration;
 
 export default class SvgResumeFactory extends ResumeFactory {
-  resume: SVGElement;
+  encodedResume: SVGElement;
 
-  constructor(config: ResumeConfig) {
-    super(config);
-    this.resume = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    this.resume.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    this.resume.setAttribute('id', 'svgResume');
+  constructor(config: ResumeConfig, resume: Resume) {
+    super(config, resume);
+    this.encodedResume = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg'
+    );
+    this.encodedResume.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    this.encodedResume.setAttribute('id', 'svgResume');
     this.populateResume();
   }
 
@@ -35,7 +39,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     rectToAdd.setAttribute('height', height + units);
     rectToAdd.setAttribute('stroke', color.hex());
     rectToAdd.setAttribute('id', id);
-    this.resume.appendChild(rectToAdd);
+    this.encodedResume.appendChild(rectToAdd);
   }
 
   protected addText(
@@ -59,7 +63,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.setAttribute('dominant-baseline', 'middle');
     textToAdd.setAttribute('id', id);
     textToAdd.innerHTML = text;
-    this.resume.appendChild(textToAdd);
+    this.encodedResume.appendChild(textToAdd);
   }
 
   protected addTextWithLink(
@@ -92,7 +96,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     textToAdd.innerHTML = text;
     textToAdd.setAttribute('id', id);
     linkToAdd.appendChild(textToAdd);
-    this.resume.appendChild(linkToAdd);
+    this.encodedResume.appendChild(linkToAdd);
   }
 
   protected addCircle(
@@ -111,7 +115,7 @@ export default class SvgResumeFactory extends ResumeFactory {
     circleToAdd.setAttribute('r', radius + units);
     circleToAdd.setAttribute('fill', color.hex());
     circleToAdd.setAttribute('id', id);
-    this.resume.appendChild(circleToAdd);
+    this.encodedResume.appendChild(circleToAdd);
   }
 
   protected addLine(
@@ -133,10 +137,10 @@ export default class SvgResumeFactory extends ResumeFactory {
     lineToAdd.setAttribute('stroke-width', '.75' + units);
     lineToAdd.setAttribute('stroke', color.hex());
     lineToAdd.setAttribute('id', id);
-    this.resume.appendChild(lineToAdd);
+    this.encodedResume.appendChild(lineToAdd);
   }
 
   public getResume(): SVGElement {
-    return this.resume;
+    return this.encodedResume;
   }
 }

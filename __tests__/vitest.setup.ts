@@ -1,7 +1,6 @@
-import {afterEach} from 'vitest';
 import {cleanup} from '@testing-library/react';
-
 import {createCanvas} from 'canvas';
+import {afterEach} from 'vitest';
 
 const canvas = createCanvas(800, 600);
 

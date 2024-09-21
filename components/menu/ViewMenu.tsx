@@ -1,3 +1,8 @@
+import {useRouter} from 'next/router';
+import {useDispatch} from 'react-redux';
+
+import {resumeConfiguration} from '../../configuration';
+import {useAppSelector} from '../../lib/hooks';
 import {
   selectForegroundColor,
   selectScale,
@@ -6,17 +11,13 @@ import {
   setHighlightColor,
   setScale,
 } from '../../lib/resumeConfigSlice';
+import resume from '../../resume.json';
 import CheckMark from './CheckMark';
+import {useDropdownMenu} from './DropdownMenuContext';
 import MenuDivider from './MenuDivider';
 import MenuLink from './MenuLink';
 import MenuListItem from './MenuListItem';
-import resume from '../../resume.json';
-import {resumeConfiguration} from '../../configuration';
-import {useAppSelector} from '../../lib/hooks';
-import {useDispatch} from 'react-redux';
-import {useDropdownMenu} from './DropdownMenuContext';
 import {useMenuParent} from './MenuParentContext';
-import {useRouter} from 'next/router';
 
 const {
   darkForegroundColor,

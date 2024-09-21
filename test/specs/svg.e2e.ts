@@ -1,9 +1,10 @@
-import SvgPage from '../pageobjects/svg.page';
 import assert from 'assert';
 import path from 'path';
+
 import {resumeConfiguration} from '../../configuration';
-import {testDownloadDir} from '../testDownloadDir';
 import waitForFileExists from '../lib/fs';
+import SvgPage from '../pageobjects/svg.page';
+import {testDownloadDir} from '../testDownloadDir';
 
 const {darkBackgroundColor, lightBackgroundColor} = resumeConfiguration;
 
