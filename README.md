@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-```bash
+```sh
 nvm use
 npm install
 pre-commit install
@@ -32,4 +32,28 @@ Spell check against a [aspell definition in dotfiles](https://github.com/a2f0/do
 
 ```sh
 aspell --master=en_US --lang=en_US -c resume.json
+```
+
+## Infrastructure
+
+### Setuo
+
+1. Install [tfenv](https://github.com/tfutils/tfenv).
+2. Install [blackbox](https://github.com/StackExchange/blackbox).
+3. Run `blackbox_decrypt_all_files`.
+4. Add `google-credentials.json` file to the `terraform` directory.
+
+Initialize the backend
+
+```sh
+cd terraform
+terraform init -backend-config=./terraform.backend
+
+```
+
+Apply the infrastructure
+
+```sh
+terraform apply
+terraform apply --var-file=main.tfvars
 ```
