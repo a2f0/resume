@@ -6,6 +6,7 @@ provider "registry.terraform.io/deviavir/gsuite" {
   constraints = "~> 0.1"
   hashes = [
     "h1:boSZoa9t4hUBeHOocdAEYorz6kNTmWNzK+f4hu3YmL4=",
+    "h1:uX8pw33uAU3hpBBdFlbBOr+RhzqT/Fqug3f/Wl5ReNg=",
     "zh:1d5c8a3fdddcde5633ee8c35bfc07b4b5abf42f38fa8f89beef624ad6f3d30d1",
     "zh:296378c00e47242d8d10e6fdffae00a251cb8bd7ef65aa9c51b79805d7a143d0",
     "zh:2d040c0a4fa505b943f450b41005a9abe5f0dcc3b77cc1469dfb729a30d01d12",
@@ -27,6 +28,7 @@ provider "registry.terraform.io/hashicorp/aws" {
   constraints = "~> 3.0"
   hashes = [
     "h1:KL3jLlJjk3d9/IoXqDWmsBglsLIYRL8ieAEG0Zl+3fE=",
+    "h1:MA7T5ntGMjC54SGQg1YY6qeg4ouDTVdE8+fTuXbkyUQ=",
     "zh:17b1e924f1efc0084823bbcdd9565b6b7018b17e8471f65fc59c2d9617e28b60",
     "zh:1fd5dfe2d22db93c576c2f328b4a9cf28e09b88496888a54a25325c638a69bec",
     "zh:269d7e870fc86db4336ac215282ac0a97522209453ce6cc9022ab2079e4e7a3b",
@@ -44,6 +46,7 @@ provider "registry.terraform.io/hashicorp/aws" {
 provider "registry.terraform.io/hashicorp/github" {
   version = "4.8.0"
   hashes = [
+    "h1:D+lRKhbodsV2T7u9FXfRnZDm8Tk4HXp3hRYZNUbqFrI=",
     "h1:DhaU2Jv8l0wTc2QkfMqRywFIXkXhN2noXZyRoUoHqRc=",
     "zh:0bcf50a6c7692ea2cc2e1d30fe172a5bd0b329ee42deb08e150c328e1fa29164",
     "zh:15e2c0f7f255c6d9f7ab82cd4fc6164fbb99dff856459bb4665bc97d5a250227",
@@ -64,6 +67,7 @@ provider "registry.terraform.io/vercel/vercel" {
   version     = "0.3.0"
   constraints = "~> 0.1"
   hashes = [
+    "h1:31fdDYHbBU3tSBGo2AvUQWFHO+CRj8CB9C8ziBIuCo4=",
     "h1:ECwqeG12M0myohoh5Tsk/5/r+P2lloP9iVz9jzOaFj0=",
     "zh:1b5fff1784ad5b03dc8e1374d94e646eacbe3f170b80b1271364ac06a138807d",
     "zh:1d2d6980f920a5a916f0659c1bff61b744e7c4d74904879ae3f43cf1d176dc1e",
