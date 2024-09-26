@@ -54,7 +54,6 @@ terraform init -backend-config=./terraform.backend
 Apply the infrastructure
 
 ```sh
-terraform apply
 terraform apply --var-file=main.tfvars
 ```
 
