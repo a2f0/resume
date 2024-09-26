@@ -61,4 +61,5 @@ Upgrading Terraform
 ```sh
 tfenv list-remote
 echo "1.3.10" > terraform/.terraform-version
+terraform init -backend-config=./terraform.backend
 ```
