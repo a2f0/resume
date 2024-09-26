@@ -64,3 +64,12 @@ echo "1.3.10" > terraform/.terraform-version
 terraform init -backend-config=./terraform.backend
 terraform plan -var-file=main.tfvars
 ```
+
+Upgrading providers
+
+Upgrade to the maximum version allowed by [versions.tf](./terraform/versions.tf)
+
+```sh
+terraform init -upgrade -backend-config=./terraform.backend
+terraform plan -var-file=main.tfvars
+```
