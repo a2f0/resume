@@ -72,4 +72,5 @@ Upgrade to the maximum version allowed by [versions.tf](./terraform/versions.tf)
 ```sh
 terraform init -upgrade -backend-config=./terraform.backend
 terraform plan -var-file=main.tfvars
+terraform apply -var-file=main.tfvars
 ```
