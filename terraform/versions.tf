@@ -12,6 +12,10 @@ terraform {
       source  = "vercel/vercel"
       version = "~> 0.1"
     }
+    github = {
+      source  = "integrations/github"
+      version = "~> 6.3"
+    }
   }
   required_version = ">= 1.9.6"
 }
