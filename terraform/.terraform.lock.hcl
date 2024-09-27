@@ -46,7 +46,7 @@ provider "registry.terraform.io/hashicorp/aws" {
   ]
 }
 
-provider "registry.terraform.io/hashicorp/github" {
+provider "registry.terraform.io/integrations/github" {
   version = "6.3.0"
   hashes = [
     "h1:LEs8NwSWwYGHxmbJvGT1w3XeAM6pogAmskY8XavuWDs=",
