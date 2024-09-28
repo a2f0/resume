@@ -1,4 +1,4 @@
-#!/usr/bin/env npx tsx
+#!/usr/bin/env -S npx tsx
 import Ajv, {JSONSchemaType} from 'ajv';
 
 import resume from '../../resume.json';
