@@ -37,10 +37,32 @@ export interface ResumeData {
   education: Education[];
 }
 
-function isResumeData(obj: unknown): obj is ResumeData {
+export function isResumeData(obj: unknown): obj is ResumeData {
+  if (typeof obj !== 'object' || obj === null) {
+    return false;
+  }
+
+  const expectedKeys = [
+    'first_name',
+    'last_name',
+    'phone_number',
+    'email',
+    'city_state',
+    'url',
+    'internet_presences',
+    'experience',
+    'education',
+  ];
+
+  const actualKeys = Object.keys(obj);
+  if (
+    actualKeys.length !== expectedKeys.length ||
+    !expectedKeys.every(key => actualKeys.includes(key))
+  ) {
+    return false;
+  }
+
   return (
-    typeof obj === 'object' &&
-    obj !== null &&
     typeof (obj as ResumeData).first_name === 'string' &&
     typeof (obj as ResumeData).last_name === 'string' &&
     typeof (obj as ResumeData).phone_number === 'object' &&
@@ -60,6 +82,7 @@ function isResumeData(obj: unknown): obj is ResumeData {
       (exp): exp is Experience =>
         typeof exp === 'object' &&
         exp !== null &&
+        Object.keys(exp).length === (exp.technologies ? 6 : 5) &&
         typeof exp.company === 'string' &&
         typeof exp.title === 'string' &&
         typeof exp.date_range === 'string' &&
@@ -73,6 +96,7 @@ function isResumeData(obj: unknown): obj is ResumeData {
       (edu): edu is Education =>
         typeof edu === 'object' &&
         edu !== null &&
+        Object.keys(edu).length === 3 &&
         typeof edu.institution === 'string' &&
         typeof edu.credential === 'string' &&
         typeof edu.url === 'string'
