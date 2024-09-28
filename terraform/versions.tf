@@ -4,9 +4,9 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "~> 0.1"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "~> 0.7"
     }
     vercel = {
       source  = "vercel/vercel"

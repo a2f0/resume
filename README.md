@@ -35,12 +35,21 @@ aspell --master=en_US --lang=en_US -c resume.json
 
 ## Infrastructure
 
-### Setuo
+### Setup
 
 1. Install [tfenv](https://github.com/tfutils/tfenv).
 2. Install [blackbox](https://github.com/StackExchange/blackbox).
 3. Run `blackbox_decrypt_all_files`.
 4. Add `google-credentials.json` file to the `terraform` directory.
+
+### Linting
+
+```sh
+cd terraform
+terraform fmt
+```
+
+### Provisioning
 
 Initialize the backend
 
