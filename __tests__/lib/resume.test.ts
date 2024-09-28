@@ -14,5 +14,8 @@ describe('isResumeData', () => {
     it('should return false for an object with missing properties', () => {
       expect(isResumeData({})).toBe(false);
     });
+    it('should return false for an object with extra properties', () => {
+      expect(isResumeData({...resumeData, extra: 'property'})).toBe(false);
+    });
   });
 });
