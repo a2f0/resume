@@ -37,7 +37,7 @@ export interface ResumeData {
   education: Education[];
 }
 
-function isResumeData(obj: unknown): obj is ResumeData {
+export function isResumeData(obj: unknown): obj is ResumeData {
   return (
     typeof obj === 'object' &&
     obj !== null &&
