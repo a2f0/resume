@@ -149,23 +149,6 @@ class Resume {
   get education(): Education[] {
     return this.data.education;
   }
-
-  getFullName(): string {
-    return `${this.data.first_name} ${this.data.last_name}`;
-  }
-
-  getTotalYearsOfExperience(): number {
-    const currentYear = new Date().getFullYear();
-    const earliestExperience = Math.min(
-      ...this.data.experience.map(exp => {
-        const startYear = parseInt(
-          exp.date_range.split(' - ')[0].split(' ')[1]
-        );
-        return isNaN(startYear) ? currentYear : startYear;
-      })
-    );
-    return currentYear - earliestExperience;
-  }
 }
 
 const resume = new Resume(resumeData);
