@@ -4,6 +4,7 @@
 
 ```sh
 nvm use
+npm i -g pnpm
 pnpm install
 pre-commit install
 pnpm run start-server
