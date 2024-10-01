@@ -104,8 +104,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       '@wdio/spec-reporter':
-        specifier: 9.1.0
-        version: 9.1.0
+        specifier: 9.1.2
+        version: 9.1.2
       ajv:
         specifier: 8.17.1
         version: 8.17.1
@@ -1248,12 +1248,16 @@ packages:
     resolution: {integrity: sha512-9QMP6X2kw82mmOLPKOpXF/VwEqSl0MyXr+kqUivt4VT9Qn3m6CNaHe4Fpt3D2QDvSYbr4MNmSno42XyyODib7Q==}
     engines: {node: '>=18.20.0'}
 
+  '@wdio/reporter@9.1.2':
+    resolution: {integrity: sha512-Wn7yCtVLyfHwYTw5EWMeRTJp5sqM5SNKb/ZWiUeBM9sFJTcLyXISB+qtA5HVrB5MqqWIsgWBhBJmPl3fJqqJAg==}
+    engines: {node: '>=18.20.0'}
+
   '@wdio/runner@9.1.1':
     resolution: {integrity: sha512-/kgcbP6lrVQVQB5JlqszE/LW1dYlyCpt0WC0B6ZO+rPxTof546iA4//YhEg0p74E2C/GI5PrLlU7lMVNcJv40Q==}
     engines: {node: '>=18.20.0'}
 
-  '@wdio/spec-reporter@9.1.0':
-    resolution: {integrity: sha512-8IwJJOOi8MckxJ0z118aNBWxSy+xOoqVXErIQIRAmfN5sGKlyVgXWpy+GHZjafdsUCRoqpTGRQcxjlztfqpsIQ==}
+  '@wdio/spec-reporter@9.1.2':
+    resolution: {integrity: sha512-xuSCEQmLmLR3cEOQu6VU162AL1o4fgxb3vL5J7LsUXdhkgRPUL712oIAVpc0tJVDlIouv3PFtwwup5fi9/F6pA==}
     engines: {node: '>=18.20.0'}
 
   '@wdio/types@9.0.8':
@@ -1262,6 +1266,10 @@ packages:
 
   '@wdio/types@9.1.0':
     resolution: {integrity: sha512-bi3DTse8Nlat7FTCnciPnJWYggpRSszLQ70ReCcegAUlaancV+Y8ma4IWZROsBQ6f1hB+JIS9gwc/HGcp+6XSQ==}
+    engines: {node: '>=18.20.0'}
+
+  '@wdio/types@9.1.2':
+    resolution: {integrity: sha512-mROY3xSBBNujSH0Opo3Sfi1QUm3l7HbVQ8/bDmPCwHXOeYlx0q14rLyyZI3LrN5uJ0KPpuNrVgE36NFaG8+xxw==}
     engines: {node: '>=18.20.0'}
 
   '@wdio/utils@9.1.0':
@@ -5879,6 +5887,14 @@ snapshots:
       diff: 7.0.0
       object-inspect: 1.13.2
 
+  '@wdio/reporter@9.1.2':
+    dependencies:
+      '@types/node': 20.16.10
+      '@wdio/logger': 9.1.0
+      '@wdio/types': 9.1.2
+      diff: 7.0.0
+      object-inspect: 1.13.2
+
   '@wdio/runner@9.1.1':
     dependencies:
       '@types/node': 20.16.10
@@ -5898,10 +5914,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@wdio/spec-reporter@9.1.0':
+  '@wdio/spec-reporter@9.1.2':
     dependencies:
-      '@wdio/reporter': 9.1.0
-      '@wdio/types': 9.1.0
+      '@wdio/reporter': 9.1.2
+      '@wdio/types': 9.1.2
       chalk: 5.3.0
       easy-table: 1.2.0
       pretty-ms: 9.1.0
@@ -5911,6 +5927,10 @@ snapshots:
       '@types/node': 20.16.10
 
   '@wdio/types@9.1.0':
+    dependencies:
+      '@types/node': 20.16.10
+
+  '@wdio/types@9.1.2':
     dependencies:
       '@types/node': 20.16.10
 
