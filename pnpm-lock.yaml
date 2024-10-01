@@ -101,8 +101,8 @@ importers:
         specifier: 9.1.1
         version: 9.1.1
       '@wdio/mocha-framework':
-        specifier: 9.1.0
-        version: 9.1.0
+        specifier: 9.1.2
+        version: 9.1.2
       '@wdio/spec-reporter':
         specifier: 9.1.0
         version: 9.1.0
@@ -1229,8 +1229,8 @@ packages:
     resolution: {integrity: sha512-1Rfg9VCy87I9IrViA1ned1Rqa66JwhCzdEo8rA8T3Ro6lBfOEwDbK1XW8ETKLWcweddzGeFalfVnvUlNgPmFdA==}
     engines: {node: '>=18.20.0'}
 
-  '@wdio/mocha-framework@9.1.0':
-    resolution: {integrity: sha512-I5wuE4K8O4+gcwiAy0cjlWajaPfcx3HhCzzbpvYcuch3VqzyHtxeqXgv2+rNrQ7NbJRc72QYpo4xBDWsfTCd4w==}
+  '@wdio/mocha-framework@9.1.2':
+    resolution: {integrity: sha512-LG8arSVsSNqV61LvyQddmtDuqjeh+mVWhNPSCUi4AjZ2mBC85DTMBbvsIBSDK59DF9Ijd4NLDpRGnPzzgXjbIA==}
     engines: {node: '>=18.20.0'}
 
   '@wdio/protocols@9.0.8':
@@ -1264,8 +1264,16 @@ packages:
     resolution: {integrity: sha512-bi3DTse8Nlat7FTCnciPnJWYggpRSszLQ70ReCcegAUlaancV+Y8ma4IWZROsBQ6f1hB+JIS9gwc/HGcp+6XSQ==}
     engines: {node: '>=18.20.0'}
 
+  '@wdio/types@9.1.2':
+    resolution: {integrity: sha512-mROY3xSBBNujSH0Opo3Sfi1QUm3l7HbVQ8/bDmPCwHXOeYlx0q14rLyyZI3LrN5uJ0KPpuNrVgE36NFaG8+xxw==}
+    engines: {node: '>=18.20.0'}
+
   '@wdio/utils@9.1.0':
     resolution: {integrity: sha512-iH+P/Dakttc7MRsVaikLLe13SDkm9Z+GAAOi6yu6I3x+ao6563KECjsLqJxLCKtbfOjqAqID19QBAtPQTRBVRA==}
+    engines: {node: '>=18.20.0'}
+
+  '@wdio/utils@9.1.2':
+    resolution: {integrity: sha512-8APCnvJjHkG/6KwXtrPhEYR29Ph+vs1Gx2mGRnbYXNgbworfPEIZETpienHXhDEbINdqSb7EY5LkapIjP7nKbg==}
     engines: {node: '>=18.20.0'}
 
   '@zip.js/zip.js@2.7.52':
@@ -5846,13 +5854,13 @@ snapshots:
       loglevel-plugin-prefix: 0.8.4
       strip-ansi: 7.1.0
 
-  '@wdio/mocha-framework@9.1.0':
+  '@wdio/mocha-framework@9.1.2':
     dependencies:
       '@types/mocha': 10.0.8
       '@types/node': 20.16.10
       '@wdio/logger': 9.1.0
-      '@wdio/types': 9.1.0
-      '@wdio/utils': 9.1.0
+      '@wdio/types': 9.1.2
+      '@wdio/utils': 9.1.2
       mocha: 10.7.3
     transitivePeerDependencies:
       - supports-color
@@ -5914,11 +5922,33 @@ snapshots:
     dependencies:
       '@types/node': 20.16.10
 
+  '@wdio/types@9.1.2':
+    dependencies:
+      '@types/node': 20.16.10
+
   '@wdio/utils@9.1.0':
     dependencies:
       '@puppeteer/browsers': 2.4.0
       '@wdio/logger': 9.1.0
       '@wdio/types': 9.1.0
+      decamelize: 6.0.0
+      deepmerge-ts: 7.1.0
+      edgedriver: 5.6.1
+      geckodriver: 4.4.4
+      get-port: 7.1.0
+      import-meta-resolve: 4.1.0
+      locate-app: 2.4.41
+      safaridriver: 0.1.2
+      split2: 4.2.0
+      wait-port: 1.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@wdio/utils@9.1.2':
+    dependencies:
+      '@puppeteer/browsers': 2.4.0
+      '@wdio/logger': 9.1.0
+      '@wdio/types': 9.1.2
       decamelize: 6.0.0
       deepmerge-ts: 7.1.0
       edgedriver: 5.6.1
